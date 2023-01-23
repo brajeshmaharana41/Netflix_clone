@@ -210,90 +210,148 @@
         </div>
     </div>
 </div> -->
-<div class="background">
-  <mat-toolbar class="header_toolbar" fxLayout="row">
-    <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" fxLayoutAlign="start center">
-      <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="" class="netflix_logo">
-    </div>
-    <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" fxLayoutAlign="end center">
-      <div fxLayout="row">
-        <div class="p-2">
-          <button mat-button [matMenuTriggerFor]="menu" class="menu_btn"><mat-icon class="lang_bg">language</mat-icon>
-            English<mat-icon>arrow_drop_down</mat-icon></button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>English</button>
-            <button mat-menu-item>हिन्दी</button>
-          </mat-menu>
-        </div>
-        <div class="p-2">
-          <button mat-button class="btn_sign_in">Sign In</button>
+<div>
+  <div class="background">
+    <mat-toolbar class="header_toolbar" fxLayout="row">
+      <div
+        fxFlex.xs="50"
+        fxFlex.sm="50"
+        fxFlex.md="50"
+        fxFlex.lg="50"
+        fxFlex.xl="50"
+        fxLayoutAlign="start center"
+      >
+        <img
+          src="https://www.freepnglogos.com/uploads/netflix-logo-0.png"
+          alt=""
+          class="netflix_logo"
+        />
+      </div>
+      <div
+        fxFlex.xs="50"
+        fxFlex.sm="50"
+        fxFlex.md="50"
+        fxFlex.lg="50"
+        fxFlex.xl="50"
+        fxLayoutAlign="end center"
+      >
+        <div fxLayout="row">
+          <div class="p-2">
+            <button mat-button [matMenuTriggerFor]="menu" class="menu_btn">
+              <mat-icon class="lang_bg">language</mat-icon> English<mat-icon
+                >arrow_drop_down</mat-icon
+              >
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>English</button>
+              <button mat-menu-item>हिन्दी</button>
+            </mat-menu>
+          </div>
+          <div class="p-2">
+            <button mat-button class="btn_sign_in">Sign In</button>
+          </div>
         </div>
       </div>
-    </div>
-  </mat-toolbar>
-  <div fxLayoutAlign="center center" class="bg_data">
-    <div class="bg_signup">
-      <div>
-        <span class="title">Unlimited movies, TV shows and more.</span>
-      </div>
+    </mat-toolbar>
+    <div fxLayoutAlign="center center" class="bg_data">
+      <div class="bg_signup">
+        <div>
+          <span class="title">Unlimited movies, TV shows and more.</span>
+        </div>
 
-      <div class="marg_card">
-        <span class="subtitle">Watch anywhere. Cancel anytime.</span>
-      </div>
-
-      <div>
-        <span class="subtitledec">Ready to watch? Enter your email to create or restart your membership.</span>
-      </div>
-      <div class="getStarted" fxLayout="row wrap">
-        <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="76" fxFlex.lg="76" fxFlex.xl="76" class="get_btn">
-          <form>
-            <mat-form-field class="example-full-width">
-              <mat-label>Email address</mat-label>
-              <input matInput class="input_started">
-            </mat-form-field>
-          </form>
+        <div class="marg_card">
+          <span class="subtitle">Watch anywhere. Cancel anytime.</span>
         </div>
-        <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="24" fxFlex.lg="24" fxFlex.xl="24">
-          <button mat-button class="getStarted_btn">Get Started </button>
+
+        <div>
+          <span class="subtitledec"
+            >Ready to watch? Enter your email to create or restart your
+            membership.</span
+          >
+        </div>
+        <div class="getStarted" fxLayout="row wrap">
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="100"
+            fxFlex.md="76"
+            fxFlex.lg="76"
+            fxFlex.xl="76"
+            class="get_btn"
+          >
+            <form>
+              <mat-form-field class="example-full-width">
+                <mat-label>Email address</mat-label>
+                <input matInput class="input_started" />
+              </mat-form-field>
+            </form>
+          </div>
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="100"
+            fxFlex.md="24"
+            fxFlex.lg="24"
+            fxFlex.xl="24"
+          >
+            <button mat-button class="getStarted_btn">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-divider class="diveder"></mat-divider>
+    <div class="container">
+      <div fxLayout="row wrap">
+        <div
+          fxFlex.xs="100"
+          fxFlex.sm="100"
+          fxFlex.md="50"
+          fxFlex.lg="50"
+          fxFlex.xl="50"
+          class="p-5"
+          fxLayoutAlign="center center"
+        >
+          <div>
+            <div>
+              <h1 class="side_title">Enjoy on your TV.</h1>
+            </div>
+            <div>
+              <h2 class="side_subtitle">
+                Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV,
+                Blu-ray players and more.
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div
+          fxFlex.xs="100"
+          fxFlex.sm="100"
+          fxFlex.md="50"
+          fxFlex.lg="50"
+          fxFlex.xl="50"
+          class="p-5"
+          fxLayoutAlign="center center"
+        >
+          <div class="feature__image__container">
+            <img
+              src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+              alt="Feature image"
+              class="feature__image"
+            />
+            <div class="feature__backgroud__video__container">
+              <video
+                autoplay=""
+                loop=""
+                muted=""
+                class="feature__backgroud__video"
+              >
+                <source
+                  src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <mat-divider class="diveder"></mat-divider>
-  <div class="container">
-    <div fxLayout="row wrap">
-        <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" class="p-5" fxLayoutAlign="center center">
-            <div>
-                <div>
-                    <h1 class="side_title">Enjoy on your TV.</h1>
-                </div>
-                <div>
-                    <h2 class="side_subtitle">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</h2>
-                </div>
-            </div>
-        </div>
-        <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" class="p-5" fxLayoutAlign="center center">
-            <div class="feature__image__container">
-                <img
-                  src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
-                  alt="Feature image"
-                  class="feature__image"
-                />
-                <div class="feature__backgroud__video__container">
-                  <video
-                    autoplay=""
-                    loop=""
-                    muted=""
-                    class="feature__backgroud__video"
-                  >
-                    <source
-                      src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
-                      type="video/mp4"
-                    />
-                  </video>
-                </div>
-              </div>
-        </div>
-    </div>
-</div>
 </div>
