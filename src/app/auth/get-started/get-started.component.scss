@@ -1,0 +1,285 @@
+.bg_img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -2;
+    background-color: #000000;    
+    .bg__image{
+        width: 100%;
+        height: 100%;
+        opacity: 0.25;
+    }
+}
+.bg_data{
+    height: 625px;
+    width: 100%;
+  }
+  .bg_signup{
+    height: 400px;
+    width: 700px;
+    text-align: center;
+    .title{
+      font-size: 4rem;
+      line-height: 1.1;
+      font-weight: 500;
+      color: #ffffff;
+    }
+    .subtitle{
+      font-size: 1.625rem;
+      font-weight: 400;
+      color: #ffffff;
+    }
+.marg_card{
+    margin: 2rem auto;
+  }
+  .subtitledec{
+    font-size: 1.2rem;
+    max-width: none;
+    color: #ffffff;
+  }
+
+  .getStarted{
+    margin-top: 25px;
+    background-color: #ffffff;
+    height: 60px;
+    width: 100%;
+    padding: 0px;
+    .get_btn{
+      padding-left: 15px;
+    }
+    .example-full-width{
+      width: 100%;
+      font-size: 16px;
+      color: #8c8c8c;
+      .input_started{
+        height: 34px !important;
+      }
+    }
+    .getStarted_btn{
+      border-radius: 0px;
+      height: 60px;
+      padding-left: 50px;
+      padding-right: 50px;
+      background-color: #e50914;
+      color: #ffffff;
+    }
+  }
+}
+.background{
+    background-color: #000000;
+    display: block;
+    height: 100%;
+  }
+.diveder{
+  height: 8px;
+  background-color: #222;
+}
+.feature__image__container {
+    max-width: 500px;
+  }
+  .feature__image__container {
+    width: 100%;
+    position: relative;
+  }
+  .feature__image {
+    width: 100%;
+  }
+  .feature__backgroud__video__container {
+    position: absolute;
+    width: 100%;
+    top: 21%;
+    left: 13%;
+    height: 100%;
+    max-width: 73%;
+    max-height: 53%;
+    z-index: 0;
+  }
+  .feature__backgroud__video {
+    width: 100%;
+  }
+  .side_title{
+    font-size: 3.535rem;
+    line-height: 1.1;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+.side_titles{
+    font-size: 3.535rem;
+    line-height: 1.1;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+.side_subtitle{
+    font-size: 1.825rem;
+    font-weight: 400;
+    color: #ffffff;
+}
+.paddtext{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+.padd_title{
+    padding: 0;
+}
+
+.feature__2__poster__container {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 20em;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    height: 90px;
+    padding: 0.25rem 0.6rem;
+    gap: 15px;
+  }
+  
+  .poster__container {
+    width: 20%;
+  }
+  
+  .poster {
+    width: 100%;
+    height: 100%;
+  }
+  .poster__details {
+    width: 60%;
+  }
+  .download__gif__container {
+    width: 21%;
+    height: 60%;
+  }
+  .gif {
+    width: 100%;
+    height: 100%;
+  }
+  .feature2__title{
+    color: #ffffff;
+    font-size: 18px;
+  }
+  .feature2__sub_title{
+    font-size: 14px;
+    color: #0071eb;
+  }
+  .feature__3__backgroud__video__container {
+    max-width: 63%;
+    max-height: 47%;
+    z-index: 0;
+    top: 10%;
+    left: 19%;
+  }
+  .Faq_title{
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 3.125rem;
+    line-height: 1.1;
+  }
+  .Faq_subtitle{
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.1;
+    text-align: center;
+  }
+  .faq_btn{
+    background-color: #222;
+    color: #ffffff;
+    border-radius: 0px;
+    width: 830px;
+    line-height: 1.2;
+    font-weight: 400;
+    font-size: 30px;
+    padding: 20px;
+  }
+  .clicked {
+    transform: rotate(20deg)
+  }
+  .bg_email{
+    height: 150px;
+    width: 700px;
+    text-align: center;
+  .getstartd_email{
+    background-color: #ffffff;
+    height: 60px;
+    width: 100%;
+    .get_btn{
+      padding-left: 15px;
+    }
+    .example-full-width{
+      width: 100%;
+      font-size: 16px;
+      color: #8c8c8c;
+      .input_started{
+        height: 34px !important;
+      }
+    }
+    .getStarted_btn{
+      border-radius: 0px;
+      height: 60px;
+      padding-left: 50px;
+      padding-right: 50px;
+      background-color: #e50914;
+      color: #ffffff;
+    }
+  }
+}
+@media only screen and (max-width: 600px) and (min-width: 200px)  {
+  .bg_email{
+    height: 200px;
+    width: 350px;
+  }
+    .bg_signup{
+      height: 500px;
+      width: 350px;
+      .title{
+        font-size: 1.8rem;
+        line-height: 1.1;
+      }
+      .subtitle{
+        font-size: 1.200rem;
+      }
+      .subtitledec{
+        font-size: 1.200rem;
+      }
+    }
+    .padd_title_top{
+        padding-top: 50px;
+    }
+    .side_title{
+        text-align: center;
+        font-size: 1.835rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+    }
+    .side_titles{
+        text-align: center;
+        font-size: 1.535rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+    }
+    .side_subtitle{
+        font-size: 1.135rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+    .Faq_title{
+      font-size: 1.525rem;
+     }
+    .faq_btn{
+      font-size: 20px;
+      padding: 20px;
+    }
+  }
+  
+
+  // .mat-mdc-form-field + .mat-mdc-form-field {
+  //   margin-left: 8px;
+  // }

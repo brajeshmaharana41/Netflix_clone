@@ -20,8 +20,8 @@ export class AuthGuard implements CanActivate {
     //     this.router.navigate([AppRoutes.dashboard]);
     //   }
     // } else {
-      if (state.url !== `/${AppRoutes.signup}`) {
-        this.router.navigate([AppRoutes.signup]);
+      if (state.url !== `/${AppRoutes.getstarted}`) {
+        this.router.navigate([AppRoutes.getstarted]);
       }
     // }
     return true;

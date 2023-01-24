@@ -16,10 +16,17 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import { HeaderComponent } from './auth_components/header/header.component';
+import { FooterComponent } from './auth_components/footer/footer.component';
+import { GetStartedComponent } from './get-started/get-started.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
-    SignupComponent
+    SignupComponent,
+    HeaderComponent,
+    FooterComponent,
+    GetStartedComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +39,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatToolbarModule,
     MatButtonModule,
     MatInputModule,
+    MatExpansionModule,
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,

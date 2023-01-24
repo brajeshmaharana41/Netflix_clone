@@ -1,0 +1,41 @@
+<mat-toolbar class="header_toolbar" fxLayout="row">
+    <div
+      fxFlex.xs="50"
+      fxFlex.sm="50"
+      fxFlex.md="50"
+      fxFlex.lg="50"
+      fxFlex.xl="50"
+      fxLayoutAlign="start center"
+    >
+      <img
+        src="assets/netflix-logo.png"
+        alt=""
+        class="netflix_logo"
+      />
+    </div>
+    <div
+      fxFlex.xs="50"
+      fxFlex.sm="50"
+      fxFlex.md="50"
+      fxFlex.lg="50"
+      fxFlex.xl="50"
+      fxLayoutAlign="end center"
+    >
+      <div fxLayout="row">
+        <div class="p-2">
+          <button mat-button [matMenuTriggerFor]="menu" class="menu_btn">
+            <mat-icon class="lang_bg">language</mat-icon> English<mat-icon
+              >arrow_drop_down</mat-icon
+            >
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>English</button>
+            <button mat-menu-item>हिन्दी</button>
+          </mat-menu>
+        </div>
+        <div class="p-2">
+          <button mat-button class="btn_sign_in">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>

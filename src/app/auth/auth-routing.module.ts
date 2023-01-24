@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutes } from '../constants/app.route';
+import { GetStartedComponent } from './get-started/get-started.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'signup'
+    redirectTo: 'getstarted'
+  },
+  {
+    path: `${AppRoutes.getstarted}`,
+    component: GetStartedComponent
   },
   {
     path: `${AppRoutes.signup}`,
