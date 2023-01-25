@@ -1,11 +1,15 @@
+.bg_signup{
+    background-color: #f3f3f3;
+    margin-top: 0;
+}
 .footer_toolbar{
     background: transparent;
     height: 450px;
   }
   .container{
-    padding-top: 80px;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    padding-right: 400px;
   }
   .title{
     color: #737373;
@@ -13,30 +17,33 @@
     font-family: Arial, Helvetica, sans-serif;
   }
   .list_data{
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     font-family: Arial, Helvetica, sans-serif;
     color: #737373;
   }
   .menu_btn{
-    background: transparent;
+    background: #ffff;
     border: 1px solid #737373;
     border-radius: 0px;
     color: #737373;
-    font-size: 17px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
     padding: 0px;
-    width: 140px;
-    height: 50px;
+    width: 125px;
+    height: 40px;
   }
   .footer_dec{
     font-size: 13px;
     color: #737373;
     font-family: Arial, Helvetica, sans-serif;
+  }
+  .lang_bg{
+    font-size: 23px;
   }
   @media only screen and (max-width: 600px) and (min-width: 200px)  {
     .footer_toolbar{

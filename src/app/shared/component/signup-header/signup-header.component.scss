@@ -1,0 +1,27 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  .netflix_logo{
+    width: 150px;
+}
+.header_toolbar{
+  background: transparent;
+  height: 90px;
+  border-bottom: 1px solid #e6e6e6
+}
+.btn_signin{
+  color: #333;
+  font-size: 19px;
+  font-weight: 500;
+}
+.btn_signin:hover{
+  text-decoration-line: underline;
+  color: #333;
+  font-size: 19px;
+  font-weight: 500;
+}
+@media only screen and (max-width: 600px) and (min-width: 200px)  {
+  .netflix_logo{
+    width: 100px;
+  }
+}

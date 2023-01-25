@@ -12,6 +12,11 @@ const routes: Routes = [
     component: GetStartedComponent,
   },
   {
+    path: 'signup',
+    loadChildren: () =>
+      import('../signup/signup.module').then((m) => m.SignupModule),
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },

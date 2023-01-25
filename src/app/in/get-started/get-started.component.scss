@@ -189,15 +189,69 @@
     line-height: 1.1;
     text-align: center;
   }
+  mat-panel-title{
+    color: #ffffff;
+  }
+  mat-expansion-panel{
+    color: #ffffff;
+  }
+  ::ng-deep .mat-expansion-panel {
+    background-color: #222;
+    border-radius: 0px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  ::ng-deep .mat-expansion-panel-body {
+    background-color: #222;
+    border-radius: 0px;
+    color: #ffffff;
+  }
+  .broe{
+    border: 0.01rem solid #000000;
+    // width: 800px;
+    // position: absolute;
+    // display: block;
+    // justify-content: center;
+    // align-items: center;
+  }
+  .broe_ans{
+    color: #000000;
+    border: 5px solid;
+    padding: 0px;
+  }
   .faq_btn{
     background-color: #222;
-    color: #ffffff;
     border-radius: 0px;
-    width: 830px;
+    // width: 830px;
+    // padding: 20px;
+  }
+  .faq_width{
+    width: 60%;
+  }
+  .faq_btn_ans{
+    background-color: #222;
+    border-radius: 0px;
+    // width: 830px;
+    // padding: 20px;
+  }
+  .Faq_titles{
     line-height: 1.2;
     font-weight: 400;
     font-size: 30px;
-    padding: 20px;
+    color: #ffffff;
+  }
+  .faq_add{
+    font-size: 30px;
+    color: #ffffff;
+  }
+  .Faq_ans_titles{
+    line-height: 1.4;
+    font-weight: 400;
+    font-size: 1.525rem;
+    color: #ffffff;
   }
   .clicked {
     transform: rotate(20deg)
@@ -275,11 +329,15 @@
      }
     .faq_btn{
       font-size: 20px;
-      padding: 20px;
+      // padding: 20px;
+    }
+    .faq_width{
+      width: 100%;
+    }
+    .Faq_titles{
+      font-size: 18px;
+    }
+    .Faq_ans_titles{
+      font-size: 1.125rem;
     }
   }
-  
-
-  // .mat-mdc-form-field + .mat-mdc-form-field {
-  //   margin-left: 8px;
-  // }

@@ -30,7 +30,7 @@
                         </form>
                     </div>
                     <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="24" fxFlex.lg="24" fxFlex.xl="24">
-                        <button mat-button class="getStarted_btn">Get Started</button>
+                        <button mat-button class="getStarted_btn" routerLink='/signup'> Get Started</button>
                     </div>
                 </div>
             </div>
@@ -220,23 +220,40 @@
                 <div fxLayoutAlign="center center" class="pt-5 pb-5">
                     <span class="Faq_title">Frequently Asked Questions</span>
                 </div>
-                <div fxLayout="row" fxLayoutAlign="center center" class="pb-2">
+                <!-- <div fxLayout="row" fxLayoutAlign="center center" class="pb-1">
                     <div class="faq_btn" fxLayout="row" fxLayoutAlign="space-between center">
                         <div>
-                            <span>What is Netflix?</span>
+                            <span class="Faq_titles">What is Netflix?</span>
                         </div>
                         <div>
-                            <mat-icon>add</mat-icon>
+                            <mat-icon class="faq_add">add</mat-icon>
                         </div>
                     </div>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="center center" class="pb-2">
+                    <div class="faq_btn_ans">
+                        <div class="pb-3">
+                            <span class="Faq_ans_titles">Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹ 149 to ₹ 649 a month. No extra costs, no contracts.</span>
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center" class="pt-2 pb-1">
                     <div class="faq_btn" fxLayout="row" fxLayoutAlign="space-between center">
                         <div>
-                            <span>How much does Netflix cost?</span>
+                            <span class="Faq_titles">How much does Netflix cost?</span>
                         </div>
                         <div>
-                            <mat-icon>add</mat-icon>
+                            <mat-icon class="faq_add">add</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center" class="pb-2">
+                    <div class="faq_btn_ans">
+                        <div class="pb-3">
+                            <span class="Faq_ans_titles">Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.</span>
+                        </div>
+                        <div class="pt-3">
+                            <span class="Faq_ans_titles">You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</span>
                         </div>
                     </div>
                 </div>
@@ -279,8 +296,132 @@
                             <mat-icon>add</mat-icon>
                         </div>
                     </div>
+                </div> -->
+                <div fxLayoutAlign="center center">
+                    <div class="faq_width">
+                        <mat-accordion class="faq_btn pb-2">
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div>
+                                        <span class="Faq_titles">What is Netflix?</span>
+                                    </div>                                
+                                </mat-panel-title>
+                                <mat-panel-description fxLayoutAlign="end center">
+                                    <mat-icon class="faq_add">add</mat-icon>
+                                </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-divider class="broe"></mat-divider>
+                                <div class="pt-3 pb-3">
+                                    <span class="Faq_ans_titles">Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.</span>
+                                </div>
+                                <div class="pt-3">
+                                    <span class="Faq_ans_titles">You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</span>
+                                </div>                            
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                        <mat-divider class="broe_ans"></mat-divider>
+                        <mat-accordion class="faq_btn">
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div>
+                                        <span class="Faq_titles">How much does Netflix cost?</span>
+                                    </div>                                
+                                </mat-panel-title>
+                                <mat-panel-description fxLayoutAlign="end center">
+                                    <mat-icon class="faq_add">add</mat-icon>
+                                </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-divider class="broe"></mat-divider>
+                                <div class="pt-3 pb-3">
+                                    <span class="Faq_ans_titles">Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹ 149 to ₹ 649 a month. No extra costs, no contracts.</span>
+                                </div>                    
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                        <mat-divider class="broe_ans"></mat-divider>
+                        <mat-accordion class="faq_btn">
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div>
+                                        <span class="Faq_titles">Where can I watch?</span>
+                                    </div>                                
+                                </mat-panel-title>
+                                <mat-panel-description fxLayoutAlign="end center">
+                                    <mat-icon class="faq_add">add</mat-icon>
+                                </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-divider class="broe"></mat-divider>
+                                <div class="pt-3 pb-3">
+                                    <span class="Faq_ans_titles">Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.</span>
+                                </div>  
+                                <div class="pt-3">
+                                    <span class="Faq_ans_titles">You can also download your favourite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere.</span>
+                                </div>                     
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                        <mat-divider class="broe_ans"></mat-divider>
+                        <mat-accordion class="faq_btn">
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div>
+                                        <span class="Faq_titles">How do I cancel?</span>
+                                    </div>                                
+                                </mat-panel-title>
+                                <mat-panel-description fxLayoutAlign="end center">
+                                    <mat-icon class="faq_add">add</mat-icon>
+                                </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-divider class="broe"></mat-divider>
+                                <div class="pt-3 pb-3">
+                                    <span class="Faq_ans_titles">Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.</span>
+                                </div>                    
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                        <mat-divider class="broe_ans"></mat-divider>
+                        <mat-accordion class="faq_btn">
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div>
+                                        <span class="Faq_titles">What can I watch on Netflix?</span>
+                                    </div>                                
+                                </mat-panel-title>
+                                <mat-panel-description fxLayoutAlign="end center">
+                                    <mat-icon class="faq_add">add</mat-icon>
+                                </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-divider class="broe"></mat-divider>
+                                <div class="pt-3 pb-3">
+                                    <span class="Faq_ans_titles">Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.</span>
+                                </div>                    
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                        <mat-divider class="broe_ans"></mat-divider>
+                        <mat-accordion class="faq_btn">
+                            <mat-expansion-panel hideToggle>
+                                <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <div>
+                                        <span class="Faq_titles">Is Netflix good for kids?</span>
+                                    </div>                                
+                                </mat-panel-title>
+                                <mat-panel-description fxLayoutAlign="end center">
+                                    <mat-icon class="faq_add">add</mat-icon>
+                                </mat-panel-description>
+                                </mat-expansion-panel-header>
+                                <mat-divider class="broe"></mat-divider>
+                                <div class="pt-3 pb-3">
+                                    <span class="Faq_ans_titles">The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space.</span>
+                                </div>                    
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </div>
                 </div>
-                <div fxLayoutAlign="center center" class="pt-5 pb-2">
+            
+                <div fxLayoutAlign="center center" class="pt-5 pb-3">
                     <span class="Faq_subtitle">Ready to watch? Enter your email to create or restart your membership.</span>
                 </div>
             </div>
@@ -296,8 +437,11 @@
                             </form>
                         </div>
                         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="24" fxFlex.lg="24" fxFlex.xl="24">
-                            <button mat-button class="getStarted_btn">Get Started</button>
+                            <button mat-button class="getStarted_btn" routerLink='/signup'>Get Started</button>
                         </div>
+                        <div class="pt-3">
+                            <span class="Faq_ans_titles">Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.</span>
+                        </div>   
                     </div>
                 </div>
             </div>

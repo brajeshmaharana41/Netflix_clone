@@ -9,6 +9,15 @@ import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'registration',
+    pathMatch: 'full',
+  },
+  {
+    path: 'regform',
+    component: RegFormComponent,
+  },
+  {
     path: 'registration',
     component: RegistrationComponent,
   },
@@ -28,10 +37,7 @@ const routes: Routes = [
     path: 'planform',
     component: PlanFormComponent,
   },
-  {
-    path: 'regform',
-    component: RegFormComponent,
-  },
+
 ];
 
 @NgModule({
