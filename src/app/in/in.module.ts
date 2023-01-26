@@ -13,19 +13,31 @@ import { LoginComponent } from './login/login.component';
 import { LoginHelpComponent } from './login-help/login-help.component';
 import { ForgotEmailPasswordComponent } from './forgot-email-password/forgot-email-password.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbAlertModule,
+  NgbModule,
+  NgbPaginationModule,
+} from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [GetStartedComponent, LogoutComponent, LoginComponent, LoginHelpComponent, ForgotEmailPasswordComponent],
+  declarations: [
+    GetStartedComponent,
+    LogoutComponent,
+    LoginComponent,
+    LoginHelpComponent,
+    ForgotEmailPasswordComponent,
+  ],
   imports: [
     CommonModule,
-    SharedModule, 
-    MaterialModule, 
+    SharedModule,
+    MaterialModule,
     InRoutingModule,
     NgbModule,
     NgbPaginationModule,
     NgbAlertModule,
     FlexLayoutModule,
+    ReactiveFormsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
