@@ -1,0 +1,110 @@
+.borde_width{
+    // border: 1px solid #000;
+    height: fit-content;
+    width: 60%;
+    padding-top: 20px;
+}
+.borde_widths{
+    text-align: start;
+    width: 100%;
+}
+.setp_font{
+    font-size: 13px;
+    .setp_font_num{
+        font-weight: 600;
+    }
+}
+.step_title{
+    font-size: 32px;
+    line-height: 35px;
+    font-weight: 500;
+}
+.step_sub_title{
+    font-size: 18px;
+}
+.btn-next{
+    background-color: #e50914;
+    color: #fff;
+    width: 50%;
+    height: 64px;
+    font-size: 24px;
+    font-weight: 400;
+}
+.icon_done{
+    color: #e50914;
+    font-size: 25px;
+    font-weight: 600;
+}
+.mode_data{
+    // border: 1px solid #000;
+    background-color: #fff;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    top: 0.0rem;
+}
+.select_mode{
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    background-color: #e50914;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // opacity: 0.5;  
+}
+.selcted_title{
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+}
+.mode_list{
+    height: 50px;
+    // border-bottom: 1px solid #000;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    .select_list{
+        display: flex;
+        width: 120px;
+        justify-content: center;
+        align-items: center;
+        padding-right: 10px;
+        // border: 1px solid #e50914;
+    }
+    .selcted_subtitle{
+        color: #737373;
+        font-size: 17px;
+        font-weight: 600;
+    }
+    .selcted_sidetitle{
+        color: #737373;
+        font-size: 17px;
+        font-weight: 400;
+    }
+}
+.end_des{
+    width: 85%;
+    .dec_text{
+        color: #737373;
+        font-size: 13px;
+    }
+}
+.icon_select{
+    color: #737373;
+}
+@media only screen and (max-width: 600px) and (min-width: 200px)  {
+    .borde_widths{
+        padding: 15px;
+        text-align: start;
+        width: 100%;
+    }
+    .btn-next{
+        width: 100%;
+    }
+    .step_sub_title{
+        font-size: 17px;
+    }
+}
