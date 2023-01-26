@@ -38,10 +38,30 @@
             fxFlex.xl="76"
             class="get_btn"
           >
-            <form>
+            <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
               <mat-form-field class="example-full-width">
                 <mat-label>Email address</mat-label>
-                <input matInput class="input_started" />
+                <input
+                  formControlName="email"
+                  id="email"
+                  matInput
+                  class="input_started"
+                />
+                <mat-error
+                  *ngIf="
+                    form.get('email').errors &&
+                    form.get('email').hasError('required')
+                  "
+                  >Email is required</mat-error
+                >
+
+                <mat-error
+                  *ngIf="
+                    form.get('email').errors &&
+                    form.get('email').hasError('pattern')
+                  "
+                  >Please enter a valid email address</mat-error
+                >
               </mat-form-field>
             </form>
           </div>

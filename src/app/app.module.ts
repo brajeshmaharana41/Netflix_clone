@@ -5,8 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './shared/core/core.module';
-import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbAlertModule,
+  NgbModule,
+  NgbPaginationModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from './shared/material/material.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +23,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     NgbModule,
     NgbPaginationModule,
     NgbAlertModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
