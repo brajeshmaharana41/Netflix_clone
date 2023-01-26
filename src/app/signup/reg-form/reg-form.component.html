@@ -1,7 +1,7 @@
 <app-signup-header></app-signup-header>
-    <div class="container borde_width" fxLayoutAlign="center center">
+    <div class="container borde_width" fxLayoutAlign="center start">
         <div  class="borde_widths">
-            <div>
+            <div class="pt-5">
                 <div>
                     <span class="setp_font">STEP <span class="setp_font_num">1</span> OF <span class="setp_font_num">3</span></span>
                 </div>
@@ -12,8 +12,20 @@
                     <span class="step_sub_title">Just a few more steps and you're done!<br>
                         We hate paperwork, too.</span>
                 </div>
-                <div>
-                    <button mat-button class="btn-next">Next</button>
+                <div class="border_input">
+                    <mat-form-field class="example-full-width">
+                        <!-- <mat-label>Email</mat-label> -->
+                        <input matInput class="input_height" placeholder="Email">
+                    </mat-form-field>
+                </div>
+                <div class="border_input">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Add Password</mat-label>
+                        <input matInput class="input_height">
+                    </mat-form-field>
+                </div>
+                <div class="pt-2">
+                    <button mat-button class="btn-next" (click)="goToPlanFormPage()">Next</button>
                 </div>
             </div>
         </div>
