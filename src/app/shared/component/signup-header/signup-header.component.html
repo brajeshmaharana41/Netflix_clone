@@ -1,6 +1,8 @@
 <mat-toolbar class="header_toolbar">
-  <img src="assets/netflix-logo.png" alt="" class="netflix_logo" /> 
+  <img src="assets/netflix-logo.png" alt="" class="netflix_logo" />
   <span class="example-spacer"></span>
-  <button mat-button class="btn_signin">Sign Out</button>
-  <button mat-button class="btn_signin">Sign In</button>
+  <button *ngIf="pass" mat-button class="btn_signin" (click)="signOut()">
+    Sign Out
+  </button>
+  <button *ngIf="!pass" mat-button class="btn_signin">Sign In</button>
 </mat-toolbar>

@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Constant } from '../../core/constants';
 
 @Component({
   selector: 'app-signup-header',
   templateUrl: './signup-header.component.html',
-  styleUrls: ['./signup-header.component.scss']
+  styleUrls: ['./signup-header.component.scss'],
 })
 export class SignupHeaderComponent implements OnInit {
+  pass = localStorage.getItem(Constant.ACTIVEPASSWORD);
+  constructor(private router: Router) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  signOut() {
+    localStorage.clear();
+    this.router.navigate(['in']);
   }
-
 }

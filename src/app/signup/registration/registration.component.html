@@ -4,22 +4,25 @@
     <div>
       <div>
         <span class="setp_font"
-          >STEP <span class="setp_font_num">1</span> OF
-          <span class="setp_font_num">3</span></span
+          >{{ "registration.stepTxt" | translate }}
+          <span class="setp_font_num">{{
+            "registration.inStep" | translate
+          }}</span>
+          {{ "registration.ofTxt" | translate }}
+          <span class="setp_font_num">{{
+            "registration.totalStep" | translate
+          }}</span></span
         >
       </div>
       <div class="pt-3">
-        <span class="step_title">Finish setting up your account</span>
+        <span class="step_title">{{ "registration.h1" | translate }}</span>
       </div>
       <div class="pt-3 pb-3">
-        <span class="step_sub_title"
-          >Netflix is personalised for you. Create a password to watch on any
-          device at any time.</span
-        >
+        <span class="step_sub_title"> {{ "registration.h2" | translate }}</span>
       </div>
       <div>
         <button mat-button class="btn-next" (click)="goToRegFormPage()">
-          Next
+          {{ "registration.nextBtnTxt" | translate }}
         </button>
       </div>
     </div>

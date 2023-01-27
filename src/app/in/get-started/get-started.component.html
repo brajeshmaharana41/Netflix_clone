@@ -16,18 +16,19 @@
     <div fxLayoutAlign="center center" class="bg_data">
       <div class="bg_signup">
         <div>
-          <span class="title">Unlimited movies, TV shows and more.</span>
+          <span class="title">{{ "getStarted.welcomeText" | translate }}</span>
         </div>
 
         <div class="marg_card">
-          <span class="subtitle">Watch anywhere. Cancel anytime.</span>
+          <span class="subtitle">{{
+            "getStarted.welcomeInfoText" | translate
+          }}</span>
         </div>
 
         <div>
-          <span class="subtitledec"
-            >Ready to watch? Enter your email to create or restart your
-            membership.</span
-          >
+          <span class="subtitledec">{{
+            "getStarted.welcomeInfoText2" | translate
+          }}</span>
         </div>
         <div class="getStarted" fxLayout="row wrap">
           <div
@@ -37,10 +38,13 @@
             fxFlex.lg="76"
             fxFlex.xl="76"
             class="get_btn"
+            *ngIf="!pass"
           >
             <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
               <mat-form-field class="example-full-width">
-                <mat-label>Email address</mat-label>
+                <mat-label>{{
+                  "getStarted.emailInputPlaceholder" | translate
+                }}</mat-label>
                 <input
                   formControlName="email"
                   id="email"
@@ -52,7 +56,7 @@
                     form.get('email').errors &&
                     form.get('email').hasError('required')
                   "
-                  >Email is required</mat-error
+                  >{{ "getStarted.emailRequiredError" | translate }}</mat-error
                 >
 
                 <mat-error
@@ -60,7 +64,7 @@
                     form.get('email').errors &&
                     form.get('email').hasError('pattern')
                   "
-                  >Please enter a valid email address</mat-error
+                  >{{ "getStarted.emailPatternError" | translate }}</mat-error
                 >
               </mat-form-field>
             </form>
@@ -74,12 +78,21 @@
           >
             <button
               mat-button
+              *ngIf="!pass"
               class="getStarted_btn"
               (click)="goToSignUpPage()"
             >
-              Get Started
+              {{ "getStarted.getStartedBtnText" | translate }}
             </button>
           </div>
+          <button
+            *ngIf="pass"
+            mat-button
+            class="getStarted_btn"
+            (click)="goToChooseFormPage()"
+          >
+            Finish SignUp
+          </button>
         </div>
       </div>
     </div>
@@ -97,12 +110,13 @@
           >
             <div>
               <div class="padd_title_top">
-                <h1 class="side_title">Enjoy on your TV.</h1>
+                <h1 class="side_title">
+                  {{ "getStarted.welcomeTxtEnjoyTV" | translate }}
+                </h1>
               </div>
               <div>
                 <h2 class="side_subtitle">
-                  Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV,
-                  Blu-ray players and more.
+                  {{ "getStarted.welcomeTxtWatchOn" | translate }}
                 </h2>
               </div>
             </div>
@@ -171,7 +185,9 @@
                 </div>
                 <div class="poster__details">
                   <span class="feature2__title">Stranger Things</span><br />
-                  <span class="feature2__sub_title">Downloading...</span>
+                  <span class="feature2__sub_title">{{
+                    "getStarted.downloadingTxt" | translate
+                  }}</span>
                 </div>
                 <div class="download__gif__container">
                   <img
@@ -194,13 +210,12 @@
             <div class="pt-5">
               <div>
                 <h1 class="side_title">
-                  Download your shows to watch offline.
+                  {{ "getStarted.welcomeTxtDownloadShow" | translate }}
                 </h1>
               </div>
               <div>
                 <h2 class="side_subtitle">
-                  Save your favourites easily and always have something to
-                  watch.
+                  {{ "getStarted.welcomeTxtSaveYour" | translate }}
                 </h2>
               </div>
             </div>
@@ -231,7 +246,9 @@
                 </div>
                 <div class="poster__details">
                   <span class="feature2__title">Stranger Things</span><br />
-                  <span class="feature2__sub_title">Downloading...</span>
+                  <span class="feature2__sub_title">
+                    {{ "getStarted.downloadingTxt" | translate }}</span
+                  >
                 </div>
                 <div class="download__gif__container">
                   <img
@@ -263,12 +280,13 @@
           >
             <div>
               <div>
-                <h1 class="side_title">Watch everywhere.</h1>
+                <h1 class="side_title">
+                  {{ "getStarted.welcomeTxtWatchEveryWhere" | translate }}
+                </h1>
               </div>
               <div>
                 <h2 class="side_subtitle">
-                  Stream unlimited movies and TV shows on your phone, tablet,
-                  laptop, and TV.
+                  {{ "getStarted.welcomeTxtStream" | translate }}
                 </h2>
               </div>
             </div>
@@ -344,12 +362,13 @@
           >
             <div>
               <div class="padd_title_top">
-                <h1 class="side_titles">Create profiles for children.</h1>
+                <h1 class="side_titles">
+                  {{ "getStarted.welcomeTxtCreateProfile" | translate }}
+                </h1>
               </div>
               <div>
                 <h2 class="side_subtitle">
-                  Send children on adventures with their favourite characters in
-                  a space made just for them—free with your membership.
+                  {{ "getStarted.welcomeTxtSendChildren" | translate }}
                 </h2>
               </div>
             </div>
@@ -378,7 +397,9 @@
       <mat-divider class="diveder"></mat-divider>
       <div class="container">
         <div fxLayoutAlign="center center" class="pt-5 pb-5">
-          <span class="Faq_title">Frequently Asked Questions</span>
+          <span class="Faq_title">{{
+            "getStarted.frequentlyAsked" | translate
+          }}</span>
         </div>
         <!-- <div fxLayout="row" fxLayoutAlign="center center" class="pb-1">
                     <div class="faq_btn" fxLayout="row" fxLayoutAlign="space-between center">
@@ -464,7 +485,9 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     <div>
-                      <span class="Faq_titles">What is Netflix?</span>
+                      <span class="Faq_titles">{{
+                        "getStarted.question1" | translate
+                      }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -473,18 +496,13 @@
                 </mat-expansion-panel-header>
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
-                  <span class="Faq_ans_titles"
-                    >Netflix is a streaming service that offers a wide variety
-                    of award-winning TV shows, movies, anime, documentaries and
-                    more – on thousands of internet-connected devices.</span
+                  <span class="Faq_ans_titles">
+                    {{ "getStarted.answer1a" | translate }}</span
                   >
                 </div>
                 <div class="pt-3">
-                  <span class="Faq_ans_titles"
-                    >You can watch as much as you want, whenever you want,
-                    without a single ad – all for one low monthly price. There's
-                    always something new to discover, and new TV shows and
-                    movies are added every week!</span
+                  <span class="Faq_ans_titles">
+                    {{ "getStarted.answer1b" | translate }}</span
                   >
                 </div>
               </mat-expansion-panel>
@@ -495,9 +513,9 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     <div>
-                      <span class="Faq_titles"
-                        >How much does Netflix cost?</span
-                      >
+                      <span class="Faq_titles">{{
+                        "getStarted.question2" | translate
+                      }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -506,12 +524,9 @@
                 </mat-expansion-panel-header>
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
-                  <span class="Faq_ans_titles"
-                    >Watch Netflix on your smartphone, tablet, Smart TV, laptop,
-                    or streaming device, all for one fixed monthly fee. Plans
-                    range from ₹ 149 to ₹ 649 a month. No extra costs, no
-                    contracts.</span
-                  >
+                  <span class="Faq_ans_titles">{{
+                    "getStarted.answer2" | translate
+                  }}</span>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -521,7 +536,9 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     <div>
-                      <span class="Faq_titles">Where can I watch?</span>
+                      <span class="Faq_titles">{{
+                        "getStarted.question3" | translate
+                      }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -530,20 +547,13 @@
                 </mat-expansion-panel-header>
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
-                  <span class="Faq_ans_titles"
-                    >Watch anywhere, anytime. Sign in with your Netflix account
-                    to watch instantly on the web at netflix.com from your
-                    personal computer or on any internet-connected device that
-                    offers the Netflix app, including smart TVs, smartphones,
-                    tablets, streaming media players and game consoles.</span
+                  <span class="Faq_ans_titles">
+                    {{ "getStarted.answer3a" | translate }}</span
                   >
                 </div>
                 <div class="pt-3">
-                  <span class="Faq_ans_titles"
-                    >You can also download your favourite shows with the iOS,
-                    Android, or Windows 10 app. Use downloads to watch while
-                    you're on the go and without an internet connection. Take
-                    Netflix with you anywhere.</span
+                  <span class="Faq_ans_titles">
+                    {{ "getStarted.answer3a" | translate }}</span
                   >
                 </div>
               </mat-expansion-panel>
@@ -554,7 +564,9 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     <div>
-                      <span class="Faq_titles">How do I cancel?</span>
+                      <span class="Faq_titles">{{
+                        "getStarted.question4" | translate
+                      }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -563,11 +575,8 @@
                 </mat-expansion-panel-header>
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
-                  <span class="Faq_ans_titles"
-                    >Netflix is flexible. There are no annoying contracts and no
-                    commitments. You can easily cancel your account online in
-                    two clicks. There are no cancellation fees – start or stop
-                    your account anytime.</span
+                  <span class="Faq_ans_titles">
+                    {{ "getStarted.answer4" | translate }}</span
                   >
                 </div>
               </mat-expansion-panel>
@@ -578,9 +587,9 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     <div>
-                      <span class="Faq_titles"
-                        >What can I watch on Netflix?</span
-                      >
+                      <span class="Faq_titles">{{
+                        "getStarted.question5" | translate
+                      }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -589,11 +598,8 @@
                 </mat-expansion-panel-header>
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
-                  <span class="Faq_ans_titles"
-                    >Netflix has an extensive library of feature films,
-                    documentaries, TV shows, anime, award-winning Netflix
-                    originals, and more. Watch as much as you want, anytime you
-                    want.</span
+                  <span class="Faq_ans_titles">
+                    {{ "getStarted.answer5" | translate }}</span
                   >
                 </div>
               </mat-expansion-panel>
@@ -604,7 +610,9 @@
                 <mat-expansion-panel-header>
                   <mat-panel-title>
                     <div>
-                      <span class="Faq_titles">Is Netflix good for kids?</span>
+                      <span class="Faq_titles">{{
+                        "getStarted.question6" | translate
+                      }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -613,18 +621,14 @@
                 </mat-expansion-panel-header>
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
-                  <span class="Faq_ans_titles"
-                    >The Netflix Kids experience is included in your membership
-                    to give parents control while kids enjoy family-friendly TV
-                    shows and films in their own space.</span
-                  >
+                  <span class="Faq_ans_titles">{{
+                    "getStarted.answer6a" | translate
+                  }}</span>
                 </div>
                 <div class="pt-3">
-                  <span class="Faq_ans_titles"
-                    >Kids profiles come with PIN-protected parental controls that
-                    let you restrict the maturity rating of content kids can watch
-                    and block specific titles you don’t want kids to see.</span
-                  >
+                  <span class="Faq_ans_titles">{{
+                    "getStarted.answer6b" | translate
+                  }}</span>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -632,15 +636,14 @@
         </div>
 
         <div fxLayoutAlign="center center" class="pt-5 pb-3">
-          <span class="Faq_subtitle"
-            >Ready to watch? Enter your email to create or restart your
-            membership.</span
+          <span class="Faq_subtitle">
+            {{ "getStarted.welcomeInfoText2" | translate }}</span
           >
         </div>
       </div>
       <div fxLayout="row" fxLayoutAlign="center center">
         <div class="bg_email">
-          <div class="getstartd_email" fxLayout="row wrap">
+          <div class="getStarted" fxLayout="row wrap">
             <div
               fxFlex.xs="100"
               fxFlex.sm="100"
@@ -649,10 +652,34 @@
               fxFlex.xl="76"
               class="get_btn"
             >
-              <form>
+              <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
                 <mat-form-field class="example-full-width">
-                  <mat-label>Email address</mat-label>
-                  <input matInput class="input_started" />
+                  <mat-label>{{
+                    "getStarted.emailInputPlaceholder" | translate
+                  }}</mat-label>
+                  <input
+                    formControlName="email"
+                    id="email"
+                    matInput
+                    class="input_started"
+                  />
+                  <mat-error
+                    *ngIf="
+                      form.get('email').errors &&
+                      form.get('email').hasError('required')
+                    "
+                    >{{
+                      "getStarted.emailRequiredError" | translate
+                    }}</mat-error
+                  >
+
+                  <mat-error
+                    *ngIf="
+                      form.get('email').errors &&
+                      form.get('email').hasError('pattern')
+                    "
+                    >{{ "getStarted.emailPatternError" | translate }}</mat-error
+                  >
                 </mat-form-field>
               </form>
             </div>
@@ -663,8 +690,22 @@
               fxFlex.lg="24"
               fxFlex.xl="24"
             >
-              <button mat-button class="getStarted_btn" routerLink="/signup">
-                Get Started
+              <button
+                mat-button
+                *ngIf="!pass"
+                class="getStarted_btn"
+                (click)="goToSignUpPage()"
+              >
+                {{ "getStarted.getStartedBtnText" | translate }}
+              </button>
+
+              <button
+                *ngIf="pass"
+                mat-button
+                class="getStarted_btn"
+                (click)="goToChooseFormPage()"
+              >
+                Finish SignUp
               </button>
             </div>
           </div>
