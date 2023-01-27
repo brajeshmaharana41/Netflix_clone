@@ -1,25 +1,32 @@
 <div class="bg_signup">
-    <div class="container">
-        <div class="p-2 pt-0 pr-0 pb-4">
-            <span class="title">Questions? Call 000-800-919-1694</span>
-        </div>
-        <div fxLayout="row wrap">
-            <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" *ngFor="let foterList of foterLists" class="p-2">
-                <a>
-                    <span class="list_data">{{foterList.name}}</span>
-                </a>
-            </div>
-        </div>
-        <div class="p-2 pt-4">
-            <button mat-button [matMenuTriggerFor]="menu" class="menu_btn">
-              <mat-icon class="lang_bg">language</mat-icon>&nbsp; English &nbsp;<mat-icon
-                >arrow_drop_down</mat-icon
-              >
-            </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item>English</button>
-              <button mat-menu-item>हिन्दी</button>
-            </mat-menu>
-        </div>
+  <div class="container">
+    <div class="p-2 pt-0 pr-0 pb-4">
+      <span class="title">Questions? Contact us.</span>
     </div>
+    <div fxLayout="row wrap">
+      <div
+        fxFlex.xs="50"
+        fxFlex.sm="50"
+        fxFlex.md="25"
+        fxFlex.lg="25"
+        fxFlex.xl="25"
+        *ngFor="let foterList of foterLists"
+        class="p-2"
+      >
+        <a>
+          <span class="list_data">{{ foterList.name }}</span>
+        </a>
+      </div>
+    </div>
+    <div class="p-2 pt-4">
+      <button mat-button [matMenuTriggerFor]="menu" class="menu_btn">
+        <mat-icon class="lang_bg">language</mat-icon>&nbsp; English
+        &nbsp;<mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="switchLanguage('en')">English</button>
+        <button mat-menu-item (click)="switchLanguage('hi')">हिन्दी</button>
+      </mat-menu>
+    </div>
+  </div>
 </div>

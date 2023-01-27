@@ -1,7 +1,7 @@
 <div class="footer_toolbar">
   <div class="container">
     <div class="p-2 pt-0 pr-0 pb-4">
-      <span class="title">Questions? Call 000-800-919-1694</span>
+      <span class="title">{{ "footer.questionTxt" | translate }}</span>
     </div>
     <div fxLayout="row wrap">
       <div
@@ -20,8 +20,10 @@
     </div>
     <div class="p-2 pt-4">
       <button mat-button [matMenuTriggerFor]="menu" class="menu_btn">
-        <mat-icon class="lang_bg">language</mat-icon>&nbsp; English
-        &nbsp;<mat-icon>arrow_drop_down</mat-icon>
+        <mat-icon class="lang_bg">language</mat-icon>&nbsp;
+        {{ selectedLang === "en" ? "English" : "हिन्दी" }} &nbsp;<mat-icon
+          >arrow_drop_down</mat-icon
+        >
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="switchLanguage('en')">English</button>

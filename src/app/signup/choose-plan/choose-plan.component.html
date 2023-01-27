@@ -2,17 +2,23 @@
 <div class="container borde_width" fxLayoutAlign="center center">
   <div class="borde_widths">
     <div class="chech_icons">
-      <mat-icon class="check_icon">check_circle_outline</mat-icon>
+      <mat-icon class="check_icon">check_circle_outline </mat-icon>
     </div>
     <div>
       <div fxLayoutAlign="center center">
         <span class="setp_font"
-          >STEP <span class="setp_font_num">2</span> OF
-          <span class="setp_font_num">3</span></span
+          >{{ "choosePlan.stepTxt" | translate
+          }}<span class="setp_font_num">{{
+            "choosePlan.inStep" | translate
+          }}</span
+          >{{ "choosePlan.ofTxt" | translate }}
+          <span class="setp_font_num">{{
+            "choosePlan.totalStep" | translate
+          }}</span></span
         >
       </div>
       <div class="pt-3" fxLayoutAlign="center center">
-        <span class="step_title">Choose your plan.</span>
+        <span class="step_title"> {{ "choosePlan.h1" | translate }}</span>
       </div>
       <div class="pt-3 pb-3">
         <div fxLayout="row" fxLayoutAlign="start center">
@@ -20,7 +26,9 @@
             <mat-icon class="icon_done">check</mat-icon>
           </div>
           <div class="p-2">
-            <span class="step_sub_title">No commitments, cancel anytime.</span>
+            <span class="step_sub_title">{{
+              "choosePlan.checkList1" | translate
+            }}</span>
           </div>
         </div>
         <div fxLayout="row" fxLayoutAlign="start center">
@@ -28,8 +36,8 @@
             <mat-icon class="icon_done">check</mat-icon>
           </div>
           <div class="p-2">
-            <span class="step_sub_title"
-              >Everything on Netflix for one low price.</span
+            <span class="step_sub_title">
+              {{ "choosePlan.checkList2" | translate }}</span
             >
           </div>
         </div>
@@ -38,13 +46,15 @@
             <mat-icon class="icon_done">check</mat-icon>
           </div>
           <div class="p-2">
-            <span class="step_sub_title">No ads and no extra fees. Ever.</span>
+            <span class="step_sub_title">{{
+              "choosePlan.checkList3" | translate
+            }}</span>
           </div>
         </div>
       </div>
       <div>
         <button mat-button class="btn-next" (click)="goToRegFormPage()">
-          Next
+          {{ "choosePlan.nextBtnTxt" | translate }}
         </button>
       </div>
     </div>
