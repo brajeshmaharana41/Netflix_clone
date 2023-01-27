@@ -11,6 +11,9 @@ import {
   Validators,
 } from '@angular/forms';
 
+import { TranslateService } from '@ngx-translate/core';
+import { Constant } from 'src/app/shared/core/constants';
+
 @Component({
   selector: 'app-get-started',
   templateUrl: './get-started.component.html',
@@ -20,17 +23,23 @@ export class GetStartedComponent implements OnInit {
   panelOpenState = false;
   isClicked = false;
   form: FormGroup | undefined;
-
+  pass = localStorage.getItem(Constant.ACTIVEPASSWORD);
+  email = localStorage.getItem(Constant.ACTIVEEMAIL);
   constructor(
     private _router: Router,
     private _commonService: CommonService,
-    private formBuilder: FormBuilder
-  ) {}
+    private formBuilder: FormBuilder,
+    private translate: TranslateService
+  ) {
+    this._commonService.translateLanguage.subscribe((res: string) => {
+      this.translate.use(res);
+    });
+  }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       email: [
-        '',
+        this.email ? this.email : '',
         [
           Validators.required,
           Validators.pattern(
@@ -59,7 +68,15 @@ export class GetStartedComponent implements OnInit {
   // }
 
   goToSignUpPage() {
-    this._router.navigate(['signup']);
-    this.form?.get('email')?.errors;
+    localStorage.setItem(Constant.ACTIVEEMAIL, this.form.value.email);
+    // this._router.navigate(['signup']);
+
+    //if email is not registered
+    this._router.navigate(['signup/password']);
+    // this.form?.get('email')?.errors;
+  }
+
+  goToChooseFormPage() {
+    this._router.navigate(['signup/choose-plan']);
   }
 }

@@ -7,12 +7,20 @@ import { PlanFormComponent } from './plan-form/plan-form.component';
 import { PaymentPickerComponent } from './payment-picker/payment-picker.component';
 import { CreditOptionComponent } from './credit-option/credit-option.component';
 import { SignUpRoutingModule } from './signup-routing.module';
-import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import {
+  NgbAlertModule,
+  NgbModule,
+  NgbPaginationModule,
+} from '@ng-bootstrap/ng-bootstrap';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SignupHeaderComponent } from '../shared/component/signup-header/signup-header.component';
 import { SharedModule } from '../shared/shared.module';
 import { SignupFooterComponent } from '../shared/component/signup-footer/signup-footer.component';
 import { MaterialModule } from '../shared/material/material.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PasswordComponent } from './password/password.component';
 
 @NgModule({
   declarations: [
@@ -22,17 +30,29 @@ import { MaterialModule } from '../shared/material/material.module';
     PlanFormComponent,
     PaymentPickerComponent,
     CreditOptionComponent,
-    SignupHeaderComponent, 
-    SignupFooterComponent
+    SignupHeaderComponent,
+    SignupFooterComponent,
+    PasswordComponent,
   ],
   imports: [
-    CommonModule, 
+    CommonModule,
     SignUpRoutingModule,
     NgbModule,
     NgbPaginationModule,
     NgbAlertModule,
     FlexLayoutModule,
     MaterialModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
 })
 export class SignupModule {}
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

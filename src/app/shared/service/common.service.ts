@@ -1,18 +1,32 @@
-import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { EventEmitter, Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
+import { Constant } from '../core/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommonService {
+  translateLanguage = new BehaviorSubject<string>(
+    localStorage.getItem(Constant.CURLANG)
+      ? localStorage.getItem(Constant.CURLANG)
+      : 'en'
+  );
   constructor(
     private _router: Router,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
-  ) {}
+    private snackBar: MatSnackBar,
+    private translate: TranslateService
+  ) {
+    // this.translate.addLangs(['en', 'hi']);
+    // this.translate.setDefaultLang(
+    //   localStorage.getItem('curLang') ? localStorage.getItem('curLang') : 'en'
+    // );
+    // this.translate.use('en');
+  }
 
   openDialog(component: any, width = '250px', data = {}): MatDialogRef<any> {
     return this.dialog.open(component, {
@@ -23,5 +37,9 @@ export class CommonService {
 
   openSnackBar(message: string, action = 'OK', duration = 2000) {
     this.snackBar.open(message, action, { duration });
+  }
+  switchLanguage(lang: string) {
+    localStorage.setItem(Constant.CURLANG, lang);
+    this.translateLanguage.next(lang);
   }
 }

@@ -1,18 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthPasswordGuard } from '../shared/core/guard/auth-child.guard';
 import { ChoosePlanComponent } from './choose-plan/choose-plan.component';
 import { CreditOptionComponent } from './credit-option/credit-option.component';
+import { PasswordComponent } from './password/password.component';
 import { PaymentPickerComponent } from './payment-picker/payment-picker.component';
 import { PlanFormComponent } from './plan-form/plan-form.component';
 import { RegFormComponent } from './reg-form/reg-form.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'registration',
-    pathMatch: 'full',
-  },
   {
     path: 'regform',
     component: RegFormComponent,
@@ -37,7 +34,16 @@ const routes: Routes = [
     path: 'planform',
     component: PlanFormComponent,
   },
-
+  {
+    path: 'password',
+    canActivate: [AuthPasswordGuard],
+    component: PasswordComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'registration',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
