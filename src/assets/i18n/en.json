@@ -34,7 +34,7 @@
         "answer6a":"The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space.",
         "answer6b":"Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see."
     },
-    "planform":{
+    "choosePlan":{
         "stepTxt":"STEP",
         "inStep":"2",
         "ofTxt":"OF",
@@ -51,10 +51,19 @@
         "ofTxt":"OF",
         "totalStep":"3",
         "h1":"Create a password to start your membership",
-        "h2":"Just a few more steps and you're done!We hate paperwork, too.",
+        "h2a":"Just a few more steps and you're done!",
+        "h2b":"We hate paperwork, too.",
         "emailPlaceholder":"Email",
-        "passwordPlaceholder":"Password",
+        "emailRequiredError":"Email is required",
+        "emailPatternError":"Please enter a valid email address",
+        "passwordPlaceholder":"Add a password",
+        "passwordRequiredError":"Password is required",
+        "passwordPatternError":"Password should be between 6 and 60 characters long.",
         "nextBtnTxt":"Next"
+    },
+    "regFormCreated":{
+        "h1":"Account Created",
+        "h2":"Use this email to access your account"
     },
     "registration":{
         "stepTxt":"STEP",
@@ -64,6 +73,59 @@
         "h1":"Finish setting up your account",
         "h2":"Netflix is personalised for you. Create a password to watch on any device at any time",
         "nextBtnTxt":"Next"
+    },
+    "password":{
+        "passwordRequiredError":"Password is required",
+        "passwordPatternError":"Password should be between 4 and 60 characters long."
+    },
+    "planform":{
+        "stepTxt":"STEP",
+        "inStep":"2",
+        "ofTxt":"OF",
+        "totalStep":"3",
+        "h1":"Choose the plan that’s right for you",
+        "checkList1":"Watch all you want. Ad-free.",
+        "checkList2":"Recommendations just for you.",
+        "checkList3":"Change or cancel your plan anytime.",
+        "monthlyPrice":"Monthly price",
+        "videoQuality":"Video quality",
+        "resolution":"Resolution",
+        "devices":"Devices you can use to watch",
+         "infoTxt":"HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject to your internet service and device capabilities. Not all content is available in all resolutions. See our Terms of Use for more details.",
+         "infoTxt2":"Only people who live with you may use your account. Watch on 4 different devices at the same time with Premium, 2 with Standard, and 1 with Basic and Mobile.",
+         "nextBtnTxt":"Next",
+         "phone":"Phone",
+         "tablet":"Tablet",
+         "computer":"Computer",
+         "tv":"TV",
+         "good":"Good",
+         "better":"Better",
+         "best":"Best",
+         "mobile":"Mobile",
+         "basic":"Basic",
+         "standard":"Standard",
+         "premium":"Premium"
+    },
+
+    "header":{
+        "signIn":"Sign In",
+        "signOut":"Sign Out"
+    },
+    "footer":{
+        "questionTxt":"Questions? Call 000-800-919-1694",
+        "faq":"FAQ",
+        "helpCenter":"Help Centre"
+    },
+    "signupheader":{
+        "signIn":"Sign In",
+        "signOut":"Sign Out"
+    },
+    "signupfooter":{
+        "questionTxt":"Questions? Contact us.",
+        "faq":"FAQ",
+        "helpCenter":"Help Centre"
     }
+
+
 
 }

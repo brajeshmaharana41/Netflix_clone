@@ -4,21 +4,23 @@
     <div class="pt-5">
       <div>
         <span class="setp_font"
-          >STEP <span class="setp_font_num">1</span> OF
-          <span class="setp_font_num">3</span></span
+          >{{ "regForm.stepTxt" | translate }}
+          <span class="setp_font_num">{{ "regForm.inStep" | translate }}</span>
+          {{ "regForm.ofTxt" | translate }}
+          <span class="setp_font_num">{{
+            "regForm.totalStep" | translate
+          }}</span></span
         >
       </div>
       <div *ngIf="!password">
         <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
           <div class="pt-3">
-            <span class="step_title"
-              >Create a password to start your membership</span
-            >
+            <span class="step_title"> {{ "regForm.h1" | translate }}</span>
           </div>
           <div class="pt-3 pb-3">
             <span class="step_sub_title"
-              >Just a few more steps and you're done!<br />
-              We hate paperwork, too.</span
+              >{{ "regForm.h2a" | translate }}<br />
+              {{ "regForm.h2b" | translate }}</span
             >
           </div>
           <div class="border_input">
@@ -36,7 +38,7 @@
                   form.get('email').errors &&
                   form.get('email').hasError('required')
                 "
-                >{{ "getStarted.emailRequiredError" | translate }}</mat-error
+                >{{ "regForm.emailRequiredError" | translate }}</mat-error
               >
 
               <mat-error
@@ -44,20 +46,22 @@
                   form.get('email').errors &&
                   form.get('email').hasError('pattern')
                 "
-                >{{ "getStarted.emailPatternError" | translate }}</mat-error
+                >{{ "regForm.emailPatternError" | translate }}</mat-error
               >
             </mat-form-field>
           </div>
           <div class="border_input">
             <mat-form-field class="example-full-width">
-              <mat-label>Add Password</mat-label>
+              <mat-label>{{
+                "regForm.passwordPlaceholder" | translate
+              }}</mat-label>
               <input formControlName="password" matInput class="input_height" />
               <mat-error
                 *ngIf="
                   form.get('password').errors &&
                   form.get('password').hasError('required')
                 "
-                >Password is required.</mat-error
+                >{{ "regForm.passwordRequiredError" | translate }}</mat-error
               >
 
               <mat-error
@@ -65,7 +69,7 @@
                   form.get('password').errors &&
                   form.get('password').hasError('minLength')
                 "
-                >Password should be between 6 and 60 characters long.</mat-error
+                >{{ "regForm.passwordPatternError" | translate }}</mat-error
               >
             </mat-form-field>
           </div>
@@ -74,15 +78,17 @@
 
       <div *ngIf="password">
         <div>
-          <h2>Account Created</h2>
+          <h2>{{ "regFormCreated.h1" | translate }}</h2>
         </div>
         <div>
-          <h4>Use this email to access your account</h4>
+          <h4>{{ "regFormCreated.h2" | translate }}</h4>
         </div>
         <div>{{ email }}</div>
       </div>
       <div class="pt-2">
-        <button mat-button class="btn-next" (click)="onSubmit()">Next</button>
+        <button mat-button class="btn-next" (click)="onSubmit()">
+          {{ "regForm.nextBtnTxt" | translate }}
+        </button>
       </div>
     </div>
   </div>
