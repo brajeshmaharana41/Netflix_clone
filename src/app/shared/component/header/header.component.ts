@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Constant } from '../../core/constants';
 import { CommonService } from '../../service/common.service';
@@ -23,11 +23,13 @@ export class HeaderComponent implements OnInit {
   switchLanguage(lang: string) {
     this._commonService.switchLanguage(lang);
   }
-  signIn(){
-    this.router.navigate(['in/login'])
+
+  goToSignIn() {
+    this.router.navigate(['in']);
   }
+
   signOut() {
     localStorage.clear();
-    this.router.navigate(['in']);
+    this.goToSignIn();
   }
 }

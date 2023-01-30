@@ -69,11 +69,14 @@ export class GetStartedComponent implements OnInit {
 
   goToSignUpPage() {
     localStorage.setItem(Constant.ACTIVEEMAIL, this.form.value.email);
+    // if account not created
     this._router.navigate(['signup']);
 
-    //if email is not registered
+    //if account created
     // this._router.navigate(['signup/password']);
-    // this.form?.get('email')?.errors;
+
+    //if subscribed
+    // this._router.navigate(['in']);
   }
 
   goToChooseFormPage() {

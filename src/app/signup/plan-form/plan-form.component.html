@@ -4,12 +4,18 @@
     <div>
       <div>
         <span class="setp_font"
-          >STEP <span class="setp_font_num">2</span> OF
-          <span class="setp_font_num">3</span></span
+          >{{ "planform.stepTxt" | translate
+          }}<span class="setp_font_num">{{
+            "planform.inStep" | translate
+          }}</span>
+          {{ "planform.ofTxt" | translate }}
+          <span class="setp_font_num">{{
+            "planform.totalStep" | translate
+          }}</span></span
         >
       </div>
       <div class="pt-3">
-        <span class="step_title">Choose the plan that’s right for you</span>
+        <span class="step_title"> {{ "planform.h1" | translate }}</span>
       </div>
       <div class="pt-3 pb-3">
         <div fxLayout="row" fxLayoutAlign="start center">
@@ -17,7 +23,9 @@
             <mat-icon class="icon_done">check</mat-icon>
           </div>
           <div class="p-1">
-            <span class="step_sub_title">Watch all you want. Ad-free.</span>
+            <span class="step_sub_title">
+              {{ "planform.checkList1" | translate }}</span
+            >
           </div>
         </div>
         <div fxLayout="row" fxLayoutAlign="start center">
@@ -25,7 +33,9 @@
             <mat-icon class="icon_done">check</mat-icon>
           </div>
           <div class="p-1">
-            <span class="step_sub_title">Recommendations just for you.</span>
+            <span class="step_sub_title">
+              {{ "planform.checkList2" | translate }}</span
+            >
           </div>
         </div>
         <div fxLayout="row" fxLayoutAlign="start center">
@@ -33,8 +43,8 @@
             <mat-icon class="icon_done">check</mat-icon>
           </div>
           <div class="p-1">
-            <span class="step_sub_title"
-              >Change or cancel your plan anytime.</span
+            <span class="step_sub_title">
+              {{ "planform.checkList3" | translate }}</span
             >
           </div>
         </div>
@@ -57,7 +67,9 @@
           fxFlex.xl="15"
         >
           <div class="select_mode">
-            <span class="selcted_title">Mobile</span>
+            <span class="selcted_title">
+              {{ "planform.mobile" | translate }}</span
+            >
           </div>
         </div>
         <div
@@ -68,7 +80,9 @@
           fxFlex.xl="15"
         >
           <div class="select_mode">
-            <span class="selcted_title">Basic</span>
+            <span class="selcted_title">
+              {{ "planform.basic" | translate }}</span
+            >
           </div>
         </div>
         <div
@@ -79,7 +93,9 @@
           fxFlex.xl="15"
         >
           <div class="select_mode">
-            <span class="selcted_title">Standard</span>
+            <span class="selcted_title">
+              {{ "planform.standard" | translate }}</span
+            >
           </div>
         </div>
         <div
@@ -90,7 +106,9 @@
           fxFlex.xl="15"
         >
           <div class="select_mode">
-            <span class="selcted_title">Premium</span>
+            <span class="selcted_title">{{
+              "planform.premium" | translate
+            }}</span>
           </div>
         </div>
       </div>
@@ -103,10 +121,11 @@
           fxFlex.md="20"
           fxFlex.lg="30"
           fxFlex.xl="40"
-          class="mob_center"
-          >
-          <div class="pb-2">
-            <span class="selcted_sidetitle">Monthly price</span>
+        >
+          <div>
+            <span class="selcted_sidetitle">{{
+              "planform.monthlyPrice" | translate
+            }}</span>
           </div>
         </div>
         <div
@@ -167,8 +186,10 @@
           fxFlex.xl="40"
           class="mob_center"
         >
-          <div class="pb-2">
-            <span class="selcted_sidetitle">Video quality</span>
+          <div>
+            <span class="selcted_sidetitle">{{
+              "planform.videoQuality" | translate
+            }}</span>
           </div>
         </div>
         <div
@@ -179,7 +200,9 @@
           fxFlex.xl="15"
         >
           <div class="select_list">
-            <span class="selcted_subtitle">Good</span>
+            <span class="selcted_subtitle">{{
+              "planform.good" | translate
+            }}</span>
           </div>
         </div>
         <div
@@ -190,7 +213,9 @@
           fxFlex.xl="15"
         >
           <div class="select_list">
-            <span class="selcted_subtitle">Good</span>
+            <span class="selcted_subtitle">{{
+              "planform.good" | translate
+            }}</span>
           </div>
         </div>
         <div
@@ -201,7 +226,9 @@
           fxFlex.xl="15"
         >
           <div class="select_list">
-            <span class="selcted_subtitle">Better</span>
+            <span class="selcted_subtitle">
+              {{ "planform.better" | translate }}</span
+            >
           </div>
         </div>
         <div
@@ -212,7 +239,9 @@
           fxFlex.xl="15"
         >
           <div class="select_list">
-            <span class="selcted_subtitle">Best</span>
+            <span class="selcted_subtitle">{{
+              "planform.best" | translate
+            }}</span>
           </div>
         </div>
       </div>
@@ -229,8 +258,10 @@
           fxFlex.xl="40"
           class="mob_center"
         >
-          <div class="pb-2">
-            <span class="selcted_sidetitle">Resolution</span>
+          <div>
+            <span class="selcted_sidetitle">{{
+              "planform.resolution" | translate
+            }}</span>
           </div>
         </div>
         <div
@@ -291,8 +322,10 @@
           fxFlex.xl="40"
           class="mob_center"
         >
-          <div class="pb-2">
-            <span class="selcted_sidetitle">Devices you can use to watch</span>
+          <div>
+            <span class="selcted_sidetitle">
+              {{ "planform.devices" | translate }}</span
+            >
           </div>
         </div>
         <div
@@ -360,7 +393,7 @@
           fxFlex.xl="15"
         >
           <div class="select_list">
-            <mat-icon class="icon_select">tablet</mat-icon>
+            <mat-icon class="icon_select">table</mat-icon>
           </div>
         </div>
         <div
@@ -498,23 +531,14 @@
         </div>
       </div>
       <div class="end_des pt-5">
-        <span class="dec_text"
-          >HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability
-          subject to your internet service and device capabilities. Not all
-          content is available in all resolutions. See our Terms of Use for more
-          details.</span
-        >
+        <span class="dec_text">{{ "planform.infoTxt" | translate }}</span>
       </div>
       <div class="end_des pt-3 pb-4">
-        <span class="dec_text"
-          >Only people who live with you may use your account. Watch on 4
-          different devices at the same time with Premium, 2 with Standard, and
-          1 with Basic and Mobile.</span
-        >
+        <span class="dec_text"> {{ "planform.infoTxt2" | translate }}</span>
       </div>
       <div fxLayoutAlign="center center" class="pt-5 pb-5">
         <button mat-button class="btn-next" (click)="goToRegFormPage()">
-          Next
+          {{ "planform.nextBtnTxt" | translate }}
         </button>
       </div>
     </div>
