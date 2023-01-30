@@ -12,12 +12,14 @@ const TREE_DATA: FooterData[] = [
   { name: "Cookie Preferences"},
   { name: "Corporate Information"},
 ]
+
 @Component({
-  selector: 'app-signup-footer',
-  templateUrl: './signup-footer.component.html',
-  styleUrls: ['./signup-footer.component.scss']
+  selector: 'app-sign-in-footer',
+  templateUrl: './sign-in-footer.component.html',
+  styleUrls: ['./sign-in-footer.component.scss']
 })
-export class SignupFooterComponent implements OnInit {
+export class SignInFooterComponent implements OnInit {
+
   foterLists: any
 
   constructor() { }
@@ -25,5 +27,4 @@ export class SignupFooterComponent implements OnInit {
   ngOnInit(): void {
     this.foterLists = TREE_DATA
   }
-
 }

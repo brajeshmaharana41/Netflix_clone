@@ -1,1 +1,92 @@
-<p>payment-picker works!</p>
+<app-signup-header></app-signup-header>
+<div class="container borde_width pt-5" fxLayoutAlign="center start">
+    <div class="borde_widths">
+        <div class="chech_icons">
+            <div class="check_icon">
+                <mat-icon class="lock_icon">lock</mat-icon>
+            </div>
+        </div>
+        <div>
+            <div fxLayoutAlign="center center">
+                <span class="setp_font">STEP <span class="setp_font_num">3</span> OF
+                    <span class="setp_font_num">3</span></span>
+            </div>
+            <div class="pt-3" fxLayoutAlign="center center">
+                <span class="step_title">Choose how to pay </span>
+            </div>
+            <div class="pt-3 pb-3">
+                <div fxLayout="row" fxLayoutAlign="start center">
+                    <div class="p-2" style="text-align: center;">
+                        <span class="step_sub_title">Your payment is encrypted and you can change how you pay
+                            anytime.</span>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <div class="p-2">
+                        <span class="step_sub_titles">Secure for peace of mind.</span>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <div class="p-2">
+                        <span class="step_sub_titles">Cancel easily online.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-2">
+                <div mat-button class="btn-card" (click)="goToRegFormPage()" fxLayout="row"
+                    fxLayoutAlign="space-between center">
+                    <div fxLayout="row">
+                        <div class="pt-2">
+                            <span class="pay_btn_title">Credit or Debit Card</span>
+                        </div>
+                        <div class="p-1">
+                            <img src="../../../assets/VISA.png" alt="" width="40">
+                        </div>
+                        <div class="p-1"> 
+                            <img src="../../../assets/MASTERCARD.png" alt="" width="40">
+                        </div>
+                        <div class="p-1"> 
+                            <img src="../../../assets/AMEX.png" alt="" width="40">
+                        </div>
+                        <div class="p-1"> 
+                            <img src="../../../assets/DINERS@2x.png" alt="" width="40">
+                        </div>
+                    </div>
+                    <div class="pt-1">
+                        <mat-icon class="pay_btn_icon">keyboard_arrow_right</mat-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-2">
+                <div mat-button class="btn-card" (click)="goToRegFormPage()" fxLayout="row"
+                    fxLayoutAlign="space-between center">
+                    <div fxLayout="row">
+                        <div class="pt-2">
+                            <span class="pay_btn_title">UPI AutoPay</span>
+                        </div>
+                        <div class="p-1">
+                            <img src="../../../assets/BHIM.png" alt="" width="40">
+                        </div>
+                        <div class="p-1"> 
+                            <img src="../../../assets/PAYTM.png" alt="" width="40">
+                        </div>
+                        <div class="p-1"> 
+                            <img src="../../../assets/PHONEPE.png" alt="" width="40">
+                        </div>
+                        <div class="p-1"> 
+                            <img src="../../../assets/AMAZONPAY@2x.png" alt="" width="40">
+                        </div>
+                        <div class="p-1"> 
+                            <img src="../../../assets/GPAY@2x.png" alt="" width="40">
+                        </div>
+                    </div>
+                    <div class="pt-1">
+                        <mat-icon class="pay_btn_icon">keyboard_arrow_right</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-signup-footer></app-signup-footer>

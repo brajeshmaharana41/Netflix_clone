@@ -13,6 +13,6 @@ export class PlanFormComponent implements OnInit {
   ngOnInit(): void {
   }
   goToRegFormPage() {
-    this._router.navigate(['signup/choose-plan']);
+    this._router.navigate(['signup/payment-picker']);
   }
 }

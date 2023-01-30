@@ -1,0 +1,102 @@
+.header_toolbar{
+    background: transparent;
+    height: 80px;
+    padding-left: 50px;
+}
+.netflix_logo{
+    width: 100px;
+}
+.logo_padding{
+    padding-right: 20px;
+}
+
+.btn_sign_in{
+  background-color: #e50914;
+  font-size: 18px;
+  font-weight: 500;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+.menu_btn{
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  width: 100%;
+}
+.lang_bg{
+  font-size: 20px;
+}
+.list_title{
+    color: #e5e5e5;
+    cursor: pointer;
+    font-size: 15px;
+}
+.list_title:hover{
+    color: #ffffff;
+    font-weight: 500;
+}
+.list_padding{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btn_icon{
+    color: #ffffff;
+}
+::ng-deep .Menu_bg{
+    background-color:#000000;
+    width: 250px;
+  }
+  .menu_item{
+    color: #ffffff;
+    cursor: pointer;
+  }
+  .menu_items{
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+  }
+  .menu_items:hover{
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+  }
+  .menu_item:hover{
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  .divider{
+    background-color: #e5e5e5;
+  }
+@media only screen and (max-width: 600px) and (min-width: 200px)  {
+    .netflix_logo{
+      width: 100px;
+    }
+    .btn_sign_in{
+      background-color: #e50914;
+      font-size: 13px;
+      font-weight: 500;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+    }
+    .menu_btn{
+      background: transparent;
+      border: 1px solid #ffffff;
+      font-size: 12px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px;
+      width: 100%;
+    }
+}

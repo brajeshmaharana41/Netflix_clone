@@ -23,7 +23,9 @@ export class HeaderComponent implements OnInit {
   switchLanguage(lang: string) {
     this._commonService.switchLanguage(lang);
   }
-
+  signIn(){
+    this.router.navigate(['in/login'])
+  }
   signOut() {
     localStorage.clear();
     this.router.navigate(['in']);

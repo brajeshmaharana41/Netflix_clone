@@ -1,1 +1,58 @@
-<p>login works!</p>
+<div>
+    <div>
+        <div class="bg_img">
+            <img class="bg__image" src="../../../assets/sign_in_bg.jpg" srcset="https://assets.nflxext.com/ffe/siteui/vlv3/e451379a-dd0a-4657-b530-4ca4c0cb2aee/430b26cf-b6e1-473e-a55d-0abc03631481/IN-en-20230123-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/e451379a-dd0a-4657-b530-4ca4c0cb2aee/430b26cf-b6e1-473e-a55d-0abc03631481/IN-en-20230123-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/e451379a-dd0a-4657-b530-4ca4c0cb2aee/430b26cf-b6e1-473e-a55d-0abc03631481/IN-en-20230123-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w" alt="" />
+        </div>
+        <!-- <app-header></app-header> -->
+        <app-sign-in-header></app-sign-in-header>
+        <div fxLayoutAlign="center center" class="bg_data pb-5">
+            <div class="bg_signup">
+                <div class="signIn_back">
+                    <div class="pt-2">
+                        <span class="signin_title">Sign In</span>
+                    </div>
+                    <div class="pt-4 pb-2">
+                        <div class="input_bg">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Email or phone number</mat-label>
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                   <div class="pt-2">
+                        <div class="input_bg">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" class="">
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" class="password_hide">
+                                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>                            
+                            </mat-form-field>
+                        </div>
+                   </div>
+                   <div class="pt-5">
+                        <button mat-button class="btn_signin" (click)="goToHomePage()">Sign In</button>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <div>
+                            <mat-checkbox class="need_help">Remember me</mat-checkbox>
+                        </div>
+                        <div>
+                            <span class="need_help">Need help ?</span>
+                        </div>
+                    </div>
+                    <div class="p-1">
+                        <div class="pt-5">
+                            <span class="new_font">New to Netflix? <span class="signUp" (click)="goTosignUpPage()"> Sign up now. </span></span>
+                        </div>
+                        <div class="pt-3">
+                            <span class="new_des">This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-sign-in-footer></app-sign-in-footer>
+        <!-- <app-footer></app-footer> -->
+    </div>
+</div>

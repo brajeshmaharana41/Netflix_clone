@@ -1,7 +1,7 @@
 .borde_width{
     // border: 1px solid #000;
     height: fit-content;
-    width: 60%;
+    width: 70%;
     padding-top: 20px;
 }
 .borde_widths{
@@ -62,7 +62,6 @@
 }
 .mode_list{
     height: 50px;
-    // border-bottom: 1px solid #000;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -114,5 +113,23 @@
     }
     .select_list{
         width: 100px;
+    }
+}
+@media only screen and (max-width: 960px) and (min-width: 200px)  {
+    .mob_center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 760px) and (min-width: 200px)  {
+    .select_mode{
+        width: 90px;
+        height: 90px;
+    }
+    .selcted_title{
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
     }
 }

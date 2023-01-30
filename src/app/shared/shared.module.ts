@@ -12,6 +12,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HomeHeaderComponent } from './component/home-header/home-header.component';
+import { HomeFooterComponent } from './component/home-footer/home-footer.component';
 
 @NgModule({
   declarations: [FooterComponent, HeaderComponent],

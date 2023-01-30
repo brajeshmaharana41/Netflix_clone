@@ -1,0 +1,73 @@
+.borde_width{
+    // border: 1px solid #000;
+    height: 100%;
+}
+.borde_widths{
+    text-align: start;
+    width: 35%;
+}
+.setp_font{
+    font-size: 13px;
+    .setp_font_num{
+        font-weight: 600;
+    }
+}
+.step_title{
+    font-size: 32px;
+    line-height: 35px;
+    font-weight: 500;
+}
+.step_sub_title{
+    font-size: 18px;
+}
+.step_sub_titles{
+    font-size: 18px;
+    font-weight: 600;
+}
+.icon_done{
+    color: #e50914;
+    font-size: 25px;
+    font-weight: 500;
+}
+.check_icon{
+    border: 3px solid #e50914;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lock_icon{
+    color: #e50914;
+}
+.chech_icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+.btn-card{
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    width: 100%;
+    height: 64px;
+    padding: 10px;
+}
+.pay_btn_title{
+    font-size: 15px;
+    font-weight: 400;
+}
+.pay_btn_icon{
+    font-size: 35px;
+    color: #ccc;
+}
+@media only screen and (max-width: 600px) and (min-width: 200px)  {
+    .borde_widths{
+        padding: 15px;
+        text-align: start;
+        width: 100%;
+    }
+}

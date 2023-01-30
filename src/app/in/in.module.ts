@@ -23,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SignInHeaderComponent } from '../shared/component/sign-in-header/sign-in-header.component';
+import { SignInFooterComponent } from '../shared/component/sign-in-footer/sign-in-footer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     LoginComponent,
     LoginHelpComponent,
     ForgotEmailPasswordComponent,
+    SignInHeaderComponent, 
+    SignInFooterComponent
   ],
   imports: [
     CommonModule,

@@ -12,6 +12,11 @@ const routes: Routes = [
     component: GetStartedComponent,
   },
   {
+    path: 'home',
+    loadChildren: () =>
+      import('../home/home.module').then((m) => m.HomeModule),
+  },
+  {
     path: 'signup',
     loadChildren: () =>
       import('../signup/signup.module').then((m) => m.SignupModule),
@@ -37,6 +42,7 @@ const routes: Routes = [
     redirectTo: 'get-started',
     pathMatch: 'full',
   },
+  
 ];
 
 @NgModule({

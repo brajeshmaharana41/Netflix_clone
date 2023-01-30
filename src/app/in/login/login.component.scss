@@ -1,0 +1,93 @@
+.bg_img{
+    width: 100%;
+    // height: 100%;
+    position: absolute;
+    z-index: -2;
+    background-color: #000000;    
+    .bg__image{
+        width: 100%;
+        height: 1024px;
+        opacity: 0.25;
+    }
+}
+.bg_data{
+    // height: 650px;
+    width: 100%;
+    // border: 1px solid #ffffff;
+  }
+  .signIn_back{
+    // border: 1px solid #ffff;
+    height: 500px;
+    width: 350px;
+  }
+  .bg_signup{
+    height: 625px;
+    width: 450px;
+    background-color: #000000;
+    // opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .signin_title{
+      color: #fff;
+      font-size: 32px;
+      font-weight: 500;
+    }
+    
+    .input_bg{
+      width: 100%;
+      height: 55px;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+    .btn_signin{
+      width: 100%;
+      height: 50px;
+      background-color: #e50914;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+    }
+}
+.example-full-width{
+  width: 100%;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  .password_hide{
+    font-size: 20px;
+  }
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+.need_help{
+  color: #b3b3b3;
+  font-size: 13px;
+  font-weight: 400;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #b3b3b3;
+}
+.new_font{
+  color: #737373;
+  font-size: 16px;
+  font-weight: 400;
+  // margin-top: 16px;
+  .signUp{
+    color: #fff;
+    cursor: pointer;
+  }
+  .signUp:hover{
+    color: #fff;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+.new_des{
+  color: #737373;
+  font-size: 14px;
+  font-weight: 400;
+}
