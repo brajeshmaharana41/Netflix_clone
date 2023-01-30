@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goToSignIn() {
-    this.router.navigate(['in']);
+    this.router.navigate(['in/login']);
   }
 
   signOut() {
