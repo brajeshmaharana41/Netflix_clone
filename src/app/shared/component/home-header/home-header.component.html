@@ -1,51 +1,94 @@
 <mat-toolbar class="header_toolbar" fxLayout="row">
-    <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" fxLayoutAlign="start center">
-        <div class="logo_padding"><img src="assets/netflix-logo.png" alt="" class="netflix_logo" /></div>
-        <div fxLayout="row" fxLayoutAlign="start center">
-            <div class="list_padding">
-                <span class="list_title">Home</span>
-            </div>
-            <div class="list_padding">
-                <span class="list_title">TV Show</span>
-            </div>
-            <div class="list_padding">
-                <span class="list_title">Movies</span>
-            </div>
-            <div class="list_padding">
-                <span class="list_title">New & Popular</span>
-            </div>
-            <div class="list_padding">
-                <span class="list_title">MyList</span>
-            </div>
-            <div class="list_padding">
-                <span class="list_title">Browse By Languages</span>
-            </div>
-        </div>
+  <div
+    fxFlex.xs="50"
+    fxFlex.sm="50"
+    fxFlex.md="50"
+    fxFlex.lg="50"
+    fxFlex.xl="50"
+    fxLayoutAlign="start center"
+  >
+    <div class="logo_padding">
+      <img src="assets/netflix-logo.png" alt="" class="netflix_logo" />
     </div>
-    <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" fxLayoutAlign="end center">
-        <div fxLayout="row">
-            <div>
-                <button mat-icon-button class="btn_icon" aria-label="Example icon button with a menu icon">
-                    <mat-icon>search</mat-icon>
-                </button>
-            </div>
-            <div>
-                <button mat-icon-button class="btn_icon" aria-label="Example icon button with a menu icon">
-                    <mat-icon>notifications_none</mat-icon>
-                </button>
-            </div>
-            <div>
-                <button mat-icon-button [matMenuTriggerFor]="menu" class="btn_icon"><mat-icon>mood</mat-icon></button>
-                <mat-menu #menu="matMenu" class="Menu_bg">
-                    <div mat-menu-item class="menu_item"><mat-icon class="btn_icon" style="font-size: 22px;">edit</mat-icon>
-                        Manage Profile</div>
-                        <div mat-menu-item class="menu_item"><mat-icon class="btn_icon" style="font-size: 22px;">g_translate</mat-icon>
-                            Transfer Profile</div>
-                            <mat-divider class="divider"></mat-divider>
-                            <div mat-menu-item class="menu_items" (click)="signOut()">Sign Out of Netflix</div>
-                                
-                </mat-menu>
-            </div>
-        </div>
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <div class="list_padding">
+        <span class="list_title" (click)="selectedCategory('home')">Home</span>
+      </div>
+      <div class="list_padding">
+        <span class="list_title" (click)="selectedCategory('tvshow')"
+          >TV Show</span
+        >
+      </div>
+      <div class="list_padding">
+        <span class="list_title" (click)="selectedCategory('movie')"
+          >Movies</span
+        >
+      </div>
+      <div class="list_padding">
+        <span class="list_title" (click)="selectedCategory('newpopular')"
+          >New & Popular</span
+        >
+      </div>
+      <div class="list_padding">
+        <span class="list_title" (click)="selectedCategory('mylist')"
+          >MyList</span
+        >
+      </div>
+      <div class="list_padding">
+        <span class="list_title" (click)="selectedCategory('browselang')"
+          >Browse By Languages</span
+        >
+      </div>
     </div>
+  </div>
+  <div
+    fxFlex.xs="50"
+    fxFlex.sm="50"
+    fxFlex.md="50"
+    fxFlex.lg="50"
+    fxFlex.xl="50"
+    fxLayoutAlign="end center"
+  >
+    <div fxLayout="row">
+      <div>
+        <button
+          mat-icon-button
+          class="btn_icon"
+          aria-label="Example icon button with a menu icon"
+        >
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+      <div>
+        <button
+          mat-icon-button
+          class="btn_icon"
+          aria-label="Example icon button with a menu icon"
+        >
+          <mat-icon>notifications_none</mat-icon>
+        </button>
+      </div>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="btn_icon">
+          <mat-icon>mood</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" class="Menu_bg">
+          <div mat-menu-item class="menu_item">
+            <mat-icon class="btn_icon" style="font-size: 22px">edit</mat-icon>
+            Manage Profile
+          </div>
+          <div mat-menu-item class="menu_item">
+            <mat-icon class="btn_icon" style="font-size: 22px"
+              >g_translate</mat-icon
+            >
+            Transfer Profile
+          </div>
+          <mat-divider class="divider"></mat-divider>
+          <div mat-menu-item class="menu_items" (click)="signOut()">
+            Sign Out of Netflix
+          </div>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
 </mat-toolbar>

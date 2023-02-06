@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-header',
   templateUrl: './home-header.component.html',
-  styleUrls: ['./home-header.component.scss']
+  styleUrls: ['./home-header.component.scss'],
 })
 export class HomeHeaderComponent implements OnInit {
+  @Output() selectCategory = new EventEmitter<string>();
+  constructor(private router: Router) {}
 
-  constructor( private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   signOut() {
     localStorage.clear();
     this.router.navigate(['in']);
+  }
+
+  selectedCategory(category: string) {
+    this.selectCategory.emit(category);
   }
 }
