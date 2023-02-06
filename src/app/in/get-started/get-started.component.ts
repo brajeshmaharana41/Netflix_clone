@@ -13,6 +13,7 @@ import {
 
 import { TranslateService } from '@ngx-translate/core';
 import { Constant } from 'src/app/shared/core/constants';
+import { AWSCognitoService } from 'src/app/shared/service/aws-cognito.service';
 
 @Component({
   selector: 'app-get-started',
@@ -29,7 +30,8 @@ export class GetStartedComponent implements OnInit {
     private _router: Router,
     private _commonService: CommonService,
     private formBuilder: FormBuilder,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private awsCognitoService: AWSCognitoService
   ) {
     this._commonService.translateLanguage.subscribe((res: string) => {
       this.translate.use(res);
@@ -70,13 +72,13 @@ export class GetStartedComponent implements OnInit {
   goToSignUpPage() {
     localStorage.setItem(Constant.ACTIVEEMAIL, this.form.value.email);
     // if account not created
-    this._router.navigate(['signup']);
+    // this._router.navigate(['signup']);
 
     //if account created
     // this._router.navigate(['signup/password']);
 
     //if subscribed
-    // this._router.navigate(['in']);
+    this._router.navigate(['in/login']);
   }
 
   goToChooseFormPage() {

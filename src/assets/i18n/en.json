@@ -124,6 +124,19 @@
         "questionTxt":"Questions? Contact us.",
         "faq":"FAQ",
         "helpCenter":"Help Centre"
+    },
+    "login":{
+        "signIn":"Sign In",
+        "emailOrPhone":"Email or phone number",
+        "password":"Password",
+        "rememberMe":"Remember me",
+        "needHelp":"Need help?",
+        "newToNetflix":"New to Netflix?",
+        "signUpNow":"Sign up now",
+        "emailPassRequiredError":"Please enter a valid email address or phone number.",
+        "emailPatternError":"Please enter a valid email address.",
+        "passwordPatternError":"Your password must contain between 4 and 60 characters."
+        
     }
 
 

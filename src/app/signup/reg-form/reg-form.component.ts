@@ -9,6 +9,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { AWSCognitoService } from 'src/app/shared/service/aws-cognito.service';
 
 @Component({
   selector: 'app-reg-form',
@@ -19,7 +20,11 @@ export class RegFormComponent implements OnInit {
   email = localStorage.getItem(Constant.ACTIVEEMAIL);
   password = localStorage.getItem(Constant.ACTIVEPASSWORD);
   form: FormGroup | undefined;
-  constructor(private _router: Router, private formBuilder: FormBuilder) {}
+  constructor(
+    private _router: Router,
+    private formBuilder: FormBuilder,
+    private awsCognitoService: AWSCognitoService
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -44,9 +49,21 @@ export class RegFormComponent implements OnInit {
     });
   }
 
+  get formpassword() {
+    return this.form.value.password;
+  }
+
+  get formemail() {
+    return this.form.value.email;
+  }
   onSubmit() {
-    localStorage.setItem(Constant.ACTIVEPASSWORD, this.form.value.password);
-    this.goToPlanChoosePage();
+    this.awsCognitoService
+      .signIn({ email: this.formemail, password: this.formpassword })
+      .then((data) => {
+        console.log(data);
+        // localStorage.setItem(Constant.ACTIVEPASSWORD, this.form.value.password);
+        // this.goToPlanChoosePage();
+      });
   }
   goToPlanChoosePage() {
     this._router.navigate(['signup/choose-plan']);

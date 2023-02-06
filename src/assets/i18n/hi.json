@@ -125,5 +125,17 @@
         "questionTxt":"कोई सवाल है? हमसे संपर्क करें.",
         "faq":"FAQ",
         "helpCenter":"सहायता केंद्र"
+    },
+    "login":{
+        "signIn":"साइन इन करें",
+        "emailOrPhone":"ईमेल या फ़ोन नंबर",
+        "password":"पासवर्ड",
+        "rememberMe":"याद रखें",
+        "needHelp":"आपको मदद चाहिए?",
+        "newToNetflix":"Netflix पर नए हैं?",
+        "signUpNow":"अभी साइन अप करें.",
+        "emailPassRequiredError":"Please enter a valid email address or phone number.",
+        "emailPatternError":"Please enter a valid email address.",
+        "passwordPatternError":"Your password must contain between 4 and 60 characters."
     }
 }
