@@ -40,11 +40,11 @@
         *ngFor="let imagesData of imagesDatas; let i=index"
        
       >
-        <div (mouseover)="action(i,true)"
-        (mouseout)="action(i,false)" >
-          <img src="{{imagesData.img}}" alt="" class="list_movie"/>
+        <div >
+          <img  (mouseenter)="action(i,true)" src="{{imagesData.img}}" alt="" class="list_movie"/>
         </div>
-        <div   (click)="goToPage('video-player')"
+        <div  (click)="goToPage('video-player')"
+        (mouseleave)="action(i,false)"
         *ngIf="imagesData.show" class="focas_data" style="position: absolute">
           <div>
             <app-jwplayer ></app-jwplayer>
@@ -94,7 +94,7 @@
                 <span class="focas_subtitles">HD</span>
               </div>
             </div>
-            <div fxLayout="row" fxLayoutAlign="start center" class="pb-4">
+            <div fxLayout="row" fxLayoutAlign="start center" class="pb-2">
               <div class="p-2">
                 <span class="focas_titles">Gritty</span>
               </div>

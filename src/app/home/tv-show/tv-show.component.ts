@@ -44,7 +44,7 @@ export class TvShowComponent implements OnInit {
         this.goToPage('my-list');
         break;
       case 'newpopular':
-        this.goToPage('my-list');
+        this.goToPage('new-popular');
         break;
       case 'movie':
         this.goToPage('movie');

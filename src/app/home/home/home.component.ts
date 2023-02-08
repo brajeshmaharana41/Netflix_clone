@@ -53,12 +53,12 @@ export class HomeComponent implements OnInit {
       case 'tvshow':
         this.goToPage('tv-show');
         break;
+      case 'newpopular':
+        this.goToPage('new-popular');
+        break;
       case 'mylist':
         this.goToPage('my-list');
-        break;
-      case 'newpopular':
-        this.goToPage('my-list');
-        break;
+        break;  
       case 'movie':
         this.goToPage('movie');
         break;
