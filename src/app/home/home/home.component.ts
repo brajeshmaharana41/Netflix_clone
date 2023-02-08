@@ -31,17 +31,17 @@ export class HomeComponent implements OnInit {
     this.changeTexts = false;
     this.imagesDatas = this.MoveData;
   }
-  action(key: any){
-    this.MoveData[key].show=!this.MoveData[key].show;
-    this.show=key;
+  action(key: any,type:boolean){
+    this.MoveData[key].show=type;
+  //   this.show=key;
 
-    let updatedDatat = this.MoveData.map((val,index)=>{
+  //   let updatedDatat = this.MoveData.map((val,index)=>{
 
-      return key == index  ? {...val,show:true} :{...val,show:false}
+  //     return key == index  ? {...val,show:true} :{...val,show:false}
 
-   })
-    console.log('action',updatedDatat)
-    this.MoveData=updatedDatat;
+  //  })
+    console.log('action',type)
+  //   this.MoveData=updatedDatat;
   }
 
   goToTheCategory(pageName: string) {
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  goToPage(route) {
+  goToPage(route: string) {
     this._router.navigate([`home/${route}`]);
   }
 }

@@ -6,6 +6,7 @@ import { MovieComponent } from './movie/movie.component';
 import { MyListComponent } from './my-list/my-list.component';
 import { NewpopularComponent } from './newpopular/newpopular.component';
 import { TvShowComponent } from './tv-show/tv-show.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'new-popular',
     component: NewpopularComponent,
+  },
+  {
+    path: 'video-player',
+    component: VideoPlayerComponent,
   },
   {
     path: '',

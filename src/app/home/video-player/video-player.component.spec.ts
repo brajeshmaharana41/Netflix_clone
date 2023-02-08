@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JwplayerComponent } from './jwplayer.component';
+import { VideoPlayerComponent } from './video-player.component';
 
-describe('JwplayerComponent', () => {
-  let component: JwplayerComponent;
-  let fixture: ComponentFixture<JwplayerComponent>;
+describe('VideoPlayerComponent', () => {
+  let component: VideoPlayerComponent;
+  let fixture: ComponentFixture<VideoPlayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JwplayerComponent ]
+      declarations: [ VideoPlayerComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(JwplayerComponent);
+    fixture = TestBed.createComponent(VideoPlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

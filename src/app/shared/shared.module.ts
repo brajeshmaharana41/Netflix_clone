@@ -17,7 +17,7 @@ import { HomeFooterComponent } from './component/home-footer/home-footer.compone
 import { JwplayerComponent } from './component/jwplayer/jwplayer.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent],
+  declarations: [FooterComponent, HeaderComponent, JwplayerComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -34,7 +34,7 @@ import { JwplayerComponent } from './component/jwplayer/jwplayer.component';
       },
     }),
   ],
-  exports: [FooterComponent, HeaderComponent],
+  exports: [FooterComponent, HeaderComponent, JwplayerComponent],
 })
 export class SharedModule {}
 
