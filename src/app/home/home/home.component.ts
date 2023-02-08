@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  goToPage(route) {
+  goToPage(route: string) {
     this._router.navigate([`home/${route}`]);
   }
 }

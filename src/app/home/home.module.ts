@@ -16,6 +16,7 @@ import { MovieComponent } from './movie/movie.component';
 import { NewpopularComponent } from './newpopular/newpopular.component';
 import { MyListComponent } from './my-list/my-list.component';
 import { BrowseByLanguageComponent } from './browse-by-language/browse-by-language.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { BrowseByLanguageComponent } from './browse-by-language/browse-by-langua
     NewpopularComponent,
     MyListComponent,
     BrowseByLanguageComponent,
+    VideoPlayerComponent,
   ],
   imports: [
     CommonModule,

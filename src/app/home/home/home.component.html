@@ -43,12 +43,18 @@
         <div *ngIf="!changeText">
           <img src="assets/1.jpg" alt="" class="list_movie" />
         </div>
-        <div *ngIf="changeText" class="focas_data" style="position: absolute">
+        <div
+          (click)="goToPage('video-player')"
+          *ngIf="changeText"
+          class="focas_data"
+          style="position: absolute"
+        >
           <div>
             <!-- <img src="assets/1.jpg" alt="" class="list_movies"> -->
-            <video class="list_movies" autoplay="autoplay" muted>
+            <app-jwplayer class="list_movies"></app-jwplayer>
+            <!-- <video class="list_movies" autoplay="autoplay" muted>
               <source src="assets/Khatal.mp4" type="video/mp4" />
-            </video>
+            </video> -->
           </div>
           <div class="focas_bg">
             <div fxLayout="row" fxLayoutAlign="space-between center">
