@@ -1,18 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 interface MovieImage {
+  show?: boolean;
   img: string;
 }
 
-const MoveData: MovieImage[] = [
-  { img: 'assets/1.jpg' },
-  { img: 'assets/5.jpg' },
-  { img: 'assets/7.jpg' },
-  { img: 'assets/9.jpg' },
-  { img: 'assets/8.jpg' },
-  { img: 'assets/1.jpg' },
-  { img: 'assets/5.jpg' },
-];
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -23,11 +16,32 @@ export class HomeComponent implements OnInit {
   changeTexts: boolean;
   imagesDatas: any;
   constructor(private _router: Router) {}
-
+  MoveData: MovieImage[] = [
+    { img: 'assets/1.jpg', show:false  },
+    { img: 'assets/5.jpg', show:false },
+    { img: 'assets/7.jpg', show:false },
+    { img: 'assets/9.jpg', show:false },
+    { img: 'assets/8.jpg', show:false  },
+    { img: 'assets/1.jpg', show:false },
+    { img: 'assets/5.jpg', show:false },
+  ];
+  show: string;
   ngOnInit(): void {
     this.changeText = false;
     this.changeTexts = false;
-    this.imagesDatas = MoveData;
+    this.imagesDatas = this.MoveData;
+  }
+  action(key: any){
+    this.MoveData[key].show=!this.MoveData[key].show;
+    this.show=key;
+
+    let updatedDatat = this.MoveData.map((val,index)=>{
+
+      return key == index  ? {...val,show:true} :{...val,show:false}
+
+   })
+    console.log('action',updatedDatat)
+    this.MoveData=updatedDatat;
   }
 
   goToTheCategory(pageName: string) {

@@ -1,1 +1,431 @@
-<p>tv-show works!</p>
+<div>
+    <div class="bg_img">
+      <img class="bg__image" src="../../../assets/Tv_show.webp" alt="" />
+    </div>
+    <app-home-header (selectCategory)="goToTheCategory($event)"></app-home-header>
+    <div>
+        <mat-toolbar class="header_toolbar" fxLayout="row">
+            <div
+              fxFlex.xs="50"
+              fxFlex.sm="50"
+              fxFlex.md="50"
+              fxFlex.lg="50"
+              fxFlex.xl="50"
+              fxLayoutAlign="start center"
+              class="titles_padding"
+            >
+                <div>
+                    <span class="titles_Header">TV Shows</span>
+                </div>
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Geners</mat-label>
+                        <mat-select>
+                          <mat-option [value]="1">
+                            Tv Shows
+                          </mat-option>
+                          <mat-option [value]="2">
+                            Movies
+                          </mat-option><mat-option [value]="3">
+                            Tv Shows
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+            <div
+              fxFlex.xs="50"
+              fxFlex.sm="50"
+              fxFlex.md="50"
+              fxFlex.lg="50"
+              fxFlex.xl="50"
+              fxLayoutAlign="end center"
+            >
+              <div fxLayout="row">
+                <div class="p-2">
+            
+                </div>
+                <div class="p-2">
+                    <mat-button-toggle-group class="btn_group">
+                        <mat-button-toggle value="bold"><mat-icon class="btn_icons_group"> format_align_left</mat-icon>
+                        </mat-button-toggle>
+                        <mat-button-toggle value="underline"><mat-icon class="btn_icons_group">view_module</mat-icon>
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>                
+                </div>
+              </div>
+            </div>
+          </mat-toolbar>          
+    </div>
+    <div class="bg_homes">
+      <div fxLayoutAlign="start center" class="movie_title">
+        <div class="movie_title_data">
+          <div class="pb-2">
+            <img src="assets/Priets.webp" alt="" />
+          </div>
+          <div class="pt-2 pb-3">
+            <span class="dec_mov"
+              >This crime drama series featuring Cillian Murphy and Sam Neill is
+              loosely based on a true story.</span
+            >
+          </div>
+          <div fxLayout="row">
+            <div class="p-2">
+              <button mat-button class="btn_play">
+                <mat-icon class="btn_icon">play_arrow</mat-icon>Play
+              </button>
+            </div>
+            <div class="p-2">
+              <button mat-button class="btn_more">
+                <mat-icon class="btn_icon">info</mat-icon>More Info
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg_home">
+      <div class="pt-3 pb-3">
+        <span class="movie_types">Made In India</span>
+      </div>
+      <div fxLayout="row" class="scroll">
+        <div
+          class="p-1"
+          (mouseover)="changeText = true"
+          (mouseout)="changeText = false"
+        >
+          <div *ngIf="!changeText">
+            <img src="assets/1.jpg" alt="" class="list_movie" />
+          </div>
+          <div *ngIf="changeText" class="focas_data" style="position: absolute">
+            <div>
+              <!-- <img src="assets/1.jpg" alt="" class="list_movies"> -->
+              <video class="list_movies" autoplay="autoplay" muted>
+                <source src="assets/Khatal.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="focas_bg">
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="row" class="pt-3 pb-1">
+                  <div class="p-2">
+                    <button mat-mini-fab class="mini_btn">
+                      <mat-icon>play_arrow</mat-icon>
+                    </button>
+                  </div>
+                  <div class="p-2">
+                    <button mat-mini-fab class="mini_btn">
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </div>
+                  <div class="p-2">
+                    <button mat-mini-fab class="mini_btn">
+                      <mat-icon>thumb_up_alt</mat-icon>
+                    </button>
+                  </div>
+                </div>
+                <div class="pt-3 pb-1">
+                  <div class="p-2">
+                    <button mat-mini-fab class="mini_btn">
+                      <mat-icon>expand_more</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <div class="p-2">
+                  <span class="focas_title">98% Match</span>
+                </div>
+                <div class="focas_bord p-2">
+                  <span class="focas_subtitle">U/A 13+</span>
+                </div>
+                <div class="p-2">
+                  <span class="focas_titles">7 Episodes</span>
+                </div>
+                <div class="focas_bords p-2">
+                  <span class="focas_subtitles">HD</span>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" class="pb-4">
+                <div class="p-2">
+                  <span class="focas_titles">Gritty</span>
+                </div>
+                <div class="pb-3">
+                  <span class="dot">.</span>
+                </div>
+                <div class="p-2">
+                  <span class="focas_titles">True Crime</span>
+                </div>
+                <div class="pb-3">
+                  <span class="dot">.</span>
+                </div>
+                <div class="p-2">
+                  <span class="focas_titles">Corruption</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="p-1">
+                      <img src="assets/1.jpg" alt="" class="list_movie">
+                  </div> -->
+        <div class="p-1">
+          <img src="assets/5.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/6.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/7.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/8.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/9.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/1.jpg" alt="" class="list_movie" />
+        </div>
+      </div>
+    </div>
+    <div class="bg_color">
+      <div class="pt-3 pb-3">
+        <span class="movie_types">Trending Now</span>
+      </div>
+      <div fxLayout="row" class="scroll">
+        <!-- <div class="p-1">
+                      <img src="assets/6.jpg" alt="" class="list_movie">
+                  </div> -->
+        <div
+          class="p-1"
+          (mouseover)="changeTexts = true"
+          (mouseout)="changeTexts = false"
+        >
+          <div *ngIf="!changeTexts">
+            <img src="assets/6.jpg" alt="" class="list_movie" />
+          </div>
+          <div *ngIf="changeTexts" class="focas_datas" style="position: absolute">
+            <div>
+              <img src="assets/6.jpg" alt="" class="list_movies" />
+            </div>
+            <div class="focas_bg">
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="row" class="pt-3 pb-1">
+                  <div class="p-2">
+                    <button mat-mini-fab class="mini_btn">
+                      <mat-icon>play_arrow</mat-icon>
+                    </button>
+                  </div>
+                  <div class="p-2">
+                    <button mat-mini-fab class="mini_btn">
+                      <mat-icon>add</mat-icon>
+                    </button>
+                  </div>
+                  <div class="p-2">
+                    <button mat-mini-fab class="mini_btn">
+                      <mat-icon>thumb_up_alt</mat-icon>
+                    </button>
+                  </div>
+                </div>
+                <div class="pt-3 pb-1">
+                  <div class="p-2">
+                    <button mat-mini-fab class="mini_btn">
+                      <mat-icon>expand_more</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center">
+                <div class="p-2">
+                  <span class="focas_title">98% Match</span>
+                </div>
+                <div class="focas_bord p-2">
+                  <span class="focas_subtitle">U/A 13+</span>
+                </div>
+                <div class="p-2">
+                  <span class="focas_titles">7 Episodes</span>
+                </div>
+                <div class="focas_bords p-2">
+                  <span class="focas_subtitles">HD</span>
+                </div>
+              </div>
+              <div fxLayout="row" fxLayoutAlign="start center" class="pb-4">
+                <div class="p-2">
+                  <span class="focas_titles">Gritty</span>
+                </div>
+                <div class="pb-3">
+                  <span class="dot">.</span>
+                </div>
+                <div class="p-2">
+                  <span class="focas_titles">True Crime</span>
+                </div>
+                <div class="pb-3">
+                  <span class="dot">.</span>
+                </div>
+                <div class="p-2">
+                  <span class="focas_titles">Corruption</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-1">
+          <img src="assets/9.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/8.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/5.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/1.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/7.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/9.jpg" alt="" class="list_movie" />
+        </div>
+      </div>
+  
+      <div class="pt-3 pb-3">
+        <span class="movie_types">DC Comies</span>
+      </div>
+      <div fxLayout="row" class="scroll">
+        <div class="p-1">
+          <img src="assets/8.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/5.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/6.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/9.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/8.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/1.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/7.jpg" alt="" class="list_movie" />
+        </div>
+      </div>
+  
+      <div class="pt-3 pb-3">
+        <span class="movie_types">US TV Shows</span>
+      </div>
+      <div fxLayout="row" class="scroll">
+        <div class="p-1">
+          <img src="assets/1.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/5.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/6.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/7.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/8.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/9.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/1.jpg" alt="" class="list_movie" />
+        </div>
+      </div>
+    </div>
+    <div class="bg_color">
+      <div class="pt-3 pb-3">
+        <span class="movie_types">My List</span>
+      </div>
+      <div fxLayout="row" class="scroll">
+        <div class="p-1">
+          <img src="assets/6.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/9.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/8.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/5.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/1.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/7.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/9.jpg" alt="" class="list_movie" />
+        </div>
+      </div>
+  
+      <div class="pt-3 pb-3">
+        <span class="movie_types">Popular on Netflix</span>
+      </div>
+      <div fxLayout="row" class="scroll">
+        <div class="p-1">
+          <img src="assets/8.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/9.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/7.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/1.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/9.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/8.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/6.jpg" alt="" class="list_movie" />
+        </div>
+      </div>
+  
+      <div class="pt-3 pb-3">
+        <span class="movie_types">New releases</span>
+      </div>
+      <div fxLayout="row" class="scroll">
+        <div class="p-1">
+          <img src="assets/5.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/8.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/6.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/7.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/1.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/5.jpg" alt="" class="list_movie" />
+        </div>
+        <div class="p-1">
+          <img src="assets/6.jpg" alt="" class="list_movie" />
+        </div>
+      </div>
+      <!-- <app-footer></app-footer> -->
+      <app-home-footer></app-home-footer>
+    </div>
+  </div>
+  
