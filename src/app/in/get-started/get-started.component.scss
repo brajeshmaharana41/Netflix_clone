@@ -76,13 +76,16 @@
 }
 .feature__image__container {
     max-width: 500px;
+    z-index: 10;
   }
   .feature__image__container {
     width: 100%;
     position: relative;
+    z-index: 10;
   }
   .feature__image {
     width: 100%;
+    z-index: 10 !important;
   }
   .feature__backgroud__video__container {
     position: absolute;
@@ -92,7 +95,6 @@
     height: 100%;
     max-width: 73%;
     max-height: 53%;
-    z-index: 0;
   }
   .feature__backgroud__video {
     width: 100%;
