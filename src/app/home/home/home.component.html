@@ -37,24 +37,21 @@
     <div fxLayout="row" class="scroll">
       <div
         class="p-1"
-        (mouseover)="changeText = true"
-        (mouseout)="changeText = false"
+        *ngFor="let imagesData of imagesDatas; let i=index"
+       
       >
-        <div *ngIf="!changeText">
-          <img src="assets/1.jpg" alt="" class="list_movie" />
+        <div >
+          <img  (mouseenter)="action(i,true)" src="{{imagesData.img}}" alt="" class="list_movie"/>
         </div>
-        <div
-          (click)="goToPage('video-player')"
-          *ngIf="changeText"
-          class="focas_data"
-          style="position: absolute"
-        >
+        <div  (click)="goToPage('video-player')"
+        (mouseleave)="action(i,false)"
+        *ngIf="imagesData.show" class="focas_data" style="position: absolute">
           <div>
-            <!-- <img src="assets/1.jpg" alt="" class="list_movies"> -->
-            <app-jwplayer class="list_movies"></app-jwplayer>
+            <app-jwplayer ></app-jwplayer>
             <!-- <video class="list_movies" autoplay="autoplay" muted>
               <source src="assets/Khatal.mp4" type="video/mp4" />
             </video> -->
+            <!-- <img src="{{imagesData.img}}" alt="" class="list_movies"/> -->
           </div>
           <div class="focas_bg">
             <div fxLayout="row" fxLayoutAlign="space-between center">
@@ -97,7 +94,7 @@
                 <span class="focas_subtitles">HD</span>
               </div>
             </div>
-            <div fxLayout="row" fxLayoutAlign="start center" class="pb-4">
+            <div fxLayout="row" fxLayoutAlign="start center" class="pb-2">
               <div class="p-2">
                 <span class="focas_titles">Gritty</span>
               </div>
@@ -116,27 +113,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- <div class="p-1">
-                    <img src="assets/1.jpg" alt="" class="list_movie">
-                </div> -->
-      <div class="p-1">
-        <img src="assets/5.jpg" alt="" class="list_movie" />
-      </div>
-      <div class="p-1">
-        <img src="assets/6.jpg" alt="" class="list_movie" />
-      </div>
-      <div class="p-1">
-        <img src="assets/7.jpg" alt="" class="list_movie" />
-      </div>
-      <div class="p-1">
-        <img src="assets/8.jpg" alt="" class="list_movie" />
-      </div>
-      <div class="p-1">
-        <img src="assets/9.jpg" alt="" class="list_movie" />
-      </div>
-      <div class="p-1">
-        <img src="assets/1.jpg" alt="" class="list_movie" />
       </div>
     </div>
   </div>

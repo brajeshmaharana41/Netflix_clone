@@ -28,7 +28,7 @@ export class JwplayerComponent implements OnInit {
         },
       ],
       autostart: true,
-    });
+  });
 
     // jwplayer('player').setup({
     //   file: 'assets/Khatal.mp4',
