@@ -134,8 +134,7 @@
         "newToNetflix":"New to Netflix?",
         "signUpNow":"Sign up now",
         "emailPassRequiredError":"Please enter a valid email address or phone number.",
-        "emailPatternError":"Please enter a valid email address.",
-        "passwordPatternError":"Your password must contain between 4 and 60 characters."
+        "emailPatternError":"Please enter a valid email address."
         
     }
 
