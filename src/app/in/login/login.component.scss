@@ -67,6 +67,15 @@
   color: #b3b3b3;
   font-size: 13px;
   font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+}
+.need_help:hover{
+  color: #b3b3b3;
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
 }
 ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
   background-color: #b3b3b3;

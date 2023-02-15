@@ -50,4 +50,8 @@ export class LoginComponent implements OnInit {
   goTosignUpPage() {
     this._router.navigate(['']);
   }
+  goToForgotPage(){
+    this._router.navigate(['in/forgot-email'])
+    console.log("HI")
+  }
 }
