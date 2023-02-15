@@ -12,8 +12,11 @@ import {
 } from '@angular/forms';
 
 import { TranslateService } from '@ngx-translate/core';
-import { Constant } from 'src/app/shared/core/constants';
+// import { Constant } from 'src/app/shared/core/constants';
 import { AWSCognitoService } from 'src/app/shared/service/aws-cognito.service';
+import { InService } from '../in.service';
+import { Constants } from '../../shared/constants/constant';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-get-started',
@@ -24,14 +27,16 @@ export class GetStartedComponent implements OnInit {
   panelOpenState = false;
   isClicked = false;
   form: FormGroup | undefined;
-  pass = localStorage.getItem(Constant.ACTIVEPASSWORD);
-  email = localStorage.getItem(Constant.ACTIVEEMAIL);
+  pass = localStorage.getItem(Constants.ACTIVEPASSWORD);
+  email = localStorage.getItem(Constants.ACTIVEEMAIL);
+  loader = false;
   constructor(
     private _router: Router,
     private _commonService: CommonService,
     private formBuilder: FormBuilder,
     private translate: TranslateService,
-    private awsCognitoService: AWSCognitoService
+    private awsCognitoService: AWSCognitoService,
+    private _inService: InService
   ) {
     this._commonService.translateLanguage.subscribe((res: string) => {
       this.translate.use(res);
@@ -69,16 +74,49 @@ export class GetStartedComponent implements OnInit {
   //     })
   // }
 
-  goToSignUpPage() {
-    localStorage.setItem(Constant.ACTIVEEMAIL, this.form.value.email);
-    // if account not created
-    this._router.navigate(['signup']);
+  // goToSignUpPage() {
+  //   localStorage.setItem(Constants.ACTIVEEMAIL, this.form.value.email);
 
-    //if account created
-    // this._router.navigate(['signup/password']);
+  //   // if account not created
+  //   this._router.navigate(['signup']);
 
-    //if subscribed
-    // this._router.navigate(['in/login']);
+  //   //if account created
+  //   // this._router.navigate(['signup/password']);
+
+  //   //if subscribed
+  //   // this._router.navigate(['in/login']);
+  // }
+
+  getEmailStatus() {
+    if (this.form && this.form.valid) {
+      this.loader = true;
+      this._inService.emailStatus(this.form.value.email).subscribe({
+        next: (res) => {
+          this.loader = false;
+          localStorage.setItem(Constants.ACTIVEEMAIL, this.form.value.email);
+          if (
+            res.message === Constants.EMAILREGISTERED &&
+            res.status === Constants.SUCCESSSTATUSCODE1
+          ) {
+            this._router.navigate(['signup/password']);
+          } else if (
+            res.message === Constants.EMAILUNREGISTERED &&
+            res.status === Constants.SUCCESSSTATUSCODE2
+          ) {
+            this._router.navigate(['signup']);
+          } else if (
+            res.message === Constants.EMAILSUBSCRIBED &&
+            res.status === Constants.SUCCESSSTATUSCODE3
+          ) {
+            this._router.navigate(['in/login']);
+          }
+        },
+        error: (err: HttpErrorResponse) => {
+          this.loader = false;
+          console.log(err.error);
+        },
+      });
+    }
   }
 
   goToChooseFormPage() {

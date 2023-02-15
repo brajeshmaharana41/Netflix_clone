@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Constant } from 'src/app/shared/core/constants';
+import { Constants } from '../../shared/constants/constant';
 import {
   AbstractControl,
   FormArray,
@@ -10,6 +10,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { AWSCognitoService } from 'src/app/shared/service/aws-cognito.service';
+import { SignupService } from '../signup.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { SignUpResponse } from 'src/app/shared/type/signup.type';
 
 @Component({
   selector: 'app-reg-form',
@@ -17,12 +20,13 @@ import { AWSCognitoService } from 'src/app/shared/service/aws-cognito.service';
   styleUrls: ['./reg-form.component.scss'],
 })
 export class RegFormComponent implements OnInit {
-  email = localStorage.getItem(Constant.ACTIVEEMAIL);
-  password = localStorage.getItem(Constant.ACTIVEPASSWORD);
+  email = localStorage.getItem(Constants.ACTIVEEMAIL);
+  password = localStorage.getItem(Constants.ACTIVEPASSWORD);
   form: FormGroup | undefined;
   constructor(
     private _router: Router,
     private formBuilder: FormBuilder,
+    private _signUpService: SignupService,
     private awsCognitoService: AWSCognitoService
   ) {}
 
@@ -57,13 +61,31 @@ export class RegFormComponent implements OnInit {
     return this.form.value.email;
   }
   onSubmit() {
-    this.awsCognitoService
-      .signIn({ email: this.formemail, password: this.formpassword })
-      .then((data) => {
-        console.log(data);
-        // localStorage.setItem(Constant.ACTIVEPASSWORD, this.form.value.password);
-        // this.goToPlanChoosePage();
-      });
+    if (this.form.valid) {
+      this._signUpService
+        .signUp({
+          email: this.form.value.email,
+          password: this.form.value.password,
+          source: 'direct',
+          device_name: 'web',
+          device_token: '63e3f10dca32b744942603ae',
+        })
+        .subscribe({
+          next: (res: SignUpResponse) => {
+            if (res.status === Constants.SUCCESSSTATUSCODE) {
+              localStorage.setItem(
+                Constants.USER,
+                JSON.stringify(res.body.customer_data)
+              );
+              localStorage.setItem(Constants.ACTIVEPASSWORD, '123456');
+              this.goToPlanChoosePage();
+            }
+          },
+          error: (err: HttpErrorResponse) => {
+            console.log(err.error);
+          },
+        });
+    }
   }
   goToPlanChoosePage() {
     this._router.navigate(['signup/choose-plan']);

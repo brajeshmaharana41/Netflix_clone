@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Constant } from '../../core/constants';
+import { Constants } from '../../constants/constant';
 
 @Component({
   selector: 'app-signup-header',
@@ -8,7 +8,7 @@ import { Constant } from '../../core/constants';
   styleUrls: ['./signup-header.component.scss'],
 })
 export class SignupHeaderComponent implements OnInit {
-  pass = localStorage.getItem(Constant.ACTIVEPASSWORD);
+  pass = localStorage.getItem(Constants.ACTIVEPASSWORD);
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

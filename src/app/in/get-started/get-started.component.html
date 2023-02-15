@@ -43,7 +43,7 @@
             *ngIf="!pass"
           >
             <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
-              <mat-form-field class="example-full-width">
+              <mat-form-field *ngIf="!pass" class="example-full-width">
                 <mat-label>{{
                   "getStarted.emailInputPlaceholder" | translate
                 }}</mat-label>
@@ -82,7 +82,7 @@
               mat-button
               *ngIf="!pass"
               class="getStarted_btn"
-              (click)="goToSignUpPage()"
+              (click)="getEmailStatus()"
             >
               {{ "getStarted.getStartedBtnText" | translate }}
             </button>
@@ -733,7 +733,7 @@
                 mat-button
                 *ngIf="!pass"
                 class="getStarted_btn"
-                (click)="goToSignUpPage()"
+                (click)="getEmailStatus()"
               >
                 {{ "getStarted.getStartedBtnText" | translate }}
               </button>

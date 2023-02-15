@@ -8,8 +8,8 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Constant } from '../constants';
+// import { Observable } from 'rxjs';
+import { Constants } from '../../../shared/constants/constant';
 // import { AppRoutes } from 'src/app/constants/app.route';
 
 @Injectable({
@@ -18,7 +18,7 @@ import { Constant } from '../constants';
 export class AuthPasswordGuard implements CanActivate {
   constructor(private router: Router) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const pass = localStorage.getItem(Constant.ACTIVEPASSWORD);
+    const pass = localStorage.getItem(Constants.ACTIVEPASSWORD);
     // const email = localStorage.getItem(Constant.ACTIVEEMAIL);
     if (pass) {
       this.router.navigate(['in']);

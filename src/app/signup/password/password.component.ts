@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Constant } from 'src/app/shared/core/constants';
+import { Constants } from '../../shared/constants/constant';
 
 @Component({
   selector: 'app-password',
@@ -13,7 +13,7 @@ export class PasswordComponent implements OnInit {
   ngOnInit(): void {}
 
   goToChoosePlan() {
-    localStorage.setItem(Constant.ACTIVEPASSWORD, '123456');
+    localStorage.setItem(Constants.ACTIVEPASSWORD, '123456');
     this.router.navigate(['signup/choose-plan']);
   }
 }

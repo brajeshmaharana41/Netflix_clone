@@ -4,15 +4,15 @@ import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Constant } from '../core/constants';
+import { Constants } from '../../shared/constants/constant';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommonService {
   translateLanguage = new BehaviorSubject<string>(
-    localStorage.getItem(Constant.CURLANG)
-      ? localStorage.getItem(Constant.CURLANG)
+    localStorage.getItem(Constants.CURLANG)
+      ? localStorage.getItem(Constants.CURLANG)
       : 'en'
   );
   constructor(
@@ -39,7 +39,7 @@ export class CommonService {
     this.snackBar.open(message, action, { duration });
   }
   switchLanguage(lang: string) {
-    localStorage.setItem(Constant.CURLANG, lang);
+    localStorage.setItem(Constants.CURLANG, lang);
     this.translateLanguage.next(lang);
   }
 }

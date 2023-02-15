@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Constant } from '../../core/constants';
+import { Constants } from '../../constants/constant';
 import { CommonService } from '../../service/common.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { CommonService } from '../../service/common.service';
 })
 export class HeaderComponent implements OnInit {
   selectedLang: string;
-  pass = localStorage.getItem(Constant.ACTIVEPASSWORD);
-  email = localStorage.getItem(Constant.ACTIVEEMAIL);
+  pass = localStorage.getItem(Constants.ACTIVEPASSWORD);
+  email = localStorage.getItem(Constants.ACTIVEEMAIL);
   constructor(private _commonService: CommonService, private router: Router) {
     this._commonService.translateLanguage.subscribe((res: string) => {
       this.selectedLang = res;
@@ -28,8 +28,12 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['in/login']);
   }
 
+  goToGetStarted() {
+    this.router.navigate(['/']);
+  }
+
   signOut() {
     localStorage.clear();
-    this.goToSignIn();
+    this.goToGetStarted();
   }
 }
