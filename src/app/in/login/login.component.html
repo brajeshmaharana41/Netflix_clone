@@ -29,30 +29,21 @@
                 </mat-form-field>
               </div>
             </div>
+          </div>
+          <div class="pt-5">
+            <button mat-button class="btn_signin" (click)="goToHomePage()">
+              Sign In
+            </button>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="end center">
+            <!-- <div>
+              <mat-checkbox class="need_help">Remember me</mat-checkbox>
+            </div> -->
             <div class="pt-2">
-              <div class="input_bg">
-                <mat-form-field class="example-full-width">
-                  <mat-label>Password</mat-label>
-                  <input
-                    matInput
-                    [type]="hide ? 'password' : 'text'"
-                    class=""
-                  />
-                  <button
-                    mat-icon-button
-                    matSuffix
-                    (click)="hide = !hide"
-                    [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide"
-                    class="password_hide"
-                  >
-                    <mat-icon>{{
-                      hide ? "visibility_off" : "visibility"
-                    }}</mat-icon>
-                  </button>
-                </mat-form-field>
-              </div>
+              <a class="need_help" (click)="goToForgotPage()">Need help ?</a>
             </div>
+          </div>
+          <div class="p-1">
             <div class="pt-5">
               <button mat-button class="btn_signin" (click)="submit()">
                 Sign In
