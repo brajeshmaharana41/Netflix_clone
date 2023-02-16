@@ -35,4 +35,12 @@ export class InService {
       device_token: '123456',
     });
   }
+
+  forgotPasswordRequest(user_name: string) {
+    return this._http.post(API.Customer.forgotPassword, { user_name });
+  }
+
+  forgotPasswordOTPVerify(mobile: string, otp: string) {
+    return this._http.post(API.Customer.forgotPasswordVerify, { mobile, otp });
+  }
 }

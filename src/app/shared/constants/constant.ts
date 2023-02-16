@@ -16,4 +16,5 @@ export enum Constants {
   LOGGEDINUSER = 'user',
   LOGGEDINUSERID = 'userid',
   PHONE = 'phone',
+  FORGOTPASSWORDPHONE = 'forgotpassphone',
 }

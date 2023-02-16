@@ -15,5 +15,6 @@ export class API {
     forgotPasswordChange: `${baseURL}customer/forgotPasswordChange`,
     changePassword: `${baseURL}customer/changePassword`,
     signupSuccess: `${baseURL}customer/signupSuccess`,
+    forgotPasswordVerify: `${baseURL}customer/forgotPasswordVerify`,
   };
 }

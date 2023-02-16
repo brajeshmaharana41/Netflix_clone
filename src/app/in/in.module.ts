@@ -26,6 +26,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SignInHeaderComponent } from '../shared/component/sign-in-header/sign-in-header.component';
 import { SignInFooterComponent } from '../shared/component/sign-in-footer/sign-in-footer.component';
 import { ForgotSignInHeaderComponent } from '../shared/component/forgot-sign-in-header/forgot-sign-in-header.component';
+import { InfoComponent } from './info/info.component';
 // import { JwplayerComponent } from './jwplayer/jwplayer.component';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ForgotSignInHeaderComponent } from '../shared/component/forgot-sign-in-
     ForgotEmailPasswordComponent,
     SignInHeaderComponent,
     SignInFooterComponent,
-    ForgotSignInHeaderComponent  
+    ForgotSignInHeaderComponent,
+    InfoComponent  
   ],
   imports: [
     CommonModule,
