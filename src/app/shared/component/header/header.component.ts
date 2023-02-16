@@ -10,7 +10,7 @@ import { CommonService } from '../../service/common.service';
 })
 export class HeaderComponent implements OnInit {
   selectedLang: string;
-  pass = localStorage.getItem(Constants.ACTIVEPASSWORD);
+  user = localStorage.getItem(Constants.USER);
   email = localStorage.getItem(Constants.ACTIVEEMAIL);
   constructor(private _commonService: CommonService, private router: Router) {
     this._commonService.translateLanguage.subscribe((res: string) => {

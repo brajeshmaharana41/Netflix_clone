@@ -30,11 +30,13 @@
           <button mat-menu-item (click)="switchLanguage('hi')">हिन्दी</button>
         </mat-menu>
       </div>
-      <div *ngIf="!pass" class="p-2">
-        <button mat-button class="btn_sign_in" (click)="goToSignIn()">Sign In</button>
+      <div *ngIf="!user" class="p-2">
+        <button mat-button class="btn_sign_in" (click)="goToSignIn()">
+          Sign In
+        </button>
       </div>
 
-      <div *ngIf="pass" class="p-2">
+      <div *ngIf="user" class="p-2">
         <button mat-button class="btn_sign_in" (click)="signOut()">
           Sign Out
         </button>

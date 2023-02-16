@@ -6,8 +6,8 @@
     class="netflix_logo"
   />
   <span class="example-spacer"></span>
-  <button *ngIf="pass" mat-button class="btn_signin" (click)="signOut()">
+  <button *ngIf="user" mat-button class="btn_signin" (click)="signOut()">
     Sign Out
   </button>
-  <button *ngIf="!pass" mat-button class="btn_signin">Sign In</button>
+  <button *ngIf="!user" mat-button class="btn_signin">Sign In</button>
 </mat-toolbar>

@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   hide = true;
   form: FormGroup | undefined;
   email = localStorage.getItem(Constants.ACTIVEEMAIL);
-  password = localStorage.getItem(Constants.ACTIVEPASSWORD);
+  user = localStorage.getItem(Constants.USER);
+  // password = localStorage.getItem(Constants.ACTIVEPASSWORD);
   loader = false;
   constructor(
     private _router: Router,
@@ -71,12 +72,14 @@ export class LoginComponent implements OnInit {
                 Constants.USER,
                 JSON.stringify(res.body.customer_data)
               );
-              localStorage.setItem(Constants.ACTIVEPASSWORD, '123456');
-              this.goToHomePage();
+              if (res.body.customer_data.subscription_status) {
+                this.goToHomePage();
+              } else {
+                this.goToGetStartedPage();
+              }
+            } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
+              // wrong pass alert goes here.
             }
-            // else{
-            //   this.goTosignUpPage();
-            // }
           },
           error: (err: HttpErrorResponse) => {
             this.loader = false;
@@ -85,11 +88,15 @@ export class LoginComponent implements OnInit {
         });
     }
   }
+
+  goToGetStartedPage() {
+    this._router.navigate(['in/get-started']);
+  }
   goTosignUpPage() {
     this._router.navigate(['']);
   }
-  goToForgotPage(){
-    this._router.navigate(['in/forgot-email'])
-    console.log("HI")
+  goToForgotPage() {
+    this._router.navigate(['in/forgot-email']);
+    console.log('HI');
   }
 }

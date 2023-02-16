@@ -12,7 +12,7 @@
           }}</span></span
         >
       </div>
-      <div *ngIf="!password">
+      <div *ngIf="!user">
         <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
           <div class="pt-3">
             <span class="step_title"> {{ "regForm.h1" | translate }}</span>
@@ -74,9 +74,19 @@
             </mat-form-field>
           </div>
         </form>
+        <div class="pt-2">
+          <button
+            [disabled]="loader"
+            mat-button
+            class="btn-next"
+            (click)="onSubmit()"
+          >
+            {{ "regForm.nextBtnTxt" | translate }}
+          </button>
+        </div>
       </div>
 
-      <div *ngIf="password">
+      <div *ngIf="user">
         <div>
           <h2>{{ "regFormCreated.h1" | translate }}</h2>
         </div>
@@ -84,11 +94,11 @@
           <h4>{{ "regFormCreated.h2" | translate }}</h4>
         </div>
         <div>{{ email }}</div>
-      </div>
-      <div class="pt-2">
-        <button mat-button class="btn-next" (click)="goToPlanChoosePage()">
-          {{ "regForm.nextBtnTxt" | translate }}
-        </button>
+        <div class="pt-2">
+          <button mat-button class="btn-next" (click)="goToPlanChoosePage()">
+            {{ "regForm.nextBtnTxt" | translate }}
+          </button>
+        </div>
       </div>
     </div>
   </div>

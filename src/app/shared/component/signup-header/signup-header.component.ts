@@ -8,7 +8,7 @@ import { Constants } from '../../constants/constant';
   styleUrls: ['./signup-header.component.scss'],
 })
 export class SignupHeaderComponent implements OnInit {
-  pass = localStorage.getItem(Constants.ACTIVEPASSWORD);
+  user = localStorage.getItem(Constants.USER);
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

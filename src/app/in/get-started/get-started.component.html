@@ -40,10 +40,10 @@
             fxFlex.lg="76"
             fxFlex.xl="76"
             class="get_btn"
-            *ngIf="!pass"
+            *ngIf="!user"
           >
-            <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
-              <mat-form-field *ngIf="!pass" class="example-full-width">
+            <form [formGroup]="form" *ngIf="form" (ngSubmit)="getEmailStatus()">
+              <mat-form-field *ngIf="!user" class="example-full-width">
                 <mat-label>{{
                   "getStarted.emailInputPlaceholder" | translate
                 }}</mat-label>
@@ -80,7 +80,7 @@
           >
             <button
               mat-button
-              *ngIf="!pass"
+              *ngIf="!user"
               class="getStarted_btn"
               (click)="getEmailStatus()"
             >
@@ -88,7 +88,7 @@
             </button>
           </div>
           <button
-            *ngIf="pass"
+            *ngIf="user"
             mat-button
             class="getStarted_btn"
             (click)="goToChooseFormPage()"
@@ -731,7 +731,7 @@
             >
               <button
                 mat-button
-                *ngIf="!pass"
+                *ngIf="!user"
                 class="getStarted_btn"
                 (click)="getEmailStatus()"
               >
@@ -739,7 +739,7 @@
               </button>
 
               <button
-                *ngIf="pass"
+                *ngIf="user"
                 mat-button
                 class="getStarted_btn"
                 (click)="goToChooseFormPage()"

@@ -27,7 +27,7 @@ export class GetStartedComponent implements OnInit {
   panelOpenState = false;
   isClicked = false;
   form: FormGroup | undefined;
-  pass = localStorage.getItem(Constants.ACTIVEPASSWORD);
+  user = localStorage.getItem(Constants.USER);
   email = localStorage.getItem(Constants.ACTIVEEMAIL);
   loader = false;
   constructor(
@@ -94,20 +94,11 @@ export class GetStartedComponent implements OnInit {
         next: (res) => {
           this.loader = false;
           localStorage.setItem(Constants.ACTIVEEMAIL, this.form.value.email);
-          if (
-            res.message === Constants.EMAILREGISTERED &&
-            res.status === Constants.SUCCESSSTATUSCODE1
-          ) {
+          if (res.status === Constants.SUCCESSSTATUSCODE1) {
             this._router.navigate(['signup/password']);
-          } else if (
-            res.message === Constants.EMAILUNREGISTERED &&
-            res.status === Constants.SUCCESSSTATUSCODE2
-          ) {
+          } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
             this._router.navigate(['signup']);
-          } else if (
-            res.message === Constants.EMAILSUBSCRIBED &&
-            res.status === Constants.SUCCESSSTATUSCODE3
-          ) {
+          } else if (res.status === Constants.SUCCESSSTATUSCODE3) {
             this._router.navigate(['in/login']);
           }
         },

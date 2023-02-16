@@ -21,7 +21,9 @@ import { SignUpResponse } from 'src/app/shared/type/signup.type';
 })
 export class RegFormComponent implements OnInit {
   email = localStorage.getItem(Constants.ACTIVEEMAIL);
-  password = localStorage.getItem(Constants.ACTIVEPASSWORD);
+  user = localStorage.getItem(Constants.USER);
+  loader = false;
+  // password = localStorage.getItem(Constants.ACTIVEPASSWORD);
   form: FormGroup | undefined;
   constructor(
     private _router: Router,
@@ -62,26 +64,22 @@ export class RegFormComponent implements OnInit {
   }
   onSubmit() {
     if (this.form.valid) {
+      this.loader = true;
       this._signUpService
-        .signUp({
-          email: this.form.value.email,
-          password: this.form.value.password,
-          source: 'direct',
-          device_name: 'web',
-          device_token: '63e3f10dca32b744942603ae',
-        })
+        .signUp(this.form.value.email, this.form.value.password)
         .subscribe({
           next: (res: SignUpResponse) => {
+            this.loader = false;
             if (res.status === Constants.SUCCESSSTATUSCODE) {
               localStorage.setItem(
                 Constants.USER,
                 JSON.stringify(res.body.customer_data)
               );
-              localStorage.setItem(Constants.ACTIVEPASSWORD, '123456');
               this.goToPlanChoosePage();
             }
           },
           error: (err: HttpErrorResponse) => {
+            this.loader = false;
             console.log(err.error);
           },
         });
