@@ -1,0 +1,41 @@
+.bag_img{
+    background-image: url("/assets/ForgotPassword.jpg") !important;
+    width: 100%;
+    height: 100%;
+}
+.bag_center{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.bag_forgot_fot{
+    width: 450px;
+}
+.bag_forgot{
+    border: 1px solid #ffff;
+    width: 450px;
+    height: 300px;
+    background-color: #f3f3f3;
+    padding: 40px;
+}
+.for_header{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.for_subheader{
+    font-size: 17px;
+}
+.for_subheaders{
+    font-size: 16px;
+}  
+.for_btn{
+    width: 100%;
+    background-color: #2490fd;
+    color: #ffff;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 400;
+  }

@@ -97,6 +97,5 @@ export class LoginComponent implements OnInit {
   }
   goToForgotPage() {
     this._router.navigate(['in/forgot-email']);
-    console.log('HI');
   }
 }

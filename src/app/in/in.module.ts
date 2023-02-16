@@ -25,6 +25,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SignInHeaderComponent } from '../shared/component/sign-in-header/sign-in-header.component';
 import { SignInFooterComponent } from '../shared/component/sign-in-footer/sign-in-footer.component';
+import { ForgotSignInHeaderComponent } from '../shared/component/forgot-sign-in-header/forgot-sign-in-header.component';
 // import { JwplayerComponent } from './jwplayer/jwplayer.component';
 
 @NgModule({
@@ -36,6 +37,7 @@ import { SignInFooterComponent } from '../shared/component/sign-in-footer/sign-i
     ForgotEmailPasswordComponent,
     SignInHeaderComponent,
     SignInFooterComponent,
+    ForgotSignInHeaderComponent  
   ],
   imports: [
     CommonModule,
