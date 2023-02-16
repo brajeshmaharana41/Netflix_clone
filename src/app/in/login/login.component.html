@@ -45,7 +45,7 @@
           </div>
           <div class="p-1">
             <div class="pt-5">
-              <button mat-button class="btn_signin" (click)="submit()">
+              <button mat-button class="btn_signin">
                 Sign In
               </button>
             </div>
@@ -54,7 +54,7 @@
                 <mat-checkbox class="need_help">Remember me</mat-checkbox>
               </div>
               <div>
-                <span class="need_help">Need help ?</span>
+                <span class="need_help" (click)="goToForgotPage()">Need help ?</span>
               </div>
             </div>
             <div class="p-1">
@@ -78,7 +78,5 @@
       </div>
     </form>
     <app-sign-in-footer></app-sign-in-footer>
-    <!-- <app-footer></app-footer> -->
   </div>
-  <!-- <app-header></app-header> -->
 </div>

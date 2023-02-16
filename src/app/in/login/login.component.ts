@@ -59,37 +59,36 @@ export class LoginComponent implements OnInit {
     return this.form.value;
   }
   submit() {
-    if (this.form.valid) {
-      this.loader = true;
-      this._inService
-        .signin(this.formValue.email, this.formValue.password)
-        .subscribe({
-          next: (res) => {
-            this.loader = false;
-            if (res.status === Constants.SUCCESSSTATUSCODE) {
-              localStorage.setItem(
-                Constants.USER,
-                JSON.stringify(res.body.customer_data)
-              );
-              localStorage.setItem(Constants.ACTIVEPASSWORD, '123456');
-              this.goToHomePage();
-            }
-            // else{
-            //   this.goTosignUpPage();
-            // }
-          },
-          error: (err: HttpErrorResponse) => {
-            this.loader = false;
-            console.log(err.error);
-          },
-        });
-    }
+    // if (this.form.valid) {
+    //   this.loader = true;
+    //   this._inService
+    //     .signin(this.formValue.email, this.formValue.password)
+    //     .subscribe({
+    //       next: (res) => {
+    //         this.loader = false;
+    //         if (res.status === Constants.SUCCESSSTATUSCODE) {
+    //           localStorage.setItem(
+    //             Constants.USER,
+    //             JSON.stringify(res.body.customer_data)
+    //           );
+    //           localStorage.setItem(Constants.ACTIVEPASSWORD, '123456');
+    //           this.goToHomePage();
+    //         }
+    //         // else{
+    //         //   this.goTosignUpPage();
+    //         // }
+    //       },
+    //       error: (err: HttpErrorResponse) => {
+    //         this.loader = false;
+    //         console.log(err.error);
+    //       },
+    //     });
+    // }
   }
   goTosignUpPage() {
     this._router.navigate(['']);
   }
   goToForgotPage(){
     this._router.navigate(['in/forgot-email'])
-    console.log("HI")
   }
 }
