@@ -1,1 +1,70 @@
-<p>info works!</p>
+<div>
+  <div class="bag_img">
+    <app-forgot-sign-in-header></app-forgot-sign-in-header>
+    <div class="bag_center">
+      <div class="bag_forgot">
+        <div class="pb-3">
+          <span class="for_header">Email Sent
+          </span>
+        </div>
+        <div class="pt-2">
+          <span class="for_subheader">An email with instructions on how to reset your password has been sent to
+            <strong>brajesh.maharana@gmail.com.</strong> Check your spam or junk folder if you don’t see the email in
+            your inbox.</span>
+        </div>
+        <div class="pt-3">
+          <span class="for_subheader">If you no longer have access to this email account, please <a>contact us.</a></span>
+        </div>
+      </div>
+
+      <div class="bag_forgots">
+        <div class="pb-3">
+          <span class="for_header">Code Sent</span>
+        </div>
+        <div class="pt-2">
+          <span class="for_subheader">We sent a text message to <strong>84640 39178</strong> with your verification code. Enter it below to reset your password.</span>
+        </div>
+        <div class="pt-3">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <div class="p-2">
+              <mat-icon class="phone_icon">phone_iphone</mat-icon>
+            </div>
+            <div class="p-2">
+              <mat-icon class="arrow_icon">arrow_forward</mat-icon>
+            </div>
+            <div class="p-2 width-form">
+              <div>
+                <span class="for_subheader">Verification Code Input</span>
+              </div>
+              <div class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <input matInput>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div fxLayout="row">
+          <div class="p-2">
+            <button mat-button class="for_btn" (click)="goToChangepasswordPage()">Verify</button>
+          </div>
+          <div class="p-2">
+            <button mat-button class="for_btn">Cencel</button>
+          </div>
+        </div>
+        <div class="p-2">
+          <a class="for_dec_link">Text me again</a>
+        </div>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center">
+      <div class="bag_forgot_fot pb-5">
+        <div>
+          <span class="for_dec">This page is protected by Google reCAPTCHA to ensure you're not a
+            bot. <a class="for_dec_link"> Learn more.</a></span>
+        </div>
+      </div>
+    </div>
+    <app-sign-in-footer></app-sign-in-footer>
+  </div>
+</div>

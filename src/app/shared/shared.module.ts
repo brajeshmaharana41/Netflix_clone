@@ -15,6 +15,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeHeaderComponent } from './component/home-header/home-header.component';
 import { HomeFooterComponent } from './component/home-footer/home-footer.component';
 import { JwplayerComponent } from './component/jwplayer/jwplayer.component';
+import { AccountsHeaderComponent } from './component/accounts-header/accounts-header.component';
+import { AccountsFooterComponent } from './component/accounts-footer/accounts-footer.component';
 
 @NgModule({
   declarations: [FooterComponent, HeaderComponent, JwplayerComponent],

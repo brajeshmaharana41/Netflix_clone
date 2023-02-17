@@ -1,0 +1,108 @@
+.bag_img{
+    background-image: url("/assets/ForgotPassword.jpg") !important;
+    width: 100%;
+    height: 100%;
+}
+.bag_center{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.bag_forgot_fot{
+    width: 450px;
+}
+.bag_forgot{
+    border: 1px solid #ffff;
+    width: 450px;
+    height: 300px;
+    background-color: #f3f3f3;
+    padding: 40px;
+}
+.bag_forgots{
+    border: 1px solid #ffff;
+    width: 450px;
+    height: 400px;
+    background-color: #f3f3f3;
+    padding: 40px;
+}
+.for_header{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.for_subheader{
+    font-size: 16px;
+}
+.for_link{
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.width-form {
+    width: 100%;
+  }  
+  .example-full-width {
+    width: 100%;
+    font-size: 16px;
+  }
+  .for_select{
+    height: 15px;
+  }
+  .for_btn{
+    color: #090909;
+    width: 80px;
+    font-size: 13px;
+    font-weight: 400;
+    border-radius: 1px;
+    background-color: #e8e1e1;
+  }
+  .for_btn:hover{
+    background-color: #2490fd;
+    color: #ffff;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  .phone_icon{
+    font-size: 40px;
+  }
+  .arrow_icon{
+    font-size: 30px;
+  }
+.for_dec{
+    font-size: 17px;
+    color: #999;
+    font-weight: 400;
+}
+.for_dec_link{
+    font-size: 17px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+}
+.for_dec_link:hover{
+    font-size: 17px;
+    font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.error_message{
+    border: 1px solid #e87c03;
+    background-color: #e87c03;
+    height: 55px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    .error_font{
+        font-size: 16px;
+        color: #fff;
+        font-weight: 400;
+        .error_bold{
+            font-size: 17px;
+            font-weight: 500;
+        }
+    }
+}

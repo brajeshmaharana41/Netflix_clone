@@ -1,0 +1,12 @@
+.header_toolbar{
+    background: #000;
+    height: 80px;
+  }
+.netflix_logo{
+    width: 150px;
+}
+@media only screen and (max-width: 600px) and (min-width: 200px)  {
+    .netflix_logo{
+      width: 100px;
+    }
+}

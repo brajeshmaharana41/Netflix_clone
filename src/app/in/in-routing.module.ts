@@ -42,6 +42,11 @@ const routes: Routes = [
     component: InfoComponent,
   },
   {
+    path: 'changePassword',
+    loadChildren: () =>
+      import('../account/account.module').then((m) => m.AccountModule),  
+  },
+  {
     path: '',
     redirectTo: 'get-started',
     pathMatch: 'full',
