@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   form: FormGroup | undefined;
   email = localStorage.getItem(Constants.ACTIVEEMAIL);
   user = localStorage.getItem(Constants.USER);
+  errorMsg = '';
   // password = localStorage.getItem(Constants.ACTIVEPASSWORD);
   loader = false;
   constructor(
@@ -78,6 +79,7 @@ export class LoginComponent implements OnInit {
                 this.goToGetStartedPage();
               }
             } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
+              this.errorMsg = res.message;
               // wrong pass alert goes here.
             }
           },

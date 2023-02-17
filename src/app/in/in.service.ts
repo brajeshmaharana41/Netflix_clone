@@ -43,4 +43,16 @@ export class InService {
   forgotPasswordOTPVerify(mobile: string, otp: string) {
     return this._http.post(API.Customer.forgotPasswordVerify, { mobile, otp });
   }
+
+  forgotPasswordVerify(mobile: string, otp: string) {
+    return this._http.post(API.Customer.forgotPasswordVerify, { mobile, otp });
+  }
+
+  forgotPasswordChange(mobile: string, email: string, new_password: string) {
+    return this._http.post(API.Customer.forgotPasswordVerify, {
+      mobile,
+      email,
+      new_password,
+    });
+  }
 }

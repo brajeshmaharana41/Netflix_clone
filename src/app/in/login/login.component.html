@@ -21,6 +21,12 @@
       (ngSubmit)="submit()"
     >
       <div fxLayoutAlign="center center" class="bg_data pb-5">
+        <div class="pb-3" *ngIf="errorMsg">
+          <div class="error_message">
+            <span class="error_font"> {{ errorMsg }}</span>
+          </div>
+        </div>
+
         <div class="bg_signup">
           <div class="signIn_back">
             <div class="pt-2">
