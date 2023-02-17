@@ -23,6 +23,7 @@ export class RegFormComponent implements OnInit {
   email = localStorage.getItem(Constants.ACTIVEEMAIL);
   user = localStorage.getItem(Constants.USER);
   loader = false;
+  errorMsg = '';
   // password = localStorage.getItem(Constants.ACTIVEPASSWORD);
   form: FormGroup | undefined;
   constructor(

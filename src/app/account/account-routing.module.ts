@@ -4,13 +4,17 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 
 const routes: Routes = [
   {
+    path: 'change-password',
+    component: ChangePasswordComponent,
+  },
+  {
     path: '',
-    component: ChangePasswordComponent
-  }
+    redirectTo: 'change-password',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AccountRoutingModule { }
+export class AccountRoutingModule {}
