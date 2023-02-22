@@ -57,6 +57,32 @@
           </div>
           <div class="border_input mb-4">
             <mat-form-field class="example-full-width">
+              <!-- <mat-label>Email</mat-label> -->
+              <input
+                matInput
+                class="input_height"
+                placeholder="Enter Otp"
+              />
+
+              <mat-error
+                *ngIf="
+                  form.get('email').errors &&
+                  form.get('email').hasError('required')
+                "
+                >{{ "regForm.emailRequiredError" | translate }}</mat-error
+              >
+
+              <mat-error
+                *ngIf="
+                  form.get('email').errors &&
+                  form.get('email').hasError('pattern')
+                "
+                >{{ "regForm.emailPatternError" | translate }}</mat-error
+              >
+            </mat-form-field>
+          </div>
+          <div class="border_input mb-4">
+            <mat-form-field class="example-full-width">
               <mat-label>{{
                 "regForm.passwordPlaceholder" | translate
               }}</mat-label>
