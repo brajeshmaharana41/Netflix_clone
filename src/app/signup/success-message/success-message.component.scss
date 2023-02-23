@@ -4,7 +4,7 @@
 }
 .borde_widths{
     text-align: start;
-    width: 35%;
+    width: 26%;
 }
 .setp_font{
     font-size: 13px;
@@ -18,52 +18,29 @@
     font-weight: 500;
 }
 .step_sub_title{
-    font-size: 18px;
-}
-.step_sub_titles{
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 16px;
 }
 .icon_done{
     color: #e50914;
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 600;
 }
 .check_icon{
-    border: 3px solid #e50914;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.lock_icon{
     color: #e50914;
+    font-size: 60px;
 }
 .chech_icons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    padding-right: 30px;
     padding-bottom: 10px;
 }
-.btn-card{
-    background-color: transparent;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    color: #333;
+.btn-next{
+    background-color: #e50914;
+    color: #fff;
     width: 100%;
     height: 64px;
-    padding: 10px;
-    cursor: pointer;
-}
-.pay_btn_title{
-    font-size: 15px;
+    font-size: 24px;
     font-weight: 400;
-}
-.pay_btn_icon{
-    font-size: 35px;
-    color: #ccc;
 }
 @media only screen and (max-width: 600px) and (min-width: 200px)  {
     .borde_widths{

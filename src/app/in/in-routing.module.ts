@@ -6,6 +6,7 @@ import { InfoComponent } from './info/info.component';
 import { LoginHelpComponent } from './login-help/login-help.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ProfilepageComponent } from './profilepage/profilepage.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+   {
+    path: 'profile',
+    component: ProfilepageComponent,
   },
   {
     path: 'login-help',

@@ -21,6 +21,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PasswordComponent } from './password/password.component';
+import { AddprofileComponent } from './addprofile/addprofile.component';
+import { SuccessMessageComponent } from './success-message/success-message.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { PasswordComponent } from './password/password.component';
     SignupHeaderComponent,
     SignupFooterComponent,
     PasswordComponent,
+    AddprofileComponent,
+    SuccessMessageComponent,
   ],
   imports: [
     CommonModule,

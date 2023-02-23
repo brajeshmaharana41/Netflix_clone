@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
     return this.form.value;
   }
   submit() {
+    // this._router.navigate(['in/profile'])
     if (this.form.valid) {
       this.loader = true;
       this._inService
@@ -74,7 +75,7 @@ export class LoginComponent implements OnInit {
                 JSON.stringify(res.body.customer_data)
               );
               if (res.body.customer_data.subscription_status) {
-                this.goToHomePage();
+                this._router.navigate(['in/profile'])
               } else {
                 this.goToGetStartedPage();
               }

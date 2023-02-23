@@ -1,0 +1,55 @@
+.bg{
+    background-color: #141414;
+    height: 100%;
+}
+.bgheight{
+    height: 100%;
+}
+.bord{
+    // border: 1px solid #fff;
+    // width: 1400px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user1{
+    width: 145px;
+    height: 145px;
+    cursor: pointer;
+    border-radius: 5px;
+    .bgimg{
+        border-radius: 4px;
+    }
+}
+.user1:hover{
+    border: 3px solid #fff;
+    .bgimg{
+        border-radius: 4px;
+    }
+}
+.adduser{
+    width: 145px;
+    height: 145px;
+    padding: 22px;
+    border-radius: 5px;
+    .face_icon{
+        font-size: 100px;
+        color: #fff;
+    }
+}
+.adduser:hover{
+    background-color: #fff;
+    .face_icon{
+        font-size: 100px;
+        color: #828080;
+    }
+}
+.title{
+    font-size: 3.5vw;
+    color: #fff;
+}
+.name{
+    font-size: 1.3vw;
+    color: #fff;
+}

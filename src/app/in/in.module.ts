@@ -28,6 +28,7 @@ import { SignInFooterComponent } from '../shared/component/sign-in-footer/sign-i
 import { ForgotSignInHeaderComponent } from '../shared/component/forgot-sign-in-header/forgot-sign-in-header.component';
 import { InfoComponent } from './info/info.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+import { ProfilepageComponent } from './profilepage/profilepage.component';
 // import { JwplayerComponent } from './jwplayer/jwplayer.component';
 
 @NgModule({
@@ -41,7 +42,8 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     SignInFooterComponent,
     ForgotSignInHeaderComponent,
     InfoComponent,
-    PasswordChangeComponent  
+    PasswordChangeComponent,
+    ProfilepageComponent  
   ],
   imports: [
     CommonModule,
