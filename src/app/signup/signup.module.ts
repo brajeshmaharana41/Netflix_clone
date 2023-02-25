@@ -23,6 +23,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PasswordComponent } from './password/password.component';
 import { AddprofileComponent } from './addprofile/addprofile.component';
 import { SuccessMessageComponent } from './success-message/success-message.component';
+import { VerifyOtpPageComponent } from './verify-otp-page/verify-otp-page.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SuccessMessageComponent } from './success-message/success-message.compo
     PasswordComponent,
     AddprofileComponent,
     SuccessMessageComponent,
+    VerifyOtpPageComponent,
   ],
   imports: [
     CommonModule,

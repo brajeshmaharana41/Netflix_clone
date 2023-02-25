@@ -16,8 +16,8 @@ import { Observable } from 'rxjs';
 export class InService {
   constructor(private _http: HttpHandlerService) {}
 
-  emailStatus(email: string): Observable<HttpResponse> {
-    return this._http.post(API.Customer.signup, { email });
+  emailStatus(user_name: string): Observable<HttpResponse> {
+    return this._http.post(API.Customer.signup, { user_name });
   }
 
   customerDetailsUpdate(

@@ -10,6 +10,7 @@ import { PlanFormComponent } from './plan-form/plan-form.component';
 import { RegFormComponent } from './reg-form/reg-form.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SuccessMessageComponent } from './success-message/success-message.component';
+import { VerifyOtpPageComponent } from './verify-otp-page/verify-otp-page.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
     path: 'password',
     canActivate: [AuthPasswordGuard],
     component: PasswordComponent,
+  },
+  {
+    path: 'verifyOtp',
+    component: VerifyOtpPageComponent,
   },
   {
     path: '',

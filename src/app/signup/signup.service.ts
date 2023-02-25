@@ -10,9 +10,9 @@ import { SignUp, SignUpResponse } from '../shared/type/signup.type';
 export class SignupService {
   constructor(private _http: HttpHandlerService) {}
 
-  signUp(email: string, password: string): Observable<SignUpResponse> {
+  signUp(user_name: string, password: string): Observable<SignUpResponse> {
     return this._http.post(API.Customer.signupSuccess, {
-      email,
+      user_name,
       password,
       source: 'direct',
       device_name: 'web',
