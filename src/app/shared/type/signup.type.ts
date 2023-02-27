@@ -6,6 +6,7 @@ export interface SignUp {
   source: 'direct';
   device_name: 'web';
   device_token: '63e3f10dca32b744942603ae';
+  language: "English"
 }
 
 export interface SignUpResponse {

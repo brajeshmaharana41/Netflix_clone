@@ -2,18 +2,6 @@
   <div class="bag_img">
     <app-forgot-sign-in-header></app-forgot-sign-in-header>
     <div class="bag_center">
-      <div class="pb-3" *ngIf="errorMsg">
-        <div
-          class="error_message"
-          fxLayout="row"
-          fxLayoutAlign="space-around center"
-        >
-          <div class="clear_icon">
-            <mat-icon>clear</mat-icon>
-          </div>
-          <span class="error_font"> {{ errorMsg }}</span>
-        </div>
-      </div>
 
       <div class="bag_forgot" *ngIf="resetType === 'email'">
         <div class="pb-3">
@@ -42,11 +30,24 @@
             class="success_message"
             fxLayout="row"
             fxLayoutAlign="space-around center"
+            *ngIf="!errorMsg"
           >
             <div class="clear_icon">
               <mat-icon>clear</mat-icon>
             </div>
             <span class="success_font">A new SMS was sent with your varification code.</span>
+          </div>
+          <div class="pb-3" *ngIf="errorMsg">
+            <div
+              class="error_message"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+            >
+              <!-- <div class="clear_icon">
+                <mat-icon>clear</mat-icon>
+              </div> -->
+              <span class="error_font"> {{ errorMsg }}</span>
+            </div>
           </div>
         <div class="pt-2">
           <span class="for_subheader"

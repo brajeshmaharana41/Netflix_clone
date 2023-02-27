@@ -1,6 +1,6 @@
 <mat-toolbar class="header_toolbar">
-    <img src="assets/netflix-logo.png" alt="" class="netflix_logo" />
+    <img src="assets/netflix-logo.png" (click)="goToGetStarted()" alt="" class="netflix_logo" />
     <span class="example-spacer"></span>
-    <button mat-button class="btn_sign_in">Sign In</button>
+    <button mat-button class="btn_sign_in" (click)="goToSignIn()">Sign In</button>
 </mat-toolbar>
   

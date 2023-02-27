@@ -15,10 +15,14 @@ export class SignupHeaderComponent implements OnInit {
 
   signOut() {
     localStorage.clear();
-    this.goToSignIn();
+    this.goToGetStarted();
   }
 
+
+  goToGetStarted() {
+    this.router.navigate(['/']);
+  }
   goToSignIn() {
-    this.router.navigate(['in']);
+    this.router.navigate(['in/login']);
   }
 }

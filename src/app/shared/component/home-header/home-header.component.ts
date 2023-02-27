@@ -16,6 +16,10 @@ export class HomeHeaderComponent implements OnInit {
     this.router.navigate(['in']);
   }
 
+  goToGetStarted() {
+    this.router.navigate(['/']);
+  }
+
   selectedCategory(category: string) {
     this.selectCategory.emit(category);
   }

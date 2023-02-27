@@ -13,6 +13,6 @@ export class SuccessMessageComponent implements OnInit {
   ngOnInit(): void {
   }
   goToRegFormPage() {
-    this._router.navigate(['']);
+    this._router.navigate(['signup/add_profile']);
   }
 }

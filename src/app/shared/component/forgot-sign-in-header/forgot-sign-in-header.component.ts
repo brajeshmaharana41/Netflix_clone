@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-sign-in-header',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotSignInHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+
+  
+  goToGetStarted() {
+    this.router.navigate(['/']);
+  }
+
+
+  goToSignIn() {
+    this.router.navigate(['in/login']);
+  }
+
+  signOut() {
+    localStorage.clear();
+    this.goToGetStarted();
+  }
 }

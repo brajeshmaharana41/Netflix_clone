@@ -711,14 +711,6 @@
                       "getStarted.emailRequiredError" | translate
                     }}</mat-error
                   >
-
-                  <mat-error
-                    *ngIf="
-                      form.get('email').errors &&
-                      form.get('email').hasError('pattern')
-                    "
-                    >{{ "getStarted.emailPatternError" | translate }}</mat-error
-                  >
                 </mat-form-field>
               </form>
             </div>

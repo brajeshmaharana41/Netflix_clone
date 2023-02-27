@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit {
               }
             } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
               this.errorMsg = res.message;
+              console.log('brajesh',this.errorMsg);
               // wrong pass alert goes here.
             }
           },
