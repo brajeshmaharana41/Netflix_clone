@@ -69,6 +69,8 @@ export class VerifyOtpPageComponent implements OnInit {
             if (res.status === Constants.SUCCESSSTATUSCODE) {
               window.alert(res.message);
               this.goToPlanChoosePage();
+            }else{
+              window.alert(res.message);
             }
           },
           error: (err: HttpErrorResponse) => {
