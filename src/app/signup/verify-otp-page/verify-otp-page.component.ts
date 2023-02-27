@@ -59,10 +59,10 @@ export class VerifyOtpPageComponent implements OnInit {
     return this.form.value.email;
   }
   onSubmit() {
-     if (this.form.valid) {
+    if (this.form.valid) {
       this.loader = true;
       this._signUpService
-        .signUpOTPVerify(this.form.value.email, this.form.value.password)
+        .signUpOTPVerify(this.form.getRawValue().email, this.form.value.password)
         .subscribe({
           next: (res: SignUpOTPVerify) => {
             this.loader = false;
