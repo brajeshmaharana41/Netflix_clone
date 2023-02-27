@@ -36,12 +36,9 @@ export class RegFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       email: [
-        this.email ? this.email : '',
+        {value:this.email ? this.email : '',disabled:true},
         [
-          Validators.required,
-          Validators.pattern(
-            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          ),
+          Validators.required
         ],
       ],
       password: [
@@ -67,7 +64,7 @@ export class RegFormComponent implements OnInit {
     if (this.form.valid) {
       this.loader = true;
       this._signUpService
-        .signUp(this.form.value.email, this.form.value.password)
+        .signUp(this.form.getRawValue().email, this.form.value.password)
         .subscribe({
           next: (res: SignUpResponse) => {
             this.loader = false;
