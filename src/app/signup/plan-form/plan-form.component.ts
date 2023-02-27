@@ -7,12 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./plan-form.component.scss']
 })
 export class PlanFormComponent implements OnInit {
-
+selectedPlan=1;
   constructor(private _router: Router) {}
 
   ngOnInit(): void {
   }
   goToRegFormPage() {
     this._router.navigate(['signup/payment-picker']);
+  }
+
+  selectPlan(plannumber:number){
+    this.selectedPlan=plannumber;
   }
 }
