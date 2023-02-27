@@ -37,9 +37,6 @@ export class LoginComponent implements OnInit {
         this.email ? this.email : '',
         [
           Validators.required,
-          Validators.pattern(
-            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          ),
         ],
       ],
       password: [
@@ -61,35 +58,35 @@ export class LoginComponent implements OnInit {
     return this.form.value;
   }
   submit() {
-    this._router.navigate(['in/profile'])
-    // if (this.form.valid) {
-    //   this.loader = true;
-    //   this._inService
-    //     .signin(this.formValue.email, this.formValue.password)
-    //     .subscribe({
-    //       next: (res) => {
-    //         this.loader = false;
-    //         if (res.status === Constants.SUCCESSSTATUSCODE) {
-    //           localStorage.setItem(
-    //             Constants.USER,
-    //             JSON.stringify(res.body.customer_data)
-    //           );
-    //           if (res.body.customer_data.subscription_status) {
-    //             this._router.navigate(['in/profile'])
-    //           } else {
-    //             this.goToGetStartedPage();
-    //           }
-    //         } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
-    //           this.errorMsg = res.message;
-    //           // wrong pass alert goes here.
-    //         }
-    //       },
-    //       error: (err: HttpErrorResponse) => {
-    //         this.loader = false;
-    //         console.log(err.error);
-    //       },
-    //     });
-    // }
+    // this._router.navigate(['in/profile'])
+    if (this.form.valid) {
+      this.loader = true;
+      this._inService
+        .signin(this.formValue.email, this.formValue.password)
+        .subscribe({
+          next: (res) => {
+            this.loader = false;
+            if (res.status === Constants.SUCCESSSTATUSCODE) {
+              localStorage.setItem(
+                Constants.USER,
+                JSON.stringify(res.body.customer_data)
+              );
+              if (res.body.customer_data.subscription_status) {
+                this._router.navigate(['in/profile'])
+              } else {
+                this.goToGetStartedPage();
+              }
+            } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
+              this.errorMsg = res.message;
+              // wrong pass alert goes here.
+            }
+          },
+          error: (err: HttpErrorResponse) => {
+            this.loader = false;
+            console.log(err.error);
+          },
+        });
+    }
   }
 
   goToGetStartedPage() {
