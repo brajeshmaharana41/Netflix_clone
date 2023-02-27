@@ -17,6 +17,7 @@ export class SignupService {
       source: 'direct',
       device_name: 'web',
       device_token: '123456',
+      language: "English"
     });
   }
 
