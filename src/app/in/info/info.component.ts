@@ -49,7 +49,6 @@ export class InfoComponent implements OnInit {
               this.goToChangepasswordPage();
             } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
               this.errorMsg = res.message;
-              // go to phone otp page
             }
           },
           error: (err: HttpErrorResponse) => {

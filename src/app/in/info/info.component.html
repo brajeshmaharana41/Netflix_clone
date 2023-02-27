@@ -32,12 +32,12 @@
             fxLayoutAlign="space-around center"
             *ngIf="!errorMsg"
           >
-            <div class="clear_icon">
+            <!-- <div class="clear_icon">
               <mat-icon>clear</mat-icon>
-            </div>
+            </div> -->
             <span class="success_font">A new SMS was sent with your varification code.</span>
           </div>
-          <div class="pb-3" *ngIf="errorMsg">
+          <div *ngIf="errorMsg">
             <div
               class="error_message"
               fxLayout="row"
