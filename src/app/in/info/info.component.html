@@ -40,7 +40,7 @@
         </div>
         <div class="pt-2">
           <span class="for_subheader"
-            >We sent a text message to <strong>84640 39178</strong> with your
+            >We sent a text message to <strong>{{ mobile }}</strong> with your
             verification code. Enter it below to reset your password.</span
           >
         </div>
@@ -56,11 +56,24 @@
               <div>
                 <span class="for_subheader">Verification Code Input</span>
               </div>
-              <div class="example-form">
-                <mat-form-field class="example-full-width" appearance="outline">
-                  <input matInput #otpInput />
-                </mat-form-field>
-              </div>
+              <form
+                [formGroup]="form"
+                *ngIf="form"
+                (ngSubmit)="verifyOTP()"
+                class="example-form"
+              >
+                <div class="example-form">
+                  <mat-form-field
+                    class="example-full-width"
+                    appearance="outline"
+                  >
+                    <input formControlName="otp" matInput />
+                    <mat-error *ngIf="form.get('otp').errors"
+                      >Invalid code</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -69,16 +82,19 @@
             <button
               mat-button
               class="for_btn"
-              (click)="verifyOTP(otpInput.value)"
+              [disabled]="form.invalid"
+              (click)="verifyOTP()"
             >
               Verify
             </button>
           </div>
           <div class="p-2">
-            <button mat-button class="for_btn">Cancel</button>
+            <button mat-button class="for_btn" (click)="goBack()">
+              Cancel
+            </button>
           </div>
         </div>
-        <div class="p-2">
+        <div (click)="forgotPasswordRequestAPI(mobile)" class="p-2">
           <a class="for_dec_link">Text me again</a>
         </div>
       </div>

@@ -17,7 +17,7 @@ export class ForgotEmailPasswordComponent implements OnInit {
   errorMsg = '';
   constructor(
     private _router: Router,
-    private _inSevice: InService,
+    private _inService: InService,
     private formBuilder: FormBuilder
   ) {}
 
@@ -52,7 +52,7 @@ export class ForgotEmailPasswordComponent implements OnInit {
   }
 
   forgotPasswordRequestAPI(user_name: string) {
-    this._inSevice.forgotPasswordRequest(user_name).subscribe({
+    this._inService.forgotPasswordRequest(user_name).subscribe({
       next: (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           // go to email/sms sent page
