@@ -7,18 +7,13 @@
     <div>
       <div fxLayoutAlign="center center">
         <span class="setp_font"
-          >{{ "choosePlan.stepTxt" | translate
-          }}<span class="setp_font_num">{{
-            "choosePlan.inStep" | translate
-          }}</span
-          >{{ "choosePlan.ofTxt" | translate }}
-          <span class="setp_font_num">{{
-            "choosePlan.totalStep" | translate
-          }}</span></span
+          >STEP<span class="setp_font_num">2</span
+          >OF
+          <span class="setp_font_num">3</span></span
         >
       </div>
       <div class="pt-3" fxLayoutAlign="center center">
-        <span class="step_title"> {{ "choosePlan.h1" | translate }}</span>
+        <span class="step_title"> Choose your plan.</span>
       </div>
       <div class="pt-3 pb-3">
         <div fxLayout="row" fxLayoutAlign="start center">
@@ -26,9 +21,7 @@
             <mat-icon class="icon_done">check</mat-icon>
           </div>
           <div class="p-2">
-            <span class="step_sub_title">{{
-              "choosePlan.checkList1" | translate
-            }}</span>
+            <span class="step_sub_title">Choose your plan.</span>
           </div>
         </div>
         <div fxLayout="row" fxLayoutAlign="start center">
@@ -37,7 +30,7 @@
           </div>
           <div class="p-2">
             <span class="step_sub_title">
-              {{ "choosePlan.checkList2" | translate }}</span
+              Everything on Netflix for one low price.</span
             >
           </div>
         </div>
@@ -46,15 +39,13 @@
             <mat-icon class="icon_done">check</mat-icon>
           </div>
           <div class="p-2">
-            <span class="step_sub_title">{{
-              "choosePlan.checkList3" | translate
-            }}</span>
+            <span class="step_sub_title">No ads and no extra fees. Ever.</span>
           </div>
         </div>
       </div>
       <div>
         <button mat-button class="btn-next" (click)="goToRegFormPage()">
-          {{ "choosePlan.nextBtnTxt" | translate }}
+          Next
         </button>
       </div>
     </div>

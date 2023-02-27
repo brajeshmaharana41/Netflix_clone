@@ -4,18 +4,13 @@
     <div>
       <div>
         <span class="setp_font"
-          >{{ "planform.stepTxt" | translate
-          }}<span class="setp_font_num">{{
-            "planform.inStep" | translate
-          }}</span>
-          {{ "planform.ofTxt" | translate }}
-          <span class="setp_font_num">{{
-            "planform.totalStep" | translate
-          }}</span></span
+          >STEP<span class="setp_font_num">2</span>
+          OF
+          <span class="setp_font_num">3</span></span
         >
       </div>
       <div class="pt-3">
-        <span class="step_title"> {{ "planform.h1" | translate }}</span>
+        <span class="step_title">Choose the plan that’s right for you</span>
       </div>
       <div class="pt-3 pb-3">
         <div fxLayout="row" fxLayoutAlign="start center">
@@ -24,7 +19,7 @@
           </div>
           <div class="p-1">
             <span class="step_sub_title">
-              {{ "planform.checkList1" | translate }}</span
+              Watch all you want. Ad-free.</span
             >
           </div>
         </div>
@@ -34,7 +29,7 @@
           </div>
           <div class="p-1">
             <span class="step_sub_title">
-              {{ "planform.checkList2" | translate }}</span
+              Recommendations just for you.</span
             >
           </div>
         </div>
@@ -44,7 +39,7 @@
           </div>
           <div class="p-1">
             <span class="step_sub_title">
-              {{ "planform.checkList3" | translate }}</span
+              Change or cancel your plan anytime.</span
             >
           </div>
         </div>
@@ -68,7 +63,7 @@
         >
           <div (click)="selectPlan(1)" [ngClass]="{'select_mode':selectedPlan!==1,'select_mode_active':selectedPlan===1}">
             <span class="selcted_title">
-              {{ "planform.mobile" | translate }}</span
+              Mobile</span
             >
           </div>
         </div>
@@ -81,7 +76,7 @@
         >
           <div (click)="selectPlan(2)" [ngClass]="{'select_mode':selectedPlan!==2,'select_mode_active':selectedPlan===2}">
             <span class="selcted_title">
-              {{ "planform.basic" | translate }}</span
+              Basic</span
             >
           </div>
         </div>
@@ -94,7 +89,7 @@
         >
           <div (click)="selectPlan(3)" [ngClass]="{'select_mode':selectedPlan!==3,'select_mode_active':selectedPlan===3}">
             <span class="selcted_title">
-              {{ "planform.standard" | translate }}</span
+              Standard</span
             >
           </div>
         </div>
@@ -106,9 +101,7 @@
           fxFlex.xl="15"
         >
           <div (click)="selectPlan(4)" [ngClass]="{'select_mode':selectedPlan!==4,'select_mode_active':selectedPlan===4}">
-            <span class="selcted_title">{{
-              "planform.premium" | translate
-            }}</span>
+            <span class="selcted_title">Premium</span>
           </div>
         </div>
       </div>
@@ -123,9 +116,7 @@
           fxFlex.xl="40"
         >
           <div>
-            <span class="selcted_sidetitle">{{
-              "planform.monthlyPrice" | translate
-            }}</span>
+            <span class="selcted_sidetitle">Monthly price</span>
           </div>
         </div>
         <div
@@ -187,9 +178,7 @@
           class="mob_center"
         >
           <div>
-            <span class="selcted_sidetitle">{{
-              "planform.videoQuality" | translate
-            }}</span>
+            <span class="selcted_sidetitle">Video quality</span>
           </div>
         </div>
         <div
@@ -200,9 +189,7 @@
           fxFlex.xl="15"
         >
           <div class="select_list">
-            <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{
-              "planform.good" | translate
-            }}</span>
+            <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">Good</span>
           </div>
         </div>
         <div
@@ -213,9 +200,7 @@
           fxFlex.xl="15"
         >
           <div class="select_list">
-            <span [ngClass]="{'selcted_subtitle_active':selectedPlan===2}">{{
-              "planform.good" | translate
-            }}</span>
+            <span [ngClass]="{'selcted_subtitle_active':selectedPlan===2}">Good</span>
           </div>
         </div>
         <div
@@ -227,7 +212,7 @@
         >
           <div class="select_list">
             <span  [ngClass]="{'selcted_subtitle_active':selectedPlan===3}">
-              {{ "planform.better" | translate }}</span
+              Better</span
             >
           </div>
         </div>
@@ -239,9 +224,7 @@
           fxFlex.xl="15"
         >
           <div class="select_list">
-            <span [ngClass]="{'selcted_subtitle_active':selectedPlan===4}">{{
-              "planform.best" | translate
-            }}</span>
+            <span [ngClass]="{'selcted_subtitle_active':selectedPlan===4}">Best</span>
           </div>
         </div>
       </div>
@@ -259,9 +242,7 @@
           class="mob_center"
         >
           <div>
-            <span class="selcted_sidetitle">{{
-              "planform.resolution" | translate
-            }}</span>
+            <span class="selcted_sidetitle">Resolution</span>
           </div>
         </div>
         <div
@@ -324,7 +305,7 @@
         >
           <div>
             <span class="selcted_sidetitle">
-              {{ "planform.devices" | translate }}</span
+              Devices you can use to watch</span
             >
           </div>
         </div>
@@ -531,14 +512,14 @@
         </div>
       </div>
       <div class="end_des pt-5">
-        <span class="dec_text">{{ "planform.infoTxt" | translate }}</span>
+        <span class="dec_text">HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject to your internet service and device capabilities. Not all content is available in all resolutions. See our Terms of Use for more details.</span>
       </div>
       <div class="end_des pt-3 pb-4">
-        <span class="dec_text"> {{ "planform.infoTxt2" | translate }}</span>
+        <span class="dec_text">Only people who live with you may use your account. Watch on 4 different devices at the same time with Premium, 2 with Standard, and 1 with Basic and Mobile.</span>
       </div>
       <div fxLayoutAlign="center center" class="pt-5 pb-5">
         <button mat-button class="btn-next" (click)="goToRegFormPage()">
-          {{ "planform.nextBtnTxt" | translate }}
+         Next
         </button>
       </div>
     </div>
