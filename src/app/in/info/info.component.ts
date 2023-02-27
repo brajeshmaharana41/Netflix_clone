@@ -49,6 +49,7 @@ export class InfoComponent implements OnInit {
               );
               this.goToChangepasswordPage();
             } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
+              this.otpResent=false;
               this.errorMsg = res.message;
             }
           },
@@ -68,7 +69,6 @@ export class InfoComponent implements OnInit {
           localStorage.setItem(Constants.FORGOTPASSWORDPHONE, user_name);
         } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
           this.errorMsg = res.message;
-          this.otpResent=false;
           // go to phone otp page
         }
       },
