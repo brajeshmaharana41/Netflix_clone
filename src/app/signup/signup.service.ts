@@ -22,7 +22,7 @@ export class SignupService {
 
 
   signUpOTPVerify(user_name:string,otp:string):Observable<any>{
-    return this._http.post(API.Customer.forgotPasswordVerify, {
+    return this._http.post(API.Customer.signupOtpVerify, {
       user_name,
       otp,
     });
