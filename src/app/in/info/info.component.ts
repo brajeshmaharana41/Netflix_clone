@@ -17,6 +17,7 @@ export class InfoComponent implements OnInit {
   resetType: string;
   errorMsg = '';
   form: FormGroup | undefined;
+  otpResent=false;
   constructor(
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
@@ -48,8 +49,8 @@ export class InfoComponent implements OnInit {
               );
               this.goToChangepasswordPage();
             } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
+              this.otpResent=false;
               this.errorMsg = res.message;
-              // go to phone otp page
             }
           },
           error: (err: HttpErrorResponse) => {
@@ -63,6 +64,8 @@ export class InfoComponent implements OnInit {
     this._inService.forgotPasswordRequest(user_name).subscribe({
       next: (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
+          this.errorMsg='';
+          this.otpResent=true;
           localStorage.setItem(Constants.FORGOTPASSWORDPHONE, user_name);
         } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
           this.errorMsg = res.message;
