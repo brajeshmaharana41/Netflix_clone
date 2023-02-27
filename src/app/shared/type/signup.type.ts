@@ -30,3 +30,10 @@ export interface SignUpResponse {
     token: string;
   };
 }
+
+export interface SignUpOTPVerify{
+  
+    status: number,
+    message: string,
+    body: any
+}

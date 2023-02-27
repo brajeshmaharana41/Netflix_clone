@@ -12,7 +12,7 @@ import {
 import { AWSCognitoService } from 'src/app/shared/service/aws-cognito.service';
 import { SignupService } from '../signup.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { SignUpResponse } from 'src/app/shared/type/signup.type';
+import { SignUpOTPVerify, SignUpResponse } from 'src/app/shared/type/signup.type';
 
 @Component({
   selector: 'app-verify-otp-page',
@@ -36,22 +36,17 @@ export class VerifyOtpPageComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       email: [
-        this.email ? this.email : '',
+        {value:this.email ? this.email : '',disabled:true},
         [
           Validators.required,
-          Validators.pattern(
-            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          ),
         ],
       ],
       password: [
-        '',
+        "",
         [
           Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(60),
         ],
-      ],
+      ]
       // productList: this.formBuilder.array([this.productListGroup()])
     });
   }
@@ -64,29 +59,24 @@ export class VerifyOtpPageComponent implements OnInit {
     return this.form.value.email;
   }
   onSubmit() {
-    this.goToPlanChoosePage();
-
-    // if (this.form.valid) {
-    //   this.loader = true;
-    //   this._signUpService
-    //     .signUp(this.form.value.email, this.form.value.password)
-    //     .subscribe({
-    //       next: (res: SignUpResponse) => {
-    //         this.loader = false;
-    //         if (res.status === Constants.SUCCESSSTATUSCODE) {
-    //           localStorage.setItem(
-    //             Constants.USER,
-    //             JSON.stringify(res.body.customer_data)
-    //           );
-    //           this.goToPlanChoosePage();
-    //         }
-    //       },
-    //       error: (err: HttpErrorResponse) => {
-    //         this.loader = false;
-    //         console.log(err.error);
-    //       },
-    //     });
-    // }
+     if (this.form.valid) {
+      this.loader = true;
+      this._signUpService
+        .signUpOTPVerify(this.form.value.email, this.form.value.password)
+        .subscribe({
+          next: (res: SignUpOTPVerify) => {
+            this.loader = false;
+            if (res.status === Constants.SUCCESSSTATUSCODE) {
+              window.alert(res.message);
+              this.goToPlanChoosePage();
+            }
+          },
+          error: (err: HttpErrorResponse) => {
+            this.loader = false;
+            console.log(err.error);
+          },
+        });
+    }
   }
   goToPlanChoosePage() {
     this._router.navigate(['signup/regform']);

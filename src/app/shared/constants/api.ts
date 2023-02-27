@@ -16,5 +16,6 @@ export class API {
     changePassword: `${baseURL}customer/changePassword`,
     signupSuccess: `${baseURL}customer/signupSuccess`,
     forgotPasswordVerify: `${baseURL}customer/forgotPasswordVerify`,
+    signupOtpVerify: `${baseURL}customer/signupOtpVerify`,
   };
 }

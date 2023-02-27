@@ -35,7 +35,7 @@
                 matInput
                 formControlName="email"
                 class="input_height"
-                placeholder="Email"
+                placeholder="Email/Password"
               />
 
               <mat-error
@@ -44,14 +44,6 @@
                   form.get('email').hasError('required')
                 "
                 >{{ "regForm.emailRequiredError" | translate }}</mat-error
-              >
-
-              <mat-error
-                *ngIf="
-                  form.get('email').errors &&
-                  form.get('email').hasError('pattern')
-                "
-                >{{ "regForm.emailPatternError" | translate }}</mat-error
               >
             </mat-form-field>
           </div>
@@ -91,14 +83,6 @@
                 "
                 >{{ "regForm.passwordRequiredError" | translate }}</mat-error
               >
-
-              <mat-error
-                *ngIf="
-                  form.get('password').errors &&
-                  form.get('password').hasError('minLength')
-                "
-                >{{ "regForm.passwordPatternError" | translate }}</mat-error
-              >
             </mat-form-field>
           </div>
         </form>
@@ -123,7 +107,7 @@
         </div>
         <div>{{ email }}</div>
         <div class="pt-2">
-          <button mat-button class="btn-next" (click)="goToPlanChoosePage()">
+          <button mat-button class="btn-next" (click)="onSubmit()">
             {{ "regForm.nextBtnTxt" | translate }}
           </button>
         </div>

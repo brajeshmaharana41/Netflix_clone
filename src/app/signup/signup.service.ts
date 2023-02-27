@@ -19,4 +19,12 @@ export class SignupService {
       device_token: '123456',
     });
   }
+
+
+  signUpOTPVerify(user_name:string,otp:string):Observable<any>{
+    return this._http.post(API.Customer.forgotPasswordVerify, {
+      user_name,
+      otp,
+    });
+  }
 }

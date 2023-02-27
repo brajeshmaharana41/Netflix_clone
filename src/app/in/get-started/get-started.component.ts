@@ -49,9 +49,6 @@ export class GetStartedComponent implements OnInit {
         this.email ? this.email : '',
         [
           Validators.required,
-          Validators.pattern(
-            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          ),
         ],
       ],
 
@@ -97,7 +94,7 @@ export class GetStartedComponent implements OnInit {
           if (res.status === Constants.SUCCESSSTATUSCODE1) {
             this._router.navigate(['signup/password']);
           } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
-            this._router.navigate(['signup']);
+            this._router.navigate(['signup/verifyOtp']);
           } else if (res.status === Constants.SUCCESSSTATUSCODE3) {
             this._router.navigate(['in/login']);
           }
