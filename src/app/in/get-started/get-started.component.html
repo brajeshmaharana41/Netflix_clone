@@ -32,7 +32,7 @@
             "getStarted.welcomeInfoText2" | translate
           }}</span>
         </div>
-        <div class="getStarted" fxLayout="row wrap">
+        <div class="getStarted" fxLayout="row wrap" *ngIf="!user">
           <div
             fxFlex.xs="100"
             fxFlex.sm="100"
@@ -40,10 +40,9 @@
             fxFlex.lg="76"
             fxFlex.xl="76"
             class="get_btn"
-            *ngIf="!user"
           >
             <form [formGroup]="form" *ngIf="form" (ngSubmit)="getEmailStatus()">
-              <mat-form-field *ngIf="!user" class="example-full-width">
+              <mat-form-field class="example-full-width">
                 <mat-label>{{
                   "getStarted.emailInputPlaceholder" | translate
                 }}</mat-label>
@@ -80,23 +79,24 @@
           >
             <button
               mat-button
-              *ngIf="!user"
               class="getStarted_btn"
               (click)="getEmailStatus()"
             >
               {{ "getStarted.getStartedBtnText" | translate }}
             </button>
           </div>
-          <button
-            *ngIf="user"
+        </div>
+       <div *ngIf="user" class="pt-5">
+        <button
             mat-button
-            class="getStarted_btn"
-            (click)="goToChooseFormPage()"
+            class="Finesh_btn"
+            (click)="goToSignInPage()"
           >
             Finish SignUp
           </button>
-        </div>
+       </div>
       </div>
+
     </div>
     <mat-divider class="diveder"></mat-divider>
     <div class="background">

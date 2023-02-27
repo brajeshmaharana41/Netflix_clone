@@ -110,4 +110,7 @@ export class GetStartedComponent implements OnInit {
   goToChooseFormPage() {
     this._router.navigate(['signup/choose-plan']);
   }
+  goToSignInPage() {
+    this._router.navigate(['in/login']);
+  }
 }
