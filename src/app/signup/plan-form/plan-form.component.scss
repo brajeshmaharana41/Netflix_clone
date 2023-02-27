@@ -53,6 +53,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0.5;  
+}
+.select_mode_active{
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    background-color: #e50914;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 3px 0px #e50914;
     // opacity: 0.5;  
 }
 .selcted_title{
@@ -78,6 +89,11 @@
         font-size: 17px;
         font-weight: 600;
     }
+    .selcted_subtitle_active{
+        color: #e50914;
+        font-size: 17px;
+        font-weight: 600;
+    }
     .selcted_sidetitle{
         color: #737373;
         font-size: 17px;
@@ -93,6 +109,9 @@
 }
 .icon_select{
     color: #737373;
+}
+.icon_select_active{
+    color: #e50914;
 }
 @media only screen and (max-width: 600px) and (min-width: 200px)  {
     .borde_widths{
