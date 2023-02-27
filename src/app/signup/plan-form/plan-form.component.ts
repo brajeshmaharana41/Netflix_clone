@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./plan-form.component.scss']
 })
 export class PlanFormComponent implements OnInit {
-selectedPlan=1;
+selectedPlan = 2;
   constructor(private _router: Router) {}
 
   ngOnInit(): void {
