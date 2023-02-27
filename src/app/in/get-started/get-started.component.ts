@@ -94,7 +94,7 @@ export class GetStartedComponent implements OnInit {
           if (res.status === Constants.SUCCESSSTATUSCODE1) {
             this._router.navigate(['signup/password']);
           } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
-            this._router.navigate(['signup/verifyOtp']);
+            this._router.navigate(['signup']);
           } else if (res.status === Constants.SUCCESSSTATUSCODE3) {
             this._router.navigate(['in/login']);
           }
