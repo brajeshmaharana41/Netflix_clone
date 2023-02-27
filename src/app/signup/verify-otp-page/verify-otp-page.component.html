@@ -1,0 +1,134 @@
+<app-signup-header></app-signup-header>
+<div class="container borde_width" fxLayoutAlign="center start">
+  <div class="borde_widths">
+    <div class="pt-5">
+      <div>
+        <span class="setp_font"
+          >{{ "regForm.stepTxt" | translate }}
+          <span class="setp_font_num">{{ "regForm.inStep" | translate }}</span>
+          {{ "regForm.ofTxt" | translate }}
+          <span class="setp_font_num">{{
+            "regForm.totalStep" | translate
+          }}</span></span
+        >
+      </div>
+      <div *ngIf="!user">
+        <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
+          <div class="pt-3">
+            <span class="step_title">Verify OTP to start your membership </span>
+          </div>
+          <div class="pt-3 pb-3">
+            <span class="step_sub_title"
+              >{{ "regForm.h2a" | translate }}<br />
+              {{ "regForm.h2b" | translate }}</span
+            >
+          </div>
+          <div class="pb-3" *ngIf="errorMsg">
+            <div class="error_message">
+              <span class="error_font"> {{ errorMsg }}</span>
+            </div>
+          </div>
+          <div class="border_input mb-4">
+            <mat-form-field class="example-full-width">
+              <!-- <mat-label>Email</mat-label> -->
+              <input
+                matInput
+                formControlName="email"
+                class="input_height"
+                placeholder="Email"
+              />
+
+              <mat-error
+                *ngIf="
+                  form.get('email').errors &&
+                  form.get('email').hasError('required')
+                "
+                >{{ "regForm.emailRequiredError" | translate }}</mat-error
+              >
+
+              <mat-error
+                *ngIf="
+                  form.get('email').errors &&
+                  form.get('email').hasError('pattern')
+                "
+                >{{ "regForm.emailPatternError" | translate }}</mat-error
+              >
+            </mat-form-field>
+          </div>
+          <!-- <div class="border_input mb-4">
+            <mat-form-field class="example-full-width">
+              <input
+                matInput
+                class="input_height"
+                placeholder="Enter Otp"
+              />
+
+              <mat-error
+                *ngIf="
+                  form.get('email').errors &&
+                  form.get('email').hasError('required')
+                "
+                >{{ "regForm.emailRequiredError" | translate }}</mat-error
+              >
+
+              <mat-error
+                *ngIf="
+                  form.get('email').errors &&
+                  form.get('email').hasError('pattern')
+                "
+                >{{ "regForm.emailPatternError" | translate }}</mat-error
+              >
+            </mat-form-field>
+          </div> -->
+          <div class="border_input mb-4">
+            <mat-form-field class="example-full-width">
+              <mat-label>Enter OTP</mat-label>
+              <input formControlName="password" matInput class="input_height" />
+              <mat-error
+                *ngIf="
+                  form.get('password').errors &&
+                  form.get('password').hasError('required')
+                "
+                >{{ "regForm.passwordRequiredError" | translate }}</mat-error
+              >
+
+              <mat-error
+                *ngIf="
+                  form.get('password').errors &&
+                  form.get('password').hasError('minLength')
+                "
+                >{{ "regForm.passwordPatternError" | translate }}</mat-error
+              >
+            </mat-form-field>
+          </div>
+        </form>
+        <div class="pt-2">
+          <button
+            [disabled]="loader"
+            mat-button
+            class="btn-next"
+            (click)="onSubmit()"
+          >
+            {{ "regForm.nextBtnTxt" | translate }}
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="user">
+        <div>
+          <h2>{{ "regFormCreated.h1" | translate }}</h2>
+        </div>
+        <div>
+          <h4>{{ "regFormCreated.h2" | translate }}</h4>
+        </div>
+        <div>{{ email }}</div>
+        <div class="pt-2">
+          <button mat-button class="btn-next" (click)="goToPlanChoosePage()">
+            {{ "regForm.nextBtnTxt" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-signup-footer></app-signup-footer>

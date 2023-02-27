@@ -11,12 +11,9 @@
     }
 }
 .bg_data{
-    // height: 650px;
     width: 100%;
-    // border: 1px solid #ffffff;
   }
   .signIn_back{
-    // border: 1px solid #ffff;
     height: 500px;
     width: 350px;
   }
@@ -77,8 +74,16 @@
   text-decoration: underline;
   cursor: pointer;
 }
-::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
-  background-color: #b3b3b3;
+
+.check{
+  width: 20px;
+  height: 15px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -3px;
+  overflow: hidden;
 }
 .new_font{
   color: #737373;

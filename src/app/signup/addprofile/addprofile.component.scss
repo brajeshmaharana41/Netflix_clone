@@ -1,0 +1,134 @@
+// .borde_width{
+//     // border: 1px solid #000;
+//     height: 100%;
+// }
+// .borde_widths{
+//     text-align: start;
+//     width: 34%;
+// }
+// .setp_font{
+//     font-size: 13px;
+//     .setp_font_num{
+//         font-weight: 600;
+//     }
+// }
+// .step_title{
+//     font-size: 32px;
+//     line-height: 2.105rem;
+//     font-weight: 500;
+// }
+// .step_sub_title{
+//     font-size: 18px;
+//     line-height: 1.805rem;
+// }
+
+// .border_input{
+//     border: 1px solid #000;
+//     height: 60px;
+//     margin-bottom: 10px;
+// }
+
+// @media only screen and (max-width: 600px) and (min-width: 200px)  {
+//     .borde_widths{
+//         padding: 15px;
+//         text-align: start;
+//         width: 100%;
+//     }
+// }
+// .error_message{
+//     border: 1px solid #e87c03;
+//     background-color: #e87c03;
+//     height: 55px;
+//     border-radius: 5px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 10px;
+//     .error_font{
+//         font-size: 16px;
+//         color: #fff;
+//         font-weight: 400;
+//         .error_bold{
+//             font-size: 17px;
+//             font-weight: 500;
+//         }
+//     }
+// }
+
+.bg_width{
+    height: 100%;
+    .bg{
+        height: 100%;
+    }
+}
+.bord{
+    // border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+}
+.setp_font{
+    font-size: 13px;
+    padding: 3px;
+    .setp_font_num{
+        padding: 3px;
+        font-weight: 600;
+    }
+}
+.ped_left{
+    padding-right: 20px;
+}
+.person_icon{
+    font-size: 40px;
+}
+.person_icons{
+    font-size: 40px;
+    color: #fff;
+}
+.border_input{
+    border: 1px solid #000;
+    height: 60px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.bord_dec{
+    // border: 1px solid #000;
+    height: 50px;
+    width: 100%;
+    background-color: #ececec;
+    padding: 15px;
+}
+.btn-next{
+    background-color: #e50914;
+    color: #fff;
+    width: 200px;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 400;
+}
+.profile_title{
+    font-size: 18px;
+    font-weight: 500;
+}
+.example-full-width{
+    width: 100%;
+    padding-top: 5px;
+    padding-left: 10px;
+    .input_height{
+        height: 31px;
+    }
+}
+::ng-deep .mat-form-field-underline {
+    display: none;
+}
+.header_title{
+    font-size: 3.0rem;
+    line-height: 1em;
+    font-weight: bolder;
+}
+.sub_dec{
+    font-size: 16px;
+    line-height: 25px;
+}
+.example-margin{
+    font-size: large;
+}

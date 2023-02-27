@@ -68,9 +68,9 @@
             <div class="pt-5">
               <button mat-button class="btn_signin">Sign In</button>
             </div>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="space-between center" class="pt-1">
               <div>
-                <mat-checkbox class="need_help">Remember me</mat-checkbox>
+                <label class="need_help"><input type="checkbox" id="cbox1" value="first_checkbox" class="check">Remember me</label><br>
               </div>
               <div>
                 <span class="need_help" (click)="goToForgotPage()"

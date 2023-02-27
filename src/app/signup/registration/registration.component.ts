@@ -22,6 +22,6 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {}
 
   goToRegFormPage() {
-    this._router.navigate(['signup/regform']);
+    this._router.navigate(['signup/verifyOtp']);
   }
 }

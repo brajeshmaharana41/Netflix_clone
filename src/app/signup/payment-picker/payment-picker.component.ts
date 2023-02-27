@@ -13,6 +13,9 @@ export class PaymentPickerComponent implements OnInit {
   ngOnInit(): void {
   }
   goToRegFormPage() {
-    this._router.navigate(['']);
+    this._router.navigate(['signup/successPage']);
+  }
+  goToProfilePages(){
+    this._router.navigate(['signup/add_profile']);
   }
 }

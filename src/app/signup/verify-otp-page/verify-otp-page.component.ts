@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Constants } from '../../shared/constants/constant';
 import {
   AbstractControl,
   FormArray,
@@ -8,27 +9,28 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Constants } from '../../shared/constants/constant';
-import { InService } from '../in.service';
+import { AWSCognitoService } from 'src/app/shared/service/aws-cognito.service';
+import { SignupService } from '../signup.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SignUpResponse } from 'src/app/shared/type/signup.type';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-verify-otp-page',
+  templateUrl: './verify-otp-page.component.html',
+  styleUrls: ['./verify-otp-page.component.scss']
 })
-export class LoginComponent implements OnInit {
-  hide = true;
-  form: FormGroup | undefined;
+export class VerifyOtpPageComponent implements OnInit {
   email = localStorage.getItem(Constants.ACTIVEEMAIL);
   user = localStorage.getItem(Constants.USER);
+  loader = false;
   errorMsg = '';
   // password = localStorage.getItem(Constants.ACTIVEPASSWORD);
-  loader = false;
+  form: FormGroup | undefined;
   constructor(
     private _router: Router,
     private formBuilder: FormBuilder,
-    private _inService: InService
+    private _signUpService: SignupService,
+    private awsCognitoService: AWSCognitoService
   ) {}
 
   ngOnInit(): void {
@@ -46,42 +48,37 @@ export class LoginComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(4),
+          Validators.minLength(6),
           Validators.maxLength(60),
         ],
       ],
       // productList: this.formBuilder.array([this.productListGroup()])
     });
   }
-  goToHomePage() {
-    this._router.navigate(['home']);
+
+  get formpassword() {
+    return this.form.value.password;
   }
 
-  get formValue() {
-    return this.form.value;
+  get formemail() {
+    return this.form.value.email;
   }
-  submit() {
-    this._router.navigate(['in/profile'])
+  onSubmit() {
+    this.goToPlanChoosePage();
+
     // if (this.form.valid) {
     //   this.loader = true;
-    //   this._inService
-    //     .signin(this.formValue.email, this.formValue.password)
+    //   this._signUpService
+    //     .signUp(this.form.value.email, this.form.value.password)
     //     .subscribe({
-    //       next: (res) => {
+    //       next: (res: SignUpResponse) => {
     //         this.loader = false;
     //         if (res.status === Constants.SUCCESSSTATUSCODE) {
     //           localStorage.setItem(
     //             Constants.USER,
     //             JSON.stringify(res.body.customer_data)
     //           );
-    //           if (res.body.customer_data.subscription_status) {
-    //             this._router.navigate(['in/profile'])
-    //           } else {
-    //             this.goToGetStartedPage();
-    //           }
-    //         } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
-    //           this.errorMsg = res.message;
-    //           // wrong pass alert goes here.
+    //           this.goToPlanChoosePage();
     //         }
     //       },
     //       error: (err: HttpErrorResponse) => {
@@ -91,14 +88,7 @@ export class LoginComponent implements OnInit {
     //     });
     // }
   }
-
-  goToGetStartedPage() {
-    this._router.navigate(['in/get-started']);
-  }
-  goTosignUpPage() {
-    this._router.navigate(['']);
-  }
-  goToForgotPage() {
-    this._router.navigate(['in/forgot-email']);
+  goToPlanChoosePage() {
+    this._router.navigate(['signup/regform']);
   }
 }
