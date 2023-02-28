@@ -12,6 +12,6 @@ export class AddprofileComponent implements OnInit {
   ngOnInit(): void {
   }
   goToRegFormPage() {
-    this._router.navigate(['/']);
+    this._router.navigate(['in/profile']);
   }
 }
