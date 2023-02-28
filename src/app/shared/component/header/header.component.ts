@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goToGetStarted() {
-    this.router.navigate(['/in/get-started']);
+    this.router.navigate(['/']);
   }
 
   signOut() {

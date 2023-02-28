@@ -91,12 +91,12 @@ export class GetStartedComponent implements OnInit {
         next: (res) => {
           this.loader = false;
           localStorage.setItem(Constants.ACTIVEEMAIL, this.form.value.email);
-          if (res.status === Constants.SUCCESSSTATUSCODE1) {
+          if (res.status === Constants.SUCCESSSTATUSCODE) {
+            this._router.navigate(['in/login']);
+          } else if (res.status === Constants.SUCCESSSTATUSCODE1) {
             this._router.navigate(['signup/password']);
           } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
             this._router.navigate(['signup']);
-          } else if (res.status === Constants.SUCCESSSTATUSCODE3) {
-            this._router.navigate(['in/login']);
           }
         },
         error: (err: HttpErrorResponse) => {

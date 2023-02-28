@@ -13,7 +13,8 @@ export class HomeHeaderComponent implements OnInit {
   ngOnInit(): void {}
   signOut() {
     localStorage.clear();
-    this.router.navigate(['in']);
+    this.goToGetStarted();
+    // this.router.navigate(['in']);
   }
 
   goToGetStarted() {

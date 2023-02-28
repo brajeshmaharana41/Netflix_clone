@@ -9,5 +9,5 @@
   <button *ngIf="user" mat-button class="btn_signin" (click)="signOut()">
     Sign Out
   </button>
-  <button *ngIf="!user" mat-button class="btn_signin">Sign In</button>
+  <button *ngIf="!user" mat-button class="btn_signin" (click)="goToSignIn()">Sign In</button>
 </mat-toolbar>
