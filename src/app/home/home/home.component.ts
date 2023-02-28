@@ -33,15 +33,7 @@ export class HomeComponent implements OnInit {
   }
   action(key: any,type:boolean){
     this.MoveData[key].show=type;
-  //   this.show=key;
-
-  //   let updatedDatat = this.MoveData.map((val,index)=>{
-
-  //     return key == index  ? {...val,show:true} :{...val,show:false}
-
-  //  })
     console.log('action',type)
-  //   this.MoveData=updatedDatat;
   }
 
   goToTheCategory(pageName: string) {

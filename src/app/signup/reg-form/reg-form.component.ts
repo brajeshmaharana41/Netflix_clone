@@ -20,6 +20,7 @@ import { SignUpResponse } from 'src/app/shared/type/signup.type';
   styleUrls: ['./reg-form.component.scss'],
 })
 export class RegFormComponent implements OnInit {
+  hide = true;
   email = localStorage.getItem(Constants.ACTIVEEMAIL);
   user = localStorage.getItem(Constants.USER);
   loader = false;
