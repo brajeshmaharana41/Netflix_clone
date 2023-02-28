@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpHandlerService } from '../shared/service/httphandler.service';
 import { API } from '../shared/constants/api';
 import { Observable } from 'rxjs';
-import { SignUp, SignUpResponse } from '../shared/type/signup.type';
+import { SignUp, SignUpResponse, SubscriptionResponse, UserSubscribeResponse } from '../shared/type/signup.type';
+import { Constants } from '../shared/constants/constant';
+// import { Constants } from '@aws-amplify/core';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +28,18 @@ export class SignupService {
     return this._http.post(API.Customer.signupOtpVerify, {
       user_name,
       otp,
+    });
+  }
+
+  getAllSubscription():Observable<SubscriptionResponse>{
+    return this._http.get(API.User_Subscription.getAllSubscription,{Authorization:localStorage.getItem(Constants.SESSIONTOKENSTRING)});
+  }
+
+
+  userSubscribe(subscription_id:string,payment_method:string='UPI'):Observable<UserSubscribeResponse>{
+    return this._http.post(API.Customer.signupOtpVerify, {
+      subscription_id,
+      payment_method,
     });
   }
 }

@@ -18,4 +18,9 @@ export class API {
     forgotPasswordVerify: `${baseURL}customer/forgotPasswordVerify`,
     signupOtpVerify: `${baseURL}customer/signupOtpVerify`,
   };
+
+  public static User_Subscription={
+    getAllSubscription: `${baseURL}user_subscription/getAllSubscription`,
+    userSubscribe: `${baseURL}user_subscription/userSubscribe`
+  }
 }
