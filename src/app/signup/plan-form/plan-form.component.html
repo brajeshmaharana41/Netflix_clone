@@ -254,19 +254,21 @@
       <div fxLayout="row wrap">
         <div fxHide fxShow.gt-sm fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40">
           <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="gappx">
-            <div class="select_mode_fake"></div>
-            <div class="pt-4 pb-3">
+            <div class="mode_data">
+              <div class="select_mode_fake"></div>
+            </div>
+              <div class="pt-4 pb-3">
               <span class="selcted_sidetitle">Monthly price</span>
             </div>
-            <mat-divider style="width: 100%;"></mat-divider>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
             <div class="pt-3 pb-3">
               <span class="selcted_sidetitle">Video quality</span>
             </div>
-            <mat-divider style="width: 100%;"></mat-divider>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
             <div class="pt-3 pb-3">
               <span class="selcted_sidetitle">Resolution</span>
             </div>
-            <mat-divider style="width: 100%;"></mat-divider>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
             <div class="pt-3 pb-3">
               <span class="selcted_sidetitle">Devices you can use to watch</span>
             </div>
@@ -274,23 +276,25 @@
         </div>
         <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15" *ngFor="let price_flow of price_flows">
           <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="gappx">
-            <div (click)="selectPlan(1)"
-              [ngClass]="{'select_mode':selectedPlan!==1,'select_mode_active':selectedPlan===1}">
-              <span class="selcted_title">
-                {{price_flow.name}}</span>
+            <div class="mode_data">
+              <div (click)="selectPlan(1)"
+                [ngClass]="{'select_mode':selectedPlan!==1,'select_mode_active':selectedPlan===1}">
+                <span class="selcted_title">
+                  {{price_flow.name}}</span>
+              </div>
             </div>
             <div class="select_list pt-4 pb-3">
               <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{price_flow.price}}</span>
             </div>
-            <mat-divider style="width: 100%; "></mat-divider>
+            <!-- <mat-divider style="width: 100%; "></mat-divider> -->
             <div class="select_list pt-3 pb-3">
               <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{price_flow.quality}}</span>
             </div>
-            <mat-divider style="width: 100%;"></mat-divider>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
             <div class="select_list pt-3 pb-3">
               <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{price_flow.resolution}}</span>
             </div>
-            <mat-divider style="width: 100%;"></mat-divider>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
             <div class="select_list pt-3 pb-3">
               <mat-icon [ngClass]="{'icon_select_active':selectedPlan===1}">{{price_flow.devices_mobile}}</mat-icon>
             </div>

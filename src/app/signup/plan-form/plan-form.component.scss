@@ -36,7 +36,6 @@
     font-weight: 600;
 }
 .mode_data{
-    // border: 1px solid #000;
     background-color: #fff;
     height: 140px;
     display: flex;
@@ -46,8 +45,8 @@
     top: 0.0rem;
 }
 .select_mode_fake{
-    width: 120px;
-    height: 120px; 
+    width: 300px;
+    height: 120px;
 }
 .select_mode{
     width: 120px;
@@ -86,7 +85,7 @@
     width: 120px;
     justify-content: center;
     align-items: center;
-    padding-right: 10px;
+    padding-left: 20px;
 }
 .selcted_subtitle{
     color: #737373;
