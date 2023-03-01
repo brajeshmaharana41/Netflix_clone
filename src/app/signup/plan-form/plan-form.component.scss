@@ -10,9 +10,9 @@
 }
 .setp_font{
     font-size: 13px;
-    .setp_font_num{
-        font-weight: 600;
-    }
+}
+.setp_font_num{
+    font-weight: 600;
 }
 .step_title{
     font-size: 32px;
@@ -45,6 +45,10 @@
     position: sticky;
     top: 0.0rem;
 }
+.select_mode_fake{
+    width: 120px;
+    height: 120px; 
+}
 .select_mode{
     width: 120px;
     height: 120px;
@@ -76,36 +80,35 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    .select_list{
-        display: flex;
-        width: 120px;
-        justify-content: center;
-        align-items: center;
-        padding-right: 10px;
-        // border: 1px solid #e50914;
-    }
-    .selcted_subtitle{
-        color: #737373;
-        font-size: 17px;
-        font-weight: 600;
-    }
-    .selcted_subtitle_active{
-        color: #e50914;
-        font-size: 17px;
-        font-weight: 600;
-    }
-    .selcted_sidetitle{
-        color: #737373;
-        font-size: 17px;
-        font-weight: 400;
-    }
+}
+.select_list{
+    display: flex;
+    width: 120px;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+}
+.selcted_subtitle{
+    color: #737373;
+    font-size: 17px;
+    font-weight: 600;
+}
+.selcted_subtitle_active{
+    color: #e50914;
+    font-size: 17px;
+    font-weight: 600;
+}
+.selcted_sidetitle{
+    color: #737373;
+    font-size: 16px;
+    font-weight: 400;
 }
 .end_des{
     width: 85%;
-    .dec_text{
-        color: #737373;
-        font-size: 13px;
-    }
+}
+.dec_text{
+    color: #737373;
+    font-size: 13px;
 }
 .icon_select{
     color: #737373;
