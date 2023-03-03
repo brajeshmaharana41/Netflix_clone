@@ -3,7 +3,8 @@
   <div class="borde_widths">
     <div>
       <div>
-        <span class="setp_font">STEP<span class="setp_font_num"> 2 </span> OF <span class="setp_font_num"> 3 </span></span>
+        <span class="setp_font">STEP<span class="setp_font_num"> 2 </span> OF <span class="setp_font_num"> 3
+          </span></span>
       </div>
       <div class="pt-3">
         <span class="step_title">Choose the plan that’s right for you</span>
@@ -37,7 +38,7 @@
           </div>
         </div>
       </div>
-      <div class="mode_data" fxLayout="row">
+      <!-- <div class="mode_data" fxLayout="row">
         <div fxHide fxShow.gt-sm fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40"></div>
         <div fxFlex.xs="100" fxFlex.sm="100" *ngFor="let plan of plans;let i=index" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
           <div (click)="selectPlan(i)"
@@ -46,7 +47,7 @@
               {{plan.title}}</span>
           </div>
         </div>
-        <!-- <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
+        <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
           <div (click)="selectPlan(2)"
             [ngClass]="{'select_mode':selectedPlan!==2,'select_mode_active':selectedPlan===2}">
             <span class="selcted_title">
@@ -65,10 +66,10 @@
             [ngClass]="{'select_mode':selectedPlan!==4,'select_mode_active':selectedPlan===4}">
             <span class="selcted_title">Premium</span>
           </div>
-        </div> -->
-      </div>
+        </div>
+      </div> -->
 
-      <div class="mode_list" fxLayout="row wrap">
+      <!-- <div class="mode_list" fxLayout="row wrap">
         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40">
           <div>
             <span class="selcted_sidetitle">Monthly price</span>
@@ -79,7 +80,7 @@
             <span [ngClass]="{'selcted_subtitle_active':selectedPlan===i}">₹ {{plan.package_price}}</span>
           </div>
         </div>
-        <!-- <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
+        <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
           <div class="select_list">
             <span [ngClass]="{'selcted_subtitle_active':selectedPlan===2}">₹ 199</span>
           </div>
@@ -93,12 +94,12 @@
           <div class="select_list">
             <span [ngClass]="{'selcted_subtitle_active':selectedPlan===4}">₹ 649</span>
           </div>
-        </div> -->
-      </div>
-      <div class="pt-3" fxHide.gt-sm fxShow>
-      </div>
-      <mat-divider></mat-divider>
-      <div class="mode_list" fxLayout="row wrap">
+        </div>
+      </div> -->
+      <!-- <div class="pt-3" fxHide.gt-sm fxShow>
+      </div> -->
+      <!-- <mat-divider></mat-divider> -->
+      <!-- <div class="mode_list" fxLayout="row wrap">
         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40" class="mob_center">
           <div>
             <span class="selcted_sidetitle">Video quality</span>
@@ -109,7 +110,7 @@
             <span [ngClass]="{'selcted_subtitle_active':selectedPlan===i}">Better</span>
           </div>
         </div>
-        <!-- <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
+        <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
           <div class="select_list">
             <span [ngClass]="{'selcted_subtitle_active':selectedPlan===2}">Good</span>
           </div>
@@ -124,12 +125,12 @@
           <div class="select_list">
             <span [ngClass]="{'selcted_subtitle_active':selectedPlan===4}">Best</span>
           </div>
-        </div> -->
+        </div>
+      </div> -->
+      <!-- <div class="pt-3" fxHide.gt-sm fxShow>
       </div>
-      <div class="pt-3" fxHide.gt-sm fxShow>
-      </div>
-      <mat-divider></mat-divider>
-      <div class="mode_list" fxLayout="row wrap">
+      <mat-divider></mat-divider> -->
+      <!-- <div class="mode_list" fxLayout="row wrap">
         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40" class="mob_center">
           <div>
             <span class="selcted_sidetitle">Resolution</span>
@@ -155,11 +156,11 @@
             <span [ngClass]="{'selcted_subtitle_active':selectedPlan===3}">4K+HDR</span>
           </div>
         </div>
+      </div> -->
+      <!-- <div class="pt-3" fxHide.gt-sm fxShow>
       </div>
-      <div class="pt-3" fxHide.gt-sm fxShow>
-      </div>
-      <mat-divider></mat-divider>
-      <div class="mode_list" fxLayout="row wrap">
+      <mat-divider></mat-divider> -->
+      <!-- <div class="mode_list" fxLayout="row wrap">
         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40" class="mob_center">
           <div>
             <span class="selcted_sidetitle">
@@ -186,10 +187,10 @@
             <mat-icon [ngClass]="{'icon_select_active':selectedPlan===4}">phone_iphone</mat-icon>
           </div>
         </div>
-      </div>
-      <div class="pt-3" fxHide.gt-sm fxShow>
-      </div>
-      <div class="mode_list" fxLayout="row wrap">
+      </div> -->
+      <!-- <div class="pt-3" fxHide.gt-sm fxShow>
+      </div> -->
+      <!-- <div class="mode_list" fxLayout="row wrap">
         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40" class="mob_center"></div>
         <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
           <div class="select_list">
@@ -211,8 +212,8 @@
             <mat-icon [ngClass]="{'icon_select_active':selectedPlan===4}">tablet</mat-icon>
           </div>
         </div>
-      </div>
-      <div class="mode_list" fxLayout="row wrap">
+      </div> -->
+      <!-- <div class="mode_list" fxLayout="row wrap">
         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40" class="mob_center"></div>
         <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15"></div>
         <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
@@ -230,8 +231,8 @@
             <mat-icon [ngClass]="{'icon_select_active':selectedPlan===4}">laptop_mac</mat-icon>
           </div>
         </div>
-      </div>
-      <div class="mode_list" fxLayout="row wrap">
+      </div> -->
+      <!-- <div class="mode_list" fxLayout="row wrap">
         <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40" class="mob_center"></div>
         <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15"></div>
         <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
@@ -247,6 +248,65 @@
         <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="18" fxFlex.xl="15">
           <div class="select_list">
             <mat-icon [ngClass]="{'icon_select_active':selectedPlan===4}">tv</mat-icon>
+          </div>
+        </div>
+      </div> -->
+      <div fxLayout="row wrap">
+        <div fxHide fxShow.gt-sm fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40">
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="gappx">
+            <div class="mode_data">
+              <div class="select_mode_fake"></div>
+            </div>
+              <div class="pt-4 pb-3">
+              <span class="selcted_sidetitle">Monthly price</span>
+            </div>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
+            <div class="pt-3 pb-3">
+              <span class="selcted_sidetitle">Video quality</span>
+            </div>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
+            <div class="pt-3 pb-3">
+              <span class="selcted_sidetitle">Resolution</span>
+            </div>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
+            <div class="pt-3 pb-3">
+              <span class="selcted_sidetitle">Devices you can use to watch</span>
+            </div>
+          </div>
+        </div>
+        <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15" *ngFor="let price_flow of price_flows">
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="gappx">
+            <div class="mode_data">
+              <div (click)="selectPlan(1)"
+                [ngClass]="{'select_mode':selectedPlan!==1,'select_mode_active':selectedPlan===1}">
+                <span class="selcted_title">
+                  {{price_flow.name}}</span>
+              </div>
+            </div>
+            <div class="select_list pt-4 pb-3">
+              <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{price_flow.price}}</span>
+            </div>
+            <!-- <mat-divider style="width: 100%; "></mat-divider> -->
+            <div class="select_list pt-3 pb-3">
+              <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{price_flow.quality}}</span>
+            </div>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
+            <div class="select_list pt-3 pb-3">
+              <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{price_flow.resolution}}</span>
+            </div>
+            <!-- <mat-divider style="width: 100%;"></mat-divider> -->
+            <div class="select_list pt-3 pb-3">
+              <mat-icon [ngClass]="{'icon_select_active':selectedPlan===1}">{{price_flow.devices_mobile}}</mat-icon>
+            </div>
+            <div class="select_list pt-3 pb-3">
+              <mat-icon [ngClass]="{'icon_select_active':selectedPlan===1}">{{price_flow.devices_tablet}}</mat-icon>
+            </div>
+            <div class="select_list pt-3 pb-3">
+              <mat-icon [ngClass]="{'icon_select_active':selectedPlan===1}">{{price_flow.devices_laptop}}</mat-icon>
+            </div>
+            <div class="select_list pt-3 pb-3">
+              <mat-icon [ngClass]="{'icon_select_active':selectedPlan===1}">{{price_flow.devices_tv}}</mat-icon>
+            </div>
           </div>
         </div>
       </div>
