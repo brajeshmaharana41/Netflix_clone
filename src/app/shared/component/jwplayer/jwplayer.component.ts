@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CommonService } from '../../service/common.service';
 declare var jwplayer: any;
 @Component({
   selector: 'app-jwplayer',
@@ -7,7 +8,7 @@ declare var jwplayer: any;
 })
 export class JwplayerComponent implements OnInit {
   // @Input() videoLink:string;
-  constructor() {}
+  constructor(private _commonService: CommonService) {}
 
   ngOnInit() {
     // const playerJw = jwplayer('player').setup({
@@ -21,14 +22,16 @@ export class JwplayerComponent implements OnInit {
     //   primary: 'html5',
     // });
 
-    const playerJw = jwplayer('player').setup({
-      playlist: [
-        {
-          file: 'assets/Khatal.mp4',
-        },
-      ],
-      autostart: true,
-  });
+    this._commonService.playedVideo$.subscribe((video: string) => {
+      const playerJw = jwplayer('player').setup({
+        playlist: [
+          {
+            file: video,
+          },
+        ],
+        autostart: 'true',
+      });
+    });
 
     // jwplayer('player').setup({
     //   file: 'assets/Khatal.mp4',

@@ -13,23 +13,25 @@ export interface SignUpResponse {
   status: number;
   message: string;
   body: {
-    customer_data: {
-      email: string;
-      mobile_verify: boolean;
-      password: string;
-      member: Member[];
-      device: string[];
-      language: string[];
-      user_role: string;
-      status: boolean;
-      subscription_status: boolean;
-      _id: string;
-      createdAt: string;
-      updatedAt: string;
-      __v: number;
-    };
+    customer_data: CustomerData;
     token: string;
   };
+}
+
+export interface CustomerData{
+  email: string;
+  mobile_verify: boolean;
+  password: string;
+  member: Member[];
+  device: string[];
+  language: string[];
+  user_role: string;
+  status: boolean;
+  subscription_status: boolean;
+  _id: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
 }
 
 export interface SignUpOTPVerify{

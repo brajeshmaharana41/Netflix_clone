@@ -17,10 +17,21 @@ export class API {
     signupSuccess: `${baseURL}customer/signupSuccess`,
     forgotPasswordVerify: `${baseURL}customer/forgotPasswordVerify`,
     signupOtpVerify: `${baseURL}customer/signupOtpVerify`,
+    signout: `${baseURL}customer/signout`,
   };
 
-  public static User_Subscription={
+  public static User_Subscription = {
     getAllSubscription: `${baseURL}user_subscription/getAllSubscription`,
-    userSubscribe: `${baseURL}user_subscription/userSubscribe`
-  }
+    userSubscribe: `${baseURL}user_subscription/userSubscribe`,
+  };
+
+  public static User_Video = {
+    getAllHomeData: `${baseURL}user_video/getAllHomeData`,
+    getAllVideoByVideoType: `${baseURL}user_video/getAllVideoByVideoType`,
+    videoSearch: `${baseURL}user_video/videoSearch`,
+    getVideoById: `${baseURL}user_video/getVideoById`,
+    likeUnlikeLove: `${baseURL}user_video/likeUnlikeLove`,
+    getAllVideoGenres: `${baseURL}user_video/getAllVideoGenres`,
+    getSimilarVideo: `${baseURL}user_video/getSimilarVideo`,
+  };
 }

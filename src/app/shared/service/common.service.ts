@@ -5,11 +5,15 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Constants } from '../../shared/constants/constant';
+import { HttpHandlerService } from './httphandler.service';
+import { API } from '../constants/api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommonService {
+  playedVideo = new BehaviorSubject<string>(null);
+  playedVideo$ = this.playedVideo.asObservable();
   translateLanguage = new BehaviorSubject<string>(
     localStorage.getItem(Constants.CURLANG)
       ? localStorage.getItem(Constants.CURLANG)
@@ -19,7 +23,8 @@ export class CommonService {
     private _router: Router,
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private _http: HttpHandlerService
   ) {
     // this.translate.addLangs(['en', 'hi']);
     // this.translate.setDefaultLang(
@@ -41,5 +46,9 @@ export class CommonService {
   switchLanguage(lang: string) {
     localStorage.setItem(Constants.CURLANG, lang);
     this.translateLanguage.next(lang);
+  }
+
+  logout() {
+    return this._http.delete(API.User_Video.getSimilarVideo);
   }
 }
