@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Constants } from 'src/app/shared/constants/constant';
+import { ModalDetailsComponent } from 'src/app/shared/modal-details/modal-details.component';
 import { CommonService } from 'src/app/shared/service/common.service';
 import { HttpResponse } from 'src/app/shared/type/in-type';
 import { HomeService } from '../home.service';
@@ -20,11 +22,13 @@ export class HomeComponent implements OnInit {
   changeTexts: boolean;
   imagesDatas: any;
   homeData: any;
+  contentData: any;
   constructor(
     private _router: Router,
     private _commonService: CommonService,
-    private _homeService: HomeService
-  ) {}
+    private _homeService: HomeService,
+    public dialog: MatDialog
+  ) { }
   // MoveData: MovieImage[] = [
   //   { img: 'assets/1.jpg', show: false },
   //   { img: 'assets/5.jpg', show: false },
@@ -35,17 +39,41 @@ export class HomeComponent implements OnInit {
   //   { img: 'assets/5.jpg', show: false },
   // ];
   show: string;
+  @ViewChild('widgetsContent') widgetsContent: ElementRef;
+
   ngOnInit(): void {
     this.changeText = false;
     this.changeTexts = false;
     // this.imagesDatas = this.MoveData;
     this.getAllHomeData();
   }
-  action(videoObj: any, type: boolean) {
-    videoObj.show = type;
-    if (type) {
-      this.getVideoById(videoObj.id);
+  action(index: any, trending: any, type: boolean) {
+    // videoObj.show = type;
+
+    this.homeData.home_trending_video = this.homeData.home_trending_video.map(res => {
+      return {
+        ...res,
+        show: false
+      }
+    })
+    this.homeData.home_trending_video[index] = {
+      ...this.homeData?.home_trending_video[index],
+      show: type
     }
+    if (type) {
+      this.getVideoById(trending.id);
+    }
+  }
+
+  onContentMouseLeave() {
+    this.contentData = null;
+  }
+  scrollLeft() {
+    this.widgetsContent.nativeElement.scrollLeft -= 500;
+  }
+
+  scrollRight() {
+    this.widgetsContent.nativeElement.scrollLeft += 500;
   }
 
   getVideoById(id: string) {
@@ -60,6 +88,7 @@ export class HomeComponent implements OnInit {
     this._homeService.getAllHomeData().subscribe({
       next: (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
+          console.log(res.body)
           this.homeData = res.body;
         }
         // console.log(res);
@@ -96,5 +125,12 @@ export class HomeComponent implements OnInit {
 
   goToPage(route: string) {
     this._router.navigate([`home/${route}`]);
+  }
+  openDialog() {
+    this.dialog.open(ModalDetailsComponent, {
+      width: '850px',
+      height: '700px',
+      panelClass: 'custom-dialog-container'
+    });
   }
 }

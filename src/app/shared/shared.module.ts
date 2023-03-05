@@ -17,9 +17,10 @@ import { HomeFooterComponent } from './component/home-footer/home-footer.compone
 import { JwplayerComponent } from './component/jwplayer/jwplayer.component';
 import { AccountsHeaderComponent } from './component/accounts-header/accounts-header.component';
 import { AccountsFooterComponent } from './component/accounts-footer/accounts-footer.component';
+import { ModalDetailsComponent } from './modal-details/modal-details.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, JwplayerComponent],
+  declarations: [FooterComponent, HeaderComponent, JwplayerComponent, ModalDetailsComponent],
   imports: [
     CommonModule,
     MaterialModule,

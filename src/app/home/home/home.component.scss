@@ -7,7 +7,7 @@
     background-color: #000000; 
     bottom: 0;
     left: 0;
-    position: absolute;
+    // position: absolute;
     right: 0;
     top: 0;   
     .bg__image{
@@ -22,17 +22,17 @@
     // filter: alpha(opacity=100);
     left: 0;
     // opacity: 1;
-    position: absolute;
+    // position: absolute;
     right: 0;
     top: 0;
     transition: opacity .4s cubic-bezier(.665,.235,.265,.8) 0s;
     width: 100%;
-    box-shadow: 0px 0px 30px 15px #000000;
+    // box-shadow: 0px 0px 30px 15px #000000;
     }
 }
 .movie_title{
     // border: 1px solid #fff;
-    height: 590px;
+    height: 600px;
     width: 100%;
     padding: 50px;
 }
@@ -112,11 +112,10 @@
 }
 .focas_data{
     width: 320px;
-    top: 650px;
-    // left: 0px;
-    // transform-origin: center center;
+    top: 900px;
     transform: translateX(-25px) translateY(0px) scaleX(1) scaleY(1) translateZ(0px);
     z-index: 3;
+    mask-repeat: no-repeat;
     opacity: 1;
     box-shadow: 0px 3px 10px 2px #2a2929;
     border: 1px solid rgb(52, 52, 52);
@@ -126,17 +125,17 @@
         height: 100%;
     }
 }
+.bg_color{
+    margin-bottom: 200px;
+}
 .focas_datas{
     width: 340px;
-    top: 871px;
+   // top: 900rem;
     left: 3px;
     transform-origin: center center;
     transform: translateX(57px) translateY(0px) scaleX(1) scaleY(1) translateZ(0px);
-    z-index: 3;
-    opacity: 1;
+    z-index: 1;
     box-shadow: 0px 3px 10px 2px #2a2929;
-    border: 1px solid rgb(52, 52, 52);
-    border-radius: 10px;
     .list_movies{
         width: 340px;
         border-radius: 5px;
@@ -153,17 +152,6 @@
 .focas_bg{
     background-color: #000000;
 }
-.scroll{
-    overflow: auto;
-  }
-  .scroll::-webkit-scrollbar{
-    display: none;
-  }
-  .bg_color{
-    background-color: #000000;
-    padding-left: 60px;
-    box-shadow: 0px -40px 20px 15px #000000;
-  }
   .focas_title{
     color: #46d369;
     white-space: unset; 
@@ -208,3 +196,34 @@
 .bg{
     background-color: #000000;
 }
+
+.custom-slider-main{
+    display: flex;
+    overflow: auto;
+    width: 100%;    
+    scroll-behavior: smooth;
+}
+.custom-slider-main::-webkit-scrollbar{
+    display: none;
+  }
+
+ .info-boxs{
+    padding-right: 15px;
+ }
+
+ .btn_arrow{
+    background: transparent;
+    margin: 3px;
+ }
+ .btn_arrow:hover{
+    background: #e2d9d9;
+    color: #000000;
+ }
+ .section_title{
+    padding-left: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+ }
+ .custom-dialog-container{
+    padding: 0px;
+ }
