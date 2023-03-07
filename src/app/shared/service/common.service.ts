@@ -51,4 +51,6 @@ export class CommonService {
   logout() {
     return this._http.delete(API.User_Video.getSimilarVideo);
   }
+
+  addToMyList() {}
 }
