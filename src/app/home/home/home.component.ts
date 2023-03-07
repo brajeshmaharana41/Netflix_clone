@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     private _commonService: CommonService,
     private _homeService: HomeService,
     public dialog: MatDialog
-  ) { }
+  ) {}
   // MoveData: MovieImage[] = [
   //   { img: 'assets/1.jpg', show: false },
   //   { img: 'assets/5.jpg', show: false },
@@ -50,16 +50,18 @@ export class HomeComponent implements OnInit {
   action(index: any, trending: any, type: boolean) {
     // videoObj.show = type;
 
-    this.homeData.home_trending_video = this.homeData.home_trending_video.map(res => {
-      return {
-        ...res,
-        show: false
+    this.homeData.home_trending_video = this.homeData.home_trending_video.map(
+      (res) => {
+        return {
+          ...res,
+          show: false,
+        };
       }
-    })
+    );
     this.homeData.home_trending_video[index] = {
       ...this.homeData?.home_trending_video[index],
-      show: type
-    }
+      show: type,
+    };
     if (type) {
       this.getVideoById(trending.id);
     }
@@ -88,7 +90,7 @@ export class HomeComponent implements OnInit {
     this._homeService.getAllHomeData().subscribe({
       next: (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
-          console.log(res.body)
+          console.log(res.body);
           this.homeData = res.body;
         }
         // console.log(res);
@@ -126,11 +128,12 @@ export class HomeComponent implements OnInit {
   goToPage(route: string) {
     this._router.navigate([`home/${route}`]);
   }
-  openDialog() {
+  openDialog(trending: any) {
     this.dialog.open(ModalDetailsComponent, {
+      data: { trending },
       width: '850px',
       height: '700px',
-      panelClass: 'custom-dialog-container'
+      panelClass: 'custom-dialog-container',
     });
   }
 }

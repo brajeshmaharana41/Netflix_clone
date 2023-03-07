@@ -1,6 +1,8 @@
 <div class="bg_height">
   <div class="bg">
-    <app-home-header (selectCategory)="goToTheCategory($event)"></app-home-header>
+    <app-home-header
+      (selectCategory)="goToTheCategory($event)"
+    ></app-home-header>
     <div class="bg_img">
       <img class="bg__image" src="assets/Home_bg.webp" alt="" />
     </div>
@@ -39,12 +41,25 @@
           </button>
         </div>
         <div #widgetsContent class="custom-slider-main">
-          <div *ngFor="let trending of homeData?.home_trending_video; let i = index">
+          <div
+            *ngFor="
+              let trending of homeData?.home_trending_video;
+              let i = index
+            "
+          >
             <div class="info-boxs">
-              <img (mouseenter)="action(i, trending, true)" src="{{ trending?.thumbnail_image[1] }}" class="list_movie">
+              <img
+                (mouseenter)="action(i, trending, true)"
+                src="{{ trending?.thumbnail_image[1] }}"
+                class="list_movie"
+              />
             </div>
-            <div (mouseleave)="action(i, trending,  false)" *ngIf="trending?.show" class="focas_data"
-              style="position: absolute">
+            <div
+              (mouseleave)="action(i, trending, false)"
+              *ngIf="trending?.show"
+              class="focas_data"
+              style="position: absolute"
+            >
               <div (click)="goToPage('video-player')">
                 <app-jwplayer></app-jwplayer>
               </div>
@@ -69,7 +84,11 @@
                   </div>
                   <div class="pt-3 pb-1">
                     <div class="p-2">
-                      <button mat-mini-fab class="mini_btn" (click)="openDialog()">
+                      <button
+                        mat-mini-fab
+                        class="mini_btn"
+                        (click)="openDialog(trending)"
+                      >
                         <mat-icon>expand_more</mat-icon>
                       </button>
                     </div>
@@ -80,7 +99,121 @@
                     <span class="focas_title">98% Match</span>
                   </div>
                   <div class="focas_bord p-2">
-                    <span class="focas_subtitle">U/A {{ trending.maturity_rating }}</span>
+                    <span class="focas_subtitle"
+                      >U/A {{ trending.maturity_rating }}</span
+                    >
+                  </div>
+                  <div class="p-2">
+                    <span class="focas_titles">7 Episodes</span>
+                  </div>
+                  <div class="focas_bords p-2">
+                    <span class="focas_subtitles">HD</span>
+                  </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center" class="pb-2">
+                  <div class="p-2">
+                    <span class="focas_titles">Gritty</span>
+                  </div>
+                  <div class="pb-3">
+                    <span class="dot">.</span>
+                  </div>
+                  <div class="p-2">
+                    <span class="focas_titles">True Crime</span>
+                  </div>
+                  <div class="pb-3">
+                    <span class="dot">.</span>
+                  </div>
+                  <div class="p-2">
+                    <span class="focas_titles">Corruption</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pull-right mt-sm">
+          <button mat-mini-fab (click)="scrollRight()" class="btn_arrow">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngFor="let homeVideo of homeData?.home_video; let i = index"
+      class="bg_color"
+    >
+      <div class="section_title">
+        <span class="movie_types">{{ homeVideo?.category }}</span>
+      </div>
+      <div
+        *ngFor="let video of homeVideo.video"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+        class="pb-5"
+      >
+        <div class="pull-left mt-sm">
+          <button mat-mini-fab (click)="scrollLeft()" class="btn_arrow">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button>
+        </div>
+        <div #widgetsContent class="custom-slider-main">
+          <div>
+            <div class="info-boxs">
+              <img
+                (mouseenter)="action(i, homeVideo, true)"
+                src="assets/5.jpg"
+                class="list_movie"
+              />
+            </div>
+            <div
+              (mouseleave)="action(i, homeVideo, false)"
+              *ngIf="homeVideo?.show"
+              class="focas_data"
+              style="position: absolute"
+            >
+              <div (click)="goToPage('video-player')">
+                <app-jwplayer></app-jwplayer>
+              </div>
+              <div class="focas_bg">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <div fxLayout="row" class="pt-3 pb-1">
+                    <div class="p-2">
+                      <button mat-mini-fab class="mini_btn">
+                        <mat-icon>play_arrow</mat-icon>
+                      </button>
+                    </div>
+                    <div class="p-2">
+                      <button mat-mini-fab class="mini_btn">
+                        <mat-icon>add</mat-icon>
+                      </button>
+                    </div>
+                    <div class="p-2">
+                      <button mat-mini-fab class="mini_btn">
+                        <mat-icon>thumb_up_alt</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="pt-3 pb-1">
+                    <div class="p-2">
+                      <button
+                        mat-mini-fab
+                        class="mini_btn"
+                        (click)="openDialog(homeVideo)"
+                      >
+                        <mat-icon>expand_more</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <div class="p-2">
+                    <span class="focas_title">98% Match</span>
+                  </div>
+                  <div class="focas_bord p-2">
+                    <span class="focas_subtitle"
+                      >U/A {{ homeVideo.maturity_rating }}</span
+                    >
                   </div>
                   <div class="p-2">
                     <span class="focas_titles">7 Episodes</span>
