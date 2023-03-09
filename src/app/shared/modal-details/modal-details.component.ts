@@ -32,7 +32,6 @@ export class ModalDetailsComponent implements OnInit {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           this.similarVideoList = res.body;
         }
-        console.log(res);
       },
       error: (err: HttpErrorResponse) => {
         console.log(err.error);

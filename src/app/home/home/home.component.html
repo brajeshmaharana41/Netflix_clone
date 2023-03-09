@@ -5,6 +5,16 @@
     ></app-home-header>
     <div class="bg_img">
       <img class="bg__image" src="assets/Home_bg.webp" alt="" />
+      <!-- 
+      <img
+      class="bg__image"
+      [src]="
+        homeData.home_banner_video.thumbnail_image.length > 0
+          ? homeData.home_banner_video.thumbnail_image[0]
+          : 'assets/5.jpg'
+      "
+      alt=""
+    /> -->
     </div>
     <!-- <div class="bg_homes">
       <div fxLayoutAlign="start center" class="movie_title">
@@ -50,7 +60,11 @@
             <div class="info-boxs">
               <img
                 (mouseenter)="action(i, trending, true)"
-                src="{{ trending?.thumbnail_image[1] }}"
+                src="{{
+                  trending?.thumbnail_image.length > 0
+                    ? trending?.thumbnail_image[0]
+                    : 'assets/5.jpg'
+                }}"
                 class="list_movie"
               />
             </div>
@@ -100,7 +114,7 @@
                   </div>
                   <div class="focas_bord p-2">
                     <span class="focas_subtitle"
-                      >U/A {{ trending.maturity_rating }}</span
+                      >U/A {{ trending?.maturity_rating }}</span
                     >
                   </div>
                   <div class="p-2">
@@ -146,18 +160,17 @@
       <div class="section_title">
         <span class="movie_types">{{ homeVideo?.category }}</span>
       </div>
-      <div
-        *ngFor="let video of homeVideo.video"
-        fxLayout="row"
-        fxLayoutAlign="start center"
-        class="pb-5"
-      >
+      <div fxLayout="row" fxLayoutAlign="start center" class="pb-5">
         <div class="pull-left mt-sm">
           <button mat-mini-fab (click)="scrollLeft()" class="btn_arrow">
             <mat-icon>keyboard_arrow_left</mat-icon>
           </button>
         </div>
-        <div #widgetsContent class="custom-slider-main">
+        <div
+          *ngFor="let video of homeVideo.video"
+          #widgetsContent
+          class="custom-slider-main"
+        >
           <div>
             <div class="info-boxs">
               <img

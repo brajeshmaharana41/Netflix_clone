@@ -7,10 +7,6 @@ import { ModalDetailsComponent } from 'src/app/shared/modal-details/modal-detail
 import { CommonService } from 'src/app/shared/service/common.service';
 import { HttpResponse } from 'src/app/shared/type/in-type';
 import { HomeService } from '../home.service';
-interface MovieImage {
-  show?: boolean;
-  img: string;
-}
 
 @Component({
   selector: 'app-home',
