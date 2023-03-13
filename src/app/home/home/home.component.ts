@@ -1,5 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Constants } from 'src/app/shared/constants/constant';
@@ -23,7 +29,8 @@ export class HomeComponent implements OnInit {
     private _router: Router,
     private _commonService: CommonService,
     private _homeService: HomeService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _changeDetection: ChangeDetectorRef
   ) {}
   // MoveData: MovieImage[] = [
   //   { img: 'assets/1.jpg', show: false },
@@ -45,23 +52,21 @@ export class HomeComponent implements OnInit {
   }
   action(index: any, video: any, type: boolean) {
     // videoObj.show = type;
+    console.log('45', video.show);
+    this.homeData.home_video = this.homeData.home_video.map((res) => {
+      return {
+        ...res,
+        show: false,
+      };
+    });
     video.show = type;
-    console.log('45', video);
-    // this.homeData.home_video = this.homeData.home_video.map(
-    //   (res) => {
-    //     return {
-    //       ...res,
-    //       show: false,
-    //     };
-    //   }
-    // );
     // this.homeData.home_video[index] = {
     //   ...this.homeData?.home_video[index],
     //   show: type,
     // };
-    if (type) {
-      this.getVideoById(video._id);
-    }
+    // if (type) {
+    //   this.getVideoById(video._id);
+    // }
   }
 
   onContentMouseLeave() {
@@ -99,7 +104,6 @@ export class HomeComponent implements OnInit {
   }
 
   goToTheCategory(pageName: string) {
-    console.log(pageName);
     switch (pageName) {
       case 'home':
         this.goToPage('home');

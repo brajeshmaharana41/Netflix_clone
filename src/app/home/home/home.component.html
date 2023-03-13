@@ -181,7 +181,7 @@
             </div>
             <div
               (mouseleave)="action(i, video, false)"
-              *ngIf="homeVideo?.show"
+              *ngIf="video?.show"
               class="focas_data"
               style="position: absolute"
             >
@@ -212,7 +212,7 @@
                       <button
                         mat-mini-fab
                         class="mini_btn"
-                        (click)="openDialog(homeVideo)"
+                        (click)="openDialog(video)"
                       >
                         <mat-icon>expand_more</mat-icon>
                       </button>
@@ -225,7 +225,7 @@
                   </div>
                   <div class="focas_bord p-2">
                     <span class="focas_subtitle"
-                      >U/A {{ homeVideo.maturity_rating }}</span
+                      >U/A {{ video.maturity_rating }}</span
                     >
                   </div>
                   <div class="p-2">

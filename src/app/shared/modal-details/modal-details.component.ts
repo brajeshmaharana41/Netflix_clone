@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Constants } from '../constants/constant';
+import { CommonService } from '../service/common.service';
 import { SharedService } from '../service/shared.service';
 import { HttpResponse } from '../type/in-type';
 
@@ -14,12 +15,14 @@ export class ModalDetailsComponent implements OnInit {
   similarVideoList = [];
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private _sharedService: SharedService
+    private _sharedService: SharedService,
+    private _commonService: CommonService
   ) {}
   userData: any;
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem(Constants.USER));
-    console.log(String(this.userData._id));
+    console.log(this.data);
+    this._commonService.playedVideo.next(this.data);
     this.getSimilarVideos();
   }
 

@@ -29,7 +29,7 @@ export class JwplayerComponent implements OnInit {
             file: video,
           },
         ],
-        autostart: 'true',
+        autostart: true,
       });
     });
 
