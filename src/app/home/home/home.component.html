@@ -187,7 +187,7 @@
             >
               <div (click)="goToPage('video-player')">
                 <!-- <app-jwplayer></app-jwplayer> -->
-                <video autoplay>
+                <video autoplay muted class="video_player">
                   <source [src]="video?.trailer[0]" type="video/mp4" />
                 </video>
               </div>
@@ -266,5 +266,6 @@
         </div>
       </div>
     </div>
+    <app-home-footer></app-home-footer>
   </div>
 </div>
