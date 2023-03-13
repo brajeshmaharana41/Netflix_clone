@@ -160,27 +160,27 @@
       <div class="section_title">
         <span class="movie_types">{{ homeVideo?.category }}</span>
       </div>
-      <div fxLayout="row" fxLayoutAlign="start center" class="pb-5">
+      <div fxLayout="row" fxLayoutAlign="start center">
         <div class="pull-left mt-sm">
           <button mat-mini-fab (click)="scrollLeft()" class="btn_arrow">
             <mat-icon>keyboard_arrow_left</mat-icon>
           </button>
         </div>
-        <div
-          *ngFor="let video of homeVideo.videos"
-          #widgetsContent
-          class="custom-slider-main"
-        >
-          <div>
+        <div #widgetsContent class="custom-slider-main">
+          <div *ngFor="let video of homeVideo.videos">
             <div class="info-boxs">
               <img
-                (mouseenter)="action(i, homeVideo, true)"
-                src="assets/5.jpg"
+                (mouseenter)="action(i, video, true)"
+                [src]="
+                  video?.thumbnail_image.length > 0
+                    ? video?.thumbnail_image[0]
+                    : 'assets/5.jpg'
+                "
                 class="list_movie"
               />
             </div>
             <div
-              (mouseleave)="action(i, homeVideo, false)"
+              (mouseleave)="action(i, video, false)"
               *ngIf="homeVideo?.show"
               class="focas_data"
               style="position: absolute"

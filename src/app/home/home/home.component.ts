@@ -43,23 +43,24 @@ export class HomeComponent implements OnInit {
     // this.imagesDatas = this.MoveData;
     this.getAllHomeData();
   }
-  action(index: any, trending: any, type: boolean) {
+  action(index: any, video: any, type: boolean) {
     // videoObj.show = type;
-
-    this.homeData.home_trending_video = this.homeData.home_trending_video.map(
-      (res) => {
-        return {
-          ...res,
-          show: false,
-        };
-      }
-    );
-    this.homeData.home_trending_video[index] = {
-      ...this.homeData?.home_trending_video[index],
-      show: type,
-    };
+    video.show = type;
+    console.log('45', video);
+    // this.homeData.home_video = this.homeData.home_video.map(
+    //   (res) => {
+    //     return {
+    //       ...res,
+    //       show: false,
+    //     };
+    //   }
+    // );
+    // this.homeData.home_video[index] = {
+    //   ...this.homeData?.home_video[index],
+    //   show: type,
+    // };
     if (type) {
-      this.getVideoById(trending.id);
+      this.getVideoById(video._id);
     }
   }
 
