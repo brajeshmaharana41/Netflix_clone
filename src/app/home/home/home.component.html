@@ -40,7 +40,7 @@
         </div>
       </div>
     </div> -->
-    <div class="bg_color">
+    <!-- <div class="bg_color">
       <div class="section_title">
         <span class="movie_types">Trending video</span>
       </div>
@@ -151,7 +151,7 @@
           </button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div
       *ngFor="let homeVideo of homeData?.home_video; let i = index"
@@ -167,7 +167,7 @@
           </button>
         </div>
         <div
-          *ngFor="let video of homeVideo.video"
+          *ngFor="let video of homeVideo.videos"
           #widgetsContent
           class="custom-slider-main"
         >
