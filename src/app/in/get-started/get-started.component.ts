@@ -45,15 +45,14 @@ export class GetStartedComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      email: [
-        this.email ? this.email : '',
-        [
-          Validators.required,
-        ],
-      ],
+      email: [this.email ? this.email : '', [Validators.required]],
 
       // productList: this.formBuilder.array([this.productListGroup()])
     });
+
+    if (localStorage.getItem(Constants.USER)) {
+      this._router.navigate(['home']);
+    }
   }
 
   onSubmit() {

@@ -3,8 +3,10 @@
   <div class="borde_widths">
     <div>
       <div>
-        <span class="setp_font">STEP<span class="setp_font_num"> 2 </span> OF <span class="setp_font_num"> 3
-          </span></span>
+        <span class="setp_font"
+          >STEP<span class="setp_font_num"> 2 </span> OF
+          <span class="setp_font_num"> 3 </span></span
+        >
       </div>
       <div class="pt-3">
         <span class="step_title">Choose the plan that’s right for you</span>
@@ -15,8 +17,15 @@
             <mat-icon class="icon_done">check</mat-icon>
           </div>
           <div class="p-1">
-            <span class="step_sub_title">
-              Watch all you want. Ad-free.</span>
+            <span class="step_sub_title"> Watch all you want. Ad-free.</span>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <div class="p-1">
+            <mat-icon class="icon_done">check</mat-icon>
+          </div>
+          <div class="p-1">
+            <span class="step_sub_title"> Recommendations just for you.</span>
           </div>
         </div>
         <div fxLayout="row" fxLayoutAlign="start center">
@@ -25,16 +34,8 @@
           </div>
           <div class="p-1">
             <span class="step_sub_title">
-              Recommendations just for you.</span>
-          </div>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start center">
-          <div class="p-1">
-            <mat-icon class="icon_done">check</mat-icon>
-          </div>
-          <div class="p-1">
-            <span class="step_sub_title">
-              Change or cancel your plan anytime.</span>
+              Change or cancel your plan anytime.</span
+            >
           </div>
         </div>
       </div>
@@ -42,7 +43,7 @@
         <div fxHide fxShow.gt-sm fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40"></div>
         <div fxFlex.xs="100" fxFlex.sm="100" *ngFor="let plan of plans;let i=index" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15">
           <div (click)="selectPlan(i)"
-            [ngClass]="{'select_mode':selectedPlan!==i,'select_mode_active':selectedPlan===i}">
+            [ngClass]="{'select_mode':selectedPlan?!==i,'sele?ct_mode_active':selectedPlan===i}">
             <span class="selcted_title">
               {{plan.title}}</span>
           </div>
@@ -252,12 +253,24 @@
         </div>
       </div> -->
       <div fxLayout="row wrap">
-        <div fxHide fxShow.gt-sm fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="20" fxFlex.lg="30" fxFlex.xl="40">
-          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="gappx">
+        <div
+          fxHide
+          fxShow.gt-sm
+          fxFlex.xs="100"
+          fxFlex.sm="100"
+          fxFlex.md="20"
+          fxFlex.lg="30"
+          fxFlex.xl="40"
+        >
+          <div
+            fxLayout="column"
+            fxLayoutAlign="start start"
+            fxLayoutGap="gappx"
+          >
             <div class="mode_data">
               <div class="select_mode_fake"></div>
             </div>
-              <div class="pt-4 pb-3">
+            <div class="pt-4 pb-3">
               <span class="selcted_sidetitle">Monthly price</span>
             </div>
             <!-- <mat-divider style="width: 100%;"></mat-divider> -->
@@ -270,54 +283,91 @@
             </div>
             <!-- <mat-divider style="width: 100%;"></mat-divider> -->
             <div class="pt-3 pb-3">
-              <span class="selcted_sidetitle">Devices you can use to watch</span>
+              <span class="selcted_sidetitle"
+                >Devices you can use to watch</span
+              >
             </div>
           </div>
         </div>
-        <div fxFlex.xs="25" fxFlex.sm="25" fxFlex.md="20" fxFlex.lg="17" fxFlex.xl="15" *ngFor="let price_flow of price_flows">
-          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="gappx">
+        <div
+          fxFlex.xs="25"
+          fxFlex.sm="25"
+          fxFlex.md="20"
+          fxFlex.lg="17"
+          fxFlex.xl="15"
+          *ngFor="let plan of plans"
+        >
+          <div
+            fxLayout="column"
+            fxLayoutAlign="start start"
+            fxLayoutGap="gappx"
+          >
             <div class="mode_data">
-              <div (click)="selectPlan(1)"
-                [ngClass]="{'select_mode':selectedPlan!==1,'select_mode_active':selectedPlan===1}">
-                <span class="selcted_title">
-                  {{price_flow.name}}</span>
+              <div
+                (click)="selectPlan(plan)"
+                [ngClass]="{
+                  select_mode: selectedPlan?.id === plan?.id,
+                  select_mode_active: selectedPlan?.id === plan?.id
+                }"
+              >
+                <span class="selcted_title"> {{ plan.title }}</span>
               </div>
             </div>
-            <div class="select_list pt-4 pb-3">
-              <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{price_flow.price}}</span>
+            <div (click)="selectPlan(plan)" class="select_list pt-4 pb-3">
+              <span
+                [ngClass]="{
+                  selcted_subtitle_active: selectedPlan?.id === plan?.id
+                }"
+                >{{ plan.package_price }}</span
+              >
             </div>
             <!-- <mat-divider style="width: 100%; "></mat-divider> -->
             <div class="select_list pt-3 pb-3">
-              <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{price_flow.quality}}</span>
+              <span
+                [ngClass]="{
+                  selcted_subtitle_active: selectedPlan?.id === plan?.id
+                }"
+                >{{ plan.video_quality }}</span
+              >
             </div>
             <!-- <mat-divider style="width: 100%;"></mat-divider> -->
             <div class="select_list pt-3 pb-3">
-              <span [ngClass]="{'selcted_subtitle_active':selectedPlan===1}">{{price_flow.resolution}}</span>
+              <span
+                [ngClass]="{
+                  selcted_subtitle_active: selectedPlan?.id === plan?.id
+                }"
+                >{{ plan.resolution }}</span
+              >
             </div>
             <!-- <mat-divider style="width: 100%;"></mat-divider> -->
-            <div class="select_list pt-3 pb-3">
-              <mat-icon [ngClass]="{'icon_select_active':selectedPlan===1}">{{price_flow.devices_mobile}}</mat-icon>
-            </div>
-            <div class="select_list pt-3 pb-3">
-              <mat-icon [ngClass]="{'icon_select_active':selectedPlan===1}">{{price_flow.devices_tablet}}</mat-icon>
-            </div>
-            <div class="select_list pt-3 pb-3">
-              <mat-icon [ngClass]="{'icon_select_active':selectedPlan===1}">{{price_flow.devices_laptop}}</mat-icon>
-            </div>
-            <div class="select_list pt-3 pb-3">
-              <mat-icon [ngClass]="{'icon_select_active':selectedPlan===1}">{{price_flow.devices_tv}}</mat-icon>
+            <div
+              class="select_list pt-3 pb-3"
+              *ngFor="let device of plan.name_of_devices"
+            >
+              <mat-icon
+                [ngClass]="{
+                  icon_select_active: selectedPlan?.id === plan?.id
+                }"
+                >{{ device.icon }}</mat-icon
+              >
             </div>
           </div>
         </div>
       </div>
       <div class="end_des pt-5">
-        <span class="dec_text">HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject to your internet
-          service and device capabilities. Not all content is available in all resolutions. See our Terms of Use for
-          more details.</span>
+        <span class="dec_text"
+          >HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability
+          subject to your internet service and device capabilities. Not all
+          content is available in all resolutions. See our Terms of Use for more
+          details.</span
+        >
       </div>
       <div class="end_des pt-3 pb-4">
-        <span class="dec_text">Only people who live with you may use your account. Watch on 4 different devices at the
-          same time with Premium, 2 with Standard, and 1 with Basic and Mobile.</span>
+        <span class="dec_text"
+          >Only people who live with you may use your account. Watch on 4
+          different devices at the same time with Premium, 2 with Standard, and
+          1 with Basic and Mobile.</span
+        >
       </div>
       <div fxLayoutAlign="center center" class="pt-5 pb-5">
         <button mat-button class="btn-next" (click)="goToRegFormPage()">

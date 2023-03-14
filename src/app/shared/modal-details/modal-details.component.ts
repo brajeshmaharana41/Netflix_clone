@@ -28,17 +28,20 @@ export class ModalDetailsComponent implements OnInit {
 
   getSimilarVideos(
     viewer_id: string = '64007cf4ff785188e7333d1c',
-    category_id: string = '63ee62cef1a56f26ded179ec'
+    category_id: string = '63ee62cef1a56f26ded179ec',
+    video_id: string = '640fd35166ce6b007517bb51'
   ) {
-    this._sharedService.getSimilarVideo(viewer_id, category_id).subscribe({
-      next: (res: HttpResponse) => {
-        if (res.status === Constants.SUCCESSSTATUSCODE) {
-          this.similarVideoList = res.body;
-        }
-      },
-      error: (err: HttpErrorResponse) => {
-        console.log(err.error);
-      },
-    });
+    this._sharedService
+      .getSimilarVideo(viewer_id, category_id, video_id)
+      .subscribe({
+        next: (res: HttpResponse) => {
+          if (res.status === Constants.SUCCESSSTATUSCODE) {
+            this.similarVideoList = res.body;
+          }
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err.error);
+        },
+      });
   }
 }
