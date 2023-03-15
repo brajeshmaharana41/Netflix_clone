@@ -167,10 +167,10 @@
           </button>
         </div>
         <div #widgetsContent class="custom-slider-main">
-          <div *ngFor="let video of homeVideo.videos">
+          <div *ngFor="let video of homeVideo.videos; let j= index">
             <div class="info-boxs">
               <img
-                (mouseenter)="action(i, video, true)"
+                (mouseenter)="action(i, video, true, j)"
                 [src]="
                   video?.thumbnail_image.length > 0
                     ? video?.thumbnail_image[0]
@@ -180,7 +180,7 @@
               />
             </div>
             <div
-              (mouseleave)="action(i, video, false)"
+              (mouseleave)="action(i, video, false, j)"
               *ngIf="video?.show"
               class="focas_data"
               style="position: absolute"
