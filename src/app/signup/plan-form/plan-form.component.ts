@@ -92,6 +92,7 @@ export class PlanFormComponent implements OnInit {
       next: (res: SubscriptionResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           this.plans = res.body;
+          this.selectPlan(this.plans[0]);
         }
       },
       error: (err: HttpErrorResponse) => {

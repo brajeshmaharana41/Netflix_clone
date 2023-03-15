@@ -25,9 +25,10 @@ export class HomeComponent implements OnInit {
   imagesDatas: any;
   homeData: any;
   contentData: any;
+  videoDetail: any;
   constructor(
     private _router: Router,
-    private _commonService: CommonService,
+    public _commonService: CommonService,
     private _homeService: HomeService,
     public dialog: MatDialog,
     private _changeDetection: ChangeDetectorRef
@@ -52,7 +53,6 @@ export class HomeComponent implements OnInit {
   }
   action(index: any, video: any, type: boolean) {
     // videoObj.show = type;
-    console.log('45', video.show);
     this.homeData.home_video = this.homeData.home_video.map((res) => {
       return {
         ...res,
@@ -64,9 +64,9 @@ export class HomeComponent implements OnInit {
     //   ...this.homeData?.home_video[index],
     //   show: type,
     // };
-    // if (type) {
-    //   this.getVideoById(video._id);
-    // }
+    if (type) {
+      this.getVideoById(video._id);
+    }
   }
 
   onContentMouseLeave() {
@@ -83,8 +83,40 @@ export class HomeComponent implements OnInit {
   getVideoById(id: string) {
     this._homeService.getVideoById(id).subscribe((res: HttpResponse) => {
       if (res.status === Constants.SUCCESSSTATUSCODE) {
+        this.videoDetail = res.body;
         this._commonService.playedVideo.next(res.body.trailer[0]);
       }
+    });
+  }
+
+  likeOrUnlike(video: any, type: 'like' | 'unlike') {
+    this._homeService.likeUnlikeLove(video.id, type).subscribe({
+      next: (res: HttpResponse) => {
+        if (res.status === Constants.SUCCESSSTATUSCODE) {
+          video.like = res.body.like;
+        }
+      },
+    });
+  }
+
+  addToMyList(video: any) {
+    this._homeService.addToWishList(video.id).subscribe({
+      next: (res) => {
+        if (res.status === Constants.SUCCESSSTATUSCODE) {
+          video.is_wishlist = res.body.is_wishlist;
+        }
+        console.log(res);
+      },
+    });
+  }
+
+  removeFromWishlist(video: any) {
+    this._homeService.deleteWishList(video.wishlist_id).subscribe({
+      next: (res) => {
+        if (res.status === Constants.SUCCESSSTATUSCODE) {
+          video.is_wishlist = res.body.is_wishlist;
+        }
+      },
     });
   }
 
@@ -137,4 +169,6 @@ export class HomeComponent implements OnInit {
       panelClass: 'custom-dialog-container',
     });
   }
+
+  addToMylist(video) {}
 }

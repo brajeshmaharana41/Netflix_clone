@@ -21,7 +21,7 @@ export class HomeService {
       },
       {
         Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWE3YTc0ZjI5MmE5OWNlMmE2MzZjMSIsIm5hbWUiOiJzb3VyYXYgcGFuamEiLCJ1c2VyX2lkIjoiNjIyNTQzIiwidXNlcm5hbWUiOiJzb3VyYXZwYW5qYSIsImVtYWlsIjoicGFuamFzb3VyYXYwM0BnbWFpbC5jb20iLCJtb2JpbGUiOiI3Mjc4MTU5ODg4IiwidXNlcl9yb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzYzMTE1MjYsImV4cCI6MTY3ODkwMzUyNn0.nsmNFtdxSl2qBoyTFARyuy-sVaQccybIOCNv63vXGcI',
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
       }
     );
   }
@@ -54,15 +54,22 @@ export class HomeService {
   getVideoById(video_id: string) {
     return this._http.get(`${API.User_Video.getVideoById}/${video_id}`, {
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWE3YTc0ZjI5MmE5OWNlMmE2MzZjMSIsIm5hbWUiOiJzb3VyYXYgcGFuamEiLCJ1c2VyX2lkIjoiNjIyNTQzIiwidXNlcm5hbWUiOiJzb3VyYXZwYW5qYSIsImVtYWlsIjoicGFuamFzb3VyYXYwM0BnbWFpbC5jb20iLCJtb2JpbGUiOiI3Mjc4MTU5ODg4IiwidXNlcl9yb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzYzMTE1MjYsImV4cCI6MTY3ODkwMzUyNn0.nsmNFtdxSl2qBoyTFARyuy-sVaQccybIOCNv63vXGcI',
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
     });
   }
 
   likeUnlikeLove(video_id: string, action_type: 'unlike' | 'like' | 'love') {
-    return this._http.post(API.User_Video.likeUnlikeLove, {
-      video_id,
-      action_type,
-    });
+    return this._http.post(
+      API.User_Video.likeUnlikeLove,
+      {
+        video_id,
+        action_type,
+      },
+      {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
+      }
+    );
   }
 
   getAllVideoGenres() {
@@ -74,5 +81,35 @@ export class HomeService {
       viewer_id,
       category_id,
     });
+  }
+
+  addToWishList(video_id: string) {
+    return this._http.post(
+      API.user_video_wishlist.addToWishlist,
+      {
+        video_id,
+      },
+      {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
+      }
+    );
+  }
+
+  fetchWishList() {
+    return this._http.get(API.user_video_wishlist.fetchWishlist, {
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
+    });
+  }
+
+  deleteWishList(wishListId: string) {
+    return this._http.delete(
+      `${API.user_video_wishlist.removeFromWishlist}/${wishListId}`,
+      {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
+      }
+    );
   }
 }

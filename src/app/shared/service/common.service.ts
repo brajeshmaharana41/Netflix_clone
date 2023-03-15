@@ -7,6 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Constants } from '../../shared/constants/constant';
 import { HttpHandlerService } from './httphandler.service';
 import { API } from '../constants/api';
+import { HomeService } from 'src/app/home/home.service';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,8 @@ export class CommonService {
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
     private translate: TranslateService,
-    private _http: HttpHandlerService
+    private _http: HttpHandlerService,
+    private _homeService: HomeService
   ) {
     // this.translate.addLangs(['en', 'hi']);
     // this.translate.setDefaultLang(
@@ -52,5 +54,27 @@ export class CommonService {
     return this._http.delete(API.User_Video.getSimilarVideo);
   }
 
-  addToMyList() {}
+  // likeOrUnlike(video: any, type: 'like' | 'unlike') {
+  //   this._homeService.likeUnlikeLove(video._id, type).subscribe({
+  //     next: (res) => {
+  //       console.log(res);
+  //     },
+  //   });
+  // }
+
+  // addToMyList(video_id: string) {
+  //   this._homeService.addToWishList(video_id).subscribe({
+  //     next: (res) => {
+  //       console.log(res);
+  //     },
+  //   });
+  // }
+
+  // removeFromWishlist(video_id: string) {
+  //   this._homeService.deleteWishList(video_id).subscribe({
+  //     next: (res) => {
+  //       console.log(res);
+  //     },
+  //   });
+  // }
 }

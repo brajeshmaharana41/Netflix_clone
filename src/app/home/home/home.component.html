@@ -201,12 +201,30 @@
                     </div>
                     <div class="p-2">
                       <button mat-mini-fab class="mini_btn">
-                        <mat-icon>add</mat-icon>
+                        <mat-icon
+                          *ngIf="!videoDetail?.is_wishlist"
+                          (click)="addToMyList(videoDetail)"
+                          >add</mat-icon
+                        >
+                        <mat-icon
+                          *ngIf="videoDetail?.is_wishlist"
+                          (click)="removeFromWishlist(videoDetail)"
+                          >check</mat-icon
+                        >
                       </button>
                     </div>
                     <div class="p-2">
                       <button mat-mini-fab class="mini_btn">
-                        <mat-icon>thumb_up_alt</mat-icon>
+                        <mat-icon
+                          *ngIf="!videoDetail?.like"
+                          (click)="likeOrUnlike(videoDetail, 'like')"
+                          >thumb_up_alt</mat-icon
+                        >
+                        <mat-icon
+                          *ngIf="videoDetail?.like"
+                          (click)="likeOrUnlike(videoDetail, 'unlike')"
+                          >thumb_down</mat-icon
+                        >
                       </button>
                     </div>
                   </div>

@@ -25,6 +25,12 @@ export class API {
     userSubscribe: `${baseURL}user_subscription/userSubscribe`,
   };
 
+  public static user_video_wishlist = {
+    addToWishlist: `${baseURL}user_video_wishlist/addToWishlist`,
+    fetchWishlist: `${baseURL}user_video_wishlist/fetchWishlist`,
+    removeFromWishlist: `${baseURL}user_video_wishlist/removeFromWishlist`,
+  };
+
   public static User_Video = {
     getAllHomeData: `${baseURL}user_video/getAllHomeData`,
     getAllVideoByVideoType: `${baseURL}user_video/getAllVideoByVideoType`,

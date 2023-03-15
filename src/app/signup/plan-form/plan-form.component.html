@@ -306,7 +306,7 @@
               <div
                 (click)="selectPlan(plan)"
                 [ngClass]="{
-                  select_mode: selectedPlan?.id === plan?.id,
+                  select_mode: selectedPlan?.id !== plan?.id,
                   select_mode_active: selectedPlan?.id === plan?.id
                 }"
               >
