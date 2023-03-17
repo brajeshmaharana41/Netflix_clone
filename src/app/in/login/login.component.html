@@ -36,6 +36,14 @@
                 <mat-form-field class="example-full-width">
                   <mat-label>Email or phone number</mat-label>
                   <input matInput formControlName="email" id="email" />
+                  <mat-error
+                    *ngIf="
+                      form.get('email').errors &&
+                      form.get('email').hasError('pattern')
+                    "
+                    >Please enter a valid email address or phone
+                    number</mat-error
+                  >
                 </mat-form-field>
               </div>
             </div>
@@ -65,11 +73,24 @@
               </div>
             </div>
             <div class="pt-5">
-              <button mat-button class="btn_signin" (click)="submit()">Sign In</button>
+              <button mat-button class="btn_signin" (click)="submit()">
+                Sign In
+              </button>
             </div>
-            <div fxLayout="row" fxLayoutAlign="space-between center" class="pt-1">
+            <div
+              fxLayout="row"
+              fxLayoutAlign="space-between center"
+              class="pt-1"
+            >
               <div>
-                <label class="need_help"><input type="checkbox" id="cbox1" value="first_checkbox" class="check">Remember me</label><br>
+                <label class="need_help"
+                  ><input
+                    type="checkbox"
+                    id="cbox1"
+                    value="first_checkbox"
+                    class="check"
+                  />Remember me</label
+                ><br />
               </div>
               <div>
                 <span class="need_help" (click)="goToForgotPage()"

@@ -8,37 +8,42 @@
     fxLayoutAlign="start center"
   >
     <div class="logo_padding">
-      <img src="assets/netflix-logo.png" (click)="goToGetStarted()" alt="" class="netflix_logo" />
+      <img
+        src="assets/netflix-logo.png"
+        (click)="goToGetStarted()"
+        alt=""
+        class="netflix_logo"
+      />
     </div>
     <div fxLayout="row" fxLayoutAlign="start center">
       <div class="list_padding">
         <span class="list_title" (click)="selectedCategory('home')">Home</span>
       </div>
-      <div class="list_padding">
+      <!-- <div class="list_padding">
         <span class="list_title" (click)="selectedCategory('tvshow')"
           >TV Show</span
         >
-      </div>
+      </div> -->
       <div class="list_padding">
         <span class="list_title" (click)="selectedCategory('movie')"
           >Movies</span
         >
       </div>
-      <div class="list_padding">
+      <!-- <div class="list_padding">
         <span class="list_title" (click)="selectedCategory('newpopular')"
           >New & Popular</span
         >
-      </div>
-      <div class="list_padding">
+      </div> -->
+      <!-- <div class="list_padding">
         <span class="list_title" (click)="selectedCategory('mylist')"
           >MyList</span
         >
-      </div>
-      <div class="list_padding">
+      </div> -->
+      <!-- <div class="list_padding">
         <span class="list_title" (click)="selectedCategory('browselang')"
           >Browse By Languages</span
         >
-      </div>
+      </div> -->
     </div>
   </div>
   <div

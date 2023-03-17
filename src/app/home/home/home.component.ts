@@ -5,6 +5,7 @@ import {
   ElementRef,
   OnInit,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -35,7 +36,7 @@ export class HomeComponent implements OnInit {
     private _homeService: HomeService,
     public dialog: MatDialog,
     private _changeDetection: ChangeDetectorRef
-  ) { }
+  ) {}
   // MoveData: MovieImage[] = [
   //   { img: 'assets/1.jpg', show: false },
   //   { img: 'assets/5.jpg', show: false },
@@ -46,7 +47,7 @@ export class HomeComponent implements OnInit {
   //   { img: 'assets/5.jpg', show: false },
   // ];
   show: string;
-  @ViewChild('widgetsContent') widgetsContent: ElementRef;
+  @ViewChild('widgetsContent') widgetsContent: any;
 
   ngOnInit(): void {
     this.changeText = false;
@@ -54,8 +55,7 @@ export class HomeComponent implements OnInit {
     // this.imagesDatas = this.MoveData;
     this.getAllHomeData();
 
-    this.crousalItemHover.pipe(debounceTime(800)).subscribe(response => {
-      console.log('ffffffffffffffffffffffffffffff', response);
+    this.crousalItemHover.pipe(debounceTime(800)).subscribe((response) => {
       // this.homeData.home_video = this.homeData.home_video.map((res) => {
       //   return {
       //     ...res,
@@ -63,15 +63,19 @@ export class HomeComponent implements OnInit {
       //   };
       // });
       for (let i = 0; i < this.homeData.home_video.length; i++) {
-        this.homeData.home_video[i].videos = this.homeData.home_video[i].videos.map(res => {
+        this.homeData.home_video[i].videos = this.homeData.home_video[
+          i
+        ].videos.map((res) => {
           return {
             ...res,
-            show: false
-          }
-        })
+            show: false,
+          };
+        });
       }
       // response.video.show = response.type;
-      this.homeData.home_video[response.index].videos[response.videoIndex].show = response.type;
+      this.homeData.home_video[response.index].videos[
+        response.videoIndex
+      ].show = response.type;
       // this.homeData.home_video[index] = {
       //   ...this.homeData?.home_video[index],
       //   show: type,
@@ -79,10 +83,10 @@ export class HomeComponent implements OnInit {
       if (response.type) {
         this.getVideoById(response.video._id);
       }
-    })
+    });
   }
   action(index: any, video: any, type: boolean, videoIndex: number) {
-    this.crousalItemHover.next({ index, video, type, videoIndex })
+    this.crousalItemHover.next({ index, video, type, videoIndex });
     // videoObj.show = type;
     // this.homeData.home_video = this.homeData.home_video.map((res) => {
     //   return {
@@ -108,6 +112,7 @@ export class HomeComponent implements OnInit {
   }
 
   scrollRight() {
+    console.log(this.widgetsContent);
     this.widgetsContent.nativeElement.scrollLeft += 500;
   }
 
@@ -192,6 +197,12 @@ export class HomeComponent implements OnInit {
   goToPage(route: string) {
     this._router.navigate([`home/${route}`]);
   }
+
+  goToVideoPlayer(video) {
+    console.log(video);
+    this._homeService.videoLink = video.video[0].video_name;
+    this._router.navigate([`home/video-player`]);
+  }
   openDialog(trending: any) {
     this.dialog.open(ModalDetailsComponent, {
       data: { trending },
@@ -201,5 +212,5 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  addToMylist(video) { }
+  addToMylist(video) {}
 }

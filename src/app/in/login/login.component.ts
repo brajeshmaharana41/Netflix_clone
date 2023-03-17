@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       email: [
         this.email ? this.email : '',
         [
+          Validators.pattern(/^(?:\d{10}|\w+@\w+\.\w{2,3})$/),
           Validators.required,
         ],
       ],
@@ -72,18 +73,18 @@ export class LoginComponent implements OnInit {
                 JSON.stringify(res.body.customer_data)
               );
               if (res.body.customer_data.subscription_status) {
-                this._router.navigate(['in/profile'])
+                this._router.navigate(['in/profile']);
               } else {
                 this.goToGetStartedPage();
               }
             } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
               this.errorMsg = res.message;
-              console.log('brajesh',this.errorMsg);
               // wrong pass alert goes here.
             }
           },
           error: (err: HttpErrorResponse) => {
             this.loader = false;
+            this.errorMsg = err.message;
             console.log(err.error);
           },
         });

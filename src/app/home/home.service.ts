@@ -11,6 +11,7 @@ import { CustomerData } from '../shared/type/signup.type';
 })
 export class HomeService {
   userData: CustomerData = JSON.parse(localStorage.getItem(Constants.USER));
+  videoLink: string;
   constructor(private _http: HttpHandlerService) {}
 
   getAllHomeData(): Observable<AllHomeDataResponse> {

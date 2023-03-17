@@ -45,7 +45,13 @@ export class GetStartedComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      email: [this.email ? this.email : '', [Validators.required]],
+      email: [
+        this.email ? this.email : '',
+        [
+          Validators.pattern(/^(?:\d{10}|\w+@\w+\.\w{2,3})$/),
+          Validators.required,
+        ],
+      ],
 
       // productList: this.formBuilder.array([this.productListGroup()])
     });
