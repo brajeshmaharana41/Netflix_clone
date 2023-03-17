@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { debounceTime, Subject } from 'rxjs';
 import { Constants } from 'src/app/shared/constants/constant';
 import { ModalDetailsComponent } from 'src/app/shared/modal-details/modal-details.component';
 import { CommonService } from 'src/app/shared/service/common.service';
@@ -26,13 +27,15 @@ export class HomeComponent implements OnInit {
   homeData: any;
   contentData: any;
   videoDetail: any;
+  private crousalItemHover = new Subject<any>();
+
   constructor(
     private _router: Router,
     public _commonService: CommonService,
     private _homeService: HomeService,
     public dialog: MatDialog,
     private _changeDetection: ChangeDetectorRef
-  ) {}
+  ) { }
   // MoveData: MovieImage[] = [
   //   { img: 'assets/1.jpg', show: false },
   //   { img: 'assets/5.jpg', show: false },
@@ -50,23 +53,51 @@ export class HomeComponent implements OnInit {
     this.changeTexts = false;
     // this.imagesDatas = this.MoveData;
     this.getAllHomeData();
+
+    this.crousalItemHover.pipe(debounceTime(800)).subscribe(response => {
+      console.log('ffffffffffffffffffffffffffffff', response);
+      // this.homeData.home_video = this.homeData.home_video.map((res) => {
+      //   return {
+      //     ...res,
+      //     show: false,
+      //   };
+      // });
+      for (let i = 0; i < this.homeData.home_video.length; i++) {
+        this.homeData.home_video[i].videos = this.homeData.home_video[i].videos.map(res => {
+          return {
+            ...res,
+            show: false
+          }
+        })
+      }
+      // response.video.show = response.type;
+      this.homeData.home_video[response.index].videos[response.videoIndex].show = response.type;
+      // this.homeData.home_video[index] = {
+      //   ...this.homeData?.home_video[index],
+      //   show: type,
+      // };
+      if (response.type) {
+        this.getVideoById(response.video._id);
+      }
+    })
   }
-  action(index: any, video: any, type: boolean) {
+  action(index: any, video: any, type: boolean, videoIndex: number) {
+    this.crousalItemHover.next({ index, video, type, videoIndex })
     // videoObj.show = type;
-    this.homeData.home_video = this.homeData.home_video.map((res) => {
-      return {
-        ...res,
-        show: false,
-      };
-    });
-    video.show = type;
-    // this.homeData.home_video[index] = {
-    //   ...this.homeData?.home_video[index],
-    //   show: type,
-    // };
-    if (type) {
-      this.getVideoById(video._id);
-    }
+    // this.homeData.home_video = this.homeData.home_video.map((res) => {
+    //   return {
+    //     ...res,
+    //     show: false,
+    //   };
+    // });
+    // video.show = type;
+    // // this.homeData.home_video[index] = {
+    // //   ...this.homeData?.home_video[index],
+    // //   show: type,
+    // // };
+    // if (type) {
+    //   this.getVideoById(video._id);
+    // }
   }
 
   onContentMouseLeave() {
@@ -170,5 +201,5 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  addToMylist(video) {}
+  addToMylist(video) { }
 }
