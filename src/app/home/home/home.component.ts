@@ -104,8 +104,8 @@ export class HomeComponent implements OnInit {
       next: (res) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           video.is_wishlist = res.body.is_wishlist;
+          video.wishlist_id = res.body._id;
         }
-        console.log(res);
       },
     });
   }
@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit {
     this._homeService.deleteWishList(video.wishlist_id).subscribe({
       next: (res) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
-          video.is_wishlist = res.body.is_wishlist;
+          video.is_wishlist = false;
         }
       },
     });

@@ -23,6 +23,7 @@ export class JwplayerComponent implements OnInit {
     // });
 
     this._commonService.playedVideo$.subscribe((video: string) => {
+      console.log(video);
       const playerJw = jwplayer('player').setup({
         playlist: [
           {
@@ -32,6 +33,15 @@ export class JwplayerComponent implements OnInit {
         autostart: true,
       });
     });
+
+    // const playerJw = jwplayer('player').setup({
+    //   playlist: [
+    //     {
+    //       file: 'https://bangla1st.s3.ap-south-1.amazonaws.com/TR-mission_manju',
+    //     },
+    //   ],
+    //   autostart: true,
+    // });
 
     // jwplayer('player').setup({
     //   file: 'assets/Khatal.mp4',

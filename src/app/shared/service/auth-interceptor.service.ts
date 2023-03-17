@@ -23,6 +23,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         'Accept-Language': 'en-US',
         'Content-Type': 'application/json',
         'Cache-Control': 'no-cache',
+        hgdh: 'hgj',
         Pragma: 'no-cache',
         // Authorization:
         //   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYWE4Y2ZlZDczZjkxMjExMGI0NzNiZSIsInVzZXJfdHlwZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBkaGFrYXJlY29yZC5jb20iLCJuYW1lIjoiQWRtaW4iLCJpYXQiOjE2NTc2NzUzODcsImV4cCI6MTY2MDI2NzM4N30.yIHQuseechEwEGeP0hHUG8yy-6vE2xmA5x-N1Fxx6n0', //JSON.stringify(localStorage.getItem('serverToken')),

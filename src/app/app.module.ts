@@ -14,7 +14,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './shared/material/material.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
+import { AuthInterceptorService } from './shared/service/auth-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +42,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
       },
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
