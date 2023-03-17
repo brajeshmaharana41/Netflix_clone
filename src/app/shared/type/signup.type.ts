@@ -51,6 +51,7 @@ export interface Devices {
   is_deleted: boolean;
   name: string;
   icon: string;
+  mat_icon: string;
   id: string;
 }
 

@@ -23,14 +23,14 @@ export class ModalDetailsComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem(Constants.USER));
     console.log(this.data);
     this._commonService.playedVideo.next(this.data);
-    this.getSimilarVideos();
+    this.getSimilarVideos(
+      this.userData._id,
+      this.data.trending.category,
+      this.data.trending._id
+    );
   }
 
-  getSimilarVideos(
-    viewer_id: string = '64007cf4ff785188e7333d1c',
-    category_id: string = '63ee62cef1a56f26ded179ec',
-    video_id: string = '640fd35166ce6b007517bb51'
-  ) {
+  getSimilarVideos(viewer_id: string, category_id: string, video_id: string) {
     this._sharedService
       .getSimilarVideo(viewer_id, category_id, video_id)
       .subscribe({
