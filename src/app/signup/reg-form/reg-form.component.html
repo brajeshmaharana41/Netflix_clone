@@ -41,7 +41,19 @@
           <div class="border_input mb-4">
             <mat-form-field class="example-full-width">
               <mat-label>Add a password</mat-label>
-              <input formControlName="password" matInput class="input_height" />
+              <input formControlName="password" matInput class="input_height" [type]="hide ? 'password' : 'text'"/>
+              <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                    class="password_hide"
+                  >
+                    <mat-icon>{{
+                      hide ? "visibility_off" : "visibility"
+                    }}</mat-icon>
+                  </button>
               <mat-error *ngIf="
                   form.get('password').errors &&
                   form.get('password').hasError('required')
