@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthPasswordGuard } from '../shared/core/guard/auth-child.guard';
+import { AuthTokenGuard } from '../shared/core/guard/auth-child.guard';
 import { AddprofileComponent } from './addprofile/addprofile.component';
 import { ChoosePlanComponent } from './choose-plan/choose-plan.component';
 import { CreditOptionComponent } from './credit-option/credit-option.component';
@@ -47,7 +47,7 @@ const routes: Routes = [
   },
   {
     path: 'password',
-    canActivate: [AuthPasswordGuard],
+    canActivate: [AuthTokenGuard],
     component: PasswordComponent,
   },
   {

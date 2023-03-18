@@ -37,10 +37,8 @@ export class RegFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       email: [
-        {value:this.email ? this.email : '',disabled:true},
-        [
-          Validators.required
-        ],
+        { value: this.email ? this.email : '', disabled: true },
+        [Validators.required],
       ],
       password: [
         '',
@@ -73,6 +71,10 @@ export class RegFormComponent implements OnInit {
               localStorage.setItem(
                 Constants.USER,
                 JSON.stringify(res.body.customer_data)
+              );
+              localStorage.setItem(
+                res.body.token,
+                Constants.SESSIONTOKENSTRING
               );
               this.goToPlanChoosePage();
             }

@@ -1,31 +1,30 @@
 import { Injectable } from '@angular/core';
 import {
-  ActivatedRouteSnapshot,
-  CanActivate,
-  CanActivateChild,
-  Route,
   Router,
+  CanActivate,
+  ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree,
+  CanActivateChild,
 } from '@angular/router';
-// import { Observable } from 'rxjs';
-import { Constants } from '../../../shared/constants/constant';
-// import { AppRoutes } from 'src/app/constants/app.route';
+import { Constants } from '../constants/constant';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class AuthTokenGuard implements CanActivate {
   constructor(private router: Router) {}
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    // const pass = localStorage.getItem(Constants.ACTIVEPASSWORD);
-    const token = localStorage.getItem(Constants.SESSIONTOKENSTRING);
-    // const email = localStorage.getItem(Constant.ACTIVEEMAIL);
+    let token: any;
+    try {
+      token = localStorage.getItem(Constants.SESSIONTOKENSTRING);
+    } catch (e) {
+      console.log(e);
+    }
     if (token) {
-      this.router.navigate(['in']);
+      return true;
+    } else {
+      this.router.navigate(['/auth']);
       return false;
     }
-    return true;
   }
 }
 
@@ -41,7 +40,7 @@ export class NoAuthTokenGuard implements CanActivate {
       console.log(e);
     }
     if (token) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/main']);
       return false;
     } else {
       return true;

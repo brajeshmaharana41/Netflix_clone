@@ -23,7 +23,7 @@ export class PasswordComponent implements OnInit {
   email = localStorage.getItem(Constants.ACTIVEEMAIL);
   user = localStorage.getItem(Constants.USER);
   loader = false;
-  errorMsg='';
+  errorMsg = '';
   // password = localStorage.getItem(Constants.ACTIVEPASSWORD);
   constructor(
     private router: Router,
@@ -61,10 +61,10 @@ export class PasswordComponent implements OnInit {
               Constants.USER,
               JSON.stringify(res.body.customer_data)
             );
+            localStorage.setItem(res.body.token, Constants.SESSIONTOKENSTRING);
             this.goToPlanChoosePage();
-          }
-          else{
-            this.errorMsg=res.message;
+          } else {
+            this.errorMsg = res.message;
           }
         },
         error: (err: HttpErrorResponse) => {

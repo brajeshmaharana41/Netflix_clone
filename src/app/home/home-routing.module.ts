@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NoAuthTokenGuard } from '../shared/core/guard/auth.guard';
 import { BrowseByLanguageComponent } from './browse-by-language/browse-by-language.component';
 import { HomeComponent } from './home/home.component';
 import { MovieComponent } from './movie/movie.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [NoAuthTokenGuard],
   },
   {
     path: 'movie',

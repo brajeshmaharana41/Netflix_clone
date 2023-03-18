@@ -201,7 +201,11 @@
                 <div fxLayout="row" fxLayoutAlign="space-between center">
                   <div fxLayout="row" class="pt-3 pb-1">
                     <div class="p-2">
-                      <button mat-mini-fab class="mini_btn">
+                      <button
+                        (click)="goToVideoPlayer(video)"
+                        mat-mini-fab
+                        class="mini_btn"
+                      >
                         <mat-icon>play_arrow</mat-icon>
                       </button>
                     </div>
