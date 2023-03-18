@@ -36,6 +36,14 @@
                 <mat-form-field class="example-full-width">
                   <mat-label>Email or phone number</mat-label>
                   <input matInput formControlName="email" id="email" />
+
+                  <mat-error
+                    *ngIf="
+                      form.get('email').errors &&
+                      form.get('email').hasError('required')
+                    "
+                    >Email is required</mat-error
+                  >
                   <mat-error
                     *ngIf="
                       form.get('email').errors &&
