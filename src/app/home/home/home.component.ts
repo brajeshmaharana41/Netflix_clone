@@ -4,6 +4,7 @@ import {
   Component,
   ElementRef,
   OnInit,
+  QueryList,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -47,7 +48,7 @@ export class HomeComponent implements OnInit {
   //   { img: 'assets/5.jpg', show: false },
   // ];
   show: string;
-  @ViewChild('widgetsContent') widgetsContent: any;
+  @ViewChildren('widgetsContent') widgetsContent: QueryList<any>;
 
   ngOnInit(): void {
     this.changeText = false;
@@ -107,13 +108,20 @@ export class HomeComponent implements OnInit {
   onContentMouseLeave() {
     this.contentData = null;
   }
-  scrollLeft() {
-    this.widgetsContent.nativeElement.scrollLeft -= 500;
+  scrollLeft(index: number) {
+    this.widgetsContent.forEach((ele, i) => {
+      if (i === index) {
+        ele.nativeElement.scrollLeft -= 500;
+      }
+    });
   }
 
-  scrollRight() {
-    console.log(this.widgetsContent);
-    this.widgetsContent.nativeElement.scrollLeft += 500;
+  scrollRight(index: number) {
+    this.widgetsContent.forEach((ele, i) => {
+      if (i === index) {
+        ele.nativeElement.scrollLeft += 500;
+      }
+    });
   }
 
   getVideoById(id: string) {
@@ -160,10 +168,8 @@ export class HomeComponent implements OnInit {
     this._homeService.getAllHomeData().subscribe({
       next: (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
-          console.log(res.body);
           this.homeData = res.body;
         }
-        // console.log(res);
       },
       error: (err: HttpErrorResponse) => {
         console.log(err.error);
@@ -205,7 +211,7 @@ export class HomeComponent implements OnInit {
   }
   openDialog(trending: any) {
     this.dialog.open(ModalDetailsComponent, {
-      data: { trending },
+      data: { ...trending },
       width: '850px',
       height: '700px',
       panelClass: 'custom-dialog-container',

@@ -6,8 +6,8 @@
   </div>
   <div class="bord_video">
     <!-- <app-jwplayer></app-jwplayer> -->
-    <video autoplay id="backgroundVideo">
-      <source [src]="data?.trending.trailer[0]" type="video/mp4" />
+    <video controls autoplay id="backgroundVideo">
+      <source [src]="data?.trailer[0]" type="video/mp4" />
     </video>
   </div>
   <div class="p-4">
@@ -30,7 +30,7 @@
             <span class="title_UA">U/A 16+</span>
           </div>
           <div class="p-1">
-            <span class="title">{{ data?.trending.duration }}</span>
+            <span class="title">{{ data?.duration }}</span>
           </div>
           <div class="bord_title">
             <span class="title_HD">HD</span>
@@ -50,7 +50,7 @@
           </div>
           <div class="p-1">
             <span class="cast_link"
-              ><a href="">{{ data?.trending.casts }}</a></span
+              ><a href="">{{ data?.casts }}</a></span
             >
           </div>
         </div>
@@ -83,7 +83,7 @@
           </div>
           <div class="p-1">
             <span class="cast_link"
-              ><a href="">{{ data?.trending?.genres }}</a></span
+              ><a href="">{{ data?.genres }}</a></span
             >
           </div>
         </div>
@@ -98,7 +98,7 @@
         fxFlex.xl="55"
       >
         <div>
-          <span class="des_move">{{ data?.trending?.description }}</span>
+          <span class="des_move">{{ data?.description }}</span>
         </div>
       </div>
     </div>
@@ -135,7 +135,7 @@
               </div>
               <div>
                 <button mat-mini-fab class="btn_watchlist">
-                  <mat-icon>add</mat-icon>
+                  <mat-icon (click)="addToMyList(video)">add</mat-icon>
                   <!-- <mat-icon>check</mat-icon> -->
                 </button>
               </div>
@@ -154,7 +154,7 @@
     </div>
     <div fxLayout="row">
       <div class="pt-5 pb-3">
-        <span class="section-header">About {{ data?.trending?.title }}</span>
+        <span class="section-header">About {{ data?.title }}</span>
       </div>
     </div>
     <div fxLayout="row" fxLayoutAlign="start start">
@@ -163,7 +163,7 @@
       </div>
       <div class="p-1">
         <span class="cast_link"
-          ><a href="">{{ data?.trending?.director }}</a></span
+          ><a href="">{{ data?.director }}</a></span
         >
       </div>
     </div>
@@ -173,7 +173,7 @@
       </div>
       <div class="p-1">
         <span class="cast_link"
-          ><a href="">{{ data?.trending?.casts }}</a></span
+          ><a href="">{{ data?.casts }}</a></span
         >
       </div>
     </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="p-1">
         <span class="cast_link"
-          ><a href="">{{ data?.trending?.writer }}</a></span
+          ><a href="">{{ data?.writer }}</a></span
         >
       </div>
     </div>
@@ -193,7 +193,7 @@
       </div>
       <div class="p-1">
         <span class="cast_link"
-          ><a href="">{{ data?.trending?.genres }}</a></span
+          ><a href="">{{ data?.genres }}</a></span
         >
       </div>
     </div>
@@ -203,9 +203,7 @@
       </div>
       <div class="p-1" fxLayout="row">
         <span class="cast_dec">
-          <span class="rate_text"
-            >U/A {{ data?.trending?.maturity_rating }}</span
-          >
+          <span class="rate_text">U/A {{ data?.maturity_rating }}</span>
           &nbsp; Suitable for persons aged 16 and above and<br />
           under parental guidance for people under age of 16</span
         >

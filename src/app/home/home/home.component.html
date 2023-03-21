@@ -4,11 +4,8 @@
       (selectCategory)="goToTheCategory($event)"
     ></app-home-header>
     <div class="bg_img">
-      <video autoplay muted class="bg__image">
-        <source
-          src="../../../assets/Outlast Official.mp4"
-          type="video/mp4"
-        />
+      <video controls autoplay muted class="bg__image">
+        <source src="assets/Outlast Official.mp4" type="video/mp4" />
       </video>
       <!-- <img class="bg__image" src="assets/Home_bg.webp" alt="" /> -->
       <!-- 
@@ -168,7 +165,7 @@
       </div>
       <div fxLayout="row" fxLayoutAlign="start center">
         <div class="pull-left mt-sm">
-          <button mat-mini-fab (click)="scrollLeft()" class="btn_arrow">
+          <button mat-mini-fab (click)="scrollLeft(i)" class="btn_arrow">
             <mat-icon>keyboard_arrow_left</mat-icon>
           </button>
         </div>
@@ -288,7 +285,7 @@
           </div>
         </div>
         <div class="pull-right mt-sm">
-          <button mat-mini-fab (click)="scrollRight()" class="btn_arrow">
+          <button mat-mini-fab (click)="scrollRight(i)" class="btn_arrow">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </button>
         </div>
