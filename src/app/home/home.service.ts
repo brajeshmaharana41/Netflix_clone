@@ -14,7 +14,7 @@ export class HomeService {
   videoLink: string;
   constructor(private _http: HttpHandlerService) {}
 
-  getAllHomeData(): Observable<AllHomeDataResponse> {
+  getAllHomeData(viewer_id: string): Observable<AllHomeDataResponse> {
     return this._http.post(
       API.User_Video.getAllHomeData,
       {
@@ -52,18 +52,27 @@ export class HomeService {
     });
   }
 
-  getVideoById(video_id: string) {
-    return this._http.get(`${API.User_Video.getVideoById}/${video_id}`, {
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
-    });
+  getVideoById(video_id: string, sub_video_id: string) {
+    return this._http.post(
+      `${API.User_Video.getVideoById}`,
+      { video_id, sub_video_id },
+      {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
+      }
+    );
   }
 
-  likeUnlikeLove(video_id: string, action_type: 'unlike' | 'like' | 'love') {
+  likeUnlikeLove(
+    video_id: string,
+    sub_video_id: string,
+    action_type: 'unlike' | 'like' | 'love'
+  ) {
     return this._http.post(
       API.User_Video.likeUnlikeLove,
       {
         video_id,
+        sub_video_id,
         action_type,
       },
       {
@@ -84,11 +93,12 @@ export class HomeService {
     });
   }
 
-  addToWishList(video_id: string) {
+  addToWishList(video_id: string, sub_video_id: string) {
     return this._http.post(
       API.user_video_wishlist.addToWishlist,
       {
         video_id,
+        sub_video_id,
       },
       {
         Authorization:

@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   homeData: any;
   contentData: any;
   videoDetail: any;
+  userData = JSON.parse(localStorage.getItem(Constants.USER));
   private crousalItemHover = new Subject<any>();
 
   constructor(
@@ -54,7 +55,8 @@ export class HomeComponent implements OnInit {
     this.changeText = false;
     this.changeTexts = false;
     // this.imagesDatas = this.MoveData;
-    this.getAllHomeData();
+    // this.getAllDeviceData(this.userData._id);
+    this.getAllHomeData(this.userData._id);
 
     this.crousalItemHover.pipe(debounceTime(800)).subscribe((response) => {
       // this.homeData.home_video = this.homeData.home_video.map((res) => {
@@ -82,7 +84,7 @@ export class HomeComponent implements OnInit {
       //   show: type,
       // };
       if (response.type) {
-        this.getVideoById(response.video._id);
+        // this.getVideoById(response.video._id);
       }
     });
   }
@@ -100,9 +102,9 @@ export class HomeComponent implements OnInit {
     // //   ...this.homeData?.home_video[index],
     // //   show: type,
     // // };
-    // if (type) {
-    //   this.getVideoById(video._id);
-    // }
+    if (type) {
+      this.getVideoById(video._id, video.video[0]._id);
+    }
   }
 
   onContentMouseLeave() {
@@ -124,34 +126,40 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getVideoById(id: string) {
-    this._homeService.getVideoById(id).subscribe((res: HttpResponse) => {
-      if (res.status === Constants.SUCCESSSTATUSCODE) {
-        this.videoDetail = res.body;
-        this._commonService.playedVideo.next(res.body.trailer[0]);
-      }
-    });
+  getVideoById(id: string, sub_video_id: string) {
+    this._homeService
+      .getVideoById(id, sub_video_id)
+      .subscribe((res: HttpResponse) => {
+        if (res.status === Constants.SUCCESSSTATUSCODE) {
+          this.videoDetail = res.body;
+          this._commonService.playedVideo.next(res.body.trailer[0]);
+        }
+      });
   }
 
   likeOrUnlike(video: any, type: 'like' | 'unlike') {
-    this._homeService.likeUnlikeLove(video.id, type).subscribe({
-      next: (res: HttpResponse) => {
-        if (res.status === Constants.SUCCESSSTATUSCODE) {
-          video.like = res.body.like;
-        }
-      },
-    });
+    this._homeService
+      .likeUnlikeLove(video.id, video.video[0].id, type)
+      .subscribe({
+        next: (res: HttpResponse) => {
+          if (res.status === Constants.SUCCESSSTATUSCODE) {
+            video.like = res.body.like;
+          }
+        },
+      });
   }
 
   addToMyList(video: any) {
-    this._homeService.addToWishList(video.id).subscribe({
-      next: (res) => {
-        if (res.status === Constants.SUCCESSSTATUSCODE) {
-          video.is_wishlist = res.body.is_wishlist;
-          video.wishlist_id = res.body._id;
-        }
-      },
-    });
+    this._homeService
+      .addToWishList(video.video[0].id, video.video[0].id)
+      .subscribe({
+        next: (res) => {
+          if (res.status === Constants.SUCCESSSTATUSCODE) {
+            video.is_wishlist = res.body.is_wishlist;
+            video.wishlist_id = res.body._id;
+          }
+        },
+      });
   }
 
   removeFromWishlist(video: any) {
@@ -164,8 +172,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getAllHomeData() {
-    this._homeService.getAllHomeData().subscribe({
+  getAllHomeData(viewer_id: string) {
+    this._homeService.getAllHomeData(viewer_id).subscribe({
       next: (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           this.homeData = res.body;

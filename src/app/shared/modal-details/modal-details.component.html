@@ -98,7 +98,199 @@
         fxFlex.xl="55"
       >
         <div>
-          <span class="des_move">{{ data?.description }}</span>
+          <span class="des_move">{{
+            data?.description | slice : 0 : 250
+          }}</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="data?.video_type !== 'movies'">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div class="pt-5 pb-1">
+          <span class="season-header">Episodes</span>
+        </div>
+        <div class="pt-5 pb-1">
+          <!-- <mat-form-field appearance="outline" class="select_feled"> -->
+          <select value="volvo" class="season-drop">
+            <option class="season-drops" value="volvo">Season 1</option>
+            <option class="season-drops" value="saab">Season 2</option>
+            <option class="season-drops" value="mercedes">Season 3</option>
+            <option class="season-drops" value="audi">Season 4</option>
+          </select>
+          <!-- </mat-form-field> -->
+        </div>
+      </div>
+      <div>
+        <div
+          fxLayout="row wrap"
+          fxLayoutAlign="start center"
+          class="season_episode p-3"
+        >
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="50"
+            fxFlex.md="10"
+            fxFlex.lg="5"
+            fxFlex.xl="5"
+          >
+            <div>
+              <span class="section_ser">1</span>
+            </div>
+          </div>
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="50"
+            fxFlex.md="30"
+            fxFlex.lg="25"
+            fxFlex.xl="25"
+          >
+            <div class="episode_img_back">
+              <img src="assets/1.jpg" alt="" class="episode_img" />
+            </div>
+          </div>
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="50"
+            fxFlex.md="60"
+            fxFlex.lg="70"
+            fxFlex.xl="70"
+          >
+            <div
+              fxLayout="row"
+              fxLayoutAlign="space-between center"
+              class="p-2"
+            >
+              <div>
+                <span class="sesion_title">Pilot</span>
+              </div>
+              <div>
+                <span class="sesion_dur">44m</span>
+              </div>
+            </div>
+            <div class="p-2">
+              <div>
+                <span class="sesion_dec"
+                  >Presumed dead for five years before being discovered on a
+                  remote Pacific island, billionaire playboy Oliver Queen
+                  returns home a changed man.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          fxLayout="row wrap"
+          fxLayoutAlign="start center"
+          class="season_episode p-3"
+        >
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="50"
+            fxFlex.md="10"
+            fxFlex.lg="5"
+            fxFlex.xl="5"
+          >
+            <div>
+              <span class="section_ser">2</span>
+            </div>
+          </div>
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="50"
+            fxFlex.md="30"
+            fxFlex.lg="25"
+            fxFlex.xl="25"
+          >
+            <div class="episode_img_back">
+              <img src="assets/1.jpg" alt="" class="episode_img" />
+            </div>
+          </div>
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="50"
+            fxFlex.md="60"
+            fxFlex.lg="70"
+            fxFlex.xl="70"
+          >
+            <div
+              fxLayout="row"
+              fxLayoutAlign="space-between center"
+              class="p-2"
+            >
+              <div>
+                <span class="sesion_title">Pilot</span>
+              </div>
+              <div>
+                <span class="sesion_dur">44m</span>
+              </div>
+            </div>
+            <div class="p-2">
+              <div>
+                <span class="sesion_dec"
+                  >Presumed dead for five years before being discovered on a
+                  remote Pacific island, billionaire playboy Oliver Queen
+                  returns home a changed man.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          fxLayout="row wrap"
+          fxLayoutAlign="start center"
+          class="season_episode p-3"
+        >
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="50"
+            fxFlex.md="10"
+            fxFlex.lg="5"
+            fxFlex.xl="5"
+          >
+            <div>
+              <span class="section_ser">3</span>
+            </div>
+          </div>
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="50"
+            fxFlex.md="30"
+            fxFlex.lg="25"
+            fxFlex.xl="25"
+          >
+            <div class="episode_img_back">
+              <img src="assets/1.jpg" alt="" class="episode_img" />
+            </div>
+          </div>
+          <div
+            fxFlex.xs="100"
+            fxFlex.sm="50"
+            fxFlex.md="60"
+            fxFlex.lg="70"
+            fxFlex.xl="70"
+          >
+            <div
+              fxLayout="row"
+              fxLayoutAlign="space-between center"
+              class="p-2"
+            >
+              <div>
+                <span class="sesion_title">Pilot</span>
+              </div>
+              <div>
+                <span class="sesion_dur">44m</span>
+              </div>
+            </div>
+            <div class="p-2">
+              <div>
+                <span class="sesion_dec"
+                  >Presumed dead for five years before being discovered on a
+                  remote Pacific island, billionaire playboy Oliver Queen
+                  returns home a changed man.</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

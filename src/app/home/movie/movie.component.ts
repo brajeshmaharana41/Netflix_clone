@@ -19,7 +19,7 @@ import { HomeService } from '../home.service';
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+  styleUrls: ['./movie.component.scss'],
 })
 export class MovieComponent implements OnInit {
   changeText: boolean;
@@ -28,14 +28,14 @@ export class MovieComponent implements OnInit {
   homeData: any;
   contentData: any;
   videoDetail: any;
+  userData: any = JSON.parse(localStorage.getItem(Constants.USER));
   private crousalItemHover = new Subject<any>();
 
   constructor(
     private _router: Router,
     public _commonService: CommonService,
     private _homeService: HomeService,
-    public dialog: MatDialog,
-    private _changeDetection: ChangeDetectorRef
+    public dialog: MatDialog
   ) {}
   // MoveData: MovieImage[] = [
   //   { img: 'assets/1.jpg', show: false },
@@ -81,7 +81,7 @@ export class MovieComponent implements OnInit {
       //   show: type,
       // };
       if (response.type) {
-        this.getVideoById(response.video._id);
+        this.getVideoById(response.video._id, response.video.video[0]._id);
       }
     });
   }
@@ -116,27 +116,31 @@ export class MovieComponent implements OnInit {
     this.widgetsContent.nativeElement.scrollLeft += 500;
   }
 
-  getVideoById(id: string) {
-    this._homeService.getVideoById(id).subscribe((res: HttpResponse) => {
-      if (res.status === Constants.SUCCESSSTATUSCODE) {
-        this.videoDetail = res.body;
-        this._commonService.playedVideo.next(res.body.trailer[0]);
-      }
-    });
+  getVideoById(id: string, sub_video_id: string) {
+    this._homeService
+      .getVideoById(id, sub_video_id)
+      .subscribe((res: HttpResponse) => {
+        if (res.status === Constants.SUCCESSSTATUSCODE) {
+          this.videoDetail = res.body;
+          this._commonService.playedVideo.next(res.body.trailer[0]);
+        }
+      });
   }
 
   likeOrUnlike(video: any, type: 'like' | 'unlike') {
-    this._homeService.likeUnlikeLove(video.id, type).subscribe({
-      next: (res: HttpResponse) => {
-        if (res.status === Constants.SUCCESSSTATUSCODE) {
-          video.like = res.body.like;
-        }
-      },
-    });
+    this._homeService
+      .likeUnlikeLove(video.id, video.video[0].id, type)
+      .subscribe({
+        next: (res: HttpResponse) => {
+          if (res.status === Constants.SUCCESSSTATUSCODE) {
+            video.like = res.body.like;
+          }
+        },
+      });
   }
 
   addToMyList(video: any) {
-    this._homeService.addToWishList(video.id).subscribe({
+    this._homeService.addToWishList(video.id, video.video[0].id).subscribe({
       next: (res) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           video.is_wishlist = res.body.is_wishlist;
@@ -157,7 +161,7 @@ export class MovieComponent implements OnInit {
   }
 
   getAllHomeData() {
-    this._homeService.getAllHomeData().subscribe({
+    this._homeService.getAllHomeData(this.userData._id).subscribe({
       next: (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           console.log(res.body);
@@ -213,6 +217,4 @@ export class MovieComponent implements OnInit {
   }
 
   addToMylist(video) {}
-
-
 }

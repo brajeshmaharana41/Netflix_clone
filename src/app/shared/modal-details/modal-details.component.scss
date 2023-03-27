@@ -99,6 +99,30 @@
     font-weight: 500;
     color: #fff;
 }
+.season-header{
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+.season-drop{
+    background-color: rgb(36, 36, 36);
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    padding: 5px;
+    width: 100%;
+}
+select option {
+    background: rgb(36, 36, 36) !important;
+    padding: 5px;
+  }
+.season-drops{
+    background: transparent;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+}
+
 .rate_text{
     font-size: 14px;
     color: #fff;
@@ -131,4 +155,46 @@
 .card_dec{
     color: #d2d2d2;
     font-size: 14px;
+}
+.episode_img_back{
+    width: 180px;
+    // height: 50px;
+}
+.episode_img{
+    width: 100%;
+}
+.sesion_dec{
+    font-size: 14px;
+    color: #d2d2d2;
+}
+.sesion_dur{
+    color: #fff;
+    font-size: 1em;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+}
+.sesion_title{
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+.section_ser{
+    color: #fff;
+    font-size: 1em;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+}
+.season_episode{
+    width: 100%;
+    border-bottom: 1px solid #404040;
+}
+.season_episode:hover {
+    background-color: rgb(36, 36, 36);
+    width: 100%;
+    border-radius: 5px;
+    border-bottom: 0px solid #404040;
+}
+.seection_season{
+    width: 100%;
 }

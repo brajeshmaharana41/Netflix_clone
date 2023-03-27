@@ -18,6 +18,7 @@ export class API {
     forgotPasswordVerify: `${baseURL}customer/forgotPasswordVerify`,
     signupOtpVerify: `${baseURL}customer/signupOtpVerify`,
     signout: `${baseURL}customer/signout`,
+    getAllDevice: `${baseURL}customer/getAllDevice`,
   };
 
   public static User_Subscription = {

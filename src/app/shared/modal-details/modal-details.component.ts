@@ -44,7 +44,7 @@ export class ModalDetailsComponent implements OnInit {
   }
 
   addToMyList(video: any) {
-    this._homeService.addToWishList(video.id).subscribe({
+    this._homeService.addToWishList(video.id, video.video[0].id).subscribe({
       next: (res) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           video.is_wishlist = true;
