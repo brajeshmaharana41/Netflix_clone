@@ -4,7 +4,7 @@
       (selectCategory)="goToTheCategory($event)"
     ></app-home-header>
     <div class="bg_img">
-      <video controls autoplay muted class="bg__image">
+      <video autoplay muted class="bg__image">
         <source src="assets/Outlast Official.mp4" type="video/mp4" />
       </video>
       <!-- <img class="bg__image" src="assets/Home_bg.webp" alt="" /> -->
@@ -190,7 +190,7 @@
             >
               <div (click)="goToVideoPlayer(video)">
                 <!-- <app-jwplayer></app-jwplayer> -->
-                <video autoplay controls class="video_player">
+                <video autoplay class="video_player">
                   <source [src]="video?.trailer[0]" type="video/mp4" />
                 </video>
               </div>
