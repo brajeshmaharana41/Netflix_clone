@@ -13,11 +13,11 @@ import { Location } from '@angular/common';
   styleUrls: ['./info.component.scss'],
 })
 export class InfoComponent implements OnInit {
-  mobile = localStorage.getItem(Constants.FORGOTPASSWORDPHONE);
+  mobileOrEmail = localStorage.getItem(Constants.FORGOTPASSWORDPHONEEMAIL);
   resetType: string;
   errorMsg = '';
   form: FormGroup | undefined;
-  otpResent=false;
+  otpResent = false;
   constructor(
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
@@ -39,7 +39,7 @@ export class InfoComponent implements OnInit {
   verifyOTP() {
     if (this.form.valid) {
       this._inService
-        .forgotPasswordOTPVerify(this.mobile, this.form.value.otp)
+        .forgotPasswordOTPVerify(this.mobileOrEmail, this.form.value.otp)
         .subscribe({
           next: (res: HttpResponse) => {
             if (res.status === Constants.SUCCESSSTATUSCODE) {
@@ -49,7 +49,7 @@ export class InfoComponent implements OnInit {
               );
               this.goToChangepasswordPage();
             } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
-              this.otpResent=false;
+              this.otpResent = false;
               this.errorMsg = res.message;
             }
           },
@@ -64,9 +64,9 @@ export class InfoComponent implements OnInit {
     this._inService.forgotPasswordRequest(user_name).subscribe({
       next: (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
-          this.errorMsg='';
-          this.otpResent=true;
-          localStorage.setItem(Constants.FORGOTPASSWORDPHONE, user_name);
+          this.errorMsg = '';
+          this.otpResent = true;
+          localStorage.setItem(Constants.FORGOTPASSWORDPHONEEMAIL, user_name);
         } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
           this.errorMsg = res.message;
           // go to phone otp page

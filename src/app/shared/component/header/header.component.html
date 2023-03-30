@@ -7,7 +7,12 @@
     fxFlex.xl="50"
     fxLayoutAlign="start center"
   >
-    <img src="assets/netflix-logo.png" (click)="goToGetStarted()" alt="" class="netflix_logo" />
+    <img
+      src="assets/netflix-logo.png"
+      (click)="goToGetStarted()"
+      alt=""
+      class="netflix_logo"
+    />
   </div>
   <div
     fxFlex.xs="50"
@@ -26,7 +31,8 @@
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="switchLanguage('en')">English</button>
-          <button mat-menu-item (click)="switchLanguage('hi')">हिन्दी</button>
+          <!-- <button mat-menu-item (click)="switchLanguage('hi')">हिन्दी</button> -->
+          <button mat-menu-item>हिन्दी</button>
         </mat-menu>
       </div>
       <div *ngIf="!user" class="p-2">

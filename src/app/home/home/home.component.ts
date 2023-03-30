@@ -150,16 +150,14 @@ export class HomeComponent implements OnInit {
   }
 
   addToMyList(video: any) {
-    this._homeService
-      .addToWishList(video.video[0].id, video.video[0].id)
-      .subscribe({
-        next: (res) => {
-          if (res.status === Constants.SUCCESSSTATUSCODE) {
-            video.is_wishlist = res.body.is_wishlist;
-            video.wishlist_id = res.body._id;
-          }
-        },
-      });
+    this._homeService.addToWishList(video.id, video.video[0].id).subscribe({
+      next: (res) => {
+        if (res.status === Constants.SUCCESSSTATUSCODE) {
+          video.is_wishlist = res.body.is_wishlist;
+          video.wishlist_id = res.body._id;
+        }
+      },
+    });
   }
 
   removeFromWishlist(video: any) {
@@ -225,6 +223,4 @@ export class HomeComponent implements OnInit {
       panelClass: 'custom-dialog-container',
     });
   }
-
-  addToMylist(video) {}
 }

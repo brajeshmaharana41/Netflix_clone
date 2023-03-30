@@ -14,19 +14,10 @@ const routes: Routes = [
     component: GetStartedComponent,
   },
   {
-    path: 'home',
-    loadChildren: () => import('../home/home.module').then((m) => m.HomeModule),
-  },
-  {
-    path: 'signup',
-    loadChildren: () =>
-      import('../signup/signup.module').then((m) => m.SignupModule),
-  },
-  {
     path: 'login',
     component: LoginComponent,
   },
-   {
+  {
     path: 'profile',
     component: ProfilepageComponent,
   },

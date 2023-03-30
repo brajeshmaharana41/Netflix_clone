@@ -73,8 +73,8 @@ export class LoginComponent implements OnInit {
                 JSON.stringify(res.body.customer_data)
               );
               localStorage.setItem(
-                res.body.token,
-                Constants.SESSIONTOKENSTRING
+                Constants.SESSIONTOKENSTRING,
+                res.body.token
               );
               if (res.body.customer_data.subscription_status) {
                 this._router.navigate(['in/profile']);

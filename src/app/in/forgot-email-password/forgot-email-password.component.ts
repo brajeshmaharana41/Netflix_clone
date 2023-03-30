@@ -56,8 +56,9 @@ export class ForgotEmailPasswordComponent implements OnInit {
           // go to email/sms sent page
           if (this.passwordResetByEmail) {
             this._router.navigate(['in/info/email']);
+            localStorage.setItem(Constants.FORGOTPASSWORDPHONEEMAIL, user_name);
           } else {
-            localStorage.setItem(Constants.FORGOTPASSWORDPHONE, user_name);
+            localStorage.setItem(Constants.FORGOTPASSWORDPHONEEMAIL, user_name);
             this._router.navigate(['in/info/phone']);
           }
         } else if (res.status === Constants.SUCCESSSTATUSCODE2) {

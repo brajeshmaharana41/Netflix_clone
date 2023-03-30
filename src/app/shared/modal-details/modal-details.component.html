@@ -327,8 +327,12 @@
               </div>
               <div>
                 <button mat-mini-fab class="btn_watchlist">
-                  <mat-icon (click)="addToMyList(video)">add</mat-icon>
-                  <!-- <mat-icon>check</mat-icon> -->
+                  <mat-icon
+                    *ngIf="!video.is_wishlist"
+                    (click)="addToMyList(video)"
+                    >add</mat-icon
+                  >
+                  <mat-icon *ngIf="video.is_wishlist">check</mat-icon>
                 </button>
               </div>
             </div>

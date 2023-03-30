@@ -6,18 +6,18 @@ const routes: Routes = [
   {
     path: 'in',
     loadChildren: () => import('./in/in.module').then((m) => m.InModule),
-    canActivate: [AuthGuard],
+    canActivate: [NoAuthTokenGuard],
   },
   {
     path: 'signup',
     loadChildren: () =>
       import('./signup/signup.module').then((m) => m.SignupModule),
-    canActivate: [AuthGuard],
+    canActivate: [NoAuthTokenGuard],
   },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
-    canActivate: [NoAuthTokenGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'account',
@@ -26,6 +26,11 @@ const routes: Routes = [
   },
   {
     path: '',
+    redirectTo: 'in',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
     redirectTo: 'in',
     pathMatch: 'full',
   },

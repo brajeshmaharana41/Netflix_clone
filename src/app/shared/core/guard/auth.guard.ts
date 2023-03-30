@@ -16,24 +16,19 @@ import { Constants } from '../../constants/constant';
 })
 export class AuthGuard implements CanActivate {
   constructor(private router: Router) {}
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let token: any;
     try {
       token = localStorage.getItem(Constants.SESSIONTOKENSTRING);
     } catch (e) {
       console.log(e);
     }
+    console.log(token);
     if (token) {
-      return false;
-    } else {
       return true;
+    } else {
+      this.router.navigate(['/in']);
+      return false;
     }
   }
 }
@@ -49,6 +44,7 @@ export class NoAuthTokenGuard implements CanActivate {
     } catch (e) {
       console.log(e);
     }
+    console.log(token);
     if (token) {
       this.router.navigate(['/home']);
       return false;

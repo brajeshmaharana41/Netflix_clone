@@ -9,8 +9,8 @@
         <div class="pt-2">
           <span class="for_subheader"
             >An email with instructions on how to reset your password has been
-            sent to <strong>brajesh.maharana@gmail.com.</strong> Check your spam
-            or junk folder if you don’t see the email in your inbox.</span
+            sent to <strong>{{ mobileOrEmail }}</strong> Check your spam or junk
+            folder if you don’t see the email in your inbox.</span
           >
         </div>
         <div class="pt-3">
@@ -26,32 +26,34 @@
           <span class="for_header">Code Sent</span>
         </div>
         <div
-            class="success_message"
-            fxLayout="row"
-            fxLayoutAlign="space-around center"
-            *ngIf="otpResent"
-          >
-            <!-- <div class="clear_icon">
+          class="success_message"
+          fxLayout="row"
+          fxLayoutAlign="space-around center"
+          *ngIf="otpResent"
+        >
+          <!-- <div class="clear_icon">
               <mat-icon>clear</mat-icon>
             </div> -->
-            <span class="success_font">A new SMS was sent with your varification code.</span>
-          </div>
-          <div *ngIf="errorMsg">
-            <div
-              class="error_message"
-              fxLayout="row"
-              fxLayoutAlign="center center"
-            >
-              <!-- <div class="clear_icon">
+          <span class="success_font"
+            >A new SMS was sent with your varification code.</span
+          >
+        </div>
+        <div *ngIf="errorMsg">
+          <div
+            class="error_message"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <!-- <div class="clear_icon">
                 <mat-icon>clear</mat-icon>
               </div> -->
-              <span class="error_font"> {{ errorMsg }}</span>
-            </div>
+            <span class="error_font"> {{ errorMsg }}</span>
           </div>
+        </div>
         <div class="pt-2">
           <span class="for_subheader"
-            >We sent a text message to <strong>{{ mobile }}</strong> with your
-            verification code. Enter it below to reset your password.</span
+            >We sent a text message to <strong>{{ mobileOrEmail }}</strong> with
+            your verification code. Enter it below to reset your password.</span
           >
         </div>
         <div class="pt-3">
@@ -104,7 +106,7 @@
             </button>
           </div>
         </div>
-        <div (click)="forgotPasswordRequestAPI(mobile)" class="p-2">
+        <div (click)="forgotPasswordRequestAPI(mobileOrEmail)" class="p-2">
           <a class="for_dec_link">Text me again</a>
         </div>
       </div>
