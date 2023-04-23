@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   changeText: boolean;
   changeTexts: boolean;
   imagesDatas: any;
+  homeBanner: any;
   homeData: any;
   contentData: any;
   videoDetail: any;
@@ -65,10 +66,10 @@ export class HomeComponent implements OnInit {
       //     show: false,
       //   };
       // });
-      for (let i = 0; i < this.homeData.home_video.length; i++) {
-        this.homeData.home_video[i].videos = this.homeData.home_video[
+      for (let i = 0; i < this.homeData.length; i++) {
+        this.homeData[i].videos = this.homeData[
           i
-        ].videos.map((res) => {
+        ]?.videos?.map((res) => {
           return {
             ...res,
             show: false,
@@ -76,7 +77,7 @@ export class HomeComponent implements OnInit {
         });
       }
       // response.video.show = response.type;
-      this.homeData.home_video[response.index].videos[
+      this.homeData[response.index].videos[
         response.videoIndex
       ].show = response.type;
       // this.homeData.home_video[index] = {
@@ -97,14 +98,14 @@ export class HomeComponent implements OnInit {
     //     show: false,
     //   };
     // });
-    // video.show = type;
+    video.show = type;
     // // this.homeData.home_video[index] = {
     // //   ...this.homeData?.home_video[index],
     // //   show: type,
     // // };
-    if (type) {
-      this.getVideoById(video._id, video.video[0]._id);
-    }
+    // if (type) {
+    //   this.getVideoById(video._id, video.video[0]._id);
+    // }
   }
 
   onContentMouseLeave() {
@@ -171,10 +172,30 @@ export class HomeComponent implements OnInit {
   }
 
   getAllHomeData(viewer_id: string) {
-    this._homeService.getAllHomeData(viewer_id).subscribe({
-      next: (res: HttpResponse) => {
+    this._homeService.getAllBannerVideo(viewer_id).subscribe( {
+      next: async (res: HttpResponse) => {
+        this.homeBanner = res.body
+      }
+    });
+    this._homeService.getAllHomeData(viewer_id).subscribe( {
+      next: async (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           this.homeData = res.body;
+          for(var i=0; i < this.homeData.length; i++) {
+            let response = await this._homeService.getVideoByCategoryId(viewer_id, this.homeData[i].id).toPromise();
+              // data.next: (response: HttpResponse) => {
+                if (response.status === Constants.SUCCESSSTATUSCODE) {
+                  const videosByCategories =  response.body;
+                  console.log("videosByCategories", videosByCategories);
+                  console.log("i", i);
+                  // this.homeData[i]['videos'] = {};
+                  this.homeData[i]['videos'] =videosByCategories;
+                  console.log("this.homeData", this.homeData);
+                }
+              // }
+
+          }
+          // this.homeData
         }
       },
       error: (err: HttpErrorResponse) => {

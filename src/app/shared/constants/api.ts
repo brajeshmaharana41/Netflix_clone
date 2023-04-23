@@ -33,12 +33,15 @@ export class API {
   };
 
   public static User_Video = {
-    getAllHomeData: `${baseURL}user_video/getAllHomeData`,
+    // getAllHomeData: `${baseURL}user_video/getAllHomeData`,
+    getAllHomeData: `${baseURL}user_video/getAllCategoryList?skip=0&limit=10`,
     getAllVideoByVideoType: `${baseURL}user_video/getAllVideoByVideoType`,
     videoSearch: `${baseURL}user_video/videoSearch`,
     getVideoById: `${baseURL}user_video/getVideoById`,
     likeUnlikeLove: `${baseURL}user_video/likeUnlikeLove`,
     getAllVideoGenres: `${baseURL}user_video/getAllVideoGenres`,
     getSimilarVideo: `${baseURL}user_video/getSimilarVideo`,
+    getVideoByCategory: `${baseURL}user_video/getVideoByCategory`,
+    getAllBannerVideo:  `${baseURL}user_video/getAllBannerVideo`,
   };
 }

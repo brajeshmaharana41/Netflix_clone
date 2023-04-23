@@ -12,7 +12,7 @@ import { CustomerData } from '../shared/type/signup.type';
 export class HomeService {
   userData: CustomerData = JSON.parse(localStorage.getItem(Constants.USER));
   videoLink: string;
-  constructor(private _http: HttpHandlerService) {}
+  constructor(private _http: HttpHandlerService) { }
 
   getAllHomeData(viewer_id: string): Observable<AllHomeDataResponse> {
     return this._http.post(
@@ -22,7 +22,35 @@ export class HomeService {
       },
       {
         Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1ODdlZmI3ZTBlMzIyYzliMWQ0NSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc2NDg0NTE4LCJleHAiOjE3MDgwNDIxMTh9.iNPGouOIsmJx-ZMdr1MVnvElwl7apCRZsMutXdW7k9I',
+      }
+    );
+  }
+
+  getAllBannerVideo(viewer_id: string): Observable<AllHomeDataResponse> {
+    return this._http.post(
+      API.User_Video.getAllBannerVideo,
+      {
+        viewer_id: '63eb57279df62e0896cc8a99',
+        "type": "movies"
+      },
+      {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1ODdlZmI3ZTBlMzIyYzliMWQ0NSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc2NDg0NTE4LCJleHAiOjE3MDgwNDIxMTh9.iNPGouOIsmJx-ZMdr1MVnvElwl7apCRZsMutXdW7k9I',
+      }
+    );
+  }
+
+  getVideoByCategoryId(viewer_id: string, category_id: string): Observable<AllHomeDataResponse> {
+    return this._http.post(
+      API.User_Video.getVideoByCategory,
+      {
+        viewer_id: '63eb57279df62e0896cc8a99',
+        category_id: category_id
+      },
+      {
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1ODdlZmI3ZTBlMzIyYzliMWQ0NSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc2NDg0NTE4LCJleHAiOjE3MDgwNDIxMTh9.iNPGouOIsmJx-ZMdr1MVnvElwl7apCRZsMutXdW7k9I',
       }
     );
   }
