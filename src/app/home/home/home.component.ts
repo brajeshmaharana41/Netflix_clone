@@ -59,7 +59,7 @@ export class HomeComponent implements OnInit {
     // this.getAllDeviceData(this.userData._id);
     this.getAllHomeData(this.userData._id);
 
-    this.crousalItemHover.pipe(debounceTime(800)).subscribe((response) => {
+    this.crousalItemHover.pipe(debounceTime(2000)).subscribe((response) => {
       // this.homeData.home_video = this.homeData.home_video.map((res) => {
       //   return {
       //     ...res,
@@ -103,9 +103,9 @@ export class HomeComponent implements OnInit {
     // //   ...this.homeData?.home_video[index],
     // //   show: type,
     // // };
-    // if (type) {
-    //   this.getVideoById(video._id, video.video[0]._id);
-    // }
+    if (type) {
+      this.getVideoById(video._id, video.video[0]._id);
+    }
   }
 
   onContentMouseLeave() {
