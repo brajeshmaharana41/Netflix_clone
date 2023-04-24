@@ -18,10 +18,12 @@
     height: 145px;
     cursor: pointer;
     border-radius: 5px;
+    text-align: center;
     .bgimg{
         border-radius: 4px;
     }
 }
+
 .user1:hover{
     border: 3px solid #fff;
     .bgimg{
@@ -52,4 +54,8 @@
 .name{
     font-size: 1.3vw;
     color: #fff;
+}
+.profile_bord{
+    border: 1px solid #fff;
+    width: 1000px;
 }
