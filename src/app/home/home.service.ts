@@ -12,13 +12,16 @@ import { CustomerData } from '../shared/type/signup.type';
 export class HomeService {
   userData: CustomerData = JSON.parse(localStorage.getItem(Constants.USER));
   videoLink: string;
-  constructor(private _http: HttpHandlerService) { }
+  viewer_id: any;
+  constructor(private _http: HttpHandlerService) {
+    this.viewer_id = JSON.parse(localStorage.getItem('viewer'));
+  }
 
   getAllHomeData(viewer_id: string): Observable<AllHomeDataResponse> {
     return this._http.post(
       API.User_Video.getAllHomeData,
       {
-        viewer_id: '63eb57279df62e0896cc8a99',
+        viewer_id: this.viewer_id?.id,
       },
       {
         Authorization:
@@ -31,7 +34,7 @@ export class HomeService {
     return this._http.post(
       API.User_Video.getAllBannerVideo,
       {
-        viewer_id: '63eb57279df62e0896cc8a99',
+        viewer_id: this.viewer_id?.id,
         "type": "movies"
       },
       {
@@ -45,7 +48,7 @@ export class HomeService {
     return this._http.post(
       API.User_Video.getVideoByCategory,
       {
-        viewer_id: '63eb57279df62e0896cc8a99',
+        viewer_id: this.viewer_id?.id,
         category_id: category_id
       },
       {

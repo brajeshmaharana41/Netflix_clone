@@ -31,13 +31,12 @@
                 <span class="error_font"> {{ errorMsg }}</span>
               </div>
             </div>
-            <div class="pt-2 pb-2">
+            <div class="mt-2 mb-4">
               <div class="input_bg">
                 <mat-form-field class="example-full-width">
                   <mat-label>Email or phone number</mat-label>
-                  <input matInput formControlName="email" id="email" />
+                  <input matInput formControlName="email" id="email" class="mb2" />
                   <mat-error
-                  class="pt-2"
                     *ngIf="
                       form.get('email').errors &&
                       form.get('email').hasError('required')
@@ -45,10 +44,9 @@
                     >Email is required</mat-error
                   >
                   <mat-error
-                  class="pt-2"
                     *ngIf="
                       form.get('email').errors &&
-                      form.get('email').hasError('pattern')
+                      form.get('email').hasError('email')
                     "
                     >Please enter a valid email address or phone
                     number</mat-error

@@ -3,7 +3,7 @@
     // height: 100%;
     position: absolute;
     z-index: -2;
-    background-color: #000000;    
+    background-color: #000000;
     .bg__image{
         width: 100%;
         height: 1024px;
@@ -20,7 +20,7 @@
   .bg_signup{
     height: 625px;
     width: 450px;
-    background-color: #000000;
+    background-color: rgba(0,0,0,.5);
     // opacity: 0.6;
     display: flex;
     justify-content: center;
@@ -31,7 +31,7 @@
       font-size: 32px;
       font-weight: 500;
     }
-    
+
     .input_bg{
       width: 100%;
       height: 55px;
@@ -123,4 +123,7 @@
           font-weight: 500;
       }
   }
+}
+.mat-error {
+  margin-top: 16px;
 }

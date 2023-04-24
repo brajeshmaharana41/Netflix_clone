@@ -36,8 +36,9 @@ export class LoginComponent implements OnInit {
       email: [
         this.email ? this.email : '',
         [
-          Validators.pattern(/^(?:\d{10}|\w+@\w+\.\w{2,3})$/),
+          // Validators.pattern(/^(?:\d{10}|\w+@\w+\.\w{2,3})$/),
           Validators.required,
+          Validators.email
         ],
       ],
       password: [

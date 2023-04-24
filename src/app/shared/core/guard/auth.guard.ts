@@ -45,6 +45,9 @@ export class NoAuthTokenGuard implements CanActivate {
       console.log(e);
     }
     console.log(token);
+    if(state.url == '/in/profile') {
+      return true;
+    }
     if (token) {
       this.router.navigate(['/home']);
       return false;
