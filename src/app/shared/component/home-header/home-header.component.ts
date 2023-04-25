@@ -24,4 +24,8 @@ export class HomeHeaderComponent implements OnInit {
   selectedCategory(category: string) {
     this.selectCategory.emit(category);
   }
+
+  goToManageProfile() {
+    this.router.navigate(['in/profile']);
+  }
 }

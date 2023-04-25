@@ -51,9 +51,7 @@
     font-size: 18px;
     font-weight: 500;
     width: 110px;
-    // height: 40px;
-    display: flex;
-    justify-content: center;
+    height: 50px;
     .btn_icon{
             font-size: 20px;
     }
@@ -64,9 +62,7 @@
     font-size: 18px;
     font-weight: 500;
     width: 110px;
-    // height: 40px;
-    display: flex;
-    justify-content: center;
+    height: 50px;
     .btn_icon{
             font-size: 20px;
     }
@@ -77,9 +73,7 @@
     font-size: 18px;
     font-weight: 500;
     width: 150px;
-    // height: 40px;
-    display: flex;
-    justify-content: center;
+    height: 50px;
     .btn_icon{
             font-size: 20px;
     }
@@ -90,9 +84,7 @@
     font-size: 18px;
     font-weight: 500;
     width: 150px;
-    // height: 40px;
-    display: flex;
-    justify-content: center;
+    height: 50px;
     .btn_icon{
             font-size: 20px;
     }
@@ -231,7 +223,10 @@
 }
 .video_player{
     width: 100%;
-    // height: 170px;
+    height: 180px;
+}
+.video_height{
+    height: 165px;
 }
 .pr{
     position: relative;

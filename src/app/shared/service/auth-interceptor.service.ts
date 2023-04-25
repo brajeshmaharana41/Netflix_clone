@@ -26,8 +26,8 @@ export class AuthInterceptorService implements HttpInterceptor {
         'Cache-Control': 'no-cache',
         hgdh: 'hgj',
         Pragma: 'no-cache',
-        // Authorization:
-        //   localStorage.getItem(Constants.SESSIONTOKENSTRING)
+        Authorization: `Bearer ${localStorage.getItem(Constants.SESSIONTOKENSTRING)}`
+         
       },
     };
 

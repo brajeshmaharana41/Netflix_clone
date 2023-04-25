@@ -50,12 +50,12 @@
                       <div fxLayout="row">
                         <div class="p-2">
                           <button (click)="goToPage('video-player')" mat-button class="btn_play">
-                            <mat-icon class="btn_icon">play_arrow</mat-icon>Play
+                            <mat-icon class="btn_icon">play_arrow</mat-icon> Play
                           </button>
                         </div>
                         <div class="p-2">
                           <button mat-button class="btn_more" (click)="openDialog(banner)">
-                            <mat-icon class="btn_icon">info</mat-icon>More Info
+                            <mat-icon class="btn_icon">info</mat-icon> More Info
                           </button>
                         </div>
                       </div>
@@ -236,7 +236,7 @@
               class="focas_data"
               style="position: absolute"
             >
-              <div (click)="goToVideoPlayer(video)">
+              <div (click)="goToVideoPlayer(video)" class="video_height">
                 <!-- <app-jwplayer></app-jwplayer> -->
                 <video autoplay class="video_player">
                   <source [src]="video?.teaser[0]" type="video/mp4"  />

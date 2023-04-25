@@ -78,9 +78,13 @@
           <mat-icon>mood</mat-icon>
         </button>
         <mat-menu #menu="matMenu" class="Menu_bg">
-          <div mat-menu-item class="menu_item">
+          <div mat-menu-item class="menu_item" (click)="goToManageProfile()">
             <mat-icon class="btn_icon" style="font-size: 22px">edit</mat-icon>
             Manage Profile
+          </div>
+          <div mat-menu-item class="menu_item" (click)="goToManageProfile()">
+            <mat-icon class="btn_icon" style="font-size: 22px">person_outline</mat-icon>
+            Accounts
           </div>
           <div mat-menu-item class="menu_item">
             <mat-icon class="btn_icon" style="font-size: 22px"
