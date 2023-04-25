@@ -1,6 +1,6 @@
 .bg{
     background-color: #141414;
-    height: 100%;
+    height: 100vh;
 }
 .bgheight{
     height: 100%;
@@ -31,10 +31,10 @@
     }
 }
 .adduser{
-    width: 175px;
+    width: 145px;
     height: 145px;
-    padding: 22px;
-    border-radius: 5px;
+    padding: 25px;
+    border-radius: 4px;
     .face_icon{
         font-size: 100px;
         color: #fff;
@@ -52,11 +52,17 @@
     color: #fff;
 }
 .name{
-    font-size: 1.3vw;
+    font-size: 1.2vw;
     color: #fff;
     margin-top: 10px;
     display: block;
 }
+.addname{
+    font-size: 1.2vw;
+    color: #fff;
+    margin-top: 20px;
+    display: block;
+}
 .profile_bord{
-    width: 1000px;
+    width: 800px;
 }

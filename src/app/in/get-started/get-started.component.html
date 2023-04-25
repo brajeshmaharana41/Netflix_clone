@@ -3,16 +3,11 @@
 <div>
   <div>
     <div class="bg_img">
-      <img
-        class="bg__image"
-        src="assets/background_img.jpg"
-        srcset="
+      <img class="bg__image" src="assets/background_img.jpg" srcset="
           https://assets.nflxext.com/ffe/siteui/vlv3/1ecf18b2-adad-4684-bd9a-acab7f2a875f/6abbb576-106a-4175-a16e-af91cf881736/IN-en-20230116-popsignuptwoweeks-perspective_alpha_website_small.jpg  1000w,
           https://assets.nflxext.com/ffe/siteui/vlv3/1ecf18b2-adad-4684-bd9a-acab7f2a875f/6abbb576-106a-4175-a16e-af91cf881736/IN-en-20230116-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w,
           https://assets.nflxext.com/ffe/siteui/vlv3/1ecf18b2-adad-4684-bd9a-acab7f2a875f/6abbb576-106a-4175-a16e-af91cf881736/IN-en-20230116-popsignuptwoweeks-perspective_alpha_website_large.jpg  1800w
-        "
-        alt=""
-      />
+        " alt="" />
     </div>
     <app-header></app-header>
     <div fxLayoutAlign="center center" class="bg_data">
@@ -24,64 +19,36 @@
         <div class="marg_card">
           <span class="subtitle">{{
             "getStarted.welcomeInfoText" | translate
-          }}</span>
+            }}</span>
         </div>
 
         <div>
           <span class="subtitledec">{{
             "getStarted.welcomeInfoText2" | translate
-          }}</span>
+            }}</span>
         </div>
         <div class="getStarted" fxLayout="row wrap" *ngIf="!user">
-          <div
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="76"
-            fxFlex.lg="76"
-            fxFlex.xl="76"
-            class="get_btn"
-          >
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="76" fxFlex.lg="76" fxFlex.xl="76" class="get_btn">
             <form [formGroup]="form" *ngIf="form" (ngSubmit)="getEmailStatus()">
               <mat-form-field class="example-full-width">
                 <mat-label>{{
                   "getStarted.emailInputPlaceholder" | translate
-                }}</mat-label>
-                <input
-                  formControlName="email"
-                  id="email"
-                  matInput
-                  class="input_started"
-                />
-                <mat-error
-                  *ngIf="
+                  }}</mat-label>
+                <input formControlName="email" id="email" matInput class="input_started" />
+                <mat-error *ngIf="
                     form.get('email').errors &&
                     form.get('email').hasError('required')
-                  "
-                  >{{ "getStarted.emailRequiredError" | translate }}</mat-error
-                >
+                  ">{{ "getStarted.emailRequiredError" | translate }}</mat-error>
 
-                <mat-error
-                  *ngIf="
+                <mat-error *ngIf="
                     form.get('email').errors &&
                     form.get('email').hasError('pattern')
-                  "
-                  >{{ "getStarted.emailPatternError" | translate }}</mat-error
-                >
+                  ">{{ "getStarted.emailPatternError" | translate }}</mat-error>
               </mat-form-field>
             </form>
           </div>
-          <div
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="24"
-            fxFlex.lg="24"
-            fxFlex.xl="24"
-          >
-            <button
-              mat-button
-              class="getStarted_btn"
-              (click)="getEmailStatus()"
-            >
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="24" fxFlex.lg="24" fxFlex.xl="24">
+            <button mat-button class="getStarted_btn" (click)="getEmailStatus()">
               {{ "getStarted.getStartedBtnText" | translate }}
             </button>
           </div>
@@ -97,14 +64,7 @@
     <div class="background">
       <div class="container">
         <div fxLayout="row wrap">
-          <div
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            class="paddtext"
-          >
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" class="paddtext">
             <div>
               <div class="padd_title_top">
                 <h1 class="side_title">
@@ -118,31 +78,15 @@
               </div>
             </div>
           </div>
-          <div
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            class="p-5"
-          >
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" class="p-5">
             <div class="feature__image__container">
-              <img
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
-                alt="Feature image"
-                class="feature__image"
-              />
+              <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+                alt="Feature image" class="feature__image" />
               <div class="feature__backgroud__video__container">
-                <video
-                  autoplay=""
-                  loop=""
-                  muted=""
-                  class="feature__backgroud__video"
-                >
+                <video autoplay="" loop="" muted="" class="feature__backgroud__video">
                   <source
                     src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
-                    type="video/mp4"
-                  />
+                    type="video/mp4" />
                 </video>
               </div>
             </div>
@@ -151,59 +95,32 @@
       </div>
       <mat-divider class="diveder"></mat-divider>
       <div class="container">
-        <div
-          fxLayout="row wrap"
-          style="height: 550px"
-          fxLayoutAlign="center center"
-        >
-          <div
-            fxHide
-            fxShow.gt-sm
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            fxLayoutAlign="center center"
-          >
+        <div fxLayout="row wrap" style="height: 550px" fxLayoutAlign="center center">
+          <div fxHide fxShow.gt-sm fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50"
+            fxLayoutAlign="center center">
             <div class="feature__image__container">
-              <img
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg"
-                alt="Feature image"
-                class="feature__image"
-              />
+              <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg"
+                alt="Feature image" class="feature__image" />
               <div class="feature__2__poster__container">
                 <div class="poster__container">
-                  <img
-                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png"
-                    alt="poster"
-                    class="poster"
-                  />
+                  <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png"
+                    alt="poster" class="poster" />
                 </div>
                 <div class="poster__details">
                   <span class="feature2__title">Stranger Things</span><br />
                   <span class="feature2__sub_title">{{
                     "getStarted.downloadingTxt" | translate
-                  }}</span>
+                    }}</span>
                 </div>
                 <div class="download__gif__container">
-                  <img
-                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif"
-                    alt="downloading gif"
-                    class="gif"
-                  />
+                  <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif"
+                    alt="downloading gif" class="gif" />
                 </div>
               </div>
             </div>
           </div>
-          <div
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            fxLayoutAlign="center center"
-          >
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50"
+            fxLayoutAlign="center center">
             <div class="pt-5">
               <div>
                 <h1 class="side_title">
@@ -217,42 +134,24 @@
               </div>
             </div>
           </div>
-          <div
-            fxHide.gt-sm
-            fxShow
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            fxLayoutAlign="center center"
-          >
+          <div fxHide.gt-sm fxShow fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50"
+            fxLayoutAlign="center center">
             <div class="feature__image__container">
-              <img
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg"
-                alt="Feature image"
-                class="feature__image"
-              />
+              <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg"
+                alt="Feature image" class="feature__image" />
               <div class="feature__2__poster__container">
                 <div class="poster__container">
-                  <img
-                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png"
-                    alt="poster"
-                    class="poster"
-                  />
+                  <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png"
+                    alt="poster" class="poster" />
                 </div>
                 <div class="poster__details">
                   <span class="feature2__title">Stranger Things</span><br />
                   <span class="feature2__sub_title">
-                    {{ "getStarted.downloadingTxt" | translate }}</span
-                  >
+                    {{ "getStarted.downloadingTxt" | translate }}</span>
                 </div>
                 <div class="download__gif__container">
-                  <img
-                    src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif"
-                    alt="downloading gif"
-                    class="gif"
-                  />
+                  <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/download-icon.gif"
+                    alt="downloading gif" class="gif" />
                 </div>
               </div>
             </div>
@@ -261,20 +160,9 @@
       </div>
       <mat-divider class="diveder"></mat-divider>
       <div class="container">
-        <div
-          fxLayout="row wrap"
-          style="height: 550px"
-          fxLayoutAlign="center center"
-        >
-          <div
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            class="p-4"
-            fxLayoutAlign="center center"
-          >
+        <div fxLayout="row wrap" style="height: 550px" fxLayoutAlign="center center">
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" class="p-4"
+            fxLayoutAlign="center center">
             <div>
               <div>
                 <h1 class="side_title">
@@ -288,34 +176,16 @@
               </div>
             </div>
           </div>
-          <div
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            class="p-5"
-            fxLayoutAlign="center center"
-          >
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" class="p-5"
+            fxLayoutAlign="center center">
             <div class="feature__image__container feature__3__image__container">
-              <img
-                src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile-in.png"
-                alt="Feature image"
-                class="feature__image feature__3__image"
-              />
-              <div
-                class="feature__backgroud__video__container feature__3__backgroud__video__container"
-              >
-                <video
-                  autoplay=""
-                  loop=""
-                  muted=""
-                  class="feature__backgroud__video feature__3__backgroud__video"
-                >
+              <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile-in.png"
+                alt="Feature image" class="feature__image feature__3__image" />
+              <div class="feature__backgroud__video__container feature__3__backgroud__video__container">
+                <video autoplay="" loop="" muted="" class="feature__backgroud__video feature__3__backgroud__video">
                   <source
                     src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v"
-                    type="video/mp4"
-                  />
+                    type="video/mp4" />
                 </video>
               </div>
             </div>
@@ -324,39 +194,17 @@
       </div>
       <mat-divider class="diveder"></mat-divider>
       <div class="container">
-        <div
-          fxLayout="row wrap"
-          style="height: 550px"
-          fxLayoutAlign="center center"
-        >
-          <div
-            fxHide
-            fxShow.gt-sm
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            class="p-5"
-            fxLayoutAlign="center center"
-          >
+        <div fxLayout="row wrap" style="height: 550px" fxLayoutAlign="center center">
+          <div fxHide fxShow.gt-sm fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50"
+            class="p-5" fxLayoutAlign="center center">
             <div class="feature__image__container">
               <img
                 src="https://occ-0-4023-2164.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVxdX2WnFSp49eXb1do0euaj-F8upNImjofE77XStKhf5kUHG94DPlTiGYqPeYNtiox-82NWEK0Ls3CnLe3WWClGdiJP.png?r=5cf"
-                alt="Feature image"
-                class="feature__image"
-              />
+                alt="Feature image" class="feature__image" />
             </div>
           </div>
-          <div
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            class="p-4"
-            fxLayoutAlign="center center"
-          >
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" class="p-4"
+            fxLayoutAlign="center center">
             <div>
               <div class="padd_title_top">
                 <h1 class="side_titles">
@@ -370,23 +218,12 @@
               </div>
             </div>
           </div>
-          <div
-            fxHide.gt-sm
-            fxShow
-            fxFlex.xs="100"
-            fxFlex.sm="100"
-            fxFlex.md="50"
-            fxFlex.lg="50"
-            fxFlex.xl="50"
-            class="p-5"
-            fxLayoutAlign="center center"
-          >
+          <div fxHide.gt-sm fxShow fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50"
+            class="p-5" fxLayoutAlign="center center">
             <div class="feature__image__container">
               <img
                 src="https://occ-0-4023-2164.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVxdX2WnFSp49eXb1do0euaj-F8upNImjofE77XStKhf5kUHG94DPlTiGYqPeYNtiox-82NWEK0Ls3CnLe3WWClGdiJP.png?r=5cf"
-                alt="Feature image"
-                class="feature__image"
-              />
+                alt="Feature image" class="feature__image" />
             </div>
           </div>
         </div>
@@ -396,7 +233,7 @@
         <div fxLayoutAlign="center center" class="pt-5 pb-5">
           <span class="Faq_title">{{
             "getStarted.frequentlyAsked" | translate
-          }}</span>
+            }}</span>
         </div>
         <!-- <div fxLayout="row" fxLayoutAlign="center center" class="pb-1">
           <div
@@ -521,7 +358,7 @@
                     <div>
                       <span class="Faq_titles">{{
                         "getStarted.question1" | translate
-                      }}</span>
+                        }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -531,13 +368,11 @@
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
                   <span class="Faq_ans_titles">
-                    {{ "getStarted.answer1a" | translate }}</span
-                  >
+                    {{ "getStarted.answer1a" | translate }}</span>
                 </div>
                 <div class="pt-3">
                   <span class="Faq_ans_titles">
-                    {{ "getStarted.answer1b" | translate }}</span
-                  >
+                    {{ "getStarted.answer1b" | translate }}</span>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -549,7 +384,7 @@
                     <div>
                       <span class="Faq_titles">{{
                         "getStarted.question2" | translate
-                      }}</span>
+                        }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -560,7 +395,7 @@
                 <div class="pt-3 pb-3">
                   <span class="Faq_ans_titles">{{
                     "getStarted.answer2" | translate
-                  }}</span>
+                    }}</span>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -572,7 +407,7 @@
                     <div>
                       <span class="Faq_titles">{{
                         "getStarted.question3" | translate
-                      }}</span>
+                        }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -582,13 +417,11 @@
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
                   <span class="Faq_ans_titles">
-                    {{ "getStarted.answer3a" | translate }}</span
-                  >
+                    {{ "getStarted.answer3a" | translate }}</span>
                 </div>
                 <div class="pt-3">
                   <span class="Faq_ans_titles">
-                    {{ "getStarted.answer3a" | translate }}</span
-                  >
+                    {{ "getStarted.answer3a" | translate }}</span>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -600,7 +433,7 @@
                     <div>
                       <span class="Faq_titles">{{
                         "getStarted.question4" | translate
-                      }}</span>
+                        }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -610,8 +443,7 @@
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
                   <span class="Faq_ans_titles">
-                    {{ "getStarted.answer4" | translate }}</span
-                  >
+                    {{ "getStarted.answer4" | translate }}</span>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -623,7 +455,7 @@
                     <div>
                       <span class="Faq_titles">{{
                         "getStarted.question5" | translate
-                      }}</span>
+                        }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -633,8 +465,7 @@
                 <mat-divider class="broe"></mat-divider>
                 <div class="pt-3 pb-3">
                   <span class="Faq_ans_titles">
-                    {{ "getStarted.answer5" | translate }}</span
-                  >
+                    {{ "getStarted.answer5" | translate }}</span>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -646,7 +477,7 @@
                     <div>
                       <span class="Faq_titles">{{
                         "getStarted.question6" | translate
-                      }}</span>
+                        }}</span>
                     </div>
                   </mat-panel-title>
                   <mat-panel-description fxLayoutAlign="end center">
@@ -657,12 +488,12 @@
                 <div class="pt-3 pb-3">
                   <span class="Faq_ans_titles">{{
                     "getStarted.answer6a" | translate
-                  }}</span>
+                    }}</span>
                 </div>
                 <div class="pt-3">
                   <span class="Faq_ans_titles">{{
                     "getStarted.answer6b" | translate
-                  }}</span>
+                    }}</span>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -671,66 +502,34 @@
 
         <div fxLayoutAlign="center center" class="pt-5 pb-3">
           <span class="Faq_subtitle">
-            {{ "getStarted.welcomeInfoText2" | translate }}</span
-          >
+            {{ "getStarted.welcomeInfoText2" | translate }}</span>
         </div>
       </div>
       <div fxLayout="row" fxLayoutAlign="center center">
         <div class="bg_email">
           <div class="getstartd_email" fxLayout="row wrap">
-            <div
-              fxFlex.xs="100"
-              fxFlex.sm="100"
-              fxFlex.md="76"
-              fxFlex.lg="76"
-              fxFlex.xl="76"
-              class="get_btn"
-            >
+            <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="76" fxFlex.lg="76" fxFlex.xl="76" class="get_btn">
               <form [formGroup]="form" *ngIf="form" (ngSubmit)="onSubmit()">
                 <mat-form-field class="example-full-width">
                   <mat-label>{{
                     "getStarted.emailInputPlaceholder" | translate
-                  }}</mat-label>
-                  <input
-                    formControlName="email"
-                    id="email"
-                    matInput
-                    class="input_started"
-                  />
-                  <mat-error
-                    *ngIf="
+                    }}</mat-label>
+                  <input formControlName="email" id="email" matInput class="input_started" />
+                  <mat-error *ngIf="
                       form.get('email').errors &&
                       form.get('email').hasError('required')
-                    "
-                    >{{
-                      "getStarted.emailRequiredError" | translate
-                    }}</mat-error
-                  >
+                    ">{{
+                    "getStarted.emailRequiredError" | translate
+                    }}</mat-error>
                 </mat-form-field>
               </form>
             </div>
-            <div
-              fxFlex.xs="100"
-              fxFlex.sm="100"
-              fxFlex.md="24"
-              fxFlex.lg="24"
-              fxFlex.xl="24"
-            >
-              <button
-                mat-button
-                *ngIf="!user"
-                class="getStarted_btn"
-                (click)="getEmailStatus()"
-              >
+            <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="24" fxFlex.lg="24" fxFlex.xl="24">
+              <button mat-button *ngIf="!user" class="getStarted_btn" (click)="getEmailStatus()">
                 {{ "getStarted.getStartedBtnText" | translate }}
               </button>
 
-              <button
-                *ngIf="user"
-                mat-button
-                class="getStarted_btn"
-                (click)="goToChooseFormPage()"
-              >
+              <button *ngIf="user" mat-button class="getStarted_btn" (click)="goToChooseFormPage()">
                 Finish SignUp
               </button>
             </div>

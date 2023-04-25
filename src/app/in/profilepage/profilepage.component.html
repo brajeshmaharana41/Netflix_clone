@@ -6,42 +6,6 @@
                     <div class="pb-3">
                         <span class="title">Who's watching?</span>
                     </div>
-                    <!-- <div fxLayout="row" fxLayoutAlign="center center">
-                        <div class="p-4">
-                            <div class="user1" (click)="goToHomePage()">
-                                <img src="../../../assets/face1.png" alt="" width="140" class="bgimg">
-                            </div>
-                            <div fxLayoutAlign="center center" class="pt-2">
-                                <span class="name">Test 1</span>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <div class="user1">
-                                <img src="../../../assets/face2.png" alt="" width="140" class="bgimg">
-                            </div>
-
-                            <div fxLayoutAlign="center center" class="pt-2">
-                                <span class="name">Test 2</span>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <div class="user1">
-                                <img src="../../../assets/child.png" alt="" width="140" class="bgimg">
-                            </div>
-
-                            <div fxLayoutAlign="center center" class="pt-2">
-                                <span class="name">Children</span>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <div class="adduser">
-                                <mat-icon class="face_icon">add_circle</mat-icon>
-                            </div>
-                            <div fxLayoutAlign="center center" class="pt-2">
-                                <span class="name">Add Profile</span>
-                            </div>
-                        </div>
-                    </div> -->
                     <div fxLayoutAlign="center center">
                         <div class="profile_bord">
                             <div fxLayout="row wrap">
@@ -56,13 +20,11 @@
                                           <span class="name ">{{member?.name}}</span>
                                         </ng-container>
                                     </div>
-
                                 </div>
-
                                 <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxLayoutAlign="center center">
-                                    <div class="adduser">
+                                    <div class="adduser" (click)="goToAddProfilePage()">
                                         <mat-icon class="face_icon">add_circle</mat-icon>
-                                        <span class="name">Add Profile</span>
+                                        <span class="addname">Add Profile</span>
                                     </div>
                                 </div>
                             </div>

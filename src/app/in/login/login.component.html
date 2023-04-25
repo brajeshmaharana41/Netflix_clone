@@ -64,6 +64,20 @@
                     [type]="hide ? 'password' : 'text'"
                     class=""
                   />
+                  <mat-error
+                    *ngIf="
+                      form.get('password').errors &&
+                      form.get('password').hasError('required')
+                    "
+                    >Password is required</mat-error
+                  >
+                  <mat-error
+                    *ngIf="
+                      form.get('password').errors &&
+                      form.get('password').hasError('')
+                    "
+                    >Please enter a valid Password</mat-error
+                  >
                   <button
                     mat-icon-button
                     matSuffix

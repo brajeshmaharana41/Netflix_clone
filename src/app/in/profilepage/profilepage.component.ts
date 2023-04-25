@@ -21,4 +21,7 @@ export class ProfilepageComponent implements OnInit {
     localStorage.setItem('viewer', JSON.stringify(member));
     this._router.navigate(['home']);
   }
+  goToAddProfilePage(){
+    this._router.navigate(['in/addprofilepage'])
+  }
 }
