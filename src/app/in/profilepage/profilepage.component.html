@@ -9,7 +9,7 @@
                     <div fxLayoutAlign="center center">
                         <div class="profile_bord">
                             <div fxLayout="row wrap">
-                                <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxLayoutAlign="center center" *ngFor="let member of members">
+                                <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxLayoutAlign="center center" *ngFor="let member of members" class="p-3">
                                     <div class="user1" (click)="goToHomePage(member)">
                                         <ng-container *ngIf="!member?.kids">
                                           <img src="../../../assets/face1.png" alt="" width="140" class="bgimg">

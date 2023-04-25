@@ -1,1 +1,41 @@
-<p>add-profilepage works!</p>
+<div class="background">
+    <div class="bg" fxLayoutAlign="center center">
+        <div fxLayoutAlign="center center">
+            <div class="addborder">
+                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="gappx">
+                    <div class="pb-3">
+                        <span class="profiletitle">Add Profile</span>
+                    </div>
+                    <div class="pb-3">
+                        <span class="profilesubtitle">Add a profile for another person watching Netflix.</span>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-around center" class="bord">
+                    <div class="addprofilImg">
+                        <img src="assets/face2.png" alt="" width="120" class="addprofilImg">
+                    </div>
+                    <div>
+                        <div class="input_bg">
+                            <mat-form-field class="example-full-width" floatLabel='never'>
+                              <mat-label style="color: #ababab;">Name</mat-label>
+                              <input matInput formControlName="name" class="mb2" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="childcheck">
+                        <label for="vehicle1" class="childname">Child?</label>        
+                    </div>
+                </div>
+                <div fxLayout="row">
+                    <div class="p-2">
+                        <button mat-button class="btn_addprofile">Continue</button>
+                    </div>
+                    <div class="p-2">
+                        <button mat-button class="btn_addprofile">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
