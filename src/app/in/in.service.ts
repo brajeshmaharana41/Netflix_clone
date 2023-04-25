@@ -14,7 +14,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class InService {
-  constructor(private _http: HttpHandlerService) {}
+  token;
+  constructor(private _http: HttpHandlerService) {
+    this.token = localStorage.getItem('token')
+  }
 
   emailStatus(user_name: string): Observable<HttpResponse> {
     return this._http.post(API.Customer.signup, { user_name });
@@ -33,6 +36,13 @@ export class InService {
       source: 'direct',
       device_name: 'web',
       device_token: '123456',
+    });
+  }
+
+  AddProfile(data): Observable<SigninResponse> {
+    return this._http.post(API.Customer.addProfile, data, {
+      Authorization:
+        `Bearer ${this.token}`,
     });
   }
 

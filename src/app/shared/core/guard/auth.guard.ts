@@ -15,7 +15,7 @@ import { Constants } from '../../constants/constant';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let token: any;
     try {
@@ -35,7 +35,7 @@ export class AuthGuard implements CanActivate {
 
 @Injectable({ providedIn: 'root' })
 export class NoAuthTokenGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     let token: any;
@@ -45,7 +45,7 @@ export class NoAuthTokenGuard implements CanActivate {
       console.log(e);
     }
     console.log(token);
-    if(state.url == '/in/profile') {
+    if (state.url == '/in/profile' || state.url == '/in/addprofilepage') {
       return true;
     }
     if (token) {

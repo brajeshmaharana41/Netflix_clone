@@ -19,6 +19,7 @@ export class API {
     signupOtpVerify: `${baseURL}customer/signupOtpVerify`,
     signout: `${baseURL}customer/signout`,
     getAllDevice: `${baseURL}customer/getAllDevice`,
+    addProfile: `${baseURL}customer/customerDetailsUpdate`,
   };
 
   public static User_Subscription = {
