@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: AddProfilepageComponent,
+    component: LoginComponent,
   },
   {
     path: 'profile',
@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'addprofilepage',
-    component: LoginComponent,
+    component: AddProfilepageComponent,
   },
   {
     path: 'login-help',
