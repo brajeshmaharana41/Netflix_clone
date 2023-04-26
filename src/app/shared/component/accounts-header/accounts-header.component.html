@@ -1,13 +1,31 @@
 <mat-toolbar class="header_toolbar" fxLayout="row">
-    <div
-      fxFlex.xs="50"
-      fxFlex.sm="50"
-      fxFlex.md="50"
-      fxFlex.lg="50"
-      fxFlex.xl="50"
-      fxLayoutAlign="start center"
-    >
-      <img src="assets/netflix-logo.png" (click)="goToGetStarted()" alt="" class="netflix_logo" />
+  <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" fxLayoutAlign="start center">
+    <img src="assets/netflix-logo.png" (click)="goToGetStarted()" alt="" class="netflix_logo" />
+  </div>
+  <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50" fxLayoutAlign="end center">
+    <div fxLayoutAlign="center center" [matMenuTriggerFor]="menu" style="cursor: pointer;">
+      <img src="assets/face1.png" alt="" class="account_dropdown"/>&nbsp;
+      <mat-icon class="icon">arrow_drop_down</mat-icon>
     </div>
-  </mat-toolbar>
-  
+    <mat-menu #menu="matMenu" class="Menu_bg">
+      <div mat-menu-item class="menu_item">
+        <img src="assets/child.png" alt="" class="menu_profile">
+        <span style="padding-left: 10px;">Children</span>
+      </div>
+      <div mat-menu-item class="menu_item">
+        Manage Profile
+      </div>
+      <div mat-menu-item class="menu_item">
+        Accounts
+      </div>
+      <div mat-menu-item class="menu_item">
+        Transfer Profile
+      </div>
+      <mat-divider class="divider"></mat-divider>
+      <div mat-menu-item class="menu_items">
+        Sign Out of Netflix
+      </div>
+    </mat-menu>
+  </div>
+
+</mat-toolbar>

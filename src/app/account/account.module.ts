@@ -11,13 +11,15 @@ import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountsPageComponent } from './accounts-page/accounts-page.component';
 
 
 @NgModule({
   declarations: [
     ChangePasswordComponent,
     AccountsHeaderComponent,
-    AccountsFooterComponent
+    AccountsFooterComponent,
+    AccountsPageComponent
   ],
   imports: [
     CommonModule,

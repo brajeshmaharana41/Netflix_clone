@@ -5,6 +5,43 @@
 .netflix_logo{
     width: 150px;
 }
+.account_dropdown{
+  width: 40px;
+  border-radius: 4px;
+}
+.icon{
+  color: #fff;
+}
+::ng-deep .Menu_bg{
+  background-color:#000000;
+  width: 100%;
+}
+.menu_item{
+  color: #ffffff;
+  cursor: pointer;
+}
+.menu_items{
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+}
+.menu_items:hover{
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: underline;
+}
+.menu_item:hover{
+  color: #ffffff;
+  text-decoration: underline;
+}
+.divider{
+  background-color: #e5e5e5;
+}
+.menu_profile{
+  width: 40px;
+  border-radius: 3px;
+}
 @media only screen and (max-width: 600px) and (min-width: 200px)  {
     .netflix_logo{
       width: 100px;
