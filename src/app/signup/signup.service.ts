@@ -17,7 +17,7 @@ import { Constants } from '../shared/constants/constant';
 export class SignupService {
   token;
   constructor(private _http: HttpHandlerService) {
-    this.token = localStorage.getItem('token')
+    this.token = localStorage.getItem(Constants.SESSIONTOKENSTRING)
   }
 
   signUp(user_name: string, password: string): Observable<SignUpResponse> {

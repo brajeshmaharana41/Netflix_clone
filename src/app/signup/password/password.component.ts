@@ -61,7 +61,7 @@ export class PasswordComponent implements OnInit {
               Constants.USER,
               JSON.stringify(res.body.customer_data)
             );
-            localStorage.setItem(res.body.token, Constants.SESSIONTOKENSTRING);
+            localStorage.setItem(Constants.SESSIONTOKENSTRING, res.body.token);
             this.goToPlanChoosePage();
           } else {
             this.errorMsg = res.message;

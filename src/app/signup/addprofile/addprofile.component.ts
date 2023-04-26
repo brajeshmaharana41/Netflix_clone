@@ -79,9 +79,9 @@ export class AddprofileComponent implements OnInit {
               let viewer_id = res?.body['member'].length;
               let viewer = res?.body['member'][viewer_id - 1];
 
-              localStorage.setItem('user', JSON.stringify(res.body));
+              localStorage.setItem(Constants.USER, JSON.stringify(res.body));
               localStorage.setItem('viewer', JSON.stringify(viewer));
-              this._router.navigate(['/home']);
+              this._router.navigate(['/in/profile']);
 
             } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
               this.errorMsg = res.message;

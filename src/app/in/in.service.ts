@@ -9,6 +9,7 @@ import {
 } from '../shared/type/in-type';
 import { API } from '../shared/constants/api';
 import { Observable } from 'rxjs';
+import { Constants } from '../shared/constants/constant';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ import { Observable } from 'rxjs';
 export class InService {
   token;
   constructor(private _http: HttpHandlerService) {
-    this.token = localStorage.getItem('token')
+    this.token = localStorage.getItem(Constants.SESSIONTOKENSTRING)
   }
 
   emailStatus(user_name: string): Observable<HttpResponse> {
