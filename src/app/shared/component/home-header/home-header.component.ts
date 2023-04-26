@@ -28,4 +28,7 @@ export class HomeHeaderComponent implements OnInit {
   goToManageProfile() {
     this.router.navigate(['in/profile']);
   }
+  goToAccountPage() {
+    this.router.navigate(['account/accountsPage']);
+  }
 }
