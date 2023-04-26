@@ -73,8 +73,8 @@ export class RegFormComponent implements OnInit {
                 JSON.stringify(res.body.customer_data)
               );
               localStorage.setItem(
-                res.body.token,
-                Constants.SESSIONTOKENSTRING
+                Constants.SESSIONTOKENSTRING,
+                res.body.token
               );
               this.goToPlanChoosePage();
             }

@@ -15,7 +15,10 @@ import { Constants } from '../shared/constants/constant';
   providedIn: 'root',
 })
 export class SignupService {
-  constructor(private _http: HttpHandlerService) {}
+  token;
+  constructor(private _http: HttpHandlerService) {
+    this.token = localStorage.getItem('token')
+  }
 
   signUp(user_name: string, password: string): Observable<SignUpResponse> {
     return this._http.post(API.Customer.signupSuccess, {
@@ -48,6 +51,13 @@ export class SignupService {
     return this._http.post(API.Customer.signupOtpVerify, {
       subscription_id,
       payment_method,
+    });
+  }
+
+  AddProfile(data) {
+    return this._http.post(API.Customer.addProfile, data, {
+      Authorization:
+        `Bearer ${this.token}`,
     });
   }
 }
