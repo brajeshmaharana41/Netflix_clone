@@ -1,14 +1,18 @@
 .bg{
-    background-color: #141414;
-    height: 100%;
+    // background-color: #141414;
+    // height: 100%;
+    // overflow-y: auto;
 }
 .bgheight{
+    // height: 100%;
+    background-color: #141414;
     height: 100%;
+    overflow-y: auto;
 }
 .bord{
     // border: 1px solid #fff;
     // width: 1400px;
-    height: 500px;
+    // height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,4 +73,8 @@
 }
 @media only screen and (min-width: 50px) and (max-width: 360px){
 
+}
+
+.h100 {
+  min-height: 100vh;
 }
