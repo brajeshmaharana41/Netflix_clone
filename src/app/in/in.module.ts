@@ -30,6 +30,7 @@ import { InfoComponent } from './info/info.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { AddProfilepageComponent } from './add-profilepage/add-profilepage.component';
+import { ManageprofileComponent } from './manageprofile/manageprofile.component';
 // import { JwplayerComponent } from './jwplayer/jwplayer.component';
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AddProfilepageComponent } from './add-profilepage/add-profilepage.compo
     InfoComponent,
     PasswordChangeComponent,
     ProfilepageComponent,
-    AddProfilepageComponent  
+    AddProfilepageComponent,
+    ManageprofileComponent
   ],
   imports: [
     CommonModule,

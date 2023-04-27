@@ -10,9 +10,6 @@
     overflow-y: auto;
 }
 .bord{
-    // border: 1px solid #fff;
-    // width: 1400px;
-    // height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +21,7 @@
     border-radius: 5px;
     text-align: center;
     .bgimg{
+        width: 140px;
         border-radius: 4px;
     }
 }
@@ -31,6 +29,7 @@
 .user1:hover{
     border: 3px solid #fff;
     .bgimg{
+        width: 140px;
         border-radius: 4px;
     }
 }
@@ -52,29 +51,86 @@
     }
 }
 .title{
-    font-size: 3.5vw;
+    font-size: 40px;
     color: #fff;
 }
 .name{
-    font-size: 1.2vw;
+    font-size: 16px;
     color: #fff;
     margin-top: 10px;
     display: block;
 }
 .addname{
-    font-size: 1.2vw;
+    font-size: 16px;
     color: #fff;
     margin-top: 20px;
     display: block;
 }
 .profile_bord{
-    width: 800px;
-    // border: 1px solid #fff;
+    width: 1000px;
 }
-@media only screen and (min-width: 50px) and (max-width: 360px){
-
+@media only screen and (min-width: 600px) and (max-width: 960px){
+    .name{
+        font-size: 16px;
+    }
+    .addname{
+        font-size: 16px;
+    }
+    .profile_bord{
+        width: 400px;
+    }
+    .title{
+        font-size: 30px;
+    }
+    
 }
-
+@media only screen and (min-width: 200px) and (max-width: 600px){
+    .name{
+        font-size: 12px;
+    }
+    .addname{
+        font-size: 10px;
+    }
+    .profile_bord{
+        width: 300px;
+    }
+    .title{
+        font-size: 30px;
+    }
+    .user1{
+        width: 105px;
+        height: 105px;
+        .bgimg{
+            width: 100px;
+        }
+    }
+    .user1:hover{
+        border: 3px solid #fff;
+        .bgimg{
+            width: 100px;
+        }
+    }
+    
+    .adduser{
+        width: 100px;
+        height: 100px;
+        .face_icon{
+            font-size: 50px;
+            color: #fff;
+        }
+        .bgimg{
+            width: 100px;
+        }
+    }
+    .adduser:hover{
+        background-color: #fff;
+        .face_icon{
+            font-size: 50px;
+            color: #828080;
+            word-wrap: none;
+        }
+    }
+}
 .h100 {
   min-height: 100vh;
 }

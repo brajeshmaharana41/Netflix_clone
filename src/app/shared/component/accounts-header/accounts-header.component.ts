@@ -20,4 +20,10 @@ export class AccountsHeaderComponent implements OnInit {
     localStorage.clear();
     this.goToGetStarted();
   }
+  goToManageProfile() {
+    this.router.navigate(['in/profile']);
+  }
+  goToAccountPage() {
+    this.router.navigate(['account/accountsPage']);
+  }
 }

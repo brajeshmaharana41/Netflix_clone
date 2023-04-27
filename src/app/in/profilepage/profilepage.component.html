@@ -6,22 +6,22 @@
                     <div class="pb-3">
                         <span class="title">Who's watching?</span>
                     </div>
-                    <div fxLayoutAlign="center center">
+                    <div fxLayoutAlign="center center" class="pb-5">
                         <div class="profile_bord">
                             <div fxLayout="row wrap">
-                                <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxLayoutAlign="center center" *ngFor="let member of members" class="p-3">
+                                <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="20" fxFlex.lg="20" fxFlex.xl="20" fxLayoutAlign="center center" *ngFor="let member of members" class="p-3">
                                     <div class="user1" (click)="goToHomePage(member)">
                                         <ng-container *ngIf="!member?.kids">
-                                          <img src="../../../assets/face1.png" alt="" width="140" class="bgimg">
+                                          <img src="../../../assets/face1.png" alt="" class="bgimg">
                                           <span class="name">{{member?.name}}</span>
                                         </ng-container>
                                         <ng-container *ngIf="member?.kids">
-                                          <img src="../../../assets/child.png" alt="" width="140" class="bgimg">
+                                          <img src="../../../assets/child.png" alt="" class="bgimg">
                                           <span class="name ">{{member?.name}}</span>
                                         </ng-container>
                                     </div>
                                 </div>
-                                <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="25" fxFlex.xl="25" fxLayoutAlign="center center">
+                                <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="20" fxFlex.lg="20" fxFlex.xl="20" fxLayoutAlign="center center" class="p-3">
                                     <div class="adduser" (click)="goToAddProfilePage()">
                                         <mat-icon class="face_icon">add_circle</mat-icon>
                                         <span class="addname">Add Profile</span>

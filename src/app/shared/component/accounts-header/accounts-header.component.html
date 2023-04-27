@@ -9,10 +9,14 @@
     </div>
     <mat-menu #menu="matMenu" class="Menu_bg">
       <div mat-menu-item class="menu_item">
+        <img src="assets/face1.png" alt="" class="menu_profile">
+        <span style="padding-left: 10px;">Brajesh Maharana</span>
+      </div>
+      <div mat-menu-item class="menu_item">
         <img src="assets/child.png" alt="" class="menu_profile">
         <span style="padding-left: 10px;">Children</span>
       </div>
-      <div mat-menu-item class="menu_item">
+      <div mat-menu-item class="menu_item" (click)="goToManageProfile()">
         Manage Profile
       </div>
       <div mat-menu-item class="menu_item">
@@ -22,7 +26,7 @@
         Transfer Profile
       </div>
       <mat-divider class="divider"></mat-divider>
-      <div mat-menu-item class="menu_items">
+      <div mat-menu-item class="menu_items" (click)="goToGetStarted">
         Sign Out of Netflix
       </div>
     </mat-menu>

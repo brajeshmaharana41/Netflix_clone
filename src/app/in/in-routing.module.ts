@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { AddProfilepageComponent } from './add-profilepage/add-profilepage.component';
+import { ManageprofileComponent } from './manageprofile/manageprofile.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfilepageComponent,
+  },
+  {
+    path: 'manageprofile',
+    component: ManageprofileComponent,
   },
   {
     path: 'addprofilepage',

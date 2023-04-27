@@ -53,7 +53,7 @@ export class AddProfilepageComponent implements OnInit {
 
               localStorage.setItem('user', JSON.stringify(res.body));
               localStorage.setItem('viewer', JSON.stringify(viewer));
-              this._router.navigate(['/home']);
+              this._router.navigate(['/profile']);
 
             } else if (res.status === Constants.SUCCESSSTATUSCODE2) {
               this.errorMsg = res.message;
