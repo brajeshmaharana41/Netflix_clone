@@ -22,7 +22,7 @@ export class AddprofileComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
-      profile1: ['', [Validators.required]],
+      profile1: [''],
       profile1Child: [''],
       profile2: [],
       profile2Child: [''],
@@ -39,11 +39,16 @@ export class AddprofileComponent implements OnInit {
       const values = this.form?.value;
       let members = [
         {
-          "name": values.profile1,
-          "kids": values.profile1Child ? true : false
+          "name": values.name,
+          "kids": false
         }
       ];
-
+      if (values.profile1) {
+        members.push({
+          "name": values.profile1,
+          "kids": values.profile1Child ? true : false
+        });
+      }
       if (values.profile2) {
         members.push({
           "name": values.profile2,

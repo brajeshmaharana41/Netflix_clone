@@ -58,10 +58,6 @@
                                 <div class="border_input mb-4 p-2" fxLayout="row" fxLayoutAlign="center center">
                                     <mat-form-field class="example-full-width">
                                         <input matInput class="input_height" placeholder="Name" formControlName="profile1" />
-                                        <mat-error class="mt16" *ngIf="
-                                            form.get('profile1').errors &&
-                                            form.get('profile1').hasError('required')
-                                            ">Please add atleast one profile name</mat-error>
                                     </mat-form-field>
                                     <div>
                                         <mat-checkbox class="example-margin" formControlName="profile1Child">Children</mat-checkbox>

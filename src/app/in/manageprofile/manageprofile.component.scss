@@ -1,0 +1,266 @@
+.bg {
+  // background-color: #141414;
+  // height: 100%;
+  // overflow-y: auto;
+}
+.bgheight {
+  // height: 100%;
+  background-color: #141414;
+  height: 100%;
+  overflow-y: auto;
+}
+.bord {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user1 {
+  width: 145px;
+  height: 145px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  .bgimg {
+    width: 140px;
+    border-radius: 4px;
+  }
+}
+
+.user1:hover {
+  border: 3px solid #fff;
+  .bgimg {
+    width: 140px;
+    border-radius: 4px;
+  }
+}
+.adduser {
+  width: 145px;
+  height: 145px;
+  padding: 25px;
+  border-radius: 4px;
+  .face_icon {
+    font-size: 100px;
+    color: #fff;
+  }
+}
+.adduser:hover {
+  background-color: #fff;
+  .face_icon {
+    font-size: 100px;
+    color: #828080;
+  }
+}
+.title {
+  font-size: 40px;
+  color: #fff;
+}
+.name {
+  font-size: 16px;
+  color: #fff;
+  margin-top: 10px;
+  display: block;
+}
+.addname {
+  font-size: 16px;
+  color: #fff;
+  margin-top: 20px;
+  display: block;
+}
+.profile_bord {
+  width: 1000px;
+}
+@media only screen and (min-width: 600px) and (max-width: 960px) {
+  .name {
+    font-size: 16px;
+  }
+  .addname {
+    font-size: 16px;
+  }
+  .profile_bord {
+    width: 400px;
+  }
+  .title {
+    font-size: 30px;
+  }
+}
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+  .name {
+    font-size: 12px;
+  }
+  .addname {
+    font-size: 10px;
+  }
+  .profile_bord {
+    width: 300px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .user1 {
+    width: 105px;
+    height: 105px;
+    .bgimg {
+      width: 100px;
+    }
+  }
+  .user1:hover {
+    border: 3px solid #fff;
+    .bgimg {
+      width: 100px;
+    }
+  }
+
+  .adduser {
+    width: 100px;
+    height: 100px;
+    .face_icon {
+      font-size: 50px;
+      color: #fff;
+    }
+    .bgimg {
+      width: 100px;
+    }
+  }
+  .adduser:hover {
+    background-color: #fff;
+    .face_icon {
+      font-size: 50px;
+      color: #828080;
+      word-wrap: none;
+    }
+  }
+}
+.h100 {
+  min-height: 100vh;
+}
+
+.btn_addprofile {
+  background-color: transparent;
+  border: 1px solid grey;
+  color: grey;
+  cursor: pointer;
+  // display: block;
+  font-size: 1.2vw;
+  // letter-spacing: 2px;
+  // margin: 1em 0 1em;
+  padding: 0.2em 1em;
+  border-radius: 0px;
+}
+.btn_addprofile:hover {
+  background-color: #fff;
+  border: 1px solid grey;
+  color: #000;
+  cursor: pointer;
+  // display: block;
+  font-size: 1.2vw;
+  // letter-spacing: 2px;
+  // margin: 1em 0 1em;
+  padding: 0.2em 1em;
+  border-radius: 0px;
+}
+.edit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  line-height: 11;
+
+  mat-icon {
+    font-size: 30px;
+  }
+}
+
+.edit-profile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #141414;
+
+  .profileImg {
+    width: 145px;
+    height: 145px;
+  }
+  .addborder {
+    width: 600px;
+    // border: 1px solid #fff;
+  }
+  .addprofilImg {
+    border-radius: 4px;
+  }
+  .input_bg {
+    width: 300px;
+    height: 40px;
+    background-color: #141414;
+    // border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+  .example-full-width {
+    width: 100%;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #fff;
+    ::placeholder {
+      color: #fff !important;
+    }
+  }
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+  .childcheck {
+    width: 20px;
+    height: 20px;
+  }
+  .childname {
+    font-size: 25px;
+    margin-left: 5px;
+    color: #fff;
+  }
+  .profiletitle {
+    font-size: 3rem;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .profilesubtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #fff;
+  }
+  .bord {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 20px;
+  }
+  .btn_addprofile {
+    background-color: transparent;
+    border: 1px solid grey;
+    color: grey;
+    cursor: pointer;
+    // display: block;
+    font-size: 1.2vw;
+    // letter-spacing: 2px;
+    // margin: 1em 0 1em;
+    padding: 0.2em 1em;
+    border-radius: 0px;
+  }
+  .btn_addprofile:hover {
+    background-color: #fff;
+    border: 1px solid grey;
+    color: #000;
+    cursor: pointer;
+    // display: block;
+    font-size: 1.2vw;
+    // letter-spacing: 2px;
+    // margin: 1em 0 1em;
+    padding: 0.2em 1em;
+    border-radius: 0px;
+  }
+}

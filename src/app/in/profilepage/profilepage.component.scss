@@ -82,7 +82,7 @@
     .title{
         font-size: 30px;
     }
-    
+
 }
 @media only screen and (min-width: 200px) and (max-width: 600px){
     .name{
@@ -110,7 +110,7 @@
             width: 100px;
         }
     }
-    
+
     .adduser{
         width: 100px;
         height: 100px;
@@ -133,4 +133,30 @@
 }
 .h100 {
   min-height: 100vh;
+}
+
+
+.btn_addprofile{
+  background-color: transparent;
+  border: 1px solid grey;
+  color: grey;
+  cursor: pointer;
+  // display: block;
+  font-size: 1.2vw;
+  // letter-spacing: 2px;
+  // margin: 1em 0 1em;
+  padding: 0.2em 1.0em;
+  border-radius: 0px;
+}
+.btn_addprofile:hover{
+  background-color: #fff;
+  border: 1px solid grey;
+  color: #000;
+  cursor: pointer;
+  // display: block;
+  font-size: 1.2vw;
+  // letter-spacing: 2px;
+  // margin: 1em 0 1em;
+  padding: 0.2em 1.0em;
+  border-radius: 0px;
 }

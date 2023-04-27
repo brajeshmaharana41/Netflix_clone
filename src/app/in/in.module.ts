@@ -30,6 +30,7 @@ import { InfoComponent } from './info/info.component';
 import { PasswordChangeComponent } from './password-change/password-change.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { AddProfilepageComponent } from './add-profilepage/add-profilepage.component';
+import { MatIconModule } from '@angular/material/icon';
 import { ManageprofileComponent } from './manageprofile/manageprofile.component';
 // import { JwplayerComponent } from './jwplayer/jwplayer.component';
 
@@ -60,6 +61,7 @@ import { ManageprofileComponent } from './manageprofile/manageprofile.component'
     FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatIconModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

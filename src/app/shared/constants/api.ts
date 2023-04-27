@@ -20,6 +20,8 @@ export class API {
     signout: `${baseURL}customer/signout`,
     getAllDevice: `${baseURL}customer/getAllDevice`,
     addProfile: `${baseURL}customer/customerDetailsUpdate`,
+    updateProfile: `${baseURL}customer/update-profile`,
+    deleteProfile: `${baseURL}customer/delete-profile`,
   };
 
   public static User_Subscription = {

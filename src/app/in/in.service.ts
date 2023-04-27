@@ -47,6 +47,20 @@ export class InService {
     });
   }
 
+  updateProfile(id, data): Observable<SigninResponse> {
+    return this._http.put(`${API.Customer.updateProfile}/${id}`, data, {
+      Authorization:
+        `Bearer ${this.token}`,
+    });
+  }
+
+  deleteProfile(id): Observable<SigninResponse> {
+    return this._http.delete(`${API.Customer.deleteProfile}/${id}`, {
+      Authorization:
+        `Bearer ${this.token}`,
+    });
+  }
+
   forgotPasswordRequest(user_name: string) {
     return this._http.post(API.Customer.forgotPassword, { user_name });
   }

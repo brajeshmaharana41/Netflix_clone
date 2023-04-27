@@ -24,4 +24,7 @@ export class ProfilepageComponent implements OnInit {
   goToAddProfilePage(){
     this._router.navigate(['in/addprofilepage'])
   }
+  redirectToManageProfile() {
+    this._router.navigate(['in/manageprofile'])
+  }
 }

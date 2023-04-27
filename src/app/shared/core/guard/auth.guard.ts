@@ -45,7 +45,7 @@ export class NoAuthTokenGuard implements CanActivate {
       console.log(e);
     }
     console.log(token);
-    if (state.url == '/in/profile' || state.url == '/in/addprofilepage') {
+    if (state.url == '/in/profile' || state.url == '/in/addprofilepage' || state.url == '/in/manageprofile') {
       return true;
     }
     if (token) {
