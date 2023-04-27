@@ -208,6 +208,7 @@
       *ngFor="let homeVideo of homeData; let i = index"
       class="bg_color"
     >
+    <ng-container  *ngIf="homeVideo && homeVideo?.videos?.length > 0">
       <div class="section_title">
         <span class="movie_types">{{ homeVideo?.title }}</span>
       </div>
@@ -338,6 +339,7 @@
           </button>
         </div>
       </div>
+    </ng-container>
     </div>
   </div>
     <app-home-footer></app-home-footer>

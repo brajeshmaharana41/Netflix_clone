@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
     // //   show: type,
     // // };
     if (type) {
-      this.getVideoById(video._id, video.video[0]._id);
+      // this.getVideoById(video._id, video.video[0]._id);
     }
   }
 
