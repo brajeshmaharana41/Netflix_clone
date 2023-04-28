@@ -16,6 +16,7 @@ import { ModalDetailsComponent } from 'src/app/shared/modal-details/modal-detail
 import { CommonService } from 'src/app/shared/service/common.service';
 import { HttpResponse } from 'src/app/shared/type/in-type';
 import { HomeService } from '../home.service';
+import { NgbCarousel, NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -30,8 +31,15 @@ export class HomeComponent implements OnInit {
   homeData: any;
   contentData: any;
   videoDetail: any;
+  interval: Number = 2000;
+  currentSlide = 0;
   userData = JSON.parse(localStorage.getItem(Constants.USER));
+
   private crousalItemHover = new Subject<any>();
+  // @ViewChild('video') video: ElementRef;
+  @ViewChild('carousel') carousel: NgbCarousel;
+
+  videoInterval;
 
   constructor(
     private _router: Router,
@@ -39,7 +47,7 @@ export class HomeComponent implements OnInit {
     private _homeService: HomeService,
     public dialog: MatDialog,
     private _changeDetection: ChangeDetectorRef
-  ) {}
+  ) { }
   // MoveData: MovieImage[] = [
   //   { img: 'assets/1.jpg', show: false },
   //   { img: 'assets/5.jpg', show: false },
@@ -171,28 +179,53 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  vidEnded(i) {
+    console.log("ended", i);
+    let nextVideo:any
+    if(i >= this.homeBanner.length - 1) {
+      nextVideo =  document.getElementById(`video-0`);
+    } else {
+      nextVideo =  document.getElementById(`video-${i + 1}`);
+    }
+    this.carousel.next();
+    setTimeout(() => {
+      nextVideo.style.display = 'block';
+      nextVideo.play();
+    }, 1000);
+  }
+
+  vidPlay(i) {
+    if(this.currentSlide == i) {
+      console.log("play", i);
+      let currentVideo:any =  document.getElementById(`video-${i}`);
+      this.currentSlide = i;
+      setTimeout(() => {
+        currentVideo.style.display = 'block';
+        currentVideo.play();
+      }, 1000);
+    }
+  }
+
   getAllHomeData(viewer_id: string) {
-    this._homeService.getAllBannerVideo(viewer_id).subscribe( {
+    this._homeService.getAllBannerVideo(viewer_id).subscribe({
       next: async (res: HttpResponse) => {
-        this.homeBanner = res.body
+        this.homeBanner = res.body;
       }
     });
-    this._homeService.getAllHomeData(viewer_id).subscribe( {
+    this._homeService.getAllHomeData(viewer_id).subscribe({
       next: async (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           this.homeData = res.body;
-          for(var i=0; i < this.homeData.length; i++) {
+          for (var i = 0; i < this.homeData.length; i++) {
             let response = await this._homeService.getVideoByCategoryId(viewer_id, this.homeData[i].id).toPromise();
-              // data.next: (response: HttpResponse) => {
-                if (response.status === Constants.SUCCESSSTATUSCODE) {
-                  const videosByCategories =  response.body;
-                  console.log("videosByCategories", videosByCategories);
-                  console.log("i", i);
-                  // this.homeData[i]['videos'] = {};
-                  this.homeData[i]['videos'] =videosByCategories;
-                  console.log("this.homeData", this.homeData);
-                }
-              // }
+            // data.next: (response: HttpResponse) => {
+            if (response.status === Constants.SUCCESSSTATUSCODE) {
+              const videosByCategories = response.body;
+
+              // this.homeData[i]['videos'] = {};
+              this.homeData[i]['videos'] = videosByCategories;
+            }
+            // }
 
           }
           // this.homeData
@@ -232,10 +265,10 @@ export class HomeComponent implements OnInit {
   }
 
   goToVideoPlayer(video) {
-    console.log(video);
     this._homeService.videoLink = video.video[0].video_name;
     this._router.navigate([`home/video-player`]);
   }
+
   openDialog(trending: any) {
     this.dialog.open(ModalDetailsComponent, {
       data: { ...trending },
@@ -244,4 +277,5 @@ export class HomeComponent implements OnInit {
       panelClass: 'custom-dialog-container',
     });
   }
+
 }

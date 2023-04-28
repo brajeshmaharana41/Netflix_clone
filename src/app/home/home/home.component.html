@@ -1,8 +1,6 @@
 <div class="bg_height">
   <div class="bg">
-    <app-home-header
-      (selectCategory)="goToTheCategory($event)"
-    ></app-home-header>
+    <app-home-header (selectCategory)="goToTheCategory($event)"></app-home-header>
     <!-- <div class="bg_img">
       <ngb-carousel *ngIf="homeBanner">
         <ng-template ngbSlide *ngFor="let banner of homeBanner">
@@ -16,7 +14,7 @@
         </ng-template>
       </ngb-carousel> -->
 
-      <!-- <video muted class="bg__image">
+    <!-- <video muted class="bg__image">
         <source src="assets/Outlast Official.mp4" type="video/mp4" />
       </video>
       <img class="bg__image" src="assets/Home_bg.webp" alt="" />
@@ -31,46 +29,51 @@
       alt=""
     />
     </div> -->
-     <div class="hero-container">
-        <div class="hero">
-          <ngb-carousel *ngIf="homeBanner" [showNavigationArrows]="false" [showNavigationIndicators]="false">
-            <ng-template ngbSlide *ngFor="let banner of homeBanner">
-              <div fxLayoutAlign="start center">
-                <div class="picsum-img-wrapper">
-                  <!-- <div class="pb-2 pr hero-banner" style="background-image: url('assets/background_img.jpg');"> -->
-                  <div class="pb-2 pr hero-banner" style="background-image: url({{banner?.thumbnail_image[0]}});">
-                    <!-- <img [src]="banner?.thumbnail_image[0]" class="hero-banner" alt="Random first slide" /> -->
-                    <!-- <img src="assets/background_img.jpg" class="hero-banner" alt="Random first slide" /> -->
+    <div class="hero-container">
+      <div class="hero">
+        <ngb-carousel *ngIf="homeBanner" [showNavigationArrows]="false" [showNavigationIndicators]="false"
+          [keyboard]="false" #carousel [interval]="0">
+          <ng-template ngbSlide *ngFor="let banner of homeBanner; let i = index">
+            <div fxLayoutAlign="start center">
+              <div class="picsum-img-wrapper">
+                <!-- <div class="pb-2 pr hero-banner" style="background-image: url('assets/background_img.jpg');"> -->
+                <div class="pb-2 pr hero-banner" style="background-image: url({{banner?.thumbnail_image[0]}});">
+                  <video class="bg__image video-player" id="video-{{i}}" muted #video (ended)="vidEnded(i)" (loadedmetadata)="vidPlay(i)">
+                    <source src="{{banner?.trailer[0]}}" type="video/mp4" />
+                    <!-- <source src="assets/Luther_ The Fallen Sun.mp4" type="video/mp4" /> -->
+                  </video>
+                  <!-- <img [src]="banner?.thumbnail_image[0]" class="hero-banner" alt="Random first slide" /> -->
+                  <!-- <img src="assets/background_img.jpg" class="hero-banner" alt="Random first slide" /> -->
 
-                    <div class="hero-desc">
-                      <div class="pt-2 pb-3">
-                        <div class="dec_mov">{{banner?.title }}</div>
-                        <div class="description mt-4">{{banner?.description | slice:0:300}}</div>
+                  <div class="hero-desc">
+                    <div class="pt-2 pb-3">
+                      <div class="dec_mov">{{banner?.title }}</div>
+                      <div class="description mt-4">{{banner?.description | slice:0:300}}</div>
+                    </div>
+                    <div fxLayout="row">
+                      <div class="p-2">
+                        <button (click)="goToPage('video-player')" mat-button class="btn_play">
+                          <mat-icon class="btn_icon">play_arrow</mat-icon> Play
+                        </button>
                       </div>
-                      <div fxLayout="row">
-                        <div class="p-2">
-                          <button (click)="goToPage('video-player')" mat-button class="btn_play">
-                            <mat-icon class="btn_icon">play_arrow</mat-icon> Play
-                          </button>
-                        </div>
-                        <div class="p-2">
-                          <button mat-button class="btn_more" (click)="openDialog(banner)">
-                            <mat-icon class="btn_icon">info</mat-icon> More Info
-                          </button>
-                        </div>
+                      <div class="p-2">
+                        <button mat-button class="btn_more" (click)="openDialog(banner)">
+                          <mat-icon class="btn_icon">info</mat-icon> More Info
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- <div class="carousel-caption">
+            </div>
+            <!-- <div class="carousel-caption">
                 <h3>First slide label</h3>
                 <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
               </div> -->
-            </ng-template>
-          </ngb-carousel>
-        </div>
-          <!-- <div class="pb-2">
+          </ng-template>
+        </ngb-carousel>
+      </div>
+      <!-- <div class="pb-2">
             <img src="assets/Priets.webp" alt="" />
           </div>
           <div class="pt-2 pb-3">
@@ -90,7 +93,7 @@
           </div> -->
 
     </div>
-<!--
+    <!--
      <div class="bg_color">
       <div class="section_title">
         <span class="movie_types">Trending video</span>
@@ -203,145 +206,112 @@
         </div>
       </div>
     </div> -->
-  <div class="categories">
-    <div
-      *ngFor="let homeVideo of homeData; let i = index"
-      class="bg_color"
-    >
-    <ng-container  *ngIf="homeVideo && homeVideo?.videos?.length > 0">
-      <div class="section_title">
-        <span class="movie_types">{{ homeVideo?.title }}</span>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div class="pull-left mt-sm">
-          <button mat-mini-fab (click)="scrollLeft(i)" class="btn_arrow">
-            <mat-icon>keyboard_arrow_left</mat-icon>
-          </button>
-        </div>
-        <div #widgetsContent class="custom-slider-main">
-          <div *ngFor="let video of homeVideo.videos; let j = index" class="pr">
-            <div class="info-boxs">
-              <img
-                (mouseenter)="action(i, video, true, j)"
-                [src]="
+    <div class="categories">
+      <div *ngFor="let homeVideo of homeData; let i = index" class="bg_color">
+        <ng-container *ngIf="homeVideo && homeVideo?.videos?.length > 0">
+          <div class="section_title">
+            <span class="movie_types">{{ homeVideo?.title }}</span>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <div class="pull-left mt-sm">
+              <button mat-mini-fab (click)="scrollLeft(i)" class="btn_arrow">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+              </button>
+            </div>
+            <div #widgetsContent class="custom-slider-main">
+              <div *ngFor="let video of homeVideo.videos; let j = index" class="pr">
+                <div class="info-boxs">
+                  <img (mouseenter)="action(i, video, true, j)" [src]="
                   video?.thumbnail_image.length > 0
                     ? video?.thumbnail_image[0]
                     : 'assets/5.jpg'
-                "
-                class="list_movie"
-              />
+                " class="list_movie" />
+                </div>
+                <div (mouseleave)="action(i, video, false, j)" *ngIf="video?.show" class="focas_data"
+                  style="position: absolute">
+                  <div (click)="goToVideoPlayer(video)" class="video_height">
+                    <!-- <app-jwplayer></app-jwplayer> -->
+                    <video autoplay class="video_player">
+                      <source [src]="video?.teaser[0]" type="video/mp4" />
+                    </video>
+                  </div>
+                  <div class="focas_bg">
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                      <div fxLayout="row" class="pt-3 pb-1">
+                        <div class="p-2">
+                          <button (click)="goToVideoPlayer(video)" mat-mini-fab class="mini_btn">
+                            <mat-icon>play_arrow</mat-icon>
+                          </button>
+                        </div>
+                        <div class="p-2">
+                          <button mat-mini-fab class="mini_btn">
+                            <mat-icon *ngIf="!videoDetail?.is_wishlist"
+                              (click)="addToMyList(videoDetail)">add</mat-icon>
+                            <mat-icon *ngIf="videoDetail?.is_wishlist"
+                              (click)="removeFromWishlist(videoDetail)">check</mat-icon>
+                          </button>
+                        </div>
+                        <div class="p-2">
+                          <button mat-mini-fab class="mini_btn">
+                            <mat-icon *ngIf="!videoDetail?.like"
+                              (click)="likeOrUnlike(videoDetail, 'like')">thumb_up_alt</mat-icon>
+                            <mat-icon *ngIf="videoDetail?.like"
+                              (click)="likeOrUnlike(videoDetail, 'unlike')">thumb_down</mat-icon>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="pt-3 pb-1">
+                        <div class="p-2">
+                          <button mat-mini-fab class="mini_btn" (click)="openDialog(video)">
+                            <mat-icon>expand_more</mat-icon>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start center">
+                      <div class="p-2">
+                        <span class="focas_title">98% Match</span>
+                      </div>
+                      <div class="focas_bord p-2">
+                        <span class="focas_subtitle">U/A {{ video.maturity_rating }}</span>
+                      </div>
+                      <div class="p-2">
+                        <span class="focas_titles">7 Episodes</span>
+                      </div>
+                      <div class="focas_bords p-2">
+                        <span class="focas_subtitles">HD</span>
+                      </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start center" class="pb-2">
+                      <div class="p-2">
+                        <span class="focas_titles">Gritty</span>
+                      </div>
+                      <div class="pb-3">
+                        <span class="dot">.</span>
+                      </div>
+                      <div class="p-2">
+                        <span class="focas_titles">True Crime</span>
+                      </div>
+                      <div class="pb-3">
+                        <span class="dot">.</span>
+                      </div>
+                      <div class="p-2">
+                        <span class="focas_titles">Corruption</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div
-              (mouseleave)="action(i, video, false, j)"
-              *ngIf="video?.show"
-              class="focas_data"
-              style="position: absolute"
-            >
-              <div (click)="goToVideoPlayer(video)" class="video_height">
-                <!-- <app-jwplayer></app-jwplayer> -->
-                <video autoplay class="video_player">
-                  <source [src]="video?.teaser[0]" type="video/mp4"  />
-                </video>
-              </div>
-              <div class="focas_bg">
-                <div fxLayout="row" fxLayoutAlign="space-between center">
-                  <div fxLayout="row" class="pt-3 pb-1">
-                    <div class="p-2">
-                      <button
-                        (click)="goToVideoPlayer(video)"
-                        mat-mini-fab
-                        class="mini_btn"
-                      >
-                        <mat-icon>play_arrow</mat-icon>
-                      </button>
-                    </div>
-                    <div class="p-2">
-                      <button mat-mini-fab class="mini_btn">
-                        <mat-icon
-                          *ngIf="!videoDetail?.is_wishlist"
-                          (click)="addToMyList(videoDetail)"
-                          >add</mat-icon
-                        >
-                        <mat-icon
-                          *ngIf="videoDetail?.is_wishlist"
-                          (click)="removeFromWishlist(videoDetail)"
-                          >check</mat-icon
-                        >
-                      </button>
-                    </div>
-                    <div class="p-2">
-                      <button mat-mini-fab class="mini_btn">
-                        <mat-icon
-                          *ngIf="!videoDetail?.like"
-                          (click)="likeOrUnlike(videoDetail, 'like')"
-                          >thumb_up_alt</mat-icon
-                        >
-                        <mat-icon
-                          *ngIf="videoDetail?.like"
-                          (click)="likeOrUnlike(videoDetail, 'unlike')"
-                          >thumb_down</mat-icon
-                        >
-                      </button>
-                    </div>
-                  </div>
-                  <div class="pt-3 pb-1">
-                    <div class="p-2">
-                      <button
-                        mat-mini-fab
-                        class="mini_btn"
-                        (click)="openDialog(video)"
-                      >
-                        <mat-icon>expand_more</mat-icon>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div fxLayout="row" fxLayoutAlign="start center">
-                  <div class="p-2">
-                    <span class="focas_title">98% Match</span>
-                  </div>
-                  <div class="focas_bord p-2">
-                    <span class="focas_subtitle"
-                      >U/A {{ video.maturity_rating }}</span
-                    >
-                  </div>
-                  <div class="p-2">
-                    <span class="focas_titles">7 Episodes</span>
-                  </div>
-                  <div class="focas_bords p-2">
-                    <span class="focas_subtitles">HD</span>
-                  </div>
-                </div>
-                <div fxLayout="row" fxLayoutAlign="start center" class="pb-2">
-                  <div class="p-2">
-                    <span class="focas_titles">Gritty</span>
-                  </div>
-                  <div class="pb-3">
-                    <span class="dot">.</span>
-                  </div>
-                  <div class="p-2">
-                    <span class="focas_titles">True Crime</span>
-                  </div>
-                  <div class="pb-3">
-                    <span class="dot">.</span>
-                  </div>
-                  <div class="p-2">
-                    <span class="focas_titles">Corruption</span>
-                  </div>
-                </div>
-              </div>
+            <div class="pull-right mt-sm">
+              <button mat-mini-fab (click)="scrollRight(i)" class="btn_arrow">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
             </div>
           </div>
-        </div>
-        <div class="pull-right mt-sm">
-          <button mat-mini-fab (click)="scrollRight(i)" class="btn_arrow">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </button>
-        </div>
+        </ng-container>
       </div>
-    </ng-container>
     </div>
-  </div>
     <app-home-footer></app-home-footer>
   </div>
 </div>
