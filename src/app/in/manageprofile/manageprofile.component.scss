@@ -28,7 +28,7 @@
 }
 
 .user1:hover {
-  border: 3px solid #fff;
+  // border: 3px solid #fff;
   .bgimg {
     width: 140px;
     border-radius: 4px;
@@ -136,26 +136,18 @@
 }
 
 .btn_addprofile {
-  background-color: transparent;
-  border: 1px solid grey;
-  color: grey;
+  background-color: #fff;
+  color: #000;
   cursor: pointer;
-  // display: block;
   font-size: 1.2vw;
-  // letter-spacing: 2px;
-  // margin: 1em 0 1em;
   padding: 0.2em 1em;
   border-radius: 0px;
 }
 .btn_addprofile:hover {
-  background-color: #fff;
-  border: 1px solid grey;
-  color: #000;
+  background-color: #f80202;
+  color: #fff;
   cursor: pointer;
-  // display: block;
   font-size: 1.2vw;
-  // letter-spacing: 2px;
-  // margin: 1em 0 1em;
   padding: 0.2em 1em;
   border-radius: 0px;
 }

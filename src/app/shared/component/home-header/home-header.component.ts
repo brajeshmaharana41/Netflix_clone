@@ -39,7 +39,7 @@ export class HomeHeaderComponent implements OnInit {
   }
 
   goToManageProfile() {
-    this.router.navigate(['in/profile']);
+    this.router.navigate(['in/manageprofile']);
   }
   goToAccountPage() {
     this.router.navigate(['account/accountsPage']);
