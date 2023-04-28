@@ -29,6 +29,11 @@ export class HomeService {
       }
     );
   }
+  getMenus() {
+    return this._http.get(
+      API.User_Video.fetchVideoType + '?viewer_id=' + this.viewer_id?.id
+    );
+  }
 
   getAllBannerVideo(viewer_id: string): Observable<AllHomeDataResponse> {
     return this._http.post(

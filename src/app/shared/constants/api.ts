@@ -46,5 +46,6 @@ export class API {
     getSimilarVideo: `${baseURL}user_video/getSimilarVideo`,
     getVideoByCategory: `${baseURL}user_video/getVideoByCategory`,
     getAllBannerVideo:  `${baseURL}user_video/getAllBannerVideo`,
+    fetchVideoType: `${baseURL}user_video/fetchVideoType`
   };
 }

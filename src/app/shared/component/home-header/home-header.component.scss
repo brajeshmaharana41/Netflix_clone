@@ -39,6 +39,11 @@
     color: #e5e5e5;
     cursor: pointer;
     font-size: 15px;
+    font-weight: normal;
+    &.active {
+      font-weight: bold;
+      color: #fff;
+    }
 }
 .list_title:hover{
     color: #ffffff;

@@ -17,16 +17,16 @@
     </div>
     <div fxLayout="row" fxLayoutAlign="start center">
       <div class="list_padding">
-        <span class="list_title" (click)="selectedCategory('home')">Home</span>
+        <span class="list_title active" (click)="selectedCategory('home')">Home</span>
       </div>
-      <!-- <div class="list_padding">
-        <span class="list_title" (click)="selectedCategory('tvshow')"
-          >TV Show</span
-        >
-      </div> -->
+      <div class="list_padding" *ngFor="let menu of menus">
+        <span class="list_title" (click)="selectedCategory(menu.slug)">
+          {{menu.title}}
+          </span>
+      </div>
       <div class="list_padding">
         <span class="list_title" (click)="selectedCategory('movie')"
-          >Movies</span
+          >My List</span
         >
       </div>
       <!-- <div class="list_padding">
