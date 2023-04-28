@@ -191,7 +191,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       nextVideo.style.display = 'block';
       nextVideo.play();
-    }, 1000);
+    }, 1500);
   }
 
   vidPlay(i) {
@@ -202,7 +202,7 @@ export class HomeComponent implements OnInit {
       setTimeout(() => {
         currentVideo.style.display = 'block';
         currentVideo.play();
-      }, 1000);
+      }, 1500);
     }
   }
 
