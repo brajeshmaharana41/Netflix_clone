@@ -11,11 +11,6 @@ import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TvShowComponent } from './tv-show/tv-show.component';
-import { MovieComponent } from './movie/movie.component';
-import { NewpopularComponent } from './newpopular/newpopular.component';
-import { MyListComponent } from './my-list/my-list.component';
-import { BrowseByLanguageComponent } from './browse-by-language/browse-by-language.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
 
 
@@ -24,11 +19,6 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
     HomeComponent,
     HomeHeaderComponent,
     HomeFooterComponent,
-    TvShowComponent,
-    MovieComponent,
-    NewpopularComponent,
-    MyListComponent,
-    BrowseByLanguageComponent,
     VideoPlayerComponent,
   ],
   imports: [

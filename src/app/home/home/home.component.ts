@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
     this.changeTexts = false;
     // this.imagesDatas = this.MoveData;
     // this.getAllDeviceData(this.userData._id);
-    this.getAllHomeData(this.userData._id);
+    this.getAllHomeData(this.userData._id,'');
 
     this.crousalItemHover.pipe(debounceTime(2000)).subscribe((response) => {
       // this.homeData.home_video = this.homeData.home_video.map((res) => {
@@ -96,6 +96,10 @@ export class HomeComponent implements OnInit {
         // this.getVideoById(response.video._id);
       }
     });
+
+    this._homeService.selectCategory.subscribe((res:string)=>{
+      this.getAllHomeData(this.userData._id,res);
+    })
   }
   action(index: any, video: any, type: boolean, videoIndex: number) {
     this.crousalItemHover.next({ index, video, type, videoIndex });
@@ -206,13 +210,13 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  getAllHomeData(viewer_id: string) {
-    this._homeService.getAllBannerVideo(viewer_id).subscribe({
+  getAllHomeData(viewer_id: string,type:string) {
+    this._homeService.getAllBannerVideo(viewer_id,type).subscribe({
       next: async (res: HttpResponse) => {
         this.homeBanner = res.body;
       }
     });
-    this._homeService.getAllHomeData(viewer_id).subscribe({
+    this._homeService.getAllHomeData(viewer_id, type).subscribe({
       next: async (res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           this.homeData = res.body;

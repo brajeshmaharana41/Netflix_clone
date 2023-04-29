@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API } from '../shared/constants/api';
 import { Constants } from '../shared/constants/constant';
@@ -13,15 +13,18 @@ export class HomeService {
   userData: CustomerData = JSON.parse(localStorage.getItem(Constants.USER));
   videoLink: string;
   viewer_id: any;
+  selectCategory = new EventEmitter<string>();
+
   constructor(private _http: HttpHandlerService) {
     this.viewer_id = JSON.parse(localStorage.getItem('viewer'));
   }
 
-  getAllHomeData(viewer_id: string): Observable<AllHomeDataResponse> {
+  getAllHomeData(viewer_id: string, type: string): Observable<AllHomeDataResponse> {
     return this._http.post(
       API.User_Video.getAllHomeData,
       {
         viewer_id: this.viewer_id?.id,
+        type 
       },
       {
         Authorization:
@@ -35,12 +38,12 @@ export class HomeService {
     );
   }
 
-  getAllBannerVideo(viewer_id: string): Observable<AllHomeDataResponse> {
+  getAllBannerVideo(viewer_id: string,type:string): Observable<AllHomeDataResponse> {
     return this._http.post(
       API.User_Video.getAllBannerVideo,
       {
         viewer_id: this.viewer_id?.id,
-        "type": "movies"
+        type
       },
       {
         Authorization:

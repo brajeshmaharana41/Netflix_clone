@@ -9,9 +9,9 @@ import { HomeService } from 'src/app/home/home.service';
   styleUrls: ['./home-header.component.scss'],
 })
 export class HomeHeaderComponent implements OnInit {
-  @Output() selectCategory = new EventEmitter<string>();
   constructor(private router: Router, private _homeService: HomeService) {}
   menus;
+  selectedCategoryString='home';
   ngOnInit(): void {
     this.getMenus()
   }
@@ -35,7 +35,8 @@ export class HomeHeaderComponent implements OnInit {
   }
 
   selectedCategory(category: string) {
-    this.selectCategory.emit(category);
+   this.selectedCategoryString=category;
+    this._homeService.selectCategory.emit(category);
   }
 
   goToManageProfile() {
