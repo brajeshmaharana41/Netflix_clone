@@ -14,6 +14,8 @@ import { HttpResponse } from '../type/in-type';
 })
 export class ModalDetailsComponent implements OnInit {
   similarVideoList = [];
+  seasons;
+  selectedSeason = 1;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _sharedService: SharedService,
@@ -25,7 +27,10 @@ export class ModalDetailsComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem(Constants.USER));
     console.log(this.data);
     this._commonService.playedVideo.next(this.data);
-    this.getSimilarVideos(this.userData._id, this.data.category, this.data._id);
+    this.getSimilarVideos(this.userData._id, this.data.category, this.data.id);
+    if (this.data?.video_type == "webseries") {
+      this.getSeasons(this.userData._id, this.data.id, this.data?.video[0]?.id);
+    }
   }
 
   getSimilarVideos(viewer_id: string, category_id: string, video_id: string) {
@@ -43,6 +48,22 @@ export class ModalDetailsComponent implements OnInit {
       });
   }
 
+  getSeasons(viewer_id: string, video_id: string, sub_video_id: string) {
+    this._sharedService
+      .getSeasons(viewer_id, video_id, sub_video_id)
+      .subscribe({
+        next: (res: HttpResponse) => {
+          if (res.status === Constants.SUCCESSSTATUSCODE) {
+            this.seasons = res.body;
+            console.log("seasons", this.seasons)
+          }
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err.error);
+        },
+      });
+  }
+
   addToMyList(video: any) {
     this._homeService.addToWishList(video.id, video.video[0].id).subscribe({
       next: (res) => {
@@ -52,5 +73,10 @@ export class ModalDetailsComponent implements OnInit {
         }
       },
     });
+  }
+
+  seasonChanged(event) {
+    this.selectedSeason = event.target.value;
+    console.log(event.target.value);
   }
 }
