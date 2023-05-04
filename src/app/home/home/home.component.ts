@@ -139,9 +139,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getVideoById(id: string, sub_video_id: string) {
+  getVideoById(video_id: string, sub_video_id: string) {
     this._homeService
-      .getVideoById(id, sub_video_id)
+      .getVideoById(video_id, sub_video_id)
       .subscribe((res: HttpResponse) => {
         if (res.status === Constants.SUCCESSSTATUSCODE) {
           this.videoDetail = res.body;
@@ -199,6 +199,7 @@ export class HomeComponent implements OnInit {
   }
 
   vidPlay(i) {
+    return false;
     if(this.currentSlide == i) {
       console.log("play", i);
       let currentVideo:any =  document.getElementById(`video-${i}`);
@@ -269,7 +270,9 @@ export class HomeComponent implements OnInit {
   }
 
   goToVideoPlayer(video) {
-    this._homeService.videoLink = video.video[0].video_name;
+    this._homeService.videoDetails = video;
+    sessionStorage.setItem('currentVideo', JSON.stringify(video));
+    this.dialog.closeAll();
     this._router.navigate([`home/video-player`]);
   }
 

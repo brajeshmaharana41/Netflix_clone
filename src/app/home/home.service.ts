@@ -11,12 +11,14 @@ import { CustomerData } from '../shared/type/signup.type';
 })
 export class HomeService {
   userData: CustomerData = JSON.parse(localStorage.getItem(Constants.USER));
-  videoLink: string;
+  videoDetails;
   viewer_id: any;
+  token;
   selectCategory = new EventEmitter<string>();
 
   constructor(private _http: HttpHandlerService) {
     this.viewer_id = JSON.parse(localStorage.getItem('viewer'));
+    this.token = localStorage.getItem(Constants.SESSIONTOKENSTRING)
   }
 
   getAllHomeData(viewer_id: string, type: string): Observable<AllHomeDataResponse> {
@@ -24,7 +26,7 @@ export class HomeService {
       API.User_Video.getAllHomeData,
       {
         viewer_id: this.viewer_id?.id,
-        type 
+        type
       },
       {
         Authorization:
@@ -94,10 +96,13 @@ export class HomeService {
   getVideoById(video_id: string, sub_video_id: string) {
     return this._http.post(
       `${API.User_Video.getVideoById}`,
-      { video_id, sub_video_id },
+      {
+        video_id: video_id,
+        sub_video_id: sub_video_id,
+        viewer_id: this.viewer_id?.id },
       {
         Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWI1NzI3OWRmNjJlMDg5NmNjOGE5OSIsInVzZXJfcm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNjc4OTE0MjMzLCJleHAiOjE2ODE1MDYyMzN9.z3agBHowtdyWgp-nEkXLdMheJ80iqgNOEn-Dude48dc',
+        `Bearer ${this.token}`,
       }
     );
   }
