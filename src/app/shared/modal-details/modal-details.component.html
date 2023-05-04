@@ -102,14 +102,14 @@
         </div>
       </div>
     </div>
-    <div *ngIf="data?.video_type == 'webseries' && seasons">
+    <div *ngIf="data?.video_type != 'movies' && seasons">
       <div fxLayout="row" fxLayoutAlign="space-between center">
         <div class="pt-5 pb-1">
           <span class="season-header">Episodes</span>
         </div>
         <div class="pt-5 pb-1">
           <!-- <mat-form-field appearance="outline" class="select_feled"> -->
-          <select value="volvo" class="season-drop" (click)="seasonChanged($event)">
+          <select value="volvo" class="season-drop" (change)="seasonChanged($event)">
             <option class="season-drops" value="{{season?.id}}" *ngFor="let season of seasons?.season">{{season?.title}}</option>
           </select>
           <!-- </mat-form-field> -->

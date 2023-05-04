@@ -28,7 +28,7 @@ export class ModalDetailsComponent implements OnInit {
     console.log(this.data);
     this._commonService.playedVideo.next(this.data);
     this.getSimilarVideos(this.userData._id, this.data.category, this.data.id);
-    if (this.data?.video_type == "webseries") {
+    if (this.data?.video_type != "movies") {
       this.getSeasons(this.userData._id, this.data.id, this.data?.video[0]?.id);
     }
   }
