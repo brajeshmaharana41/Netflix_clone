@@ -4,6 +4,7 @@ import { HomeService } from '../home.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { HttpResponse } from 'src/app/shared/type/in-type';
 import { Constants } from 'src/app/shared/constants/constant';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-video-player',
@@ -15,6 +16,7 @@ export class VideoPlayerComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public _homeService: HomeService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -32,7 +34,8 @@ export class VideoPlayerComponent implements OnInit {
         next: (res: HttpResponse) => {
           if (res.status === Constants.SUCCESSSTATUSCODE) {
             this.video = res.body;
-            console.log("seasons", this.video)
+            console.log("seasons", this.video);
+            this.dialog.closeAll();
           }
         },
         error: (err: HttpErrorResponse) => {

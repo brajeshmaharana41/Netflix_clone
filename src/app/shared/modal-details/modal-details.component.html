@@ -116,7 +116,7 @@
         </div>
       </div>
 
-      <div *ngFor="let season of seasons?.season[selectedSeason - 1]?.video" fxLayout="row wrap" fxLayoutAlign="start center" class="season_episode p-3">
+      <div (click)="goToVideoPlayer(season)" *ngFor="let season of seasons?.season[selectedSeason - 1]?.video" fxLayout="row wrap" fxLayoutAlign="start center" class="season_episode p-3 pointer">
         <div fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="10" fxFlex.lg="5" fxFlex.xl="5">
             <div>
                 <span class="section_ser">{{season?.episode}}</span>

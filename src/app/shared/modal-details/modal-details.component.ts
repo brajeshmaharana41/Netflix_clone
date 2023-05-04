@@ -6,6 +6,7 @@ import { Constants } from '../constants/constant';
 import { CommonService } from '../service/common.service';
 import { SharedService } from '../service/shared.service';
 import { HttpResponse } from '../type/in-type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-details',
@@ -20,7 +21,8 @@ export class ModalDetailsComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _sharedService: SharedService,
     private _commonService: CommonService,
-    private _homeService: HomeService
+    private _homeService: HomeService,
+    private _router: Router
   ) {}
   userData: any;
   ngOnInit(): void {
@@ -78,5 +80,16 @@ export class ModalDetailsComponent implements OnInit {
   seasonChanged(event) {
     this.selectedSeason = event.target.value;
     console.log(event.target.value);
+  }
+
+  goToVideoPlayer(video) {
+    video.id = video?._id;
+    let details = {
+      id: this.seasons.id,
+      video: [video]
+    }
+    this._homeService.videoDetails = details;
+    sessionStorage.setItem('currentVideo', JSON.stringify(video));
+    this._router.navigate([`home/video-player`]);
   }
 }
