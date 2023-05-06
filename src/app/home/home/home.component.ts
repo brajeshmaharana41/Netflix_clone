@@ -199,7 +199,6 @@ export class HomeComponent implements OnInit {
   }
 
   vidPlay(i) {
-    return false;
     if(this.currentSlide == i) {
       console.log("play", i);
       let currentVideo:any =  document.getElementById(`video-${i}`);
