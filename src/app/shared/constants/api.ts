@@ -8,6 +8,7 @@ export class API {
     signup: `${baseURL}customer/signup`,
     customerDetailsUpdate: `${baseURL}customer/customerDetailsUpdate`,
     signin: `${baseURL}customer/signin`,
+    updateWatchProfile: `${baseURL}customer/updateWatchProfile`,
     allLanguage: `${baseURL}customer/getAllLanguage`,
     allDevice: `${baseURL}customer/getAllDevice`,
     fetchProfileDetails: `${baseURL}customer/fetchProfileDetails`,

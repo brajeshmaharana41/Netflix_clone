@@ -30,6 +30,10 @@ export class InService {
     return this._http.post(API.Customer.customerDetailsUpdate, customerDetails);
   }
 
+  updateWatchProfile(viewer_id) {
+    return this._http.get(`${API.Customer.updateWatchProfile}?profile_id=${viewer_id}`);
+  }
+
   signin(user_name: string, password: string): Observable<SigninResponse> {
     return this._http.post(API.Customer.signin, {
       user_name,
