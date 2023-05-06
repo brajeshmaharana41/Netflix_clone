@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   interval: Number = 2000;
   currentSlide = 0;
   userData = JSON.parse(localStorage.getItem(Constants.USER));
+  currentVideo;
 
   private crousalItemHover = new Subject<any>();
   // @ViewChild('video') video: ElementRef;
@@ -110,6 +111,11 @@ export class HomeComponent implements OnInit {
     //     show: false,
     //   };
     // });
+    if(type) {
+      this.currentVideo.pause();
+    } else {
+      this.currentVideo.play();
+    }
     video.show = type;
     // // this.homeData.home_video[index] = {
     // //   ...this.homeData?.home_video[index],
@@ -201,11 +207,11 @@ export class HomeComponent implements OnInit {
   vidPlay(i) {
     if(this.currentSlide == i) {
       console.log("play", i);
-      let currentVideo:any =  document.getElementById(`video-${i}`);
+      this.currentVideo =  document.getElementById(`video-${i}`);
       this.currentSlide = i;
       setTimeout(() => {
-        currentVideo.style.display = 'block';
-        currentVideo.play();
+        this.currentVideo.style.display = 'block';
+        this.currentVideo.play();
       }, 1500);
     }
   }
@@ -276,12 +282,17 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog(trending: any) {
-    this.dialog.open(ModalDetailsComponent, {
+    setTimeout(()=>{
+      this.currentVideo.pause();
+    }, 0);
+    const dialogRef = this.dialog.open(ModalDetailsComponent, {
       data: { ...trending },
       width: '850px',
       height: '700px',
       panelClass: 'custom-dialog-container',
     });
+
+    dialogRef.afterClosed().subscribe(() => this.currentVideo.play());
   }
 
 }
