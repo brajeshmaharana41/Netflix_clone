@@ -237,16 +237,21 @@
         </ng-container>
       </div>
     </div>
-    <div class="popover" [ngStyle]="popoverStyles"  (mouseleave)="mouseOut()">
+    <div class="popover" [ngClass]="VisibleBelowDetails ? 'hover-animate' : ''" [ngStyle]="popoverStyles" (mouseover)="hoverOverPopover()" (mouseleave)="mouseOut()">
       <!-- This is a popover; {{popoverStyles.left}} {{popoverStyles.top}} -->
       <div class="focas_data" *ngIf="currentActiveHoverVideo">
         <div (click)="goToVideoPlayer(currentActiveHoverVideo)" class="video_height">
           <!-- <app-jwplayer></app-currentActiveHoverVideo> -->
-          <video class="video_player" autoplay>
-            <source [src]="currentActiveHoverVideo?.teaser[0]" type="video/mp4" />
+            <img [ngClass]="showVideoAfterXSeconds ? 'none' : 'block'"  [src]="
+            currentActiveHoverVideo?.thumbnail_image.length > 0
+                    ? currentActiveHoverVideo?.thumbnail_image[0]
+                    : 'assets/5.jpg'
+                " class="list_movie" />
+          <video class="video_player" autoplay id="popoverVideoPlayer"  [ngClass]="showVideoAfterXSeconds ? 'block' : 'none'">
+            <source [src]="currentActiveHoverVideo?.trailer[0]" type="video/mp4" />
           </video>
         </div>
-        <div class="focas_bg">
+        <div class="focas_bg" *ngIf="VisibleBelowDetails">
           <div fxLayout="row" fxLayoutAlign="space-between center">
             <div fxLayout="row" class="pt-3 pb-1">
               <div class="p-2">

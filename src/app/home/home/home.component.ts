@@ -44,6 +44,8 @@ export class HomeComponent implements OnInit {
     "top": "-50%"
   }
   currentActiveHoverVideo;
+  VisibleBelowDetails = false;
+  showVideoAfterXSeconds = false;
 
   private crousalItemHover = new Subject<any>();
   // @ViewChild('video') video: ElementRef;
@@ -137,12 +139,10 @@ export class HomeComponent implements OnInit {
     if(type) {
       this.currentActiveHoverVideo = video;
       this.currentVideo.pause();
-      this.poppoverTimer = setTimeout(() => {
-        this.popoverStyles = {
-          left: `${event.srcElement.x}px`,
-          top: `${event.srcElement.y}px`
-        }
-      }, 1000);
+      this.popoverStyles = {
+        left: `${event.srcElement.x + 24}px`,
+        top: `${event.srcElement.y}px`
+      }
       console.log("hover");
     } else {
       console.log("out");
@@ -155,6 +155,16 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  hoverOverPopover() {
+    this.showVideoAfterXSeconds = false;
+    let popoverVideo:any = document.getElementById("popoverVideoPlayer");
+    setTimeout(() => {
+      this.showVideoAfterXSeconds = true;
+      this.VisibleBelowDetails = true;
+      popoverVideo.play();
+    }, 1000);
+  }
+
   mouseOut() {
     console.log("mouseOut function");
     clearTimeout(this.poppoverTimer);
@@ -163,6 +173,8 @@ export class HomeComponent implements OnInit {
         left: "-50%",
         top: "-50%"
       }
+    this.VisibleBelowDetails = false;
+    this.showVideoAfterXSeconds = false;
   }
 
   onContentMouseLeave() {

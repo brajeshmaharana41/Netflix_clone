@@ -99,7 +99,8 @@
     color: #fff;
 }
 .list_movie{
-    width: 220px;
+    width: 320px;
+    height: 165px;
     // height: 150px;
 }
 .focas_data{
@@ -282,8 +283,22 @@
 }
 .video-player {
   display: none;
+  object-fit: fill;
+  height: 100vh;
+  width: 100vw;
 }
 
 .popover {
   position:fixed;
+  background-color: #000;
+}
+.hover-animate {
+  transform: scale(1.2);
+  transition: all .2s ease-in-out;
+}
+.none {
+  display: none;
+}
+.block {
+  display: block;
 }
