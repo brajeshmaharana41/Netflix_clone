@@ -35,6 +35,15 @@ export class HomeComponent implements OnInit {
   currentSlide = 0;
   userData = JSON.parse(localStorage.getItem(Constants.USER));
   currentVideo;
+  popoverX = 0;
+  popoverY = 0;
+  showPopover = false;
+  poppoverTimer;
+  popoverStyles = {
+    "left": "-50%",
+    "top": "-50%"
+  }
+  currentActiveHoverVideo;
 
   private crousalItemHover = new Subject<any>();
   // @ViewChild('video') video: ElementRef;
@@ -102,8 +111,8 @@ export class HomeComponent implements OnInit {
       this.getAllHomeData(this.userData._id,res);
     })
   }
-  action(index: any, video: any, type: boolean, videoIndex: number) {
-    this.crousalItemHover.next({ index, video, type, videoIndex });
+  action(index: any, video: any, type: boolean, videoIndex: number, event: any) {
+    // this.crousalItemHover.next({ index, video, type, videoIndex });
     // videoObj.show = type;
     // this.homeData.home_video = this.homeData.home_video.map((res) => {
     //   return {
@@ -111,12 +120,13 @@ export class HomeComponent implements OnInit {
     //     show: false,
     //   };
     // });
+    /*
     if(type) {
       this.currentVideo.pause();
     } else {
       this.currentVideo.play();
-    }
-    video.show = type;
+    }*/
+    // video.show = type;
     // // this.homeData.home_video[index] = {
     // //   ...this.homeData?.home_video[index],
     // //   show: type,
@@ -124,6 +134,35 @@ export class HomeComponent implements OnInit {
     if (type) {
       // this.getVideoById(video._id, video.video[0]._id);
     }
+    if(type) {
+      this.currentActiveHoverVideo = video;
+      this.currentVideo.pause();
+      this.poppoverTimer = setTimeout(() => {
+        this.popoverStyles = {
+          left: `${event.srcElement.x}px`,
+          top: `${event.srcElement.y}px`
+        }
+      }, 1000);
+      console.log("hover");
+    } else {
+      console.log("out");
+      clearTimeout(this.poppoverTimer);
+      this.currentVideo.play();
+      this.popoverStyles = {
+        left: "-50%",
+        top: "-50%"
+      }
+    }
+  }
+
+  mouseOut() {
+    console.log("mouseOut function");
+    clearTimeout(this.poppoverTimer);
+      this.currentVideo.play();
+      this.popoverStyles = {
+        left: "-50%",
+        top: "-50%"
+      }
   }
 
   onContentMouseLeave() {
@@ -282,6 +321,7 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog(trending: any) {
+    this.mouseOut();
     setTimeout(()=>{
       this.currentVideo.pause();
     }, 0);

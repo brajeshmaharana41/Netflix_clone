@@ -220,85 +220,11 @@
             <div #widgetsContent class="custom-slider-main">
               <div *ngFor="let video of homeVideo.videos; let j = index" class="pr">
                 <div class="info-boxs">
-                  <img (mouseenter)="action(i, video, true, j)" [src]="
+                  <img (mouseover)="action(i, video, true, j, $event)" [src]="
                   video?.thumbnail_image.length > 0
                     ? video?.thumbnail_image[0]
                     : 'assets/5.jpg'
                 " class="list_movie" />
-                </div>
-                <div (mouseleave)="action(i, video, false, j)" *ngIf="video?.show" class="focas_data"
-                  style="position: absolute">
-                  <div (click)="goToVideoPlayer(video)" class="video_height">
-                    <!-- <app-jwplayer></app-jwplayer> -->
-                    <video autoplay class="video_player">
-                      <source [src]="video?.teaser[0]" type="video/mp4" />
-                    </video>
-                  </div>
-                  <div class="focas_bg">
-                    <div fxLayout="row" fxLayoutAlign="space-between center">
-                      <div fxLayout="row" class="pt-3 pb-1">
-                        <div class="p-2">
-                          <button (click)="goToVideoPlayer(video)" mat-mini-fab class="mini_btn">
-                            <mat-icon>play_arrow</mat-icon>
-                          </button>
-                        </div>
-                        <div class="p-2">
-                          <button mat-mini-fab class="mini_btn">
-                            <mat-icon *ngIf="!videoDetail?.is_wishlist"
-                              (click)="addToMyList(videoDetail)">add</mat-icon>
-                            <mat-icon *ngIf="videoDetail?.is_wishlist"
-                              (click)="removeFromWishlist(videoDetail)">check</mat-icon>
-                          </button>
-                        </div>
-                        <div class="p-2">
-                          <button mat-mini-fab class="mini_btn">
-                            <mat-icon *ngIf="!videoDetail?.like"
-                              (click)="likeOrUnlike(videoDetail, 'like')">thumb_up_alt</mat-icon>
-                            <mat-icon *ngIf="videoDetail?.like"
-                              (click)="likeOrUnlike(videoDetail, 'unlike')">thumb_down</mat-icon>
-                          </button>
-                        </div>
-                      </div>
-                      <div class="pt-3 pb-1">
-                        <div class="p-2">
-                          <button mat-mini-fab class="mini_btn" (click)="openDialog(video)">
-                            <mat-icon>expand_more</mat-icon>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div fxLayout="row" fxLayoutAlign="start center">
-                      <div class="p-2">
-                        <span class="focas_title">98% Match</span>
-                      </div>
-                      <div class="focas_bord p-2">
-                        <span class="focas_subtitle">U/A {{ video.maturity_rating }}</span>
-                      </div>
-                      <div class="p-2">
-                        <span class="focas_titles">7 Episodes</span>
-                      </div>
-                      <div class="focas_bords p-2">
-                        <span class="focas_subtitles">HD</span>
-                      </div>
-                    </div>
-                    <div fxLayout="row" fxLayoutAlign="start center" class="pb-2">
-                      <div class="p-2">
-                        <span class="focas_titles">Gritty</span>
-                      </div>
-                      <div class="pb-3">
-                        <span class="dot">.</span>
-                      </div>
-                      <div class="p-2">
-                        <span class="focas_titles">True Crime</span>
-                      </div>
-                      <div class="pb-3">
-                        <span class="dot">.</span>
-                      </div>
-                      <div class="p-2">
-                        <span class="focas_titles">Corruption</span>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -309,6 +235,82 @@
             </div>
           </div>
         </ng-container>
+      </div>
+    </div>
+    <div class="popover" [ngStyle]="popoverStyles"  (mouseleave)="mouseOut()">
+      <!-- This is a popover; {{popoverStyles.left}} {{popoverStyles.top}} -->
+      <div class="focas_data" *ngIf="currentActiveHoverVideo">
+        <div (click)="goToVideoPlayer(currentActiveHoverVideo)" class="video_height">
+          <!-- <app-jwplayer></app-currentActiveHoverVideo> -->
+          <video class="video_player" autoplay>
+            <source [src]="currentActiveHoverVideo?.teaser[0]" type="video/mp4" />
+          </video>
+        </div>
+        <div class="focas_bg">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" class="pt-3 pb-1">
+              <div class="p-2">
+                <button (click)="goToVideoPlayer(currentActiveHoverVideo)" mat-mini-fab class="mini_btn">
+                  <mat-icon>play_arrow</mat-icon>
+                </button>
+              </div>
+              <div class="p-2">
+                <button mat-mini-fab class="mini_btn">
+                  <mat-icon *ngIf="!videoDetail?.is_wishlist"
+                    (click)="addToMyList(videoDetail)">add</mat-icon>
+                  <mat-icon *ngIf="videoDetail?.is_wishlist"
+                    (click)="removeFromWishlist(videoDetail)">check</mat-icon>
+                </button>
+              </div>
+              <div class="p-2">
+                <button mat-mini-fab class="mini_btn">
+                  <mat-icon *ngIf="!videoDetail?.like"
+                    (click)="likeOrUnlike(videoDetail, 'like')">thumb_up_alt</mat-icon>
+                  <mat-icon *ngIf="videoDetail?.like"
+                    (click)="likeOrUnlike(videoDetail, 'unlike')">thumb_down</mat-icon>
+                </button>
+              </div>
+            </div>
+            <div class="pt-3 pb-1">
+              <div class="p-2">
+                <button mat-mini-fab class="mini_btn" (click)="openDialog(currentActiveHoverVideo)">
+                  <mat-icon>expand_more</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <div class="p-2">
+              <span class="focas_title">98% Match</span>
+            </div>
+            <div class="focas_bord p-2">
+              <span class="focas_subtitle">U/A {{ currentActiveHoverVideo.maturity_rating }}</span>
+            </div>
+            <div class="p-2">
+              <span class="focas_titles">7 Episodes</span>
+            </div>
+            <div class="focas_bords p-2">
+              <span class="focas_subtitles">HD</span>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start center" class="pb-2">
+            <div class="p-2">
+              <span class="focas_titles">Gritty</span>
+            </div>
+            <div class="pb-3">
+              <span class="dot">.</span>
+            </div>
+            <div class="p-2">
+              <span class="focas_titles">True Crime</span>
+            </div>
+            <div class="pb-3">
+              <span class="dot">.</span>
+            </div>
+            <div class="p-2">
+              <span class="focas_titles">Corruption</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <app-home-footer></app-home-footer>
