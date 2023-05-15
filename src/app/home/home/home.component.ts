@@ -112,6 +112,7 @@ export class HomeComponent implements OnInit {
     this._homeService.selectCategory.subscribe((res:string)=>{
       this.getAllHomeData(this.userData._id,res);
     })
+    window.addEventListener('scroll', this.scroll, true); //third parameter
   }
   action(index: any, video: any, type: boolean, videoIndex: number, event: any) {
     // this.crousalItemHover.next({ index, video, type, videoIndex });
@@ -162,7 +163,7 @@ export class HomeComponent implements OnInit {
       this.showVideoAfterXSeconds = true;
       this.VisibleBelowDetails = true;
       popoverVideo.play();
-    }, 1000);
+    }, 0);
   }
 
   mouseOut() {
@@ -181,19 +182,21 @@ export class HomeComponent implements OnInit {
     this.contentData = null;
   }
   scrollLeft(index: number) {
-    this.widgetsContent.forEach((ele, i) => {
-      if (i === index) {
-        ele.nativeElement.scrollLeft -= 500;
-      }
-    });
+    // this.widgetsContent.forEach((ele, i) => {
+    //   if (i === index) {
+    //     ele.nativeElement.scrollLeft -= 500;
+    //   }
+    // });
+    document.getElementById(`widgetsContent${index}`).scrollLeft -= 500;
   }
 
   scrollRight(index: number) {
-    this.widgetsContent.forEach((ele, i) => {
-      if (i === index) {
-        ele.nativeElement.scrollLeft += 500;
-      }
-    });
+    // this.widgetsContent.forEach((ele, i) => {
+    //   if (i === index) {
+    //     ele.nativeElement.scrollLeft += "100";
+    //   }
+    // });
+    document.getElementById(`widgetsContent${index}`).scrollLeft += 500;
   }
 
   getVideoById(video_id: string, sub_video_id: string) {
@@ -346,5 +349,14 @@ export class HomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(() => this.currentVideo.play());
   }
+
+  scroll = (event): void => {
+    this.popoverStyles = {
+      left: "-50%",
+      top: "-50%"
+    }
+    this.VisibleBelowDetails = false;
+    this.showVideoAfterXSeconds = false;
+  };
 
 }

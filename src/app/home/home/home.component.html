@@ -217,7 +217,7 @@
                 <mat-icon>keyboard_arrow_left</mat-icon>
               </button>
             </div>
-            <div #widgetsContent class="custom-slider-main">
+            <div id="widgetsContent{{i}}" class="custom-slider-main">
               <div *ngFor="let video of homeVideo.videos; let j = index" class="pr">
                 <div class="info-boxs">
                   <img (mouseover)="action(i, video, true, j, $event)" [src]="
