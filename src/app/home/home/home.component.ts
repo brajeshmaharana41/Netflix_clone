@@ -140,11 +140,15 @@ export class HomeComponent implements OnInit {
     if(type) {
       this.currentActiveHoverVideo = video;
       this.currentVideo.pause();
+      let x = event.srcElement.getBoundingClientRect();
+      // this.popoverStyles = {
+      //   left: `${event.srcElement.x}px`,
+      //   top: `${event.srcElement.y}px`
+      // }
       this.popoverStyles = {
-        left: `${event.srcElement.x + 24}px`,
-        top: `${event.srcElement.y}px`
+        left: `${x.left}px`,
+        top: `${x.top}px`
       }
-      console.log("hover");
     } else {
       console.log("out");
       clearTimeout(this.poppoverTimer);

@@ -242,12 +242,12 @@
       <div class="focas_data" *ngIf="currentActiveHoverVideo">
         <div (click)="goToVideoPlayer(currentActiveHoverVideo)" class="video_height">
           <!-- <app-jwplayer></app-currentActiveHoverVideo> -->
-            <img [ngClass]="showVideoAfterXSeconds ? 'none' : 'block'"  [src]="
+            <!-- <img [ngClass]="showVideoAfterXSeconds ? 'none' : 'block'"  [src]="
             currentActiveHoverVideo?.thumbnail_image.length > 0
                     ? currentActiveHoverVideo?.thumbnail_image[0]
                     : 'assets/5.jpg'
-                " class="Popup_list_movie" />
-          <video class="video_player" autoplay id="popoverVideoPlayer"  [ngClass]="showVideoAfterXSeconds ? 'block' : 'none'">
+                " class="Popup_list_movie" /> -->
+          <video class="video_player" autoplay id="popoverVideoPlayer">
             <source [src]="currentActiveHoverVideo?.trailer[0]" type="video/mp4" />
           </video>
         </div>
