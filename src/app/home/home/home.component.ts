@@ -9,7 +9,7 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, Subject } from 'rxjs';
 import { Constants } from 'src/app/shared/constants/constant';
 import { ModalDetailsComponent } from 'src/app/shared/modal-details/modal-details.component';
@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
   currentActiveHoverVideo;
   VisibleBelowDetails = false;
   showVideoAfterXSeconds = false;
+  routeCategory;
 
   private crousalItemHover = new Subject<any>();
   // @ViewChild('video') video: ElementRef;
@@ -58,8 +59,9 @@ export class HomeComponent implements OnInit {
     public _commonService: CommonService,
     private _homeService: HomeService,
     public dialog: MatDialog,
-    private _changeDetection: ChangeDetectorRef
-  ) { }
+    private _changeDetection: ChangeDetectorRef,
+    private route: ActivatedRoute
+  ) {}
   // MoveData: MovieImage[] = [
   //   { img: 'assets/1.jpg', show: false },
   //   { img: 'assets/5.jpg', show: false },
@@ -78,6 +80,13 @@ export class HomeComponent implements OnInit {
     // this.imagesDatas = this.MoveData;
     // this.getAllDeviceData(this.userData._id);
     this.getAllHomeData(this.userData._id,'');
+
+    this._homeService.selectCategory.subscribe((res:string)=>{
+      this.getAllHomeData(this.userData._id,res);
+    })
+
+    this.routeCategory = this.route.snapshot.paramMap.get('id');
+    this._homeService.selectCategory.emit(this.routeCategory);
 
     this.crousalItemHover.pipe(debounceTime(2000)).subscribe((response) => {
       // this.homeData.home_video = this.homeData.home_video.map((res) => {
@@ -109,9 +118,6 @@ export class HomeComponent implements OnInit {
       }
     });
 
-    this._homeService.selectCategory.subscribe((res:string)=>{
-      this.getAllHomeData(this.userData._id,res);
-    })
     window.addEventListener('scroll', this.scroll, true); //third parameter
   }
   action(index: any, video: any, type: boolean, videoIndex: number, event: any) {
