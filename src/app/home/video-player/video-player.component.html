@@ -2,7 +2,7 @@
 <div class="height" *ngIf="video">
   <div class="bg">
     <video controls autoplay muted class="video_player">
-      <source [src]="video?.trailer[0]" type="video/mp4" />
+      <source [src]="video?.video[0]?.video_name" type="video/mp4" />
     </video>
   </div>
 </div>
