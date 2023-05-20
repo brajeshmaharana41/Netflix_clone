@@ -249,13 +249,14 @@ export class HomeComponent implements OnInit {
 
   vidEnded(i) {
     console.log("ended", i);
-    let nextVideo:any
+    let nextVideo:any;
     if(i >= this.homeBanner.length - 1) {
       nextVideo =  document.getElementById(`video-0`);
     } else {
       nextVideo =  document.getElementById(`video-${i + 1}`);
     }
     this.carousel.next();
+    this.currentVideo = nextVideo;
     setTimeout(() => {
       nextVideo.style.display = 'block';
       nextVideo.play();
