@@ -14,6 +14,10 @@ const routes: Routes = [
     component: VideoPlayerComponent,
   },
   {
+    path: ':id',
+    component: HomeComponent,
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',

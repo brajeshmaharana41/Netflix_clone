@@ -39,8 +39,9 @@ export class HomeHeaderComponent implements OnInit {
   }
 
   selectedCategory(category: string) {
-   this.selectedCategoryString=category;
+    this.selectedCategoryString=category;
     this._homeService.selectCategory.emit(category);
+    this.router.navigate([`home/${category}`]);
   }
 
   goToManageProfile() {
