@@ -25,7 +25,7 @@
           </span>
       </div>
       <div class="list_padding">
-        <span [ngClass]="{'list_title':true,'active':selectedCategoryString==='myList'}" 
+        <span [ngClass]="{'list_title':true,'active':selectedCategoryString==='myList'}"
           >My List</span
         >
       </div>
@@ -78,14 +78,16 @@
           <mat-icon>mood</mat-icon>
         </button>
         <mat-menu #menu="matMenu" class="Menu_bg">
-          <div mat-menu-item class="menu_item">
-            <img src="assets/face1.png" alt="" class="menu_profile">
-            <span style="padding-left: 10px;">Sanjay</span>
-          </div>
-          <div mat-menu-item class="menu_item">
-            <img src="assets/child.png" alt="" class="menu_profile">
-            <span style="padding-left: 10px;">Children</span>
-          </div>
+          <ng-container *ngFor="let member of userData?.member">
+            <div mat-menu-item class="menu_item" *ngIf="!member?.kids" (click)="goToHomePage(member)">
+              <img src="assets/face1.png" alt="" class="menu_profile">
+              <span style="padding-left: 10px;">{{member.name}}</span>
+            </div>
+            <div mat-menu-item class="menu_item" *ngIf="!member?.kids" (click)="goToHomePage(member)">
+              <img src="assets/child.png" alt="" class="menu_profile">
+              <span style="padding-left: 10px;">{{member.name}}</span>
+            </div>
+          </ng-container>
           <div mat-menu-item class="menu_item" (click)="goToManageProfile()">
             <mat-icon class="btn_icon" style="font-size: 22px">edit</mat-icon>
             Manage Profile
