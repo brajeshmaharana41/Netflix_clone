@@ -13,11 +13,11 @@
                   fxLayoutAlign="center center" *ngFor="let member of members" class="p-3">
                   <div class="user1">
                     <ng-container *ngIf="!member?.kids">
-                      <img src="../../../assets/face1.png" alt="" class="bgimg">
+                      <img src="assets/face1.png" alt="" class="bgimg">
                       <span class="name">{{member?.name}}</span>
                     </ng-container>
                     <ng-container *ngIf="member?.kids">
-                      <img src="../../../assets/child.png" alt="" class="bgimg">
+                      <img src="assets/child.png" alt="" class="bgimg">
                       <span class="name ">{{member?.name}}</span>
                     </ng-container>
                     <div class="edit" (click)="openModal(member)">
