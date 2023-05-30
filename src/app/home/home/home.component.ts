@@ -365,8 +365,21 @@ export class HomeComponent implements OnInit {
       height: '700px',
       panelClass: 'custom-dialog-container',
     });
-
-    dialogRef.afterClosed().subscribe(() => this.currentVideo.play());
+    this._router.navigate([], {
+      queryParams: {
+        id: trending?.id
+      },
+      queryParamsHandling: 'merge',
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this._router.navigate([], {
+        queryParams: {
+          id: null
+        },
+        queryParamsHandling: 'merge',
+      });
+      this.currentVideo.play()
+    });
   }
 
   scroll = (event): void => {
