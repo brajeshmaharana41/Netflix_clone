@@ -47,6 +47,8 @@ export class HomeComponent implements OnInit {
   VisibleBelowDetails = false;
   showVideoAfterXSeconds = false;
   routeCategory;
+  popoverIsPlaying = false;
+  scrollBelowWindowheight = false;
 
   private crousalItemHover = new Subject<any>();
   // @ViewChild('video') video: ElementRef;
@@ -145,6 +147,7 @@ export class HomeComponent implements OnInit {
     }
     if(type) {
       this.currentActiveHoverVideo = video;
+      this.popoverIsPlaying = true;
       this.currentVideo.pause();
       let x = event.srcElement.getBoundingClientRect();
       // this.popoverStyles = {
@@ -157,8 +160,12 @@ export class HomeComponent implements OnInit {
       }
     } else {
       console.log("out");
+      this.popoverIsPlaying = false;
+      this.currentActiveHoverVideo = false;
       clearTimeout(this.poppoverTimer);
-      this.currentVideo.play();
+      if(!this.scrollBelowWindowheight) {
+        this.currentVideo.play();
+      }
       this.popoverStyles = {
         left: "-50%",
         top: "-50%"
@@ -179,11 +186,12 @@ export class HomeComponent implements OnInit {
   mouseOut() {
     console.log("mouseOut function");
     clearTimeout(this.poppoverTimer);
-      this.currentVideo.play();
-      this.popoverStyles = {
-        left: "-50%",
-        top: "-50%"
-      }
+    this.currentActiveHoverVideo = false;
+    this.currentVideo.play();
+    this.popoverStyles = {
+      left: "-50%",
+      top: "-50%"
+    }
     this.VisibleBelowDetails = false;
     this.showVideoAfterXSeconds = false;
   }
@@ -368,6 +376,18 @@ export class HomeComponent implements OnInit {
     }
     this.VisibleBelowDetails = false;
     this.showVideoAfterXSeconds = false;
+    let wHeight = window.innerHeight
+    let offset = window.pageYOffset
+    if(offset > wHeight) {
+      this.scrollBelowWindowheight = true;
+      this.currentVideo.pause();
+    }
+
+    if(offset < 100) {
+      if(!this.popoverIsPlaying) {
+        this.currentVideo.play();
+      }
+    }
   };
 
 }
