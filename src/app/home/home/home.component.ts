@@ -148,7 +148,7 @@ export class HomeComponent implements OnInit {
     if(type) {
       this.currentActiveHoverVideo = video;
       this.popoverIsPlaying = true;
-      this.currentVideo.pause();
+      this.currentVideo ? this.currentVideo.pause() : '';
       let x = event.srcElement.getBoundingClientRect();
       // this.popoverStyles = {
       //   left: `${event.srcElement.x}px`,
@@ -178,11 +178,9 @@ export class HomeComponent implements OnInit {
   hoverOverPopover() {
     this.showVideoAfterXSeconds = false;
     let popoverVideo:any = document.getElementById("popoverVideoPlayer");
-    setTimeout(() => {
-      this.showVideoAfterXSeconds = true;
-      this.VisibleBelowDetails = true;
-      popoverVideo.play();
-    }, 0);
+    this.showVideoAfterXSeconds = true;
+    this.VisibleBelowDetails = true;
+    popoverVideo? popoverVideo.play() : '';
   }
 
   mouseOut() {
@@ -395,12 +393,12 @@ export class HomeComponent implements OnInit {
     let offset = window.pageYOffset
     if(offset > wHeight) {
       this.scrollBelowWindowheight = true;
-      this.currentVideo.pause();
+      this.currentVideo ? this.currentVideo.pause(): '';
     }
 
     if(offset < 100) {
       if(!this.popoverIsPlaying) {
-        this.currentVideo.play();
+        this.currentVideo ? this.currentVideo.play() : '';
       }
     }
   };

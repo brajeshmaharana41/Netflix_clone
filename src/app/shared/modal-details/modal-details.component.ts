@@ -105,9 +105,11 @@ export class ModalDetailsComponent implements OnInit {
   }
 
   goToVideoPlayer(video) {
-    video.id = video?._id;
+    if(this.seasons) {
+      video.id = video?._id;
+    }
     let details = {
-      id: this.seasons ? this.seasons.id : video?.video[0].id,
+      id: this.seasons ? this.seasons.id : video?.id,
       video: [video]
     }
     this._homeService.videoDetails = details;

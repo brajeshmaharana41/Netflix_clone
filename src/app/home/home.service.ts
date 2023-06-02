@@ -118,6 +118,7 @@ export class HomeService {
         video_id,
         sub_video_id,
         action_type,
+        viewer_id: this.viewer_id?.id
       },
       {
         Authorization:
@@ -143,6 +144,7 @@ export class HomeService {
       {
         video_id,
         sub_video_id,
+        viewer_id: this.viewer_id?.id,
       },
       {
         Authorization:
