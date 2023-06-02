@@ -4,11 +4,28 @@
       <mat-icon>clear</mat-icon>
     </button>
     <!-- <app-jwplayer></app-jwplayer> -->
-    <video controls autoplay id="backgroundVideo">
+    <div class="btns_cont">
+      <button (click)="goToVideoPlayer(data)" mat-button class="btn_play">
+        <mat-icon class="btn_icon">play_arrow</mat-icon> Play
+      </button>
+      <button mat-mini-fab class="mini_btn">
+        <mat-icon *ngIf="!data?.is_wishlist"
+          (click)="addToMyList(data)">add</mat-icon>
+        <mat-icon *ngIf="data?.is_wishlist"
+          (click)="removeFromWishlist(data)">check</mat-icon>
+      </button>
+      <button mat-mini-fab class="mini_btn">
+        <mat-icon *ngIf="!data?.like"
+          (click)="likeOrUnlike(data, 'like')">thumb_up_alt</mat-icon>
+        <mat-icon *ngIf="data?.like"
+          (click)="likeOrUnlike(data, 'unlike')">thumb_down</mat-icon>
+      </button>
+    </div>
+    <video autoplay id="backgroundVideo" class="modal-video">
       <source [src]="data?.trailer[0]" type="video/mp4" />
     </video>
   </div>
-  <div class="p-4">
+  <div class="p-4 video-details">
     <div fxLayout="row wrap" class="pb-2">
       <div
         fxFlex.xs="100"

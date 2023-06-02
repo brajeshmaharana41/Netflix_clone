@@ -82,10 +82,32 @@ export class ModalDetailsComponent implements OnInit {
     console.log(event.target.value);
   }
 
+  removeFromWishlist(video: any) {
+    this._homeService.deleteWishList(video.wishlist_id).subscribe({
+      next: (res) => {
+        if (res.status === Constants.SUCCESSSTATUSCODE) {
+          video.is_wishlist = false;
+        }
+      },
+    });
+  }
+
+  likeOrUnlike(video: any, type: 'like' | 'unlike') {
+    this._homeService
+      .likeUnlikeLove(video.id, video.video[0].id, type)
+      .subscribe({
+        next: (res: HttpResponse) => {
+          if (res.status === Constants.SUCCESSSTATUSCODE) {
+            video.like = res.body.like;
+          }
+        },
+      });
+  }
+
   goToVideoPlayer(video) {
     video.id = video?._id;
     let details = {
-      id: this.seasons.id,
+      id: this.seasons ? this.seasons.id : video?.video[0].id,
       video: [video]
     }
     this._homeService.videoDetails = details;

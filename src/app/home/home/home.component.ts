@@ -158,8 +158,10 @@ export class HomeComponent implements OnInit {
         left: `${x.left}px`,
         top: `${x.top}px`
       }
+      this.hoverOverPopover();
     } else {
       console.log("out");
+      this.mouseOut();
       this.popoverIsPlaying = false;
       this.currentActiveHoverVideo = false;
       clearTimeout(this.poppoverTimer);
