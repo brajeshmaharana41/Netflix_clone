@@ -1,5 +1,5 @@
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { HomeService } from 'src/app/home/home.service';
 import { Constants } from '../../constants/constant';
@@ -15,6 +15,11 @@ export class HomeHeaderComponent implements OnInit {
   menus;
   selectedCategoryString='home';
   userData;
+  isSticky = false;
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    this.isSticky = window.pageYOffset >= 100 ? true : false;
+  }
   ngOnInit(): void {
     this.getMenus();
     this.userData = JSON.parse(localStorage.getItem(Constants.USER));

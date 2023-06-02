@@ -3,7 +3,12 @@
     height: 80px;
     padding-left: 50px;
     z-index: 2;
-    position: relative;
+    position: fixed;
+    transition: background 0.5s;
+    z-index: 99;
+}
+.sticky {
+  background: #000;
 }
 .netflix_logo{
     width: 100px;
