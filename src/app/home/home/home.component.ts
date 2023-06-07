@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     "top": "-50%"
   }
   currentActiveHoverVideo;
-  VisibleBelowDetails = false;
+  VisibleBelowDetails = true;
   showVideoAfterXSeconds = false;
   routeCategory;
   popoverIsPlaying = false;
@@ -147,6 +147,9 @@ export class HomeComponent implements OnInit {
     }
     if(type) {
       this.currentActiveHoverVideo = video;
+      let popoverVideo:any = document.getElementById("popoverVideoPlayer");
+      popoverVideo? popoverVideo.pause() : '';
+      console.log("currentActiveHoverVideo true");
       this.popoverIsPlaying = true;
       this.currentVideo ? this.currentVideo.pause() : '';
       let x = event.srcElement.getBoundingClientRect();
@@ -158,42 +161,40 @@ export class HomeComponent implements OnInit {
         left: `${x.left}px`,
         top: `${x.top}px`
       }
-      this.hoverOverPopover();
+      // this.hoverOverPopover();
     } else {
       console.log("out");
       this.mouseOut();
-      this.popoverIsPlaying = false;
-      this.currentActiveHoverVideo = false;
-      clearTimeout(this.poppoverTimer);
       if(!this.scrollBelowWindowheight) {
         this.currentVideo.play();
-      }
-      this.popoverStyles = {
-        left: "-50%",
-        top: "-50%"
       }
     }
   }
 
   hoverOverPopover() {
+    console.log("hover over popver");
     this.showVideoAfterXSeconds = false;
     let popoverVideo:any = document.getElementById("popoverVideoPlayer");
     this.showVideoAfterXSeconds = true;
-    this.VisibleBelowDetails = true;
+    // this.VisibleBelowDetails = true;
     popoverVideo? popoverVideo.play() : '';
   }
 
   mouseOut() {
     console.log("mouseOut function");
-    clearTimeout(this.poppoverTimer);
     this.currentActiveHoverVideo = false;
-    this.currentVideo.play();
+    console.log("currentActiveHoverVideo false");
+    let popoverVideo:any = document.getElementById("popoverVideoPlayer");
+    popoverVideo? popoverVideo.pause() : '';
+    clearTimeout(this.poppoverTimer);
+    this.popoverIsPlaying = false;
     this.popoverStyles = {
       left: "-50%",
       top: "-50%"
     }
-    this.VisibleBelowDetails = false;
+    // this.VisibleBelowDetails = false;
     this.showVideoAfterXSeconds = false;
+    window.scrollBy(0, 1);
   }
 
   onContentMouseLeave() {
@@ -387,7 +388,7 @@ export class HomeComponent implements OnInit {
       left: "-50%",
       top: "-50%"
     }
-    this.VisibleBelowDetails = false;
+    // this.VisibleBelowDetails = false;
     this.showVideoAfterXSeconds = false;
     let wHeight = window.innerHeight
     let offset = window.pageYOffset

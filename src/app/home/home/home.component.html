@@ -237,7 +237,7 @@
         </ng-container>
       </div>
     </div>
-    <div class="popover" [ngClass]="VisibleBelowDetails ? 'hover-animate' : ''" [ngStyle]="popoverStyles" (mouseleave)="mouseOut()">
+    <div class="popover" [ngClass]="VisibleBelowDetails ? 'hover-animate' : ''" [ngStyle]="popoverStyles" (mouseover)="hoverOverPopover()" (mouseleave)="mouseOut()">
       <!-- This is a popover; {{popoverStyles.left}} {{popoverStyles.top}} -->
       <div class="focas_data" *ngIf="currentActiveHoverVideo">
         <div (click)="goToVideoPlayer(currentActiveHoverVideo)" class="video_height">
