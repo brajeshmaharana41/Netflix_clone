@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
   routeCategory;
   popoverIsPlaying = false;
   scrollBelowWindowheight = false;
+  openGenre = false;
 
   private crousalItemHover = new Subject<any>();
   // @ViewChild('video') video: ElementRef;

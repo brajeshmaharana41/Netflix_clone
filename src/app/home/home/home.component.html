@@ -44,6 +44,31 @@
                   </video>
                   <!-- <img [src]="banner?.thumbnail_image[0]" class="hero-banner" alt="Random first slide" /> -->
                   <!-- <img src="assets/background_img.jpg" class="hero-banner" alt="Random first slide" /> -->
+                  <div class="genre-details">
+                    <span class="genreTitle">TV Shows</span>
+                    <div class="genre-dropdown">
+                      <div class="genre" (click)="openGenre = true;">
+                        Genres <mat-icon style="vertical-align: middle;margin-left: 10px;">expand_more</mat-icon>
+                      </div>
+                      <div class="genre-options" *ngIf="openGenre">
+                        <ul>
+                          <li>Unite States of America</li>
+                          <li>America unites</li>
+                          <li>Unite asd asda</li>
+                          <li>Unite dsf asda</li>
+                          <li>Unite asda</li>
+                        </ul>
+                        <ul>
+                          <li>Unite States of America</li>
+                          <li>America unites</li>
+                          <li>Unite asd asda</li>
+                          <li>Unite dsf asda</li>
+                          <li>Unite asda</li>
+                        </ul>
+                      </div>
+                      <div class="backdrop"  *ngIf="openGenre" (click)="openGenre = false;"></div>
+                    </div>
+                  </div>
                   <div class="hero-desc">
                     <div class="pt-2 pb-3">
                       <div class="dec_mov">{{banner?.title }}</div>
