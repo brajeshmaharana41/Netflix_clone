@@ -112,7 +112,7 @@ export class ModalDetailsComponent implements OnInit {
       id: this.seasons ? this.seasons.id : video?.id,
       video: [video]
     }
-    this._homeService.videoDetails = details;
+    this._homeService.videoDetails = video;
     sessionStorage.setItem('currentVideo', JSON.stringify(video));
     this._router.navigate([`home/video-player`]);
   }

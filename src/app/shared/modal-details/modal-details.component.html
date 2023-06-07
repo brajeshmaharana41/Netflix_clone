@@ -21,7 +21,7 @@
           (click)="likeOrUnlike(data, 'unlike')">thumb_down</mat-icon>
       </button>
     </div>
-    <video autoplay id="backgroundVideo" class="modal-video">
+    <video autoplay id="backgroundVideo" class="modal-video" (dblclick)="goToVideoPlayer(data)">
       <source [src]="data?.trailer[0]" type="video/mp4" />
     </video>
   </div>
