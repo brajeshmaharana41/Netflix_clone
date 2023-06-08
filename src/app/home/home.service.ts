@@ -127,8 +127,8 @@ export class HomeService {
     );
   }
 
-  getAllVideoGenres() {
-    return this._http.get(API.User_Video.getAllVideoGenres);
+  getAllVideoGenres(type) {
+    return this._http.get(`${API.User_Video.getAllVideoGenres}?type=${type}`);
   }
 
   getSimilarVideo(viewer_id: string, category_id: string) {

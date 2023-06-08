@@ -3,13 +3,14 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  HostListener,
   OnInit,
   QueryList,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { debounceTime, Subject } from 'rxjs';
 import { Constants } from 'src/app/shared/constants/constant';
 import { ModalDetailsComponent } from 'src/app/shared/modal-details/modal-details.component';
@@ -50,7 +51,13 @@ export class HomeComponent implements OnInit {
   popoverIsPlaying = false;
   scrollBelowWindowheight = false;
   openGenre = false;
+  genres;
+  isSticky = false;
 
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    this.isSticky = window.pageYOffset >= 100 ? true : false;
+  }
   private crousalItemHover = new Subject<any>();
   // @ViewChild('video') video: ElementRef;
   @ViewChild('carousel') carousel: NgbCarousel;
@@ -64,7 +71,15 @@ export class HomeComponent implements OnInit {
     public dialog: MatDialog,
     private _changeDetection: ChangeDetectorRef,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    this._router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd) {
+        let href = event?.url.substring(event?.url.lastIndexOf('/') + 1)
+        console.log("href val", href);
+        this.getGenres(href);
+      }
+  });
+  }
   // MoveData: MovieImage[] = [
   //   { img: 'assets/1.jpg', show: false },
   //   { img: 'assets/5.jpg', show: false },
@@ -90,6 +105,7 @@ export class HomeComponent implements OnInit {
 
     this.routeCategory = this.route.snapshot.paramMap.get('id');
     this._homeService.selectCategory.emit(this.routeCategory);
+    this.getGenres(this.routeCategory);
 
     this.crousalItemHover.pipe(debounceTime(2000)).subscribe((response) => {
       // this.homeData.home_video = this.homeData.home_video.map((res) => {
@@ -122,6 +138,17 @@ export class HomeComponent implements OnInit {
     });
 
     window.addEventListener('scroll', this.scroll, true); //third parameter
+  }
+
+  getGenres(value) {
+    this._homeService
+      .getAllVideoGenres(value)
+      .subscribe((res: HttpResponse) => {
+        if (res.status === Constants.SUCCESSSTATUSCODE) {
+          this.genres = res.body;
+          console.log("this.genres", this.genres);
+        }
+      });
   }
   action(index: any, video: any, type: boolean, videoIndex: number, event: any) {
     // this.crousalItemHover.next({ index, video, type, videoIndex });
