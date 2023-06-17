@@ -108,10 +108,14 @@ export class HomeComponent implements OnInit {
     this._homeService.selectCategory.subscribe((res:string)=>{
       this.getAllHomeData(this.userData._id,res);
     })
+    this.route.params.subscribe(params => {
+      console.log(params); // Print the parameter to the console.
+      this.routeCategory = params['id'];
+      this._homeService.selectCategory.emit(this.routeCategory);
+      this.getGenres(this.routeCategory);
+    });
+    // this.routeCategory = this.route.snapshot.paramMap.get('id');
 
-    this.routeCategory = this.route.snapshot.paramMap.get('id');
-    this._homeService.selectCategory.emit(this.routeCategory);
-    this.getGenres(this.routeCategory);
 
     this.crousalItemHover.pipe(debounceTime(2000)).subscribe((response) => {
       // this.homeData.home_video = this.homeData.home_video.map((res) => {
