@@ -95,6 +95,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.changeText = false;
     this.changeTexts = false;
+    this._router.navigate([], {
+      queryParams: {
+        id: null
+      },
+      queryParamsHandling: 'merge',
+    });
     // this.imagesDatas = this.MoveData;
     // this.getAllDeviceData(this.userData._id);
     this.getAllHomeData(this.userData._id,'');

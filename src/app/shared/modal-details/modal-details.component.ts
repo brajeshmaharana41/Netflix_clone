@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HomeService } from 'src/app/home/home.service';
 import { Constants } from '../constants/constant';
 import { CommonService } from '../service/common.service';
@@ -19,6 +19,7 @@ export class ModalDetailsComponent implements OnInit {
   selectedSeason = 1;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<ModalDetailsComponent>,
     private _sharedService: SharedService,
     private _commonService: CommonService,
     private _homeService: HomeService,
@@ -114,6 +115,9 @@ export class ModalDetailsComponent implements OnInit {
     }
     this._homeService.videoDetails = video;
     sessionStorage.setItem('currentVideo', JSON.stringify(video));
-    this._router.navigate([`home/video-player`]);
+    this.dialogRef.close();
+    this._router.navigate([`home/video-player`]).then(() => {
+      window.location.reload();
+    });;
   }
 }
